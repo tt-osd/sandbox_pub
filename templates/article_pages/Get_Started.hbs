@@ -1,0 +1,52 @@
+<nav class="sub-nav">
+  <div class="container">
+    {{breadcrumbs}}
+  </div>
+</nav>
+  <div class="article-container" id="article-container">
+    <article class="gs-article">
+      <header class="gs-article-header">
+        <div class="container">
+          <h2 class="gs-article-sub-title">Get Started</h2>
+          <h1 title="{{article.title}}" class="gs-article-title">
+            {{article.title}}
+            {{#if article.internal}}
+            <span class="icon-lock" title="{{t 'internal'}}"></span>
+          {{/if}}
+        </h1>
+          <a  class="button-secondary not-your-product" href="/home">NOT YOUR PRODUCT?</a>
+       </div>
+      </header>
+  <section class="article-info">
+    <div class="container">
+      <div class="gs-article-content">
+        <div class="article-body">{{article.body}}</div>
+      </div>
+    </div>
+  </section>
+<footer>
+  <div class="gs-user-manual-block">
+    <div class="gs-user-manual-img">
+    </div>
+    <div class="gs-user-manual-text">
+      <h3 class="gs-user-manual-title">User Manual
+    	</h3>
+      <p class="gs-user-manual-description">Get all the details in the user manual
+    	</p>
+    </div>  
+    <a class="gs-user-manual-download button" href="download.tomtom.com/something">Download
+    </a>
+  </div>
+</footer>
+      <div id='back-to-top'>
+        <img src='{{asset 'arrow_down_red.png'}}'>Back to top
+      </div>
+ </article>
+
+    
+
+
+
+
+
+        
