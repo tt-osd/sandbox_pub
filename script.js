@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
+/* PLESAE READ - There are 2 document ready functions one is below in DOMContentLoaded and there is (document).ready at the bottom if you require the whole document to load */
+
+document.addEventListener('DOMContentLoaded', function() { // **** Include all JS in this function
 
     //general cookie functions
     //levitt 
@@ -138,9 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //cookie bar
 
 
-
-
-
     // exit survey 
     // initialize variables
     var survey_trigger = 5; //5px in the top of document
@@ -151,9 +150,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var ga_tracking_action = " ";
     //define default variable for google analytics event action
     var ga_tracking_category = " ";
-
-
-
 
 
     //initial exit survey 
@@ -170,8 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         },
         20000);
-
-
 
     //mobile version
 
@@ -196,11 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-
-
-
     //mobile version
-
 
     //initial exit survey
 
@@ -286,223 +276,226 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // above code are edited by levit
 
+                      // Below code is zendesk
+                          function closest(element, selector) {
+                              if (Element.prototype.closest) {
+                                  return element.closest(selector);
+                              }
+                              do {
+                                  if (Element.prototype.matches && element.matches(selector) ||
+                                      Element.prototype.msMatchesSelector && element.msMatchesSelector(selector) ||
+                                      Element.prototype.webkitMatchesSelector && element.webkitMatchesSelector(selector)) {
+                                      return element;
+                                  }
+                                  element = element.parentElement || element.parentNode;
+                              } while (element !== null && element.nodeType === 1);
+                              return null;
+                          }
+
+                          // social share popups
+                          Array.prototype.forEach.call(document.querySelectorAll('.share a'), function(anchor) {
+                              anchor.addEventListener('click', function(e) {
+                                  e.preventDefault();
+                                  window.open(this.href, '', 'height = 500, width = 500');
+                              });
+                          });
+
+                          // In some cases we should preserve focus after page reload
+                          function saveFocus() {
+                              var activeElementId = document.activeElement.getAttribute("id");
+                              sessionStorage.setItem('returnFocusTo', '#' + activeElementId);
+                          }
+                          var returnFocusTo = sessionStorage.getItem('returnFocusTo');
+                          if (returnFocusTo) {
+                              sessionStorage.removeItem('returnFocusTo');
+                              var returnFocusToEl = document.querySelector(returnFocusTo);
+                              returnFocusToEl && returnFocusToEl.focus && returnFocusToEl.focus();
+                          }
+
+                          // show form controls when the textarea receives focus or backbutton is used and value exists
+                          var commentContainerTextarea = document.querySelector('.comment-container textarea'),
+                              commentContainerFormControls = document.querySelector('.comment-form-controls, .comment-ccs');
+
+                          if (commentContainerTextarea) {
+                              commentContainerTextarea.addEventListener('focus', function focusCommentContainerTextarea() {
+                                  commentContainerFormControls.style.display = 'block';
+                                  commentContainerTextarea.removeEventListener('focus', focusCommentContainerTextarea);
+                              });
+
+                              if (commentContainerTextarea.value !== '') {
+                                  commentContainerFormControls.style.display = 'block';
+                              }
+                          }
+
+                          // Expand Request comment form when Add to conversation is clicked
+                          var showRequestCommentContainerTrigger = document.querySelector('.request-container .comment-container .comment-show-container'),
+                              requestCommentFields = document.querySelectorAll('.request-container .comment-container .comment-fields'),
+                              requestCommentSubmit = document.querySelector('.request-container .comment-container .request-submit-comment');
+
+                          if (showRequestCommentContainerTrigger) {
+                              showRequestCommentContainerTrigger.addEventListener('click', function() {
+                                  showRequestCommentContainerTrigger.style.display = 'none';
+                                  Array.prototype.forEach.call(requestCommentFields, function(e) { e.style.display = 'block'; });
+                                  requestCommentSubmit.style.display = 'inline-block';
+
+                                  if (commentContainerTextarea) {
+                                      commentContainerTextarea.focus();
+                                  }
+                              });
+                          }
+
+                          // Mark as solved button
+                          var requestMarkAsSolvedButton = document.querySelector('.request-container .mark-as-solved:not([data-disabled])'),
+                              requestMarkAsSolvedCheckbox = document.querySelector('.request-container .comment-container input[type=checkbox]'),
+                              requestCommentSubmitButton = document.querySelector('.request-container .comment-container input[type=submit]');
+
+                          if (requestMarkAsSolvedButton) {
+                              requestMarkAsSolvedButton.addEventListener('click', function() {
+                                  requestMarkAsSolvedCheckbox.setAttribute('checked', true);
+                                  requestCommentSubmitButton.disabled = true;
+                                  this.setAttribute('data-disabled', true);
+                                  // Element.closest is not supported in IE11
+                                  closest(this, 'form').submit();
+                              });
+                          }
+
+                          // Change Mark as solved text according to whether comment is filled
+                          var requestCommentTextarea = document.querySelector('.request-container .comment-container textarea');
+
+                          if (requestCommentTextarea) {
+                              requestCommentTextarea.addEventListener('input', function() {
+                                  if (requestCommentTextarea.value === '') {
+                                      if (requestMarkAsSolvedButton) {
+                                          requestMarkAsSolvedButton.innerText = requestMarkAsSolvedButton.getAttribute('data-solve-translation');
+                                      }
+                                      requestCommentSubmitButton.disabled = true;
+                                  } else {
+                                      if (requestMarkAsSolvedButton) {
+                                          requestMarkAsSolvedButton.innerText = requestMarkAsSolvedButton.getAttribute('data-solve-and-submit-translation');
+                                      }
+                                      requestCommentSubmitButton.disabled = false;
+                                  }
+                              });
+                          }
+
+                          // Disable submit button if textarea is empty
+                          if (requestCommentTextarea && requestCommentTextarea.value === '') {
+                              requestCommentSubmitButton.disabled = true;
+                          }
+
+                          // Submit requests filter form on status or organization change in the request list page
+                          Array.prototype.forEach.call(document.querySelectorAll('#request-status-select, #request-organization-select'), function(el) {
+                              el.addEventListener('change', function(e) {
+                                  e.stopPropagation();
+                                  saveFocus();
+                                  closest(this, 'form').submit();
+                              });
+                          });
+
+                          // Submit requests filter form on search in the request list page
+                          var quickSearch = document.querySelector('#quick-search');
+                          quickSearch && quickSearch.addEventListener('keyup', function(e) {
+                              if (e.keyCode === 13) { // Enter key
+                                  e.stopPropagation();
+                                  saveFocus();
+                                  closest(this, 'form').submit();
+                              }
+                          });
+
+                          function toggleNavigation(toggle, menu) {
+                              var isExpanded = menu.getAttribute('aria-expanded') === 'true';
+                              menu.setAttribute('aria-expanded', !isExpanded);
+                              toggle.setAttribute('aria-expanded', !isExpanded);
+                          }
+
+                          function closeNavigation(toggle, menu) {
+                              menu.setAttribute('aria-expanded', false);
+                              toggle.setAttribute('aria-expanded', false);
+                              toggle.focus();
+                          }
+
+                          var burgerMenu = document.querySelector('.header .menu-button');
+                          var userMenu = document.querySelector('#user-nav');
+
+                          burgerMenu.addEventListener('click', function(e) {
+                              e.stopPropagation();
+                              toggleNavigation(this, userMenu);
+                          });
 
 
+                          userMenu.addEventListener('keyup', function(e) {
+                              if (e.keyCode === 27) { // Escape key
+                                  e.stopPropagation();
+                                  closeNavigation(burgerMenu, this);
+                              }
+                          });
 
+                          if (userMenu.children.length === 0) {
+                              burgerMenu.style.display = 'none';
+                          }
 
-    function closest(element, selector) {
-        if (Element.prototype.closest) {
-            return element.closest(selector);
-        }
-        do {
-            if (Element.prototype.matches && element.matches(selector) ||
-                Element.prototype.msMatchesSelector && element.msMatchesSelector(selector) ||
-                Element.prototype.webkitMatchesSelector && element.webkitMatchesSelector(selector)) {
-                return element;
-            }
-            element = element.parentElement || element.parentNode;
-        } while (element !== null && element.nodeType === 1);
-        return null;
-    }
+                          // Toggles expanded aria to collapsible elements
+                          var collapsible = document.querySelectorAll('.collapsible-nav, .collapsible-sidebar');
 
-    // social share popups
-    Array.prototype.forEach.call(document.querySelectorAll('.share a'), function(anchor) {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open(this.href, '', 'height = 500, width = 500');
-        });
-    });
+                          Array.prototype.forEach.call(collapsible, function(el) {
+                              var toggle = el.querySelector('.collapsible-nav-toggle, .collapsible-sidebar-toggle');
 
-    // In some cases we should preserve focus after page reload
-    function saveFocus() {
-        var activeElementId = document.activeElement.getAttribute("id");
-        sessionStorage.setItem('returnFocusTo', '#' + activeElementId);
-    }
-    var returnFocusTo = sessionStorage.getItem('returnFocusTo');
-    if (returnFocusTo) {
-        sessionStorage.removeItem('returnFocusTo');
-        var returnFocusToEl = document.querySelector(returnFocusTo);
-        returnFocusToEl && returnFocusToEl.focus && returnFocusToEl.focus();
-    }
+                              el.addEventListener('click', function(e) {
+                                  toggleNavigation(toggle, this);
+                              });
 
-    // show form controls when the textarea receives focus or backbutton is used and value exists
-    var commentContainerTextarea = document.querySelector('.comment-container textarea'),
-        commentContainerFormControls = document.querySelector('.comment-form-controls, .comment-ccs');
+                              el.addEventListener('keyup', function(e) {
+                                  if (e.keyCode === 27) { // Escape key
+                                      closeNavigation(toggle, this);
+                                  }
+                              });
+                          });
 
-    if (commentContainerTextarea) {
-        commentContainerTextarea.addEventListener('focus', function focusCommentContainerTextarea() {
-            commentContainerFormControls.style.display = 'block';
-            commentContainerTextarea.removeEventListener('focus', focusCommentContainerTextarea);
-        });
+                          // Submit organization form in the request page
+                          var requestOrganisationSelect = document.querySelector('#request-organization select');
 
-        if (commentContainerTextarea.value !== '') {
-            commentContainerFormControls.style.display = 'block';
-        }
-    }
+                          if (requestOrganisationSelect) {
+                              requestOrganisationSelect.addEventListener('change', function() {
+                                  closest(this, 'form').submit();
+                              });
+                          }
 
-    // Expand Request comment form when Add to conversation is clicked
-    var showRequestCommentContainerTrigger = document.querySelector('.request-container .comment-container .comment-show-container'),
-        requestCommentFields = document.querySelectorAll('.request-container .comment-container .comment-fields'),
-        requestCommentSubmit = document.querySelector('.request-container .comment-container .request-submit-comment');
+                          // If a section has more than 6 subsections, we collapse the list, and show a trigger to display them all
+                          const seeAllTrigger = document.querySelector("#see-all-sections-trigger");
+                          const subsectionsList = document.querySelector(".section-list");
 
-    if (showRequestCommentContainerTrigger) {
-        showRequestCommentContainerTrigger.addEventListener('click', function() {
-            showRequestCommentContainerTrigger.style.display = 'none';
-            Array.prototype.forEach.call(requestCommentFields, function(e) { e.style.display = 'block'; });
-            requestCommentSubmit.style.display = 'inline-block';
+                          if (subsectionsList && subsectionsList.children.length > 6) {
+                              seeAllTrigger.setAttribute("aria-hidden", false);
 
-            if (commentContainerTextarea) {
-                commentContainerTextarea.focus();
-            }
-        });
-    }
+                              seeAllTrigger.addEventListener("click", function(e) {
+                                  subsectionsList.classList.remove("section-list--collapsed");
+                                  seeAllTrigger.parentNode.removeChild(seeAllTrigger);
+                              });
+                          }
 
-    // Mark as solved button
-    var requestMarkAsSolvedButton = document.querySelector('.request-container .mark-as-solved:not([data-disabled])'),
-        requestMarkAsSolvedCheckbox = document.querySelector('.request-container .comment-container input[type=checkbox]'),
-        requestCommentSubmitButton = document.querySelector('.request-container .comment-container input[type=submit]');
+                          // If multibrand search has more than 5 help centers or categories collapse the list
+                          const multibrandFilterLists = document.querySelectorAll(".multibrand-filter-list");
+                          Array.prototype.forEach.call(multibrandFilterLists, function(filter) {
+                              if (filter.children.length > 6) {
+                                  // Display the show more button
+                                  var trigger = filter.querySelector(".see-all-filters");
+                                  trigger.setAttribute("aria-hidden", false);
 
-    if (requestMarkAsSolvedButton) {
-        requestMarkAsSolvedButton.addEventListener('click', function() {
-            requestMarkAsSolvedCheckbox.setAttribute('checked', true);
-            requestCommentSubmitButton.disabled = true;
-            this.setAttribute('data-disabled', true);
-            // Element.closest is not supported in IE11
-            closest(this, 'form').submit();
-        });
-    }
+                                  // Add event handler for click
+                                  trigger.addEventListener("click", function(e) {
+                                      e.stopPropagation();
+                                      trigger.parentNode.removeChild(trigger);
+                                      filter.classList.remove("multibrand-filter-list--collapsed")
+                                  })
+                              }
+                          });
+                      // Above code is zendesk 
+ 
+}); // end of js file function - put everything above this line
 
-    // Change Mark as solved text according to whether comment is filled
-    var requestCommentTextarea = document.querySelector('.request-container .comment-container textarea');
-
-    if (requestCommentTextarea) {
-        requestCommentTextarea.addEventListener('input', function() {
-            if (requestCommentTextarea.value === '') {
-                if (requestMarkAsSolvedButton) {
-                    requestMarkAsSolvedButton.innerText = requestMarkAsSolvedButton.getAttribute('data-solve-translation');
-                }
-                requestCommentSubmitButton.disabled = true;
-            } else {
-                if (requestMarkAsSolvedButton) {
-                    requestMarkAsSolvedButton.innerText = requestMarkAsSolvedButton.getAttribute('data-solve-and-submit-translation');
-                }
-                requestCommentSubmitButton.disabled = false;
-            }
-        });
-    }
-
-    // Disable submit button if textarea is empty
-    if (requestCommentTextarea && requestCommentTextarea.value === '') {
-        requestCommentSubmitButton.disabled = true;
-    }
-
-    // Submit requests filter form on status or organization change in the request list page
-    Array.prototype.forEach.call(document.querySelectorAll('#request-status-select, #request-organization-select'), function(el) {
-        el.addEventListener('change', function(e) {
-            e.stopPropagation();
-            saveFocus();
-            closest(this, 'form').submit();
-        });
-    });
-
-    // Submit requests filter form on search in the request list page
-    var quickSearch = document.querySelector('#quick-search');
-    quickSearch && quickSearch.addEventListener('keyup', function(e) {
-        if (e.keyCode === 13) { // Enter key
-            e.stopPropagation();
-            saveFocus();
-            closest(this, 'form').submit();
-        }
-    });
-
-    function toggleNavigation(toggle, menu) {
-        var isExpanded = menu.getAttribute('aria-expanded') === 'true';
-        menu.setAttribute('aria-expanded', !isExpanded);
-        toggle.setAttribute('aria-expanded', !isExpanded);
-    }
-
-    function closeNavigation(toggle, menu) {
-        menu.setAttribute('aria-expanded', false);
-        toggle.setAttribute('aria-expanded', false);
-        toggle.focus();
-    }
-
-    var burgerMenu = document.querySelector('.header .menu-button');
-    var userMenu = document.querySelector('#user-nav');
-
-    burgerMenu.addEventListener('click', function(e) {
-        e.stopPropagation();
-        toggleNavigation(this, userMenu);
-    });
-
-
-    userMenu.addEventListener('keyup', function(e) {
-        if (e.keyCode === 27) { // Escape key
-            e.stopPropagation();
-            closeNavigation(burgerMenu, this);
-        }
-    });
-
-    if (userMenu.children.length === 0) {
-        burgerMenu.style.display = 'none';
-    }
-
-    // Toggles expanded aria to collapsible elements
-    var collapsible = document.querySelectorAll('.collapsible-nav, .collapsible-sidebar');
-
-    Array.prototype.forEach.call(collapsible, function(el) {
-        var toggle = el.querySelector('.collapsible-nav-toggle, .collapsible-sidebar-toggle');
-
-        el.addEventListener('click', function(e) {
-            toggleNavigation(toggle, this);
-        });
-
-        el.addEventListener('keyup', function(e) {
-            if (e.keyCode === 27) { // Escape key
-                closeNavigation(toggle, this);
-            }
-        });
-    });
-
-    // Submit organization form in the request page
-    var requestOrganisationSelect = document.querySelector('#request-organization select');
-
-    if (requestOrganisationSelect) {
-        requestOrganisationSelect.addEventListener('change', function() {
-            closest(this, 'form').submit();
-        });
-    }
-
-    // If a section has more than 6 subsections, we collapse the list, and show a trigger to display them all
-    const seeAllTrigger = document.querySelector("#see-all-sections-trigger");
-    const subsectionsList = document.querySelector(".section-list");
-
-    if (subsectionsList && subsectionsList.children.length > 6) {
-        seeAllTrigger.setAttribute("aria-hidden", false);
-
-        seeAllTrigger.addEventListener("click", function(e) {
-            subsectionsList.classList.remove("section-list--collapsed");
-            seeAllTrigger.parentNode.removeChild(seeAllTrigger);
-        });
-    }
-
-    // If multibrand search has more than 5 help centers or categories collapse the list
-    const multibrandFilterLists = document.querySelectorAll(".multibrand-filter-list");
-    Array.prototype.forEach.call(multibrandFilterLists, function(filter) {
-        if (filter.children.length > 6) {
-            // Display the show more button
-            var trigger = filter.querySelector(".see-all-filters");
-            trigger.setAttribute("aria-hidden", false);
-
-            // Add event handler for click
-            trigger.addEventListener("click", function(e) {
-                e.stopPropagation();
-                trigger.parentNode.removeChild(trigger);
-                filter.classList.remove("multibrand-filter-list--collapsed")
-            })
-        }
-    });
-});
+$(document).ready(function() {  // only insert after this if you need document to be ready
+  
+  
 /***** FORMS *****/
 //This code is to ensure only Signed in users see the request form if we add class="request"
 //end
@@ -527,53 +520,94 @@ _locale+'/signin">'+
 }(window, document, jQuery));
 // End 
 
-// GDPR FORM - This is to prefill and hide the fields on the GDPR Form //
+/*****  GDPR FORM *******/
 //Amy
-
-$(document).ready(function() {
-
+// This is to prefill and hide the fields on the GDPR Form //
 var SubjectLine = document.getElementById("request_subject");
 var DescriptionBox = document.getElementById("request_description");
 var AttachmentsFileDrop = document.getElementById("upload-dropzone");
 var title = document.getElementsByTagName("h1")[0];
+var GDPROption= document.getElementsByClassName("request_custom_fields_360007572579");
   
 if(window.location.href.indexOf("form_id=360000569919") > -1) {
         title.innerHTML = "GDPR REQUEST FORM" ;
-  			$(".request_ticket_form_id").addClass("zd_Hidden");
-        SubjectLine.value = SubjectLine.value + "GDPR FORM 360000569919"; 			
-   	    $(".request_subject").addClass("zd_Hidden");
-        DescriptionBox.value = DescriptionBox.value + "This is a GDPR REQUEST"; 			
-   	    $(".request_description").addClass("zd_Hidden");
+  			  $(".form-field").addClass("zd_Hidden");
+					$(".request_custom_fields_360007572579").removeClass("zd_Hidden");
+    			SubjectLine.value = SubjectLine.value + "GDPR FORM 360000569919"; 			
+        	DescriptionBox.value = DescriptionBox.value + "This is a GDPR REQUEST"; 			
   		 	(AttachmentsFileDrop.parentElement).classList.add("zd_Hidden");
 }
- // end GDPR Form 
- //// asmita - vanilla request test ////
-  $('#vanilla_gdpr_delete').on('click', function(){
-    	
-      var xhr = new XMLHttpRequest();
-      var url = "https://tomtom.vanillastaging.com/api/v1/discussions.json";
-    	
-      xhr.open("GET", url);
-    	xhr.setRequestHeader("Content-Type", "application/json");
-    	xhr.setRequestHeader("Authorization", "Bearer va.uKvaIkL5M7eKLAjV2SAcEGrvLNJbxL5i.42dXbw.vbxs2_i");
-    	
-    	xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xhr.setRequestHeader("crossDomain", "true");
-  		xhr.send();     
+// end GDPR Form 
   
-			xhr.addEventListener("readystatechange", function() {
-        if(this.readyState === 4) {
-          console.log(this);
-        }
-      });
-  });
-  //// Vanilla - end ////
-        });
+/***** END FORMS *****/ //Amy Ogborn  
+/*****  Request Pages *******/  
+// GDPR Request Download page
+  
+  if($(".request-title:contains('360000569919')").length) {
+    		console.log('sijfosfdfds');
+  	    $(".request-title").addClass("zd_Hidden");
+    	  $(".request-main").addClass("zd_Hidden");
+    	  $(".my-activities-nav").addClass("zd_Hidden");
+      	$(".breadcrumbs").addClass("zd_Hidden");
+        $(".request-details").addClass("zd_Hidden");
+        $(".request-attachments").removeClass("zd_Hidden");   
+        $(".request-attachments").addClass("ts-request-attachments");   
+        $(".attachments").addClass("download-button");   
+  };
 
-/***** END FORMS *****/
 
-/***** Back to top function *****/
-$(document).ready(function() {
+/*****  End Request Pages *******/  
+/*****  Content Pages *******/  
+  	    $("<div class='ct-header-block'></div>").prependTo(".ct-article"); 
+  	    $(".ct-article-header").prependTo(".ct-header-block"); 
+  	    $(".ct-article-sub-header").appendTo(".ct-header-block"); 
+    	  $(".ct-header-description").appendTo(".ct-header-block"); 
+  			$("<div class='ct-button'><div class='button'>rth</div></div>").appendTo(".ct-content-inner-block");
+
+  
+    $('<button id="option-1" class="ct-options" data="option-1-content"><span class="radiobtn"></span>Android</button>'+
+      '<button class="ct-options" data="option-2-content"><span class="radiobtn"></span>iPhone</button>'+
+      '<button class="ct-options" data="option-3-content"><span class="radiobtn"></span>Windows</button>').appendTo('.ct-options-list');
+  
+
+  
+  
+ 
+function openSoftware(evt, softwareName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("ct-option-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("ct-options");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(softwareName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+  
+  
+    $('.ct-options').on('click',function(evt){
+    // where is the software name????
+    var software=$(this).attr("data");
+     
+    openSoftware(evt,software);
+   
+  })
+  
+  $("#option-1").click();
+  
+/*****  End Content Pages *******/  
+/***** Back to top function *****/ 
+
     $(window).scroll(function() {
         if ($(this).scrollTop() >= 600) {
 
@@ -588,5 +622,41 @@ $(document).ready(function() {
             scrollTop: 0
         }, 500);
     });
-};
-/***** End back to top *****/
+
+/***** End back to top *****/ //Amy Ogborn  
+/***** Article Satisfaction *****/ 
+
+    $(window).scroll(function() {
+        if ($(this).scrollTop() >= 600) {
+            $('.article-votes').fadeIn(200);
+        } else {
+            $('.article-votes').fadeOut(200);
+        }
+    });
+
+/***** Article Satisfaction end *****/ //Amy Ogborn  
+
+/*****  Troubleshooting Template *****/ 
+  
+$('<div class="ts-article-video"></div>').prependTo(".ts-article-extra");  
+$('iframe[src*="www.youtube"]').prependTo(".ts-article-video");
+$('.ts-article-video-header').prependTo(".ts-article-video");
+$('<div class="ts-article-extra-links"></div>').appendTo('.ts-article-video');
+$('.article-links').appendTo('.ts-article-extra-links'); 
+/***** End of Troubleshooting Template *****/ //Amy Ogborn    
+  
+/*****  How To Template *****/ 
+  
+$('.ht-header-content').appendTo(".ht-article-header");  
+$(".ht-article-body h2").addClass("ht-contents-header");
+$(".ht-article-body").find("h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-first-block' class='ht-block'></div>"); 
+$(".ht-article-body").find("#ht-first-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-second-block' class='ht-block'></div>"); 
+$(".ht-article-body").find("#ht-second-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-third-block' class='ht-block'></div>"); 
+$('.ht-article-body ol li').wrapInner("<div class='ht-list-text'></div>");
+$('.ht-article-body ul li').wrapInner("<div class='ht-list-text'></div>");
+$('.ht-article-body img').each(function(){
+  $(this).insertAfter($(this).parent());
+}); 
+/***** End of  How To Template *****/ //Amy Ogborn  
+
+}); // end of document ready function

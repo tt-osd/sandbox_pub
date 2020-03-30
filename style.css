@@ -3,7 +3,7 @@
 * {
   box-sizing: border-box;
 }
-
+/**** Begin fonts - Amy Ogborn ****/
 /* BEGIN Gotham black */ 
 @font-face { 
   font-family: "Gotham black";
@@ -99,8 +99,18 @@
   font-style: normal;
 }
 /* END Gotham ssm book*/
-
-
+/* BEGIN TomTom Icons */ 
+@font-face { 
+  font-family: "TomTom Icons";
+  src: local("TomTom Icons");
+  src: urL("$assets-tomtom-icons-eot"),
+    	 urL("$assets-tomtom-icons-svg")  format('svg'),
+       urL("$assets-tomtom-icons-ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* END  TomTom Icons */
+/**** End fonts ****/
 body {
   background-color: #f2f2f2;
   color: $text_color;
@@ -114,8 +124,8 @@ body {
 @media (min-width: 1024px) {
   body > main {
     min-height: 65vh;
-	  padding-bottom: 20px;
-  }
+	  padding-bottom: 0px;
+     }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -125,7 +135,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 45px;
 }
 
 h2 {
@@ -366,6 +376,56 @@ display: block;
   -webkit-touch-callout: none;
   text-transform: uppercase;
 }
+.button-white {
+    color: #000;
+    fill: #000;
+    --coloredFontColor: #666;
+  	background-color: #e5e5e5;
+   width: 100% !important;
+}
+.button-red {
+    color: #ffffff;
+    fill: #000;
+    --coloredFontColor: #666;
+	  width: 100% !important;
+}
+.button-white:hover {
+  background-color: #bebebe !important;
+  color: #ffffff !important;
+}
+.button-red:hover {
+  background-color: #b1110E !important;
+}
+
+
+.download-button {
+   border: none;
+  border-radius: 0px !important;
+  color: #ffffff;
+  background-color: #df1b12;
+  font-family: "gotham bold";
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0;
+  padding: 16px 24px;
+  text-align: center;
+  transition: background-color .12s ease-in-out, border-color .12s ease-in-out, color .15s ease-in-out;
+  user-select: none;
+  white-space: nowrap;
+/*   width: 100%; */
+  -webkit-touch-callout: none;
+  text-transform: uppercase; 
+  align-items: center;
+  list-style: none;
+}
+
+.download-button::before {
+  font-family: "TomTom Icons";
+  content:"\0030";
+  font-size: 30px;
+}
 
 @media (min-width: 768px) {
   .button, [role="button"] {
@@ -462,11 +522,11 @@ display: block;
 }
 
 .not-your-product:after {
-  content: url($assets-arrow_down_red-png);
+  font-family: "TomTom Icons";
+  content: "\0028";
   color: #DF1B12;
   border: none;
   background-color: transparent;
-  height: 27px;
 }
 
 /***** Tables *****/
@@ -988,7 +1048,7 @@ display: block;
     background: #000;
 }
 .footer-social-items {
-  
+  display:flex;
   margin: auto;
 }
 
@@ -1002,6 +1062,9 @@ display: block;
 
 .footer-language-selector:hover {
    color: #BEBEBE; 
+}
+.social_image {
+  margin: 0 24px;
 }
 /***** End Footer *****/
 
@@ -1627,7 +1690,7 @@ display: block;
   }
 }
 
-.article-header {
+.article-header, .ht-article-header {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -1823,7 +1886,6 @@ display: block;
 }
 
 .article-votes {
-  border-top: 1px solid #ddd;
   padding: 30px 0;
   text-align: center;
 }
@@ -1947,6 +2009,7 @@ display: block;
 .recent-articles li,
 .related-articles li {
   margin-bottom: 15px;
+  display: inline-block;
 }
 
 /***** Attachments *****/
@@ -2116,7 +2179,12 @@ display: block;
 }
 
 .tt-get-started-step ul li:before {
-  content: url("$assets-arrow_down_red-png");
+  content: url("$assets-arrow_right_small-png");
+  display: inline-block;
+}
+
+.tt-get-started-step p:before {
+  content: url("$assets-arrow_right_small_red-png");
   display: inline-block;
 }
 
@@ -2204,10 +2272,720 @@ h3.tt-get-started-step-title {
 		-moz-box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
 		box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
   }
+
+#back-to-top::before {
+  font-family: "TomTom Icons";
+  color: #df1b12;
+  content: "\0031";
+}
+
 #arrow-up {
   font-size: 50px;
 	padding-bottom: -20px;
 }
+
+/***** End Get Started *****/
+
+/***** Troubleshooting template *****/
+.ts-body {
+  background-color: #FFF;  
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.ts-article, .ht-article {
+  /*
+  * The article grid is defined this way to optimize readability:
+  * Sidebar | Content | Free space
+  * 17%     | 66%     | 17%
+  */
+  flex: 1 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .ts-article, .ht-article {
+    flex: 1 0 66%;
+    max-width: 100%;
+    min-width: 640px;
+    padding: 0;
+  }
+}
+
+.ts-article-title, .ht-article-title {
+  margin-top: 20px;
+  color: #000;
+    }
+.ts-article-info {
+}
+
+.ts-article-body img, {
+  height: auto;
+  max-width: 100%;
+}
+.ts-article-content {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+.ts-article-content {
+  flex-direction: row;
+}
+}
+
+.ts-article-body {
+    flex: 1 0 66%;
+    max-width: 66%;
+    min-width: 800px;
+    padding: 0 30px;
+}
+.ts-article-extra {
+}
+.ts-article-extra iframe{
+}
+.ts-article-extra-links, .ct-article-extra-links, .ht-article-extra-links {
+  background-color: #e5e5e5;
+  padding: 20px;
+  width: 640px;
+  margin-top: 10px;
+}
+
+.ts-article-body h2 {
+  font-family: "Gotham Bold";
+  font-size: 40px;
+  margin-left: -2.5em;
+  display: inline-block;
+  vertical-align: middle;
+}
+.ts-article-body h2::after {
+  content: "continue";
+  color: #DF1B12;
+  font-family: "TomTom Icons";
+}
+
+.ts-article-body h3 {
+display: inline-block;
+margin-left: 1em;
+}
+.ts-article-body ul, .ts-article-body ol {
+  padding-left: 20px;
+  list-style-position: outside;
+  margin: 20px 0 20px 20px;
+}
+
+[dir="rtl"] .ts-article-body ul, [dir="rtl"] .ts-article-body ol {
+  padding-right: 20px;
+  padding-left: 0;
+  margin-left: 0;
+  margin-right: 20px;
+}
+
+.ts-article-body ul > ul, .ts-article-body ol > ol, .ts-article-body ol > ul, .ts-article-body ul > ol, .ts-article-body li > ul, .ts-article-body li > ol {
+  margin: 0;
+}
+
+.ts-article-body ul {
+  list-style-type: disc;
+}
+
+.ts-article-body a:visited {
+  color: darken($link_color, 20%);
+}
+.ts-article-body pre {
+  background: darken($background_color, 3%);
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 10px 15px;
+  overflow: auto;
+  white-space: pre;
+}
+
+.ts-article-body blockquote {
+  border-left: 1px solid #ddd;
+  color: lighten($text_color, 20%);
+  font-style: italic;
+  padding: 0 15px;
+}
+
+.ts-article-body > p:last-child {
+  margin-bottom: 0;
+}
+
+.article-votes {
+    z-index: 100;
+    position: fixed;
+    right: 0px;
+    bottom: 80px;
+  	margin: auto;
+    cursor: pointer;
+    background-color: #4A4C4C;
+    padding: 10px 30px 20px 30px;
+    border-radius: 0px;
+		font-size: 16px;
+    font-family: "gotham book";
+    min-width: 300px;
+    min-height: 80px;
+    text-transform: uppercase;
+		text-align: center;
+    color: #FFF;
+		-webkit-box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
+		-moz-box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
+		box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
+}
+.article-vote {
+  color: #FFF;
+  border: none;
+  padding: 20px;
+}
+.article-vote:hover {
+  color: #FFF;
+  background-color: transparent;
+  border: none;
+  padding: 20px;
+}
+.article-vote-up:active, .article-vote-down:active {
+  color: #FFF;
+}
+.article-votes-controls {
+  padding-top: 0px;
+  }
+
+.article-vote {
+  display: inline-block;
+  position: relative;
+  margin-left: 30px;
+}
+.article-vote-up::before, .article-vote-down::before {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #FFF;
+  border-radius: 50%;
+  content: "";
+}
+.article-vote[aria-selected="true"]::after {
+  color: #FFF !important;
+}
+ 
+
+.article-vote[aria-selected="true"]::before {
+  color: #FFF !important;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #B1110E;
+  border-radius: 50%;
+  content: "";
+}
+  .ts-sub-footer {
+    display: flex;
+    flex-direction: column;
+}
+.ts-sub-footer-box {
+  min-width: 380px;
+  width: 100%;
+  padding: 50px 30px !important;
+  position: relative;
+}
+@media (min-width: 1024px) {
+.ts-sub-footer {
+  min-width: 100%; 
+  flex-direction: row;  
+}
+.ts-sub-footer-box {
+  min-width: 380px;
+  width: 25%;
+  padding: 50px 30px !important;
+
+}
+}
+
+.sub-footer-arrow {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.sub-footer-inner-box {
+  justify-content: space-between;
+  display: flex;
+}
+
+.article-relatives {
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+.related-articles-title {
+  margin: 0;
+}
+.ts-sub-footer-title, .related-articles-title  {
+  font-family: "gotham book" !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;  
+}
+.related-articles h3 {
+		font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.related-articles a {
+  color: #fff !important;
+  display: inline-block;
+}
+.related-articles ul {
+  padding-inline-start: 15px;
+}
+
+.ts-sub-footer-bongo {
+  background-color: #e5e5e5;
+  color: #000;  
+}
+.ts-sub-footer-videos {
+  background-color: #000;
+  color: #FFF;  
+}
+.ts-sub-footer-community {
+  background-color: #8DC3EB;
+  color: #FFF;  
+}
+.ts-sub-footer-related-faqs {
+  background-color: #DF1B12;
+  color: #FFF;  
+}
+.ts-sub-footer-related-faqs ol {
+    counter-reset: foo;
+    display: table;
+}
+.ts-sub-footer-related-faqs li {
+  content: "";
+  list-style: none;
+  counter-increment: foo;
+  display: table-row;
+}
+.ts-sub-footer-related-faqs li a {
+padding: 15px 0;
+}
+.ts-sub-footer-related-faqs li::before {
+	font-family: "TomTom icons";
+  content: "right";
+  display: table-cell; /* aha! */
+  text-align: right;
+}
+
+.article-note {
+    margin-left: 26px;
+}
+
+.article-note::before  {
+  margin-left: -26px;
+  display: inline-block;
+  content: url("$assets-light_bulb-png");
+  vertical-align: middle;
+}
+
+/***** End Troubleshooting  *****/
+/***** Content template *****/
+
+.ct-body {
+    background-color: #FFF;
+}
+.ct-article {
+  /*
+  * The article grid is defined this way to optimize readability:
+  * Sidebar | Content | Free space
+  * 17%     | 66%     | 17%
+  */
+  flex: 1 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .ct-article {
+		flex: 1 0 66%;
+    max-width: 100%;
+    min-width: 640px;
+    padding: 0 3%;
+    margin: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .ct-article-title {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+    font-size: 24px;
+        /* Take entire row */
+  }
+}
+
+.ct-article-title .icon-lock::before {
+  content: "\1F512";
+  font-size: 20px;
+  position: relative;
+  left: -5px;
+  vertical-align: baseline;
+}
+@media (min-width: 768px) {
+.ct-article-header {
+    flex-direction: row;
+    margin-top: 0;
+}
+}
+.ct-article-header {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    margin-top: 0px;  
+    text-transform: uppercase;
+    color: #df1b12;
+}
+
+.ct-article-sub-header {
+  font-size: 55px;
+  max-width: 650px;
+  margin-bottom: 0px;
+  line-height: 55px;
+}
+
+@media (min-width: 768px) {
+.ct-header-block {
+    max-width:960px;
+}
+}
+
+.ct-header-block {
+  margin: 100px auto;
+}
+.ct-header-description {
+  font-size: 24px; 
+}
+
+.ct-feature-block {
+  display: flex;
+  flex-direction: column;
+  }
+.ct-feature-block h3 {
+  margin-bottom: 0px;
+}
+.ct-feature-block-inner-text {
+  margin-top: 0px;
+}
+
+.ct-feature-block li {
+  list-style: none
+}
+
+.ct-feature-block ul {
+  padding-left: 0px;
+}
+.ct-feature-block p {
+  padding: 10px 0px;
+}
+.ct-feature-block ol li::before,  .ct-article ul li::before {
+  font-family: "TomTom Icons";
+  content: "\002B";
+  margin-right: 5px;
+}
+.ct-article ul li {
+  list-style: none;
+}
+
+.ct-feature-block-inner {
+  padding: 20px;
+}
+
+#ct-feature-block-1 {
+ margin-right: 20px;
+}
+#ct-feature-block-2 {
+ margin-left: 20px;
+}
+
+#ct-feature-block-1, #ct-title-1 {
+ background-color: #004B7F;
+ color: #FFF;
+}
+#ct-feature-block-2, #ct-title-2 {
+  background-color: #FDC530;
+  color: #000;
+}
+@media (min-width: 1024px) {
+.ct-feature-block {
+    flex-direction: row;
+}
+}
+.ct-title {
+  margin-top: 70px;
+  padding: 50px;
+	display: flex;
+  flex-direction: column;
+	align-items: center;
+}
+@media (min-width: 1024px) {
+.ct-title {
+    flex-direction: row;
+}
+}
+.ct-title h2 {
+  font-size: 55px;
+  margin-bottom: 0px;
+  min-width: 75%;
+}
+
+.ct-table {
+ display: flex; 
+ justify-content: space-between;
+}
+.ct-table-block, .ct-option-content {
+  text-align: center;
+  background: #e5e5e5;
+  width: 32%;
+}
+.ct-table-block h4, .ct-option-content h4 { 
+  text-transform: uppercase;
+  color: #FFF;
+  background-color: #7E7A80;
+  padding: 10px 0;
+  margin-bottom: 0px;
+}
+
+.ct-article-main ol {
+  list-style: none;
+  counter-reset: list-counter;
+  padding-left: 0px;
+}
+
+.ct-article-main ol li {
+  counter-increment: list-counter;
+
+}
+.ct-article-main ol li::before {
+  content: counter(list-counter) " ";
+  background-color: #df1b12;
+  color: #FFF;
+  padding: 1px 3px;
+  text-align: center;
+  font-family: "gotham book";
+  margin: 1px 5px;
+  display: inline-block;
+  width: 12px !important;
+}
+
+.ct-video-block {
+  max-width: 640px;
+}
+.ct-article-extra-links {
+}
+.ct-options-list {
+  display: flex;
+}
+
+.ct-content-footer {  
+  margin-top: 60px;
+}
+.ct-content-footer h2 {
+  background-color: #004B7F;
+  padding: 20px;
+  color: #fff;
+  width: 40%;
+  margin: auto;
+  text-align: center;
+}
+
+.ct-content-block-sub-title {
+  color: #8DC3EB;
+  font-family: "gotham bold";
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+
+.ct-content-block {
+  display: flex;
+	justify-content: space-between;
+  margin: 40px 0;
+}
+
+.ct-content-block-title {
+  color: #df1b12;
+  font-size: 40px;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+.ct-content-inner-block {
+  border: solid #e5e5e5 2px;
+  max-width: 440px;
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ct-content-block-img {
+  width: auto;
+}
+.ct-content-block-text {
+  padding: 20px;
+}
+
+p.ct-content-block-description {
+  margin: 0;
+}
+
+.ct-button {
+  padding-left: 20px;
+  padding-bottom: 20px;  
+}
+
+
+.ct-option-content {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.ct-options {
+  border: none;
+  background-color: #fff;
+  margin-left: 40px
+}
+
+.radiobtn {
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  border: 2px solid #4A4C4C;
+  border-radius: 50%;
+  margin-left: -40px;
+  
+}
+.ct-options::after {
+ content: " | " ;
+ padding: 0 10px;
+}
+.ct-options:last-child:after {
+  content: '';
+}
+
+.ct-options.active:before {
+  position: relative;
+  content:"";
+  left: -18px;
+  border: none;
+  background-color: #4A4C4C;
+  border-radius: 50%;  
+  padding: 3px 13px;
+}
+
+
+/***** End Content template *****/
+/*****  How To template *****/
+.ht-body {
+  scroll-behavior: smooth;
+  
+}
+.ht-article-header {
+  background-color: #FFF;
+  padding: 30px;
+}
+.ht-article-title {
+  width: 80%;
+  margin-bottom: 0;
+}
+.ht-article-header p {
+  font-size: 1.2em;
+  width: 70%;
+}
+.ht-article-header ul {
+  font-size: 1.2em;
+  padding-inline-start: 0px;
+}
+.ht-article-header ul a {
+  background-color: #e5e5e5;
+  text-transform: none;
+  padding: 3px;
+}
+.ht-article-header ul a:after {
+ font-family: "TomTom Icons";
+  content: "right";
+  color: #df1b12;
+  vertical-align: middle; 
+}
+.ht-article-header li {
+  list-style: none;
+  margin: 5px 0;
+}
+
+.ht-article-header li:before {
+  content: " ";
+  padding-left: 5px;
+  background-color: #df1b12;
+	font-size: 1.2em;
+  vertical-align: bottom; 
+}
+
+.ht-article-body h2, .ht-article-body h3, .ht-article-body h4 {
+	scroll-margin-top: 2em;
+}
+
+
+.ht-block {
+  background-color: #FFF;
+  margin: 40px 0;
+  padding: 40px;
+}
+.ht-block h2 {
+  color: #df1b12;
+  font-size: 30px;
+}
+
+.ht-article-body ol {
+  padding-inline-start: 0px;
+  list-style-position: inside;
+  counter-reset: ht-counter;
+}
+.ht-list {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.ht-article-body ol li, .ht-article-body ul li {
+  margin: 40px 0;
+  background-color: #e5e5e5;
+  display: flex;
+  align-items: center;
+	justify-content: space-between; 
+  position: relative;
+}
+.ht-article-body ol li:before{
+  counter-increment: ht-counter;
+  content: counter(ht-counter) " ";
+  top: 0;
+  position: absolute;
+  left: 0;
+  padding: 0 20px;
+  background-color: #df1b12;
+  color: #FFF;
+  font-size: 40px;
+  font-family: "gotham bold";
+}
+.ht-list-text {
+  padding: 0 70px;
+}
+.ht-article-body ol li img {
+  width: 50%;
+}
+/***** End How To template *****/
+
 /***** Comments *****/
 /* Styles comments inside articles, posts and requests */
 .comment {
@@ -3802,6 +4580,11 @@ h3.tt-get-started-step-title {
   padding-top: 20px;
 }
 
+.ts-request-attachments dt {
+  font-family: "gotham bold";
+  text-transform: uppercase;
+}
+
 /***** Pagination *****/
 .pagination {
   margin: 20px 0;
@@ -5103,3 +5886,138 @@ html[lang|="zh"] .search-results-description em {
 }
 
 /*Exit survey*/
+
+/***** Locale Pop Up *****/
+.locale_overlay {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+}
+
+.overlay_inner {
+    width: 100vw;
+    height: 100vh;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: auto;
+    max-height: 100vh;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  	background: rgba(0,0,0,.85);
+}
+
+.locale_box {
+      max-width: 1440px;
+		  position: relative;
+}
+.locale_content {
+  width: 750px;
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.locale_map {
+  position: relative;
+  width: 300px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+.locale_text_content {
+    padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    color: #666;
+}
+.locale_text_heading {
+    font-family: "Gotham Bold";
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: -.5px;
+    margin: 40px 0;
+  
+}
+@media (min-width: 48em)
+.locale_text_heading {
+    margin: 0 0 20px;
+}
+.locale_text_country {
+  display: flex;
+  align-items: center;
+}
+.locale_text_flag_outline {
+		width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+  	border-radius: 50%;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.locale_text_flag_image {
+		width: 20px;
+    height: 17px;
+}
+
+.locale_text_flag_image img {
+  width: 100%;
+  height: 100%;
+}
+.locale_text_country_label {
+    font-family: Noway Regular,Helvetica,Arial,sans-serif;
+    font-size: 24px;
+    line-height: 36px;
+    margin-left: 15px;
+  	text-transform: none;
+}
+
+.locale_text_country_text {
+    font-family: "Noway";
+    font-size: 16px;
+    line-height: 24px;
+    margin: 40px 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+.locale_text_country_buttons {
+  displaY: block;
+}
+
+.locale_text_country_buttons_inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+.locale_text_country_button {
+    margin: 10px 0;
+  	width: 100%;
+}
+
+
+/***** End Locale Pop Up ****/
