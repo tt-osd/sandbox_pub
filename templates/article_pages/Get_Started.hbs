@@ -7,14 +7,14 @@
     <article class="gs-article">
       <header class="gs-article-header">
         <div class="container">
-          <h2 class="gs-article-sub-title">Get Started</h2>
+          <h2 class="gs-article-sub-title">{{dc 'get_started_title'}}</h2>
           <h1 title="{{article.title}}" class="gs-article-title">
             {{article.title}}
             {{#if article.internal}}
             <span class="icon-lock" title="{{t 'internal'}}"></span>
           {{/if}}
         </h1>
-          <a  class="button-secondary not-your-product" href="/home">NOT YOUR PRODUCT?</a>
+          <a  class="button-secondary not-your-product" href="/home">{{dc "not_your_product"}}</a>
        </div>
       </header>
   <section class="article-info">
@@ -29,17 +29,17 @@
     <div class="gs-user-manual-img">
     </div>
     <div class="gs-user-manual-text">
-      <h3 class="gs-user-manual-title">User Manual
+      <h3 class="gs-user-manual-title">{{dc "user_manual"}}
     	</h3>
-      <p class="gs-user-manual-description">Get all the details in the user manual
+      <p class="gs-user-manual-description">{{dc "user_manual_tagline"}}
     	</p>
     </div>  
-    <a class="gs-user-manual-download button" href="download.tomtom.com/something">Download
+    <a class="gs-user-manual-download button" href="download.tomtom.com/something">{{dc "download"}}
     </a>
   </div>
 </footer>
       <div id='back-to-top'>
-        <img src='{{asset 'arrow_down_red.png'}}'>Back to top
+        {{dc "back_to_top"}}
       </div>
  </article>
 
