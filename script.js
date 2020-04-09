@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
         } else if ((this.id) == 'cookie_bar_buttons_decline') {
 
             post_decline_tt_settings();
-
+						$(".cookie_bar").hide();
             tt_setting_bol_value = "false";
             cookie_name = "tt_settings";
             initial_tt_setting_array = '{"url":"' + tt_setting_url + '","accepted":true,"version":"2.0","all":' + tt_setting_bol_value + ',"options":{}}';
@@ -530,7 +530,7 @@ var title = document.getElementsByTagName("h1")[0];
 var GDPROption= document.getElementsByClassName("request_custom_fields_360007572579");
   
 if(window.location.href.indexOf("form_id=360000569919") > -1) {
-        title.innerHTML = "GDPR REQUEST FORM" ;
+       // title.innerHTML = "{{dc 'gdpr_request_form'}}" ;
   			  $(".form-field").addClass("zd_Hidden");
 					$(".request_custom_fields_360007572579").removeClass("zd_Hidden");
     			SubjectLine.value = SubjectLine.value + "GDPR FORM 360000569919"; 			
@@ -641,8 +641,8 @@ function openSoftware(evt, softwareName) {
 $('<div class="ts-article-video"></div>').prependTo(".ts-article-extra");  
 $('iframe[src*="www.youtube"]').prependTo(".ts-article-video");
 $('.ts-article-video-header').prependTo(".ts-article-video");
-$('<div class="ts-article-extra-links"></div>').appendTo('.ts-article-video');
-$('.article-links').appendTo('.ts-article-extra-links'); 
+// $('<div class="ts-article-extra-links"></div>').appendTo('.ts-article-video');
+$('.article-links').insertAfter('.ts-article-video'); 
 /***** End of Troubleshooting Template *****/ //Amy Ogborn    
   
 /*****  How To Template *****/ 
