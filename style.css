@@ -910,11 +910,38 @@ display: block;
 
 /***** Footer *****/
 .footer {
-  background: #333;
-  margin-top: 0px;
-  padding: 0;
-  color: #000;
+  border-top: 1px solid #ddd;
+  margin-top: 60px;
+  padding: 30px 0;
+  background-color:#000000;
 }
+
+.wide_footer{
+  width:100% !important;
+}
+
+
+.dropdown_menu_add_on{
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  background-color:#000 !important;
+    padding: 40px 50px 10px 50px !important;
+  border-top: 1px solid #666 !important;
+}
+
+.dropdown_menu_add_on a{
+  color: #666 !important;
+   transition: all .25s ease 0s;
+}
+
+.dropdown_menu_add_on a:hover{
+  background:unset !important;
+  color: #e5e5e5 !important;
+}
+
+
+
 
 .footer a {
   color: #666;
@@ -929,13 +956,14 @@ display: block;
   background: #333;
   margin: 0 auto;
   padding-left: 20px;
-  display: flex;
+
   justify-content: space-between;
   font-size: 14px;
   color: #666;
 }
 .footer_copyright {
   padding-top: 40px;
+    display: flex; 
 }
 .footer__link-groups {
   background: #333;
@@ -6155,3 +6183,499 @@ padding: 24px;
 
 
 /***** End Locale Pop Up ****/
+
+
+
+
+
+/*footer*/
+a .tt-flag-image{
+  margin-right:15px;
+}
+
+.tt-flag-image {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background-image: url(https://www.tomtom.com/v2/gfx/countries.png);
+    background-repeat: no-repeat;
+    background-size: 300px 275px
+}
+
+ 
+
+@media only screen and (-webkit-min-device-pixel-ratio:2),
+only screen and (min--moz-device-pixel-ratio:2),
+only screen and (-o-min-device-pixel-ratio:2 / 1),
+only screen and (min-device-pixel-ratio:2),
+only screen and (min-resolution:192dpi),
+only screen and (min-resolution:2dppx) {
+    .tt-flag-image {
+        background-image: url(https://www.tomtom.com/v2/gfx/countries.png);
+        background-size: 300px 275px;
+        background-repeat: no-repeat
+    }
+}
+
+
+
+
+
+.tt-flag-image.albania {
+    background-position: -5px -5px
+}
+
+.tt-flag-image.andorra {
+    background-position: -35px -5px
+}
+
+.tt-flag-image.angola {
+    background-position: -65px -5px
+}
+
+.tt-flag-image.argentina {
+    background-position: -95px -5px
+}
+
+.tt-flag-image.australia {
+    background-position: -125px -5px
+}
+
+.tt-flag-image.austria {
+    background-position: -155px -5px
+}
+
+.tt-flag-image.bahrain {
+    background-position: -185px -5px
+}
+
+.tt-flag-image.belarus {
+    background-position: -215px -5px
+}
+
+.tt-flag-image.belgium {
+    background-position: -245px -5px
+}
+
+.tt-flag-image.benin {
+    background-position: -5px -30px
+}
+
+.tt-flag-image.bosnia_herzegovina {
+    background-position: -35px -30px
+}
+
+.tt-flag-image.botswana {
+    background-position: -65px -30px
+}
+
+.tt-flag-image.brasil {
+    background-position: -95px -30px
+}
+
+.tt-flag-image.brunei {
+    background-position: -125px -30px
+}
+
+.tt-flag-image.bulgaria {
+    background-position: -155px -30px
+}
+
+.tt-flag-image.burkina_faso {
+    background-position: -185px -30px
+}
+
+.tt-flag-image.burundi {
+    background-position: -215px -30px
+}
+
+.tt-flag-image.cameroon {
+    background-position: -245px -30px
+}
+
+.tt-flag-image.canada {
+    background-position: -5px -55px
+}
+
+.tt-flag-image.central_african_republic {
+    background-position: -35px -55px
+}
+
+.tt-flag-image.chile {
+    background-position: -65px -55px
+}
+
+.tt-flag-image.china {
+    background-position: -95px -55px
+}
+
+.tt-flag-image.congo {
+    background-position: -125px -55px
+}
+
+.tt-flag-image.congo_democratic {
+    background-position: -155px -55px
+}
+
+.tt-flag-image.croatia {
+    background-position: -185px -55px
+}
+
+.tt-flag-image.cyprus {
+    background-position: -215px -55px
+}
+
+.tt-flag-image.czech_republic {
+    background-position: -245px -55px
+}
+
+.tt-flag-image.denmark {
+    background-position: -5px -80px
+}
+
+.tt-flag-image.estonia {
+    background-position: -35px -80px
+}
+
+.tt-flag-image.finland {
+    background-position: -65px -80px
+}
+
+.tt-flag-image.france {
+    background-position: -95px -80px
+}
+
+.tt-flag-image.french_guyana {
+    background-position: -125px -80px
+}
+
+.tt-flag-image.gabon {
+    background-position: -155px -80px
+}
+
+.tt-flag-image.germany {
+    background-position: -185px -80px
+}
+
+.tt-flag-image.ghana {
+    background-position: -215px -80px
+}
+
+.tt-flag-image.gibraltar {
+    background-position: -245px -80px
+}
+
+.tt-flag-image.greece {
+    background-position: -5px -105px
+}
+
+.tt-flag-image.guadeloupe {
+    background-position: -35px -105px
+}
+
+.tt-flag-image.hong_kong {
+    background-position: -65px -105px
+}
+
+.tt-flag-image.hungary {
+    background-position: -95px -105px
+}
+
+.tt-flag-image.india {
+    background-position: -125px -105px
+}
+
+.tt-flag-image.indonesia {
+    background-position: -155px -105px
+}
+
+.tt-flag-image.ireland {
+    background-position: -185px -105px
+}
+
+.tt-flag-image.italy {
+    background-position: -215px -105px
+}
+
+.tt-flag-image.japan {
+    background-position: -275px -205px;
+}
+
+.tt-flag-image.korea {
+    background-position: -275px -180px;
+}
+
+.tt-flag-image.kenia {
+    background-position: -245px -105px
+}
+
+.tt-flag-image.kosovo {
+    background-position: -5px -130px
+}
+
+.tt-flag-image.kuwait {
+    background-position: -35px -130px
+}
+
+.tt-flag-image.latvia {
+    background-position: -65px -130px
+}
+
+.tt-flag-image.lesotho {
+    background-position: -95px -130px
+}
+
+.tt-flag-image.liechtenstein {
+    background-position: -125px -130px
+}
+
+.tt-flag-image.lithuania {
+    background-position: -155px -130px
+}
+
+.tt-flag-image.luxembourg {
+    background-position: -185px -130px
+}
+
+.tt-flag-image.macau {
+    background-position: -215px -130px
+}
+
+.tt-flag-image.macedonia {
+    background-position: -245px -130px
+}
+
+.tt-flag-image.malawi {
+    background-position: -5px -155px
+}
+
+.tt-flag-image.malaysia {
+    background-position: -35px -155px
+}
+
+.tt-flag-image.mali {
+    background-position: -65px -155px
+}
+
+.tt-flag-image.malta {
+    background-position: -95px -155px
+}
+
+.tt-flag-image.mauritania {
+    background-position: -125px -155px
+}
+
+.tt-flag-image.mauritius {
+    background-position: -155px -155px
+}
+
+.tt-flag-image.mayotte_and_reunion {
+    background-position: -185px -155px
+}
+
+.tt-flag-image.mexico {
+    background-position: -215px -155px
+}
+
+.tt-flag-image.moldova {
+    background-position: -245px -155px
+}
+
+.tt-flag-image.monaco {
+    background-position: -5px -180px
+}
+
+.tt-flag-image.montenegro {
+    background-position: -35px -180px
+}
+
+.tt-flag-image.morocco {
+    background-position: -65px -180px
+}
+
+.tt-flag-image.mozambique {
+    background-position: -95px -180px
+}
+
+.tt-flag-image.namibia {
+    background-position: -125px -180px
+}
+
+.tt-flag-image.netherlands {
+    background-position: -155px -180px
+}
+
+.tt-flag-image.new_sealand {
+    background-position: -185px -180px
+}
+
+.tt-flag-image.niger {
+    background-position: -215px -180px
+}
+
+.tt-flag-image.nigeria {
+    background-position: -245px -180px
+}
+
+.tt-flag-image.norway {
+    background-position: -5px -205px
+}
+
+.tt-flag-image.oman {
+    background-position: -35px -205px
+}
+
+.tt-flag-image.poland {
+    background-position: -65px -205px
+}
+
+.tt-flag-image.portugal {
+    background-position: -95px -205px
+}
+
+.tt-flag-image.qatar {
+    background-position: -125px -205px
+}
+
+.tt-flag-image.romania {
+    background-position: -155px -205px
+}
+
+.tt-flag-image.russia {
+    background-position: -185px -205px
+}
+
+.tt-flag-image.rwanda {
+    background-position: -215px -205px
+}
+
+.tt-flag-image.san_marino {
+    background-position: -245px -205px
+}
+
+.tt-flag-image.saudi {
+    background-position: -5px -230px
+}
+
+.tt-flag-image.senegal {
+    background-position: -35px -230px
+}
+
+.tt-flag-image.serbia {
+    background-position: -65px -230px
+}
+
+.tt-flag-image.singapore {
+    background-position: -95px -230px
+}
+
+.tt-flag-image.slovakia {
+    background-position: -125px -230px
+}
+
+.tt-flag-image.slovenia {
+    background-position: -155px -230px
+}
+
+.tt-flag-image.south_africa {
+    background-position: -185px -230px
+}
+
+.tt-flag-image.spain {
+    background-position: -215px -230px
+}
+
+.tt-flag-image.swaziland {
+    background-position: -245px -230px
+}
+
+.tt-flag-image.sweden {
+    background-position: -5px -255px
+}
+
+.tt-flag-image.switzerland {
+    background-position: -35px -255px
+}
+
+.tt-flag-image.taiwan {
+    background-position: -65px -255px
+}
+
+.tt-flag-image.tanzania {
+    background-position: -95px -255px
+}
+
+.tt-flag-image.thailand {
+    background-position: -125px -255px
+}
+
+.tt-flag-image.togo {
+    background-position: -155px -255px
+}
+
+.tt-flag-image.turkey {
+    background-position: -185px -255px
+}
+
+.tt-flag-image.uae {
+    background-position: -215px -255px
+}
+
+.tt-flag-image.uganda {
+    background-position: -245px -255px
+}
+
+.tt-flag-image.ukraine {
+    background-position: -275px -5px
+}
+
+.tt-flag-image.united_kingdom {
+    background-position: -275px -30px
+}
+
+.tt-flag-image.uruguay {
+    background-position: -275px -55px
+}
+
+.tt-flag-image.usa {
+    background-position: -275px -80px
+}
+
+.tt-flag-image.vatican_city {
+    background-position: -275px -105px
+}
+
+.tt-flag-image.zambia {
+    background-position: -275px -130px
+}
+
+.tt-flag-image.zimbabwe {
+    background-position: -275px -155px
+}
+
+.footer_column{
+  display:inline-block;
+  vertical-align: top;
+  margin: 0 1em;
+}
+
+.footer_continent{
+  font-weight:bold;
+  margin-left:20px;
+  font-size: 14px;
+    line-height: 16px;
+  letter-spacing: -.25px;
+  color: #fff;
+  
+}
+
+.footer_btn{
+  margin-bottom:1em;
+}
+
+.footer_column a{
+      text-transform: none !important;
+}
+
+
+/*footer*/
