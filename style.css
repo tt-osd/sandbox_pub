@@ -6679,3 +6679,59 @@ only screen and (min-resolution:2dppx) {
 
 
 /*footer*/
+
+/*serial prefix checker*/
+
+@media (max-width: 1020px){
+  .category-container {
+    display: block;
+    
+}
+}
+
+
+
+#tt_serial_no_input{
+text-transform:uppercase;
+}
+
+
+.tt_input{
+   
+    border: 1px solid #61ade0;
+    border-radius: 30px;
+    box-sizing: border-box;
+    color: #000000;
+    height: 35px;
+    padding-left: 15px;
+    
+  
+    width: 12em;
+    font-size:16px;
+}
+
+
+.single_result{
+  display:block;
+  margin: 0.5em 0;
+    background-color: #bcdcf5;
+    padding: 0 0 0 0.2em;
+    border-radius: 5px;
+    cursor: pointer;
+   transition: all .25s ease 0s;
+}
+
+
+
+#product_results_box .single_result .pt_record{
+   cursor: pointer;
+} 
+
+#product_results_box .single_result:hover{
+   background-color: #8dc3eb;
+  -webkit-box-shadow: 2px 5px 5px 0px rgba(190,190,190,1);
+-moz-box-shadow: 2px 5px 5px 0px rgba(190,190,190,1);
+box-shadow: 2px 5px 5px 0px rgba(190,190,190,1);
+  margin:0.7em 0;
+}
+/*serial prefix checker*/
