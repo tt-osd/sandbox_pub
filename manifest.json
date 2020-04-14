@@ -1,7 +1,7 @@
 {
   "name": "Test Environment 1.0",
   "author": "Zendesk",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "api_version": 1,
   "default_locale": "en-us",
   "settings": [
