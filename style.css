@@ -953,7 +953,7 @@ display: block;
 }
 
 .footer-inner, .footer_copyright {
-  background: #333;
+/*   background: #333; */
   margin: 0 auto;
   padding-left: 20px;
 
@@ -966,7 +966,7 @@ display: block;
     display: flex; 
 }
 .footer__link-groups {
-  background: #333;
+/*   background: #333; */
   padding-left: 20px;
 }
 .footer__link-group {
