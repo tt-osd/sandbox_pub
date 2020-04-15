@@ -1,7 +1,7 @@
 /* PLESAE READ - There are 2 document ready functions one is below in DOMContentLoaded and there is (document).ready at the bottom if you require the whole document to load */
 
 document.addEventListener('DOMContentLoaded', function() { // **** Include all JS in this function
-
+  
     //general cookie functions
     //levitt 
 
@@ -28,6 +28,51 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
         CookieDate.setTime(today.getTime() + time);
         document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; expires=' + CookieDate.toGMTString() + ';';
     };
+  
+  
+  
+  
+  
+  
+  
+   //DDA386 SSO login redirect 
+  
+  //call this function when user trigger the login function
+  // read_cookie() and set_cookie() function is pre created. 
+  function createSSOcookie(){
+      if (read_cookie("sso") === ""){  
+     var current_url= window.location.href;
+     var encode_current_url=encodeURIComponent(current_url);
+     set_cookie("sso",encode_current_url,60000);
+    }
+  }
+  
+  //call this function after user login and being automatically redirected to homepage by zendesk 
+  //read cookie function is pre created
+  function redirectAfterLogin(){
+    var sso_encoded=read_cookie("sso");
+    if (sso_encoded != ""){
+     var sso_decode=decodeURIComponent(sso_encoded);
+      window.location.href = sso_decode;
+     } 
+  }
+   
+  
+  //two dummy buttons to test the functions
+ /* $("#sso_cookie").click(function(){
+  createSSOcookie();
+  });
+  
+   $("#sso_redirect").click(function(){
+redirectAfterLogin();
+  });*/
+ 
+  //DDA386 SSO login redirect 
+  
+  
+  
+  
+  
 
 
     function ga_tracking(event_category, event_action, event_label) {
