@@ -1,6 +1,4 @@
 
-
-
 <script type="text/javascript">
   //utage data
    var the_url= window.location.href;
@@ -76,34 +74,54 @@ if(the_url.indexOf("categories")!= -1){
 </script>
 
 <header class="header">
-  <div class="logo">
-    <a href="https://uk.support.tomtom.com/app/home">
+  <div class="header-inner">
+        <div id="nav-main-hamburger" class="nav-main-hamburger"><svg width="16" height="15"><path d="M16 14.5H0v-2h16zm0-6H0v-2h16zm0-6H0v-2h16z"></path></svg></div>
+  <div class="logo header-logo">
+    <a href="https://www.tomtom.com/en_gb/navigation/">
       <img src="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}">
     </a>
   </div>
-  <div class="nav-wrapper">
-    <button class="menu-button" aria-controls="user-nav" aria-expanded="false" aria-label="{{t 'toggle_navigation'}}">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-menu">
-        <path fill="none" stroke="currentColor" stroke-linecap="round" d="M1.5 3.5h13m-13 4h13m-13 4h13"/>
-      </svg>
-    </button>
+  <div id="nav-wrapper" class="nav-wrapper">
+    <div class="nav-main-items">
+      <div class="nav-main-items-inner">
+        <ul class="nav-text-links">
+          <li class="nav-text-link">
+            <div class="header-link">
+              <a class="header-link-href" href="https://www.tomtom.com/sat-nav/">{{dc 'header_title_1'}}</a>
+            </div>
+          </li>
+          <li class="nav-text-link">
+            <div class="header-link">
+              <a class="header-link-href" href="https://www.tomtom.com/sat-nav/maps-services/">{{dc 'header_title_2'}}</a>
+            </div>
+          </li>
+          <li class="nav-text-link">
+            <div class="header-link">
+              <a class="header-link-href" href="https://supportsandbox.tomtom.com/hc/">{{dc 'header_title_3'}}</a>
+            </div>
+          </li>
+          <li class="nav-text-link">
+            <div class="header-link">
+              <a class="header-link-href" href="https://www.tomtom.com/sat-nav/sat-nav-app/">{{dc 'header_title_4'}}</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-  
-<!--   temporary button for testing DDA386 SSO login redirect -->
-<!--   uncomment this block to test  createSSOcookie(); and redirectAfterLogin(); two functions -->
-<!--   <style> 
-    .temp_button{
-    cursor:pointer;
-    background-color:#8DC3EB;
-    padding:1px 5px;
-    border-radius:5px;
-    }
-    </style>
-  <div class="temp_button" id="sso_cookie"><span>SSO cookie</span></div>
-  <div class="temp_button" id="sso_redirect"><span>SSO redirect</span></div> -->
-<!--   temporary button for testing DDA386 SSO login redirect -->
-  
-  </header>
+  <div class="nav-icons">
+            <a class="nav-icon" href="https://www.tomtom.com/store/basket-overview.html" title="Basket">
+              <svg width="16" height="16">
+                <path d="M6 12a2 2 0 110 4 2 2 0 010-4zm6 0a2 2 0 110 4 2 2 0 010-4zM3 0a1 1 0 01.976.783L5.802 9h6.443l1.429-5H7a1 1 0 010-2h8a1 1 0 01.96 1.275l-1.999 7A1 1 0 0113 11H5a1 1 0 01-.976-.783L2.198 2H1a1 1 0 010-2h2z" fill-rule="evenodd">
+                </path>
+              </svg>
+  				  </a>
+<!--       <div class="nav-wrapper"> -->
+    {{user_info}}
+<!--   </div> -->
+    </div>
+  </div>
+</header>
   
 
 <!--   cookie bar, author levitt  -->
