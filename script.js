@@ -1,7 +1,7 @@
 /* PLESAE READ - There are 2 document ready functions one is below in DOMContentLoaded and there is (document).ready at the bottom if you require the whole document to load */
 
 document.addEventListener('DOMContentLoaded', function() { // **** Include all JS in this function
-
+  
     //general cookie functions
     //levitt 
 
@@ -28,6 +28,51 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
         CookieDate.setTime(today.getTime() + time);
         document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; expires=' + CookieDate.toGMTString() + ';';
     };
+  
+  
+  
+  
+  
+  
+  
+   //DDA386 SSO login redirect 
+  
+  //call this function when user trigger the login function
+  // read_cookie() and set_cookie() function is pre created. 
+  function createSSOcookie(){
+      if (read_cookie("sso") === ""){  
+     var current_url= window.location.href;
+     var encode_current_url=encodeURIComponent(current_url);
+     set_cookie("sso",encode_current_url,60000);
+    }
+  }
+  
+  //call this function after user login and being automatically redirected to homepage by zendesk 
+  //read cookie function is pre created
+  function redirectAfterLogin(){
+    var sso_encoded=read_cookie("sso");
+    if (sso_encoded != ""){
+     var sso_decode=decodeURIComponent(sso_encoded);
+      window.location.href = sso_decode;
+     } 
+  }
+   
+  
+  //two dummy buttons to test the functions
+ /* $("#sso_cookie").click(function(){
+  createSSOcookie();
+  });
+  
+   $("#sso_redirect").click(function(){
+redirectAfterLogin();
+  });*/
+ 
+  //DDA386 SSO login redirect 
+  
+  
+  
+  
+  
 
 
     function ga_tracking(event_category, event_action, event_label) {
@@ -274,6 +319,135 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
     //give feedback to exit survey 
     // exit survey
 
+
+
+    //serial number
+    function read_spa_Software(software){
+        var software_decode_head =software.split("€");
+        var software_decode=software_decode_head[0];
+        
+        var thisURL= window.location.href;
+        var URL_decode=thisURL.split("/hc/")[0];
+        var target_URL = URL_decode;
+    
+                    switch (software_decode) {
+                        case 'TomTom HOME':
+                            target_URL += "/hc/en-gb/sections/360003585479-TomTom-HOME";              
+                            break;
+                        case 'MyDrive Connect':
+                             target_URL += "/hc/en-gb/sections/360003542620-MyDrive-Connect";
+                            break;
+                        case 'Bandit Studio':
+                            target_URL += "/hc/en-gb/sections/360003586039-TomTom-Bandit-Action-Camera";
+                            break;
+                        case 'Wi-Fi®':
+                            target_URL += "/hc/en-gb/sections/360003542600-Wi-Fi";
+                            break;
+                        case 'MySports Connect':
+                            target_URL += "/hc/en-gb/sections/360003542980-Sports-Watch";
+                            break;
+                        case 'N/A':
+                           target_URL =thisURL;
+                    }
+                  window.location.href = target_URL;  
+        //end of function
+      }
+
+
+
+
+      function sunshineSearch(searchType,searchKey,searchValue){
+        //to make the inside function only execute when the page is the Nav category page
+        var the_domain= window.location.href;
+        var the_domain_header=the_domain.split(".com");
+        var the_url_header =the_domain_header[0];
+        var querry = JSON.stringify({"query":{"type":searchType,"key":searchKey,"contains":searchValue }});
+        
+    
+        var xhr = new XMLHttpRequest();
+        var url = the_url_header+".com/api/sunshine/objects/search",
+        username = "ccdev@groups.tomtom.com",
+        password = "@=lx4+68}g";
+        xhr.withCredentials = true;
+        xhr.open("POST", url, true, username, password);
+            xhr.send(querry);
+          
+          
+       xhr.addEventListener("readystatechange", function() {
+    if(this.readyState === 4) {
+   
+     
+      var i, result_array_length=((JSON.parse(this.responseText)).data).length;
+     
+      //debug code
+      /*
+      console.log("response from serial prefix search");
+     console.log((JSON.parse(this.responseText)).data);
+  console.log("response from serial prefix search");
+      */
+      //debug code
+      
+      if((((JSON.parse(this.responseText)).data).length)>0){
+        
+        document.getElementById("product_results_box").innerHTML="";
+         for(i=0; i<result_array_length;i++){
+             var xhr2 = new XMLHttpRequest();   
+             var searchKEY=((JSON.parse(this.responseText)).data)[i].attributes.id
+             var querry2 = JSON.stringify({"query":{"type":"tt_product","key":"product_id","contains":searchKEY }});
+             xhr2.open("POST", url, true, username, password);
+             xhr2.send(querry2); 
+             xhr2.addEventListener("readystatechange",function(){
+                 if(this.readyState === 4) {
+                   
+                   
+                   //debug code
+             /*      
+   console.log("response from tt_product 4 digits ID search");
+     console.log((JSON.parse(this.responseText)).data[0]);
+ console.log("response from tt_product 4 digits ID search");
+              */     
+                   //debug code
+                   
+                     if(! (( typeof((JSON.parse(this.responseText)).data[0])) =="undefined")){
+                      document.getElementById("product_results_box").innerHTML +=' <div class="single_result" id="'+((JSON.parse(this.responseText)).data)[0].attributes.software+"€"+((JSON.parse(this.responseText)).data)[0].id+'"><label class="pt_record" id="'+((JSON.parse(this.responseText)).data)[0].id+'">'+((JSON.parse(this.responseText)).data)[0].attributes.product_name+'</label></div>';
+                         
+                       $(".single_result").on('click',function(){
+                       read_spa_Software(this.id);
+                       });
+                       
+                     }
+                 }
+ 
+             }); 
+ 
+         }
+ 
+      }else{
+         alert("there is no such prefix with "+searchValue);
+      }
+    
+    } 
+    });
+ 
+ 
+       }
+
+
+
+       $("#tt_serial_no_input").on('input',function(){   
+        var tt_serial_number_input = (document.getElementById("tt_serial_no_input").value).toString(); 
+        if((tt_serial_number_input.length)==2){
+            sunshineSearch("tt_serial_number","serial_prefix",tt_serial_number_input);
+        }
+      });
+   
+
+
+
+
+
+    //serial number
+
     // above code are edited by levit
 
                       // Below code is zendesk
@@ -417,22 +591,22 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
                           var burgerMenu = document.querySelector('.header .menu-button');
                           var userMenu = document.querySelector('#user-nav');
 
-                          burgerMenu.addEventListener('click', function(e) {
-                              e.stopPropagation();
-                              toggleNavigation(this, userMenu);
-                          });
+                        //   burgerMenu.addEventListener('click', function(e) {
+                        //       e.stopPropagation();
+                        //       toggleNavigation(this, userMenu);
+                        //   });
 
 
-                          userMenu.addEventListener('keyup', function(e) {
-                              if (e.keyCode === 27) { // Escape key
-                                  e.stopPropagation();
-                                  closeNavigation(burgerMenu, this);
-                              }
-                          });
+                        //   userMenu.addEventListener('keyup', function(e) {
+                        //       if (e.keyCode === 27) { // Escape key
+                        //           e.stopPropagation();
+                        //           closeNavigation(burgerMenu, this);
+                        //       }
+                        //   });
 
-                          if (userMenu.children.length === 0) {
-                              burgerMenu.style.display = 'none';
-                          }
+                        //   if (userMenu.children.length === 0) {
+                        //       burgerMenu.style.display = 'none';
+                        //   }
 
                           // Toggles expanded aria to collapsible elements
                           var collapsible = document.querySelectorAll('.collapsible-nav, .collapsible-sidebar');
@@ -490,8 +664,6 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
                               }
                           });
                       // Above code is zendesk 
-  
-
  
 }); // end of js file function - put everything above this line
 
@@ -660,40 +832,5 @@ $('.ht-article-body img').each(function(){
   $(this).insertAfter($(this).parent());
 }); 
 /***** End of  How To Template *****/ //Amy Ogborn  
-  
-/*****  Prefill Email Widget *****/   
-zESettings = {
-  webWidget: {
-    contactForm: {
-      fields: [
-        { id: 'name', prefill: { '*':HelpCenter.user.name } },
-        { id: 'email', prefill: { '*':HelpCenter.user.email } }
-      ]
-    }
-  }
-};                    
 
-/*****  End Prefill Email Widget *****/   
-                  
-/*****  Temp Header *****/ 
-
-//toggle the hamburger menu
-var button = document.getElementById('nav-main-hamburger');
-var nav = document.getElementById("nav-wrapper");  
-  
-button.onclick =  function() {
-      if (!nav.style.display || nav.style.display === "none") {
-                nav.style.display = "block";
-            } else {
-                nav.style.display = "none";
-            }
-};
-
-//Add the profile icon to the header
-$('<svg width="16" height="16" class="profile-icon"><path d="M2 14h12v-.012c0-.056-.11-.22-.602-.544-.62-.418-1.495-.778-2.613-1.058-1.034-.251-1.963-.374-2.785-.374-.822 0-1.75.123-2.772.371-1.131.283-2.006.643-2.64 1.07-.478.316-.588.48-.588.535V14zm6-3.988c.99 0 2.076.144 3.257.431 1.342.335 2.428.783 3.258 1.341.99.655 1.485 1.39 1.485 2.204V16H0v-2.012c0-.814.495-1.549 1.485-2.204.83-.558 1.916-1.006 3.258-1.34 1.181-.288 2.267-.432 3.257-.432zM8 6c.362 0 .672-.084.969-.26.318-.188.56-.43.747-.747a1.83 1.83 0 00.26-.969 1.96 1.96 0 00-.271-1.013 2.01 2.01 0 00-.736-.751A1.833 1.833 0 008 2a1.83 1.83 0 00-.969.26 2.01 2.01 0 00-.736.751 1.96 1.96 0 00-.271 1.013c0 .362.084.672.26.969.188.318.43.56.747.747.297.176.607.26.969.26zm0 2c-.719 0-1.381-.18-1.988-.539a4.065 4.065 0 01-1.45-1.449 3.832 3.832 0 01-.538-1.988c0-.719.18-1.39.539-2.012A4.008 4.008 0 016.012.539 3.832 3.832 0 018 0c.719 0 1.381.18 1.988.539.607.36 1.09.85 1.45 1.473a3.97 3.97 0 01.538 2.012c0 .719-.18 1.381-.539 1.988a4.065 4.065 0 01-1.449 1.45A3.845 3.845 0 018 8z" fill-rule="evenodd"></path></svg>').prependTo('.user-info > [role="button"]');   
-
-/*****  End Temp Header *****/   
-  
-  
 }); // end of document ready function
-
