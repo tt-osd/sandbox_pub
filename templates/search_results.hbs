@@ -1,16 +1,10 @@
-<!-- Start of tomtomhelp1570114826 Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a"> </script>
-<!-- End of tomtomhelp1570114826 Zendesk Widget script -->
-
-<div class="search-results-container ">
-<nav class="sub-nav">
-    <div class="container search-result-breadcrumbs-nav">
-      {{breadcrumbs}}
-      {{search submit=false}}
-    </div>
+<div class="container-divider"></div>
+<div class="container">
+  <nav class="sub-nav">
+    {{breadcrumbs}}
+    {{search submit=false}}
   </nav>
 
-<div class="container">
   <div class="search-results">
     <aside class="search-results-sidebar">
       {{#if help_center_filters}}
@@ -93,7 +87,6 @@
             <li class="search-result-list-item result-{{type}}">
               <h2 class="search-result-title">
                 <a href="{{url}}" class="results-list-item-link">{{title}}</a>
-                <div class="search-results-description">{{text}}</div>
               </h2>
               <div class="search-result-icons">
                 {{#if vote_sum}}
@@ -114,9 +107,10 @@
                       {{/each}}
                     </ol>
                   </li>
-<!--                   <li class="meta-data">{{author.name}}</li> -->
+                  <li class="meta-data">{{author.name}}</li>
                   <li class="meta-data">{{date created_at}}</li>
                 </ul>
+                <div class="search-results-description">{{text}}</div>
               </article>
             </li>
           {{/each}}
@@ -132,5 +126,4 @@
     </section>
   </div>
   {{pagination}}
-</div>
 </div>
