@@ -1,22 +1,26 @@
-<div class="container-divider"></div>
-<div class="container">
-  <nav class="sub-nav">
+<!-- Start of tomtomhelp1570114826 Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a"> </script>
+<!-- End of tomtomhelp1570114826 Zendesk Widget script -->
+
+<nav class="sub-nav">
+   <div class="container">
     {{breadcrumbs}}
-    {{search submit=false}}
-  </nav>
+   </div>
+</nav>
 
-  <div class="section-container">
-    <section class="section-content">
-      <header class="page-header">
+<header class="page-header" id="section-page-header">
+    <div class="section-container container">
         <h1>{{section.name}}</h1>
-        {{#if settings.show_follow_section}}
-          {{subscribe}}
-        {{/if}}
-        {{#if section.description}}
-          <p class="page-header-description">{{section.description}}</p>
-        {{/if}}
-      </header>
+        {{search submit=false class="search section-search" placeholder="Type keyword here"}}
+          {{#if settings.show_follow_section}}
+            {{subscribe}}
+          {{/if}}
+    </div>
+</header>
 
+<div class="section-body">
+<div class="container">
+	<section class="section-content">
       {{#if section.sections}}
         <ul class="section-list section-list--collapsed">
           {{#each section.sections}}
@@ -58,4 +62,5 @@
 
     </section>
   </div>
-</div>
+  </div>
+
