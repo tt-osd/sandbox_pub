@@ -30,6 +30,45 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
     };
 
 
+       //DDA386 SSO login redirect 
+  
+  //call this function when user trigger the login function
+  // read_cookie() and set_cookie() function is pre created. 
+  function createSSOcookie(){
+    if (read_cookie("sso") === ""){  
+   var current_url= window.location.href;
+   var encode_current_url=encodeURIComponent(current_url);
+   set_cookie("sso",encode_current_url,60000);
+  }
+}
+
+//call this function after user login and being automatically redirected to homepage by zendesk 
+//read cookie function is pre created
+function redirectAfterLogin(){
+  var sso_encoded=read_cookie("sso");
+  if (sso_encoded != ""){
+   var sso_decode=decodeURIComponent(sso_encoded);
+    window.location.href = sso_decode;
+   } 
+}
+ 
+
+//two dummy buttons to test the functions
+/* $("#sso_cookie").click(function(){
+createSSOcookie();
+});
+
+ $("#sso_redirect").click(function(){
+redirectAfterLogin();
+});*/
+
+//DDA386 SSO login redirect 
+
+
+
+
+
+
     function ga_tracking(event_category, event_action, event_label) {
         utag.link({
             'event_category': event_category,
@@ -273,6 +312,143 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
     });
     //give feedback to exit survey 
     // exit survey
+
+
+
+
+
+
+
+    //serial number
+    function read_spa_Software(software){
+        var software_decode_head =software.split("€");
+        var software_decode=software_decode_head[0];
+        
+        var thisURL= window.location.href;
+        var URL_decode=thisURL.split("/hc/")[0];
+        var target_URL = URL_decode;
+    
+                    switch (software_decode) {
+                        case 'TomTom HOME':
+                            target_URL += "/hc/en-gb/sections/360003585479-TomTom-HOME";              
+                            break;
+                        case 'MyDrive Connect':
+                             target_URL += "/hc/en-gb/sections/360003542620-MyDrive-Connect";
+                            break;
+                        case 'Bandit Studio':
+                            target_URL += "/hc/en-gb/sections/360003586039-TomTom-Bandit-Action-Camera";
+                            break;
+                        case 'Wi-Fi®':
+                            target_URL += "/hc/en-gb/sections/360003542600-Wi-Fi";
+                            break;
+                        case 'MySports Connect':
+                            target_URL += "/hc/en-gb/sections/360003542980-Sports-Watch";
+                            break;
+                        case 'N/A':
+                           target_URL =thisURL;
+                    }
+                  window.location.href = target_URL;  
+        //end of function
+      }
+
+
+
+
+      function sunshineSearch(searchType,searchKey,searchValue){
+        //to make the inside function only execute when the page is the Nav category page
+        var the_domain= window.location.href;
+        var the_domain_header=the_domain.split(".com");
+        var the_url_header =the_domain_header[0];
+        var querry = JSON.stringify({"query":{"type":searchType,"key":searchKey,"contains":searchValue }});
+        
+    
+        var xhr = new XMLHttpRequest();
+        var url = the_url_header+".com/api/sunshine/objects/search",
+        username = "ccdev@groups.tomtom.com",
+        password = "@=lx4+68}g";
+        xhr.withCredentials = true;
+        xhr.open("POST", url, true, username, password);
+            xhr.send(querry);
+          
+          
+       xhr.addEventListener("readystatechange", function() {
+    if(this.readyState === 4) {
+   
+     
+      var i, result_array_length=((JSON.parse(this.responseText)).data).length;
+     
+      //debug code
+      /*
+      console.log("response from serial prefix search");
+     console.log((JSON.parse(this.responseText)).data);
+  console.log("response from serial prefix search");
+      */
+      //debug code
+      
+      if((((JSON.parse(this.responseText)).data).length)>0){
+        
+        document.getElementById("product_results_box").innerHTML="";
+         for(i=0; i<result_array_length;i++){
+             var xhr2 = new XMLHttpRequest();   
+             var searchKEY=((JSON.parse(this.responseText)).data)[i].attributes.id
+             var querry2 = JSON.stringify({"query":{"type":"tt_product","key":"product_id","contains":searchKEY }});
+             xhr2.open("POST", url, true, username, password);
+             xhr2.send(querry2); 
+             xhr2.addEventListener("readystatechange",function(){
+                 if(this.readyState === 4) {
+                   
+                   
+                   //debug code
+             /*      
+   console.log("response from tt_product 4 digits ID search");
+     console.log((JSON.parse(this.responseText)).data[0]);
+ console.log("response from tt_product 4 digits ID search");
+              */     
+                   //debug code
+                   
+                     if(! (( typeof((JSON.parse(this.responseText)).data[0])) =="undefined")){
+                      document.getElementById("product_results_box").innerHTML +=' <div class="single_result" id="'+((JSON.parse(this.responseText)).data)[0].attributes.software+"€"+((JSON.parse(this.responseText)).data)[0].id+'"><label class="pt_record" id="'+((JSON.parse(this.responseText)).data)[0].id+'">'+((JSON.parse(this.responseText)).data)[0].attributes.product_name+'</label></div>';
+                         
+                       $(".single_result").on('click',function(){
+                       read_spa_Software(this.id);
+                       });
+                       
+                     }
+                 }
+ 
+             }); 
+ 
+         }
+ 
+      }else{
+         alert("there is no such prefix with "+searchValue);
+      }
+    
+    } 
+    });
+ 
+ 
+       }
+
+
+
+       $("#tt_serial_no_input").on('input',function(){   
+        var tt_serial_number_input = (document.getElementById("tt_serial_no_input").value).toString(); 
+        if((tt_serial_number_input.length)==2){
+            sunshineSearch("tt_serial_number","serial_prefix",tt_serial_number_input);
+        }
+      });
+   
+
+
+
+
+
+    //serial number
+
+
+
+
 
     // above code are edited by levit
 
