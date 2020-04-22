@@ -932,6 +932,32 @@ $('<svg width="16" height="16" class="profile-icon"><path d="M2 14h12v-.012c0-.0
 
 /*****  End Temp Header *****/   
   
+
+/*****  New request pages - product pre-select *****/ 
+function getQueryParams (queryString)
+{
+   queryString = queryString.split ('+').join (' ');
+
+   var params = {};
+   var tokens;
+   var regex = /[?&]?([^=]+)=([^&]*)/g;
+
+   while (tokens = regex.exec (queryString))
+   {
+      params[decodeURIComponent (tokens[1])] = decodeURIComponent (tokens[2]);
+   }
+
+   return params;
+}
+  var params = getQueryParams (document.location.search); 
+  if (params.product)
+  {
+   $("#request_custom_fields_360005150940").val(params.product);
+  }
+  //hide org & form option
+  $('.form-field.request_ticket_form_id').hide();
+  $('.form-field.request_organization_id').hide();
+/***** End of New request pages - product pre-select *****/ //Lorna Rickett
   
 }); // end of document ready function
 
