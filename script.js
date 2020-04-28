@@ -669,6 +669,13 @@ redirectAfterLogin();
                           });
                       // Above code is zendesk 
   
+  //Code for BuRMA SSO cookie creation - Start 
+  const secureKey = "N@vI5aT3";
+  if (read_cookie("tt_cp_auth") === "" && HelpCenter.user.email != null){
+      var encrypted = CryptoJS.AES.encrypt(HelpCenter.user.email, secureKey);
+      set_cookie("tt_cp_auth",encrypted,3600000);
+  }
+  //Code for BuRMA SSO cookie creation - End
 
  
 }); // end of js file function - put everything above this line
