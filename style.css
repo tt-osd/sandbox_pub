@@ -520,7 +520,22 @@ display: block;
     white-space: nowrap;
     padding: 16px 24px;  
 }
-
+.not-your-product {
+		position: absolute;
+    top: 94px;
+    left: 24px;
+    max-width: calc(100% - 48px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: none;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    /* justify-content: center; */
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #fff;
+}
 .not-your-product:after {
   font-family: "TomTom Icons";
   content: "\0028";
@@ -528,7 +543,13 @@ display: block;
   border: none;
   background-color: transparent;
 }
-
+@media (min-width: 48em) {
+.not-your-product {
+    right: 16px;
+    left: auto;
+ 		width: calc(25vw - 16px);
+}
+}
 /***** Tables *****/
 .table {
   width: 100%;
@@ -1049,7 +1070,7 @@ img#user-avatar.user-avatar {
 /***** Footer *****/
 .footer {
   border-top: 1px solid #ddd;
-  margin-top: 60px;
+  margin-top: 0;
   padding: 30px 0;
   background-color:#000000;
 }
@@ -1353,15 +1374,13 @@ img#user-avatar.user-avatar {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 10px 0;
-  padding: 20px 0;
+  padding: 30px 0 20px 0;
 }
 
 @media (min-width: 768px) {
   .page-header {
     align-items: baseline;
     flex-direction: row;
-    margin: 0;
   }
 }
 
@@ -1378,7 +1397,7 @@ img#user-avatar.user-avatar {
 
 .page-header h1 {
   flex-grow: 1;
-  margin-bottom: 10px;
+  margin: auto;
 }
 
 .page-header-description {
@@ -1545,7 +1564,7 @@ a.blocks-item-link {
 
 @media (min-width: 768px) {
   .section {
-    margin-bottom: 60px;
+    margin-bottom: 130px;
   }
 }
 
@@ -1817,7 +1836,7 @@ ul.article-list.promoted-articles a {
   }
 }
 .category-body {
-  background-color: #FFF;
+  
 }
 
 .section-tree {
@@ -1835,6 +1854,8 @@ ul.article-list.promoted-articles a {
 
 .section-tree .section {
   flex: initial;
+  background-color: #FFF;
+  padding: 30px;
 }
 
 @media (min-width: 768px) {
@@ -1846,7 +1867,7 @@ ul.article-list.promoted-articles a {
 
 .section-tree-title {
   margin-bottom: 0;
-  font-size: 18px;
+
   font-weight: 600;
 }
 ul.article-list {
@@ -1861,7 +1882,8 @@ ul.article-list {
 
 .section-tree .see-all-articles {
   display: block;
-  padding: 15px 0;
+  padding: 15px 5px;
+  width: fit-content;
 }
 
 .article-list-item {
@@ -1885,9 +1907,34 @@ ul.article-list {
 }
 #navigation-page-header {
   background-color: #8DC3EB;
-  color: #FFF;
-	
+  color: #FFF;	
 }
+
+#sports-page-header {
+  background-color: #008D8D;
+  color: #FFF;	
+}
+
+#apps-page-header {
+  background-color: #004B7F;
+  color: #FFF;	 
+}
+
+#accounts-page-header {
+  background-color: #000;
+  color: #FFF;	 
+}
+
+#user-page-header {
+  background-color: #FDC530;
+  color: #FFF;	 
+}
+
+#learn-page-header {
+  background-color: #002E5E;
+  color: #FFF;	 
+}
+/***** End Category pages *****/
 /***** Section pages *****/
 .section-body {
   background-color: #FFF;
@@ -1902,7 +1949,14 @@ ul.article-list {
       flex-direction: row; 
   }  
 }
-
+.section-container h1 {
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .section-container h1 {
+  text-align: left;
+}
+}
 .section-content {
   flex: 1;
 }
@@ -1928,6 +1982,7 @@ ul.article-list {
 
 .section-body .article-list {
   margin-top: 0;
+  margin-bottom: 0px;
 }
 
 .section-list--collapsed .section-list-item:nth-child(1n + 6) {
@@ -1961,7 +2016,25 @@ ul.article-list {
 .see-all-sections-trigger[aria-hidden="true"] {
   display: none;
 }
+.section-article {
+  padding: 30px 0;
+}
+.section-search {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
+.section-subscribe {
+  align-self: center;
+  margin-top: 10px;
+}
+@media (min-width: 1024px) {
+ .section-subscribe {
+  align-self: flex-end;
+} 
+}
+/***** End Section pages *****/
 /***** Article *****/
 .article {
   /*
@@ -2452,73 +2525,69 @@ ul.article-list {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 70px;
-  margin-top: 20px;
   padding: 100px 0px;
-  background-image: url("$assets-goprof_gs_header-jpg");
+  background-image: url("$assets-getstartedheader-jpg");
+	background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
+
 }
 
 @media (min-width: 768px) {
   .gs-article-header {
     flex-direction: row;
     margin-top: 0;
-    height: 500px;
+    height: 700px;
   }
 }
+.gs-article-content {
+  	top: -50px;
+    position: relative;  
+}
 
+@media (min-width: 768px) {
+.gs-article-content {
+  	top: -300px;
+  }
+}
 .tt-get-started-step {
   background-color: #FFF;
   padding: 50px;  
   margin-bottom: 100px;
-}
-
-/* .tt-get-started-step-image iframe {
-  display: flex;
-  justify-content: flex-end;
-} */
-.tt-get-started-step ul {
-  list-style: none;
-}
-
-.tt-get-started-step ul li:before {
-  content: url("$assets-arrow_right_small-png");
-  display: inline-block;
+  position: relative;
 }
 
 .tt-get-started-step p:before {
-  content: url("$assets-arrow_right_small_red-png");
+  font-family: "TomTom Icons";
+  content: "\0028";
   display: inline-block;
-}
-
-.tt-get-started-step ul li {
-    display: block;
-}
-.tt-get-started-step ul li p {
-    display: inline-block;
-    width: auto;
+  color: #DF1B12;
 }
 
 h2.tt-get-started-step-title {
-    position: relative;
+    position: absolute;
     top: -100px;
-    left: 0px;
 		background-image: url("$assets-gs_number-png");
-    width: 80px;
-  	height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
     justify-content: center;
     display: flex;
     font-size: 50px;
     color: #FFF;
+    width: 120px;
+		height: 180px;
+    line-height: 150px;
 }
 
 h3.tt-get-started-step-title {
-    margin-top: -100px;
+	margin-top: 20px;
 }
 
 .gs-user-manual-block {
   margin: auto;
   background-color: #FFF;
-  width: 800px;
+  max-width: 800px;
   height: 200px;
   padding: 50px;
   display: flex;
@@ -2536,8 +2605,10 @@ h3.tt-get-started-step-title {
 /*   	margin: auto; */
 }
 .gs-user-manual-download::before {
+  font-family: "TomTom Icons";
+  color: #FFF;
   font-weight: 400px;
-  content: "^"
+  content: "\0030"
   
 }
 
@@ -2547,9 +2618,6 @@ h3.tt-get-started-step-title {
 }
 
 .gs-user-manual-img {
-  background-image: url("$assets-09-hubbit-png");
-  height: 100px;
-  width: 100px;
   background-size: cover;
 }
 #back-to-top {
@@ -2570,9 +2638,6 @@ h3.tt-get-started-step-title {
     text-transform: uppercase;
 		text-align: center;
     color: #FFF;
-		-webkit-box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
-		-moz-box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
-		box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
   }
 
 #back-to-top::before {
@@ -2604,20 +2669,10 @@ h3.tt-get-started-step-title {
   flex: 1 0 auto;
 }
 
-@media (min-width: 1024px) {
-  .ts-article, .ht-article {
-    flex: 1 0 66%;
-    max-width: 100%;
-    min-width: 640px;
-    padding: 0;
-  }
-}
 
 .ts-article-title, .ht-article-title {
   margin-top: 20px;
   color: #000;
-    }
-.ts-article-info {
 }
 
 .ts-article-body img, {
@@ -2628,43 +2683,23 @@ h3.tt-get-started-step-title {
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 768px) {
-.ts-article-content {
-  flex-direction: row;
-}
-}
 
 .ts-article-body {
     flex: 1 0 66%;
-    max-width: 66%;
-    min-width: 800px;
     padding: 0 30px;
 }
-.ts-article-extra {
-}
-.ts-article-extra iframe{
-}
-.ts-article-extra-links, .ct-article-extra-links, .ht-article-extra-links {
+
+.ts-article-extra-links, .ct-article-extra-links, .ht-article-extra-links, .article-links {
   background-color: #e5e5e5;
-  padding: 20px;
-  width: 640px;
+  padding: 10px;
   margin-top: 10px;
 }
 
 .ts-article-body h2 {
   font-family: "Gotham Bold";
-  font-size: 40px;
   display: inline-block;
 }
 
-@media (min-width: 1350px) {
-.ts-article-body h2 {
-
-  vertical-align: middle;
-  position: relative;
-  left: -2.5em;
-}
-}
 .ts-article-body h2::after {
   content: "continue";
   color: #DF1B12;
@@ -2674,14 +2709,7 @@ h3.tt-get-started-step-title {
   display: inline-block;
   vertical-align: middle;
 }
-@media (min-width: 1350px) {
-.ts-article-body h3 {
 
-  position: relative;
-  left: -3.5em;
-  top: -5px;
-  }
-}
 .ts-article-body ul, .ts-article-body ol {
   padding-left: 20px;
   list-style-position: outside;
@@ -2799,24 +2827,13 @@ h3.tt-get-started-step-title {
   .ts-sub-footer {
     display: flex;
     flex-direction: column;
+    margin-top: 30px;
 }
 .ts-sub-footer-box {
   min-width: 380px;
   width: 100%;
   padding: 50px 30px !important;
   position: relative;
-}
-@media (min-width: 1024px) {
-.ts-sub-footer {
-  min-width: 100%; 
-  flex-direction: row;  
-}
-.ts-sub-footer-box {
-  min-width: 380px;
-  width: 25%;
-  padding: 50px 30px !important;
-
-}
 }
 
 .sub-footer-arrow {
@@ -2901,10 +2918,36 @@ padding: 15px 0;
 .article-note::before  {
   margin-left: -26px;
   display: inline-block;
-  content: url("$assets-light_bulb-png");
+  content: url("$assets-light_bulb-png") !important;
   vertical-align: middle;
 }
+@media (min-width: 768px) {
+  .ts-article-body h2 { 
+     font-size: 40px; 
+  }
+}
+@media (min-width: 1024px) {
+      .ts-sub-footer {
+          min-width: 100%; 
+          flex-direction: row;  
+      }
+      .ts-sub-footer-box {
+          min-width: 380px;
+          width: 25%;
+          padding: 50px 30px !important;
 
+      }
+      .ts-article-content {
+        flex-direction: row;
+      }
+
+  		.ts-article, .ht-article {
+        flex: 1 0 66%;
+        max-width: 100%;
+        min-width: 640px;
+        padding: 0;
+  }
+}
 /***** End Troubleshooting  *****/
 /***** Content template *****/
 
@@ -2930,14 +2973,13 @@ padding: 15px 0;
   }
 }
 
-@media (min-width: 768px) {
+
   .ct-article-title {
     flex-basis: 100%;
     margin-bottom: 10px;
-    font-size: 24px;
-        /* Take entire row */
+    font-size: 20px;
+   /* Take entire row */
   }
-}
 
 .ct-article-title .icon-lock::before {
   content: "\1F512";
@@ -2965,23 +3007,30 @@ padding: 15px 0;
 }
 
 .ct-article-sub-header {
-  font-size: 55px;
+
   max-width: 650px;
   margin-bottom: 0px;
   line-height: 55px;
 }
+@media (min-width: 768px) {
+    .ct-article-sub-header { 
+      font-size: 55px;
+  }
+}
+.ct-header-block {
+  margin: 10px auto;
+  padding: 0 5%;
+}
 
 @media (min-width: 768px) {
 .ct-header-block {
+    margin: 70px auto;
     max-width:960px;
-}
-}
 
-.ct-header-block {
-  margin: 100px auto;
+}
 }
 .ct-header-description {
-  font-size: 24px; 
+  font-size: 16px; 
 }
 
 .ct-feature-block {
@@ -3016,61 +3065,79 @@ padding: 15px 0;
 
 .ct-feature-block-inner {
   padding: 20px;
-}
-
-#ct-feature-block-1 {
- margin-right: 20px;
-}
-#ct-feature-block-2 {
- margin-left: 20px;
-}
-
-#ct-feature-block-1, #ct-title-1 {
- background-color: #004B7F;
- color: #FFF;
-}
-#ct-feature-block-2, #ct-title-2 {
-  background-color: #FDC530;
   color: #000;
 }
+
+#ct-feature-block-1, #ct-feature-block-2 {
+    margin: 0;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+@media (min-width: 1024px) {
+#ct-feature-block-1 {
+     margin-right: 20px;
+     border-right: 1px solid #e5e5e5;
+     border-bottom: none;
+}
+
+#ct-feature-block-2 {
+ 		margin-left: 20px;
+  	border-bottom: none;
+}
+}
+
 @media (min-width: 1024px) {
 .ct-feature-block {
     flex-direction: row;
 }
 }
 .ct-title {
-  margin-top: 70px;
-  padding: 50px;
 	display: flex;
   flex-direction: column;
 	align-items: center;
 }
+.ct-title img {
+  display: none;
+}
 @media (min-width: 1024px) {
 .ct-title {
     flex-direction: row;
+    padding: 50px;
+}
+    .ct-title img { 
+      display: block;
 }
 }
 .ct-title h2 {
-  font-size: 55px;
   margin-bottom: 0px;
   min-width: 75%;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .ct-title h2 {
+   	font-size: 55px;   
+	  text-align: left;
+  }
 }
 
 .ct-table {
  display: flex; 
  justify-content: space-between;
 }
-.ct-table-block, .ct-option-content {
+.ct-table-block {
   text-align: center;
   background: #e5e5e5;
   width: 32%;
 }
-.ct-table-block h4, .ct-option-content h4 { 
+.ct-table-block h4, .ct-option-step h4 { 
   text-transform: uppercase;
   color: #FFF;
   background-color: #7E7A80;
   padding: 10px 0;
   margin-bottom: 0px;
+  text-align: center;
 }
 
 .ct-article-main ol {
@@ -3083,10 +3150,10 @@ padding: 15px 0;
   counter-increment: list-counter;
 
 }
+
 .ct-article-main ol li::before {
   content: counter(list-counter) " ";
-  background-color: #df1b12;
-  color: #FFF;
+  color: #df1b12;
   padding: 1px 3px;
   text-align: center;
   font-family: "gotham book";
@@ -3095,9 +3162,6 @@ padding: 15px 0;
   width: 12px !important;
 }
 
-.ct-video-block {
-  max-width: 640px;
-}
 .ct-article-extra-links {
 }
 .ct-options-list {
@@ -3108,18 +3172,18 @@ padding: 15px 0;
   margin-top: 60px;
 }
 .ct-content-footer h2 {
-  background-color: #004B7F;
+/*   background-color: #004B7F;
   padding: 20px;
   color: #fff;
   width: 40%;
   margin: auto;
-  text-align: center;
+  text-align: center; */
 }
 
 .ct-content-block-sub-title {
-  color: #8DC3EB;
-  font-family: "gotham bold";
-  text-transform: uppercase;
+   color: #666;
+/*  font-family: "gotham bold";
+  text-transform: uppercase; */
   margin-bottom: 0px;
 }
 
@@ -3127,32 +3191,44 @@ padding: 15px 0;
   display: flex;
 	justify-content: space-between;
   margin: 40px 0;
+  flex-direction: column;
+}
+@media (min-width: 1024px) {
+  .ct-content-block {
+    flex-direction: row;
+  }
 }
 
 .ct-content-block-title {
-  color: #df1b12;
-  font-size: 40px;
   margin-bottom: 0;
   line-height: 40px;
 }
+.ct-content-block-title a:after {
+		font-family: "TomTom Icons";
+  	content: '\0028';
+  	color: #DF1B12;
+    vertical-align: top;
+}
 
 .ct-content-inner-block {
-  border: solid #e5e5e5 2px;
-  max-width: 440px;
-  min-height: 620px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 0 20px;
 }
 .ct-content-block-img {
-  width: auto;
+
 }
-.ct-content-block-text {
-  padding: 20px;
+.ct-content-block-img img {
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+  
 }
 
 p.ct-content-block-description {
-  margin: 0;
+ 	 margin: 0;
 }
 
 .ct-button {
@@ -3162,10 +3238,25 @@ p.ct-content-block-description {
 
 
 .ct-option-content {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+	  display: none;
+  	border-top: none;
+}
+.ct-option-step {
+		width: 400px;
+    height: 550px;
+		display: inline-block;
+    vertical-align: top;
+  	background-color: #e5e5e5;
+  	text-align: center;
+    margin-top: 20px;
+}
+.ct-option-step p {
+		text-align: left;
+  	padding: 0 10px;
+}
+
+.ct-option-step img {
+  margin-top: 10px;
 }
 .ct-options {
   border: none;
@@ -3200,7 +3291,25 @@ p.ct-content-block-description {
   padding: 3px 13px;
 }
 
+.video-container {
+ position: relative; 
+  padding-bottom: 56.25%; 
+  height: 0; 
+  overflow: hidden; 
+  max-width: 100%; 
+} 
 
+.video-container iframe, .video-container object, .video-container embed { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+}
+
+.ct-video-block, .video-block {
+  max-width: 640px;
+}
 /***** End Content template *****/
 /*****  How To template *****/
 .ht-body {
@@ -3300,6 +3409,66 @@ p.ct-content-block-description {
   width: 50%;
 }
 /***** End How To template *****/
+/***** User Manual template *****/
+ .um-article-header {
+  padding: 20px 5px;
+}
+.um-article-info {
+  border-top: 1px #7a7e80 solid;
+}
+.um-article-info h1, .um-article-info h2, .um-article-info h3, .um-article-info h4, .um-article-info h5, .um-article-info h6, .um-article-info div p {
+    width: 90%;
+    margin: 0 auto 20px;
+ 		max-width: 1440px;
+}
+.um-sub-title {
+  color: #DF1B12;
+}
+.um-article-info table {
+  width: 100%;
+}
+.um-article-info tr {
+  border-bottom: 1px #7a7e80 solid;
+}
+
+.um-article-info th {
+	text-align: left;
+  text-transform: uppercase;
+  font-family: 'Gotham bold';
+  width: 33%;
+}
+.um-article-info td, .um-article-info th {
+	padding: 20px 0  20px 5px ;
+
+}
+
+.um-article-info td:nth-child(1){
+  font-family: 'Gotham bold';
+  font-size: 20px;
+}
+
+.um-article-info td:nth-child(2) a:after, .um-article-info td:nth-child(3) a:after {
+  content: "\0030";
+  font-family: "TomTom Icons";
+  color: #FFF;
+  background-color: #DF1B12;
+  padding: 10px;
+  margin-left: 80px;
+}
+.adobe_reader {
+  text-align: center;
+}
+@media (min-width: 1024px) {
+ .um-article-header {
+  padding: 60px 0;
+}
+.um-article-info td, .um-article-info th {
+	padding: 20px 0  20px 180px ;
+
+}
+  
+}
+/***** End User Manual template *****/
 
 /***** Comments *****/
 /* Styles comments inside articles, posts and requests */
