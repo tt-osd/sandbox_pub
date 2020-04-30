@@ -1,15 +1,6 @@
 /* PLESAE READ - There are 2 document ready functions one is below in DOMContentLoaded and there is (document).ready at the bottom if you require the whole document to load */
 
 document.addEventListener('DOMContentLoaded', function() { // **** Include all JS in this function
-  
-  
-  
-  
-  
-  
-
-  
-
 
     //general cookie functions
     //levitt 
@@ -454,206 +445,6 @@ redirectAfterLogin();
 
 
     //serial number
-  
-  
-  
-  
-  
-  /***** STRAP REQUEST FORM *******/
-  /***** STRAP REQUEST FORM *******/
-  /***** STRAP REQUEST FORM *******/
-//levitt
-//STRAP FORM
-//testing URL hc/en-gb/requests/new?ticket_form_id=360000671760 
-
-if(window.location.href.indexOf("form_id=360000671760") > -1) {	// if this is the strap form
-
-$("#new_request .form-field").addClass("required"); //add required class to attachments
-$(".datepicker").attr('required', 'true');  // make date picker required
-  
-  // This is to prefill and hide the fields on the Strap Request Form //  
-$('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
-$('.request_description').addClass("zd_Hidden"); // Hide description
-$('.request_ticket_form_id').addClass("zd_Hidden"); // Hide the Form drop down
-document .getElementById("request_custom_fields_360008860379").setAttribute("placeholder", "AB1234C56789"); //Giving example of serial number for customer 
-
-  
- 
-$('<p id="strap_form_tips_p" style="max-width: 650px"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
- 	$("#strap_form_tips_p").html($("#strap_form_tips").html());
-  
-document.getElementById("request_subject").value = "STRAP FORM 360000671760"; 	//Insert Strap form subject line	
-
-document.getElementById("request_description").value = "This is a Strap Request"; // Add value to description as it's 'required'
-
- 					
-$('.request_custom_fields_360008853500').hide(); // Hide Strap Colour	
-$('.request_custom_fields_360008853480').hide(); // Hide Strap Size	
-  
-  
-  //create a live validation form
-  
-  //disable the submit button 
-  var button = (document.getElementsByName("commit"))[0];
-  button.disabled = true;
-  // after the following validation is passed, this button will be enabled.
-  
-  // serial number input max length is 12
-  document.getElementById("request_custom_fields_360008860379").maxLength = 12;
-  // serial number input max length is 12
-  
-  //serial number allows letters and numbers only, no punctuation or special characters
-   document.getElementById("request_custom_fields_360008860379").setAttribute("pattern", "[A-Za-z0-9]+");
-  //serial number allows letters and numbers only, no punctuation or special characters
-  
-  
-  //serial number live validation
-  //set a variable for serial number validation with 0 default which means not valid yet
-var validSerialNumber=0;
-   //set a variable for serial number validation with 0 default which means not valid yet
-  
-  //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
-  function checkNums(serial_number_input){
-    //a forloop run 10 times check the 3rd to 12th characher, besides 7th, the rest should be number
-    
-   
-    for(var i=2; i<=11;i++){
-      if(i != 6){
-      var currentNum= parseInt(serial_number_input.charAt(i));
-        if(!(isNaN(currentNum) )){
-           button.disabled = false;
-         validSerialNumber=1;
-        }else{
-          validSerialNumber=0;
-          button.disabled = true;
-          break;
-        }
-      }
-    }
-    
-    
-    // when the function exected, turn the "validSerialNumber" into 1, which means the serial number is valid 
-   
-    if(validSerialNumber==1){
-      button.disabled = false;
-      
-    }else{
-       button.disabled = true;
-     
-    }
-     
-    
-  }
-  //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
-  
-  
-  
- $("#request_custom_fields_360008860379").on('input',function() {
-     var serial_number_input = (document.getElementById("request_custom_fields_360008860379").value).toString(); 
-     if((serial_number_input.length)>=2){
-          var first_digit= parseInt(serial_number_input.charAt(0));
-       
-          //var second_digit = parseInt(serial_number_input.charAt(1));
-       
-          if(isNaN(first_digit) ){
-           //when the first of serial number input is not number
-           
-            if((serial_number_input.length)>=7){
-               //when its hit the 7th character, check if its letter
-              
-               var seventh_digit= parseInt(serial_number_input.charAt(6));
-              if((isNaN(seventh_digit))){
-                //when the 7th of serial number input is not number
-                if((serial_number_input.length)==12){
-                  //here call the function to check the number part
-                  // to be implemented
-                  checkNums(serial_number_input);
-                 // console.log("validSerialNumber value " +validSerialNumber);
-                }else{
-                   button.disabled = true;
-                }
-              }
-              
-            } // end when its hit the 7th character, check if its letter
-            
-            
-           }//closing if both first two serial number input is not integer number
-      
-          }
- }); // end of serial number oninput function 
-  
-
-  
-
-  
-  /*** Front end date validation that back-end may use if they want, if not. Delete it :) ***/
-  
-//   //the function to check if the date of purchase is valid
-//   function DOP(date_string){
-//     //set today
-//      var today = new Date(); //this is current date
-//         var d = today.getDate();
-//         var m = today.getMonth(); //As January is 0.
-//         var y = today.getFullYear();
-//         today.setFullYear(y, m, d); //this is the current date
-//     //set today
-    
-//     //set user purchase date 
-//   var year= date_string.split('-')[0];
-//   var month =date_string.split('-')[1];
-//   var day= date_string.split('-')[2];  
-//     var dateOfPurchase = new Date(); //this is user input date 
-//    dateOfPurchase.setFullYear(parseInt(year), parseInt(month) - 1, day);
-//       //set user purchase date 
-    
-//     //two years valid
-//     var twoYears = new Date();
-//     twoYears.setDate(today.getDate() - 730);
-//      //two years valid
-
-//         if ((dateOfPurchase - twoYears) >= 0) {
-//           console.log("in 730 days");
-//          if ((dateOfPurchase-today)>0){
-//            console.log("future date is not accepted ");
-//          }
-                   
-//                 } else {
-//                     console.log("out of 730 days");   
-//                 }
-    
-    
-//    // console.log("date " + dateOfPurchase);
-    
-    
-//   }
-  
-//   // get the date input
-//    var date_input = $("#request_custom_fields_360008860439"). val();
-//   //call the function
-//   //DOP(date_input);
-//   //the function to check if the date of purchase is valid
-  
-  
-}// the end of if-at strap form page
-  
-  /***** END STRAP REQUEST FORM *******/
-  /***** END STRAP REQUEST FORM *******/
-  /***** END STRAP REQUEST FORM *******/
-  
-  
-  /***GOLF FORM***/
-  /***GOLF FORM***/
-  /***GOLF FORM***/
-  //testing URL hc/en-gb/requests/new?ticket_form_id=360000679879
-  if(window.location.href.indexOf("form_id=360000679879") > -1){
-    $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
-    document.getElementById("request_subject").value = "GOLF FORM 360000679879"; 	//Insert Golf form subject line
-    console.log("golf form");
-  }
-  
-  /***GOLF FORM***/
-  /***GOLF FORM***/
-  /***GOLF FORM***/
 
 
 
@@ -799,30 +590,27 @@ var validSerialNumber=0;
                               toggle.focus();
                           }
 
-  
-  /*not being used a block of code (below)*/
-                          // var burgerMenu = document.querySelector('.header .menu-button');
-                          // var userMenu = document.querySelector('#user-nav');
+                          var burgerMenu = document.querySelector('.header .menu-button');
+                          var userMenu = document.querySelector('#user-nav');
 
-                          // burgerMenu.addEventListener('click', function(e) {
-                          //     e.stopPropagation();
-                          //     toggleNavigation(this, userMenu);
-                          // });
+                          burgerMenu.addEventListener('click', function(e) {
+                              e.stopPropagation();
+                              toggleNavigation(this, userMenu);
+                          });
 
 
-                          // userMenu.addEventListener('keyup', function(e) {
-                          //     if (e.keyCode === 27) { // Escape key
-                          //         e.stopPropagation();
-                          //         closeNavigation(burgerMenu, this);
-                          //     }
-                          // });
+                          userMenu.addEventListener('keyup', function(e) {
+                              if (e.keyCode === 27) { // Escape key
+                                  e.stopPropagation();
+                                  closeNavigation(burgerMenu, this);
+                              }
+                          });
 
-                          // if (userMenu.children.length === 0) {
-                          //     burgerMenu.style.display = 'none';
-                          // }
-    /*not being used a block of code (above)*/
+                          if (userMenu.children.length === 0) {
+                              burgerMenu.style.display = 'none';
+                          }
 
-                          //Toggles expanded aria to collapsible elements
+                          // Toggles expanded aria to collapsible elements
                           var collapsible = document.querySelectorAll('.collapsible-nav, .collapsible-sidebar');
 
                           Array.prototype.forEach.call(collapsible, function(el) {
@@ -878,15 +666,6 @@ var validSerialNumber=0;
                               }
                           });
                       // Above code is zendesk 
-
-
-                        //Code for BuRMA SSO cookie creation - Start 
-  const secureKey = "N@vI5aT3";
-  if (read_cookie("tt_cp_auth") === "" && HelpCenter.user.email != null){
-      var encrypted = CryptoJS.AES.encrypt(HelpCenter.user.email, secureKey);
-      set_cookie("tt_cp_auth",encrypted,3600000);
-  }
-  //Code for BuRMA SSO cookie creation - End
   
 
  
@@ -941,24 +720,67 @@ if(window.location.href.indexOf("form_id=360000569919") > -1) {
        // title.innerHTML = "{{dc 'gdpr_request_form'}}" ;
   			  $(".form-field").addClass("zd_Hidden");
 					$(".request_custom_fields_360007572579").removeClass("zd_Hidden");
-    			//SubjectLine.value = SubjectLine.value + "GDPR FORM 360000569919"; 			
-        	//DescriptionBox.value = DescriptionBox.value + "This is a GDPR REQUEST"; 			
-  //code review: levitt
-  //update
-  SubjectLine.value ="GDPR FORM 360000569919";
-  DescriptionBox.value = "This is a GDPR REQUEST"; 
+    			SubjectLine.value = SubjectLine.value + "GDPR FORM 360000569919"; 			
+        	DescriptionBox.value = DescriptionBox.value + "This is a GDPR REQUEST"; 			
   		 	(AttachmentsFileDrop.parentElement).classList.add("zd_Hidden");
 }
 // end GDPR Form 
 
+/***** STRAP REQUEST FORM *******/
+//Amy
+
+
+// if(window.location.href.indexOf("form_id=360000671760") > -1) {  
+  		
+//   				// This is to prefill and hide the fields on the Strap Request Form //
+  
+// //   				$('<p>Use this form to request a replacement strap if your original strap has been damaged. Make sure you attach a copy of your receipt or proof of purchase so we can verify that your product is within warranty.</p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form
+//    				SubjectLine.value = SubjectLine.value + "STRAP FORM 360000671760"; 	//Insert Strap form subject line	
+// 					$('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
+//   				DescriptionBox.value = DescriptionBox.value + "This is a Strap Request"; // Add value to description as it's 'required'
+// 				  $('.request_description').addClass("zd_Hidden"); // Hide description
+//  					$('.request_ticket_form_id').addClass("zd_Hidden"); // Hide the Form drop down
+// 					document .getElementById("request_custom_fields_360008860379").setAttribute("placeholder", "AB1234C56789"); //Giving example of serial number for customer 
+//    				$('.request_custom_fields_360008853500').hide(); // Hide Strap Colour	
+//   				$('.request_custom_fields_360008853480').hide(); // Hide Strap Size	
+
+
+//           // This is to show the strap articles field if the serial number is typed correctly, if not displays an error and how to find your serial number
+//        //   $("#request_custom_fields_360008860379").change(function() { // Script will run if this field is changes
+//                //  var SerialNumber = (document.getElementById("request_custom_fields_360008860379").value).toString(); //customers input to serial number field
+// 						//	if (SerialNumber.length() >= 2) { 
+//          //        if ($("#request_custom_fields_360008860379").val() != '') { // If serial number is correct regex
+//             //          console.log('Serial Number is filled correctly');
+//                    //   $('.request_custom_fields_360008853500').show(); // Show Strap Size //display this
+//                    //   $('.request_custom_fields_360008853480').show();   // Show Strap Colour //and display this
+//                   // }  else {
+//                   //   console.log('Serial Number is filled not correctly');
+//                   // }
+//         //  }
+//        //  });
+  
 
   
+// // var SerialNumber = new RegExp(^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$);
   
   
+//   		//		This is to make sure the DOP is within the 2 years warranty and if not, display an error and not allow submit
+//          $(".datepicker").change(function() { 
+// 						console.log($("#request_custom_fields_360008860439").val());
+//           	 if ($("#request_custom_fields_360008860439").val() != "") {
+//               $("<p>This date is the given time frame!</p>").insertAfter('#request_custom_fields_360008860439');
+//              }
+//             else {
+//               $("<p>This date is outside the given time frame!</p>").insertAfter('#request_custom_fields_360008860439');
+//             }
+
+//          	});
+                                                         
+                                                         
+// }  // if checking if strap form id 360000671760
   
-  //Amy Ogborn  
+/***** END FORMS *****/ //Amy Ogborn  
 /*****  Request Pages *******/  
-  
 // GDPR Request Download page
   
   if($(".request-title:contains('360000569919')").length) {
@@ -980,15 +802,11 @@ if(window.location.href.indexOf("form_id=360000569919") > -1) {
   	    $(".ct-article-header").prependTo(".ct-header-block"); 
   	    $(".ct-article-sub-header").appendTo(".ct-header-block"); 
     	  $(".ct-header-description").appendTo(".ct-header-block"); 
-  			$("<div class='ct-button'><div class='button'>rth</div></div>").appendTo(".ct-content-inner-block");
 
   
     $('<button id="option-1" class="ct-options" data="option-1-content"><span class="radiobtn"></span>Android</button>'+
       '<button class="ct-options" data="option-2-content"><span class="radiobtn"></span>iPhone</button>'+
-      '<button class="ct-options" data="option-3-content"><span class="radiobtn"></span>Windows</button>').appendTo('.ct-options-list');
-  
-
-  
+      '<button class="ct-options" data="option-3-content"><span class="radiobtn"></span>Windows</button>').appendTo('.ct-options-list'); //adding radio options to content template
   
  
 function openSoftware(evt, softwareName) {
@@ -1055,12 +873,11 @@ function openSoftware(evt, softwareName) {
 /***** Article Satisfaction end *****/ //Amy Ogborn  
 
 /*****  Troubleshooting Template *****/ 
-  
-$('<div class="ts-article-video"></div>').prependTo(".ts-article-extra");  
-$('iframe[src*="www.youtube"]').prependTo(".ts-article-video");
+ 
+$('.video-block').prependTo(".ts-article-video");
 $('.ts-article-video-header').prependTo(".ts-article-video");
-// $('<div class="ts-article-extra-links"></div>').appendTo('.ts-article-video');
 $('.article-links').insertAfter('.ts-article-video'); 
+  
 /***** End of Troubleshooting Template *****/ //Amy Ogborn    
   
 /*****  How To Template *****/ 
@@ -1070,6 +887,14 @@ $(".ht-article-body h2").addClass("ht-contents-header");
 $(".ht-article-body").find("h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-first-block' class='ht-block'></div>"); 
 $(".ht-article-body").find("#ht-first-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-second-block' class='ht-block'></div>"); 
 $(".ht-article-body").find("#ht-second-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-third-block' class='ht-block'></div>"); 
+$(".ht-article-body").find("#ht-third-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-fourth-block' class='ht-block'></div>"); 
+$(".ht-article-body").find("#ht-fourth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-fifth-block' class='ht-block'></div>"); 
+$(".ht-article-body").find("#ht-fifth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-sixth-block' class='ht-block'></div>"); 
+$(".ht-article-body").find("#ht-sixth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-seventh-block' class='ht-block'></div>"); 
+$(".ht-article-body").find("#ht-seventh-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-eighth-block' class='ht-block'></div>"); 
+$(".ht-article-body").find("#ht-eighth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-ninth-block' class='ht-block'></div>"); 
+$(".ht-article-body").find("#ht-ninth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-tenth-block' class='ht-block'></div>"); 
+$(".ht-article-body").find("#ht-tenth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-eleventh-block' class='ht-block'></div>"); 
 $('.ht-article-body ol li').wrapInner("<div class='ht-list-text'></div>");
 $('.ht-article-body ul li').wrapInner("<div class='ht-list-text'></div>");
 $('.ht-article-body img').each(function(){
@@ -1077,18 +902,30 @@ $('.ht-article-body img').each(function(){
 }); 
 /***** End of  How To Template *****/ //Amy Ogborn  
   
-/*****  Prefill Email Widget *****/   
+/*****  Email Widget *****/   
+// Prefilling default info form forms and hide/showing fields
+// Amy Ogborn
 zESettings = {
   webWidget: {
     contactForm: {
-      fields: [
-        { id: 'name', prefill: { '*':HelpCenter.user.name } },
-        { id: 'email', prefill: { '*':HelpCenter.user.email } }
-      ]
-    }
+							fields: [
+                { id: 'name', prefill: { '*':HelpCenter.user.name }}, //prefilling username
+                { id: 'email', prefill: { '*':HelpCenter.user.email }}//prefilling email
+      								],
+      				      
+      				ticketForms: [
+                { id: 360000358360}, 
+                { id: 360000671760}, 
+                { id: 360000679879}
+              					] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
+    							}    
   }
-};                    
-
+};  
+$('iframe').load( function() {
+    $('iframe').contents().find("head")
+      .append($("<style type='text/css'>  .my-class{display:none;}  </style>"));
+});;
+    
 /*****  End Prefill Email Widget *****/   
                   
 /*****  Temp Header *****/ 
@@ -1109,33 +946,6 @@ button.onclick =  function() {
 $('<svg width="16" height="16" class="profile-icon"><path d="M2 14h12v-.012c0-.056-.11-.22-.602-.544-.62-.418-1.495-.778-2.613-1.058-1.034-.251-1.963-.374-2.785-.374-.822 0-1.75.123-2.772.371-1.131.283-2.006.643-2.64 1.07-.478.316-.588.48-.588.535V14zm6-3.988c.99 0 2.076.144 3.257.431 1.342.335 2.428.783 3.258 1.341.99.655 1.485 1.39 1.485 2.204V16H0v-2.012c0-.814.495-1.549 1.485-2.204.83-.558 1.916-1.006 3.258-1.34 1.181-.288 2.267-.432 3.257-.432zM8 6c.362 0 .672-.084.969-.26.318-.188.56-.43.747-.747a1.83 1.83 0 00.26-.969 1.96 1.96 0 00-.271-1.013 2.01 2.01 0 00-.736-.751A1.833 1.833 0 008 2a1.83 1.83 0 00-.969.26 2.01 2.01 0 00-.736.751 1.96 1.96 0 00-.271 1.013c0 .362.084.672.26.969.188.318.43.56.747.747.297.176.607.26.969.26zm0 2c-.719 0-1.381-.18-1.988-.539a4.065 4.065 0 01-1.45-1.449 3.832 3.832 0 01-.538-1.988c0-.719.18-1.39.539-2.012A4.008 4.008 0 016.012.539 3.832 3.832 0 018 0c.719 0 1.381.18 1.988.539.607.36 1.09.85 1.45 1.473a3.97 3.97 0 01.538 2.012c0 .719-.18 1.381-.539 1.988a4.065 4.065 0 01-1.449 1.45A3.845 3.845 0 018 8z" fill-rule="evenodd"></path></svg>').prependTo('.user-info > [role="button"]');   
 
 /*****  End Temp Header *****/   
-
-/*****  New request pages - product pre-select *****/ 
-function getQueryParams (queryString)
-{
-   queryString = queryString.split ('+').join (' ');
-
-   var params = {};
-   var tokens;
-   var regex = /[?&]?([^=]+)=([^&]*)/g;
-
-   while (tokens = regex.exec (queryString))
-   {
-      params[decodeURIComponent (tokens[1])] = decodeURIComponent (tokens[2]);
-   }
-
-   return params;
-}
-  var params = getQueryParams (document.location.search); 
-  if (params.product)
-  {
-   $("#request_custom_fields_360005150940").val(params.product);
-  }
-  //hide org & form option
-  $('.form-field.request_ticket_form_id').hide();
-  $('.form-field.request_organization_id').hide();
-/***** End of New request pages - product pre-select *****/ //Lorna Rickett
-  
   
   
 }); // end of document ready function

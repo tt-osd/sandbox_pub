@@ -1,16 +1,38 @@
 <!-- Start of tomtomhelp1570114826 Zendesk Widget script -->
 <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a"> </script>
 <!-- End of tomtomhelp1570114826 Zendesk Widget script -->
+
+<!-- Start of hiding email and name on webwidget -->
+<script type="text/javascript">
+    zE('webWidget:on', 'open', function() { //on click of web widget
+       var style = document.createElement('style'); //create style element
+
+          style.innerHTML = `
+
+            #Embed > div > div > div > form > div > div.sc-kaNhvL.iIpHXN > div:nth-child(1) {  
+                display: none;     
+              }
+            #Embed > div > div > div > form > div > div.sc-kaNhvL.iIpHXN > div:nth-child(2) {   
+                display: none;     
+             }
+                         `;
+
+      parent.document.getElementById('webWidget').contentDocument.head.appendChild(style);
+    });    
+</script>
+<!-- End  of hiding email and name on webwidget -->  
+
 <div class="ts-body">
     <nav class="sub-nav">
     <div class="container">
       {{breadcrumbs}}
     </div>
   </nav>
-  <div class="container">
-    <div class="article-container" id="article-container">
-      <article class="article">
-        <header class="article-header">
+ 
+    <div class="um-article-container" id="um-article-container">
+      <article class="">
+        <header class="container um-article-header">
+          <h2 class="um-sub-title">{{dc "user_manual"}}</h2>
           <h1 title="{{article.title}}" class="ts-article-title">
             {{article.title}}
             {{#if article.internal}}
@@ -18,29 +40,15 @@
             {{/if}}
           </h1>
         </header>
-    <section class="ts-article-info">
-      <div class="container">
+    <section class="um-article-info">
+      <div class="">
         <div class="article-content">
           <div class="article-body">{{article.body}}</div>
         </div>
       </div>
     </section>
 
-        <footer>
-          {{#with article}}
-            <div class="article-votes">
-              <span class="article-votes-question">{{t 'was_this_article_helpful'}}</span>
-              <div class="article-votes-controls" role='radiogroup'>
-                {{vote 'up' role='radio' class='button article-vote article-vote-up'}}
-                {{vote 'down' role='radio' class='button article-vote article-vote-down'}}
-              </div>
-              <small class="article-votes-count">
-                {{vote 'label' class='article-vote-label'}}
-              </small>
-            </div>
-          {{/with}}     
-         </footer>
       </article>
     </div>
   </div>
-</div>
+
