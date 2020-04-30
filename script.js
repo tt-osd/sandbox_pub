@@ -446,7 +446,201 @@ redirectAfterLogin();
 
     //serial number
 
+/***** STRAP REQUEST FORM *******/
+/***** STRAP REQUEST FORM *******/
+/***** STRAP REQUEST FORM *******/
+//levitt
+//STRAP FORM
+//testing URL hc/en-gb/requests/new?ticket_form_id=360000671760 
 
+if(window.location.href.indexOf("form_id=360000671760") > -1) {	// if this is the strap form
+
+$("#new_request .form-field").addClass("required"); //add required class to attachments
+$(".datepicker").attr('required', 'true');  // make date picker required
+  
+  // This is to prefill and hide the fields on the Strap Request Form //  
+$('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
+$('.request_description').addClass("zd_Hidden"); // Hide description
+$('.request_ticket_form_id').addClass("zd_Hidden"); // Hide the Form drop down
+document .getElementById("request_custom_fields_360008860379").setAttribute("placeholder", "AB1234C56789"); //Giving example of serial number for customer 
+
+  
+ 
+$('<p id="strap_form_tips_p" style="max-width: 650px"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
+ 	$("#strap_form_tips_p").html($("#strap_form_tips").html());
+  
+document.getElementById("request_subject").value = "STRAP FORM 360000671760"; 	//Insert Strap form subject line	
+
+document.getElementById("request_description").value = "This is a Strap Request"; // Add value to description as it's 'required'
+
+ 					
+$('.request_custom_fields_360008853500').hide(); // Hide Strap Colour	
+$('.request_custom_fields_360008853480').hide(); // Hide Strap Size	
+  
+  
+  //create a live validation form
+  
+  //disable the submit button 
+  var button = (document.getElementsByName("commit"))[0];
+  button.disabled = true;
+  // after the following validation is passed, this button will be enabled.
+  
+  // serial number input max length is 12
+  document.getElementById("request_custom_fields_360008860379").maxLength = 12;
+  // serial number input max length is 12
+  
+  //serial number allows letters and numbers only, no punctuation or special characters
+   document.getElementById("request_custom_fields_360008860379").setAttribute("pattern", "[A-Za-z0-9]+");
+  //serial number allows letters and numbers only, no punctuation or special characters
+  
+  
+  //serial number live validation
+  //set a variable for serial number validation with 0 default which means not valid yet
+var validSerialNumber=0;
+   //set a variable for serial number validation with 0 default which means not valid yet
+  
+  //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
+  function checkNums(serial_number_input){
+    //a forloop run 10 times check the 3rd to 12th characher, besides 7th, the rest should be number
+    
+   
+    for(var i=2; i<=11;i++){
+      if(i != 6){
+      var currentNum= parseInt(serial_number_input.charAt(i));
+        if(!(isNaN(currentNum) )){
+           button.disabled = false;
+         validSerialNumber=1;
+        }else{
+          validSerialNumber=0;
+          button.disabled = true;
+          break;
+        }
+      }
+    }
+    
+    
+    // when the function exected, turn the "validSerialNumber" into 1, which means the serial number is valid 
+   
+    if(validSerialNumber==1){
+      button.disabled = false;
+      
+    }else{
+       button.disabled = true;
+     
+    }
+     
+    
+  }
+  //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
+  
+  
+  
+ $("#request_custom_fields_360008860379").on('input',function() {
+     var serial_number_input = (document.getElementById("request_custom_fields_360008860379").value).toString(); 
+     if((serial_number_input.length)>=2){
+          var first_digit= parseInt(serial_number_input.charAt(0));
+       
+          //var second_digit = parseInt(serial_number_input.charAt(1));
+       
+          if(isNaN(first_digit) ){
+           //when the first of serial number input is not number
+           
+            if((serial_number_input.length)>=7){
+               //when its hit the 7th character, check if its letter
+              
+               var seventh_digit= parseInt(serial_number_input.charAt(6));
+              if((isNaN(seventh_digit))){
+                //when the 7th of serial number input is not number
+                if((serial_number_input.length)==12){
+                  //here call the function to check the number part
+                  // to be implemented
+                  checkNums(serial_number_input);
+                 // console.log("validSerialNumber value " +validSerialNumber);
+                }else{
+                   button.disabled = true;
+                }
+              }
+              
+            } // end when its hit the 7th character, check if its letter
+            
+            
+           }//closing if both first two serial number input is not integer number
+      
+          }
+ }); // end of serial number oninput function 
+  
+
+  
+
+  
+  /*** Front end date validation that back-end may use if they want, if not. Delete it :) ***/
+  
+//   //the function to check if the date of purchase is valid
+//   function DOP(date_string){
+//     //set today
+//      var today = new Date(); //this is current date
+//         var d = today.getDate();
+//         var m = today.getMonth(); //As January is 0.
+//         var y = today.getFullYear();
+//         today.setFullYear(y, m, d); //this is the current date
+//     //set today
+    
+//     //set user purchase date 
+//   var year= date_string.split('-')[0];
+//   var month =date_string.split('-')[1];
+//   var day= date_string.split('-')[2];  
+//     var dateOfPurchase = new Date(); //this is user input date 
+//    dateOfPurchase.setFullYear(parseInt(year), parseInt(month) - 1, day);
+//       //set user purchase date 
+    
+//     //two years valid
+//     var twoYears = new Date();
+//     twoYears.setDate(today.getDate() - 730);
+//      //two years valid
+
+//         if ((dateOfPurchase - twoYears) >= 0) {
+//           console.log("in 730 days");
+//          if ((dateOfPurchase-today)>0){
+//            console.log("future date is not accepted ");
+//          }
+                   
+//                 } else {
+//                     console.log("out of 730 days");   
+//                 }
+    
+    
+//    // console.log("date " + dateOfPurchase);
+    
+    
+//   }
+  
+//   // get the date input
+//    var date_input = $("#request_custom_fields_360008860439"). val();
+//   //call the function
+//   //DOP(date_input);
+//   //the function to check if the date of purchase is valid
+  
+  
+}// the end of if-at strap form page
+  
+  /***** END STRAP REQUEST FORM *******/
+  /***** END STRAP REQUEST FORM *******/
+  /***** END STRAP REQUEST FORM *******/
+  
+  
+  /***GOLF FORM***/
+  /***GOLF FORM***/
+  /***GOLF FORM***/
+  //testing URL hc/en-gb/requests/new?ticket_form_id=360000679879
+  if(window.location.href.indexOf("form_id=360000679879") > -1){
+    $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
+    document.getElementById("request_subject").value = "GOLF FORM 360000679879"; 	//Insert Golf form subject line
+    console.log("golf form");
+  }
+  
+  /***GOLF FORM***/
+  /***GOLF FORM***/
+  /***GOLF FORM***/
 
 
 
@@ -590,27 +784,29 @@ redirectAfterLogin();
                               toggle.focus();
                           }
 
-                          var burgerMenu = document.querySelector('.header .menu-button');
-                          var userMenu = document.querySelector('#user-nav');
+/*not being used a block of code (below)*/
+                          // var burgerMenu = document.querySelector('.header .menu-button');
+                          // var userMenu = document.querySelector('#user-nav');
 
-                          burgerMenu.addEventListener('click', function(e) {
-                              e.stopPropagation();
-                              toggleNavigation(this, userMenu);
-                          });
+                          // burgerMenu.addEventListener('click', function(e) {
+                          //     e.stopPropagation();
+                          //     toggleNavigation(this, userMenu);
+                          // });
 
 
-                          userMenu.addEventListener('keyup', function(e) {
-                              if (e.keyCode === 27) { // Escape key
-                                  e.stopPropagation();
-                                  closeNavigation(burgerMenu, this);
-                              }
-                          });
+                          // userMenu.addEventListener('keyup', function(e) {
+                          //     if (e.keyCode === 27) { // Escape key
+                          //         e.stopPropagation();
+                          //         closeNavigation(burgerMenu, this);
+                          //     }
+                          // });
 
-                          if (userMenu.children.length === 0) {
-                              burgerMenu.style.display = 'none';
-                          }
+                          // if (userMenu.children.length === 0) {
+                          //     burgerMenu.style.display = 'none';
+                          // }
+    /*not being used a block of code (above)*/
 
-                          // Toggles expanded aria to collapsible elements
+                          //Toggles expanded aria to collapsible elements
                           var collapsible = document.querySelectorAll('.collapsible-nav, .collapsible-sidebar');
 
                           Array.prototype.forEach.call(collapsible, function(el) {
@@ -667,7 +863,13 @@ redirectAfterLogin();
                           });
                       // Above code is zendesk 
   
-
+                        //Code for BuRMA SSO cookie creation - Start 
+  const secureKey = "N@vI5aT3";
+  if (read_cookie("tt_cp_auth") === "" && HelpCenter.user.email != null){
+      var encrypted = CryptoJS.AES.encrypt(HelpCenter.user.email, secureKey);
+      set_cookie("tt_cp_auth",encrypted,3600000);
+  }
+  //Code for BuRMA SSO cookie creation - End // Mrunal
  
 }); // end of js file function - put everything above this line
 
@@ -720,64 +922,17 @@ if(window.location.href.indexOf("form_id=360000569919") > -1) {
        // title.innerHTML = "{{dc 'gdpr_request_form'}}" ;
   			  $(".form-field").addClass("zd_Hidden");
 					$(".request_custom_fields_360007572579").removeClass("zd_Hidden");
-    			SubjectLine.value = SubjectLine.value + "GDPR FORM 360000569919"; 			
-        	DescriptionBox.value = DescriptionBox.value + "This is a GDPR REQUEST"; 			
+    			//SubjectLine.value = SubjectLine.value + "GDPR FORM 360000569919"; 			
+        	//DescriptionBox.value = DescriptionBox.value + "This is a GDPR REQUEST"; 			
+  //code review: levitt
+  //update
+  SubjectLine.value ="GDPR FORM 360000569919";
+  DescriptionBox.value = "This is a GDPR REQUEST"; 
   		 	(AttachmentsFileDrop.parentElement).classList.add("zd_Hidden");
 }
 // end GDPR Form 
 
-/***** STRAP REQUEST FORM *******/
-//Amy
 
-
-// if(window.location.href.indexOf("form_id=360000671760") > -1) {  
-  		
-//   				// This is to prefill and hide the fields on the Strap Request Form //
-  
-// //   				$('<p>Use this form to request a replacement strap if your original strap has been damaged. Make sure you attach a copy of your receipt or proof of purchase so we can verify that your product is within warranty.</p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form
-//    				SubjectLine.value = SubjectLine.value + "STRAP FORM 360000671760"; 	//Insert Strap form subject line	
-// 					$('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
-//   				DescriptionBox.value = DescriptionBox.value + "This is a Strap Request"; // Add value to description as it's 'required'
-// 				  $('.request_description').addClass("zd_Hidden"); // Hide description
-//  					$('.request_ticket_form_id').addClass("zd_Hidden"); // Hide the Form drop down
-// 					document .getElementById("request_custom_fields_360008860379").setAttribute("placeholder", "AB1234C56789"); //Giving example of serial number for customer 
-//    				$('.request_custom_fields_360008853500').hide(); // Hide Strap Colour	
-//   				$('.request_custom_fields_360008853480').hide(); // Hide Strap Size	
-
-
-//           // This is to show the strap articles field if the serial number is typed correctly, if not displays an error and how to find your serial number
-//        //   $("#request_custom_fields_360008860379").change(function() { // Script will run if this field is changes
-//                //  var SerialNumber = (document.getElementById("request_custom_fields_360008860379").value).toString(); //customers input to serial number field
-// 						//	if (SerialNumber.length() >= 2) { 
-//          //        if ($("#request_custom_fields_360008860379").val() != '') { // If serial number is correct regex
-//             //          console.log('Serial Number is filled correctly');
-//                    //   $('.request_custom_fields_360008853500').show(); // Show Strap Size //display this
-//                    //   $('.request_custom_fields_360008853480').show();   // Show Strap Colour //and display this
-//                   // }  else {
-//                   //   console.log('Serial Number is filled not correctly');
-//                   // }
-//         //  }
-//        //  });
-  
-
-  
-// // var SerialNumber = new RegExp(^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$);
-  
-  
-//   		//		This is to make sure the DOP is within the 2 years warranty and if not, display an error and not allow submit
-//          $(".datepicker").change(function() { 
-// 						console.log($("#request_custom_fields_360008860439").val());
-//           	 if ($("#request_custom_fields_360008860439").val() != "") {
-//               $("<p>This date is the given time frame!</p>").insertAfter('#request_custom_fields_360008860439');
-//              }
-//             else {
-//               $("<p>This date is outside the given time frame!</p>").insertAfter('#request_custom_fields_360008860439');
-//             }
-
-//          	});
-                                                         
-                                                         
-// }  // if checking if strap form id 360000671760
   
 /***** END FORMS *****/ //Amy Ogborn  
 /*****  Request Pages *******/  
@@ -921,11 +1076,7 @@ zESettings = {
     							}    
   }
 };  
-$('iframe').load( function() {
-    $('iframe').contents().find("head")
-      .append($("<style type='text/css'>  .my-class{display:none;}  </style>"));
-});;
-    
+
 /*****  End Prefill Email Widget *****/   
                   
 /*****  Temp Header *****/ 
@@ -947,6 +1098,30 @@ $('<svg width="16" height="16" class="profile-icon"><path d="M2 14h12v-.012c0-.0
 
 /*****  End Temp Header *****/   
   
-  
+/*****  New request pages - product pre-select *****/ 
+function getQueryParams (queryString)
+{
+   queryString = queryString.split ('+').join (' ');
+
+   var params = {};
+   var tokens;
+   var regex = /[?&]?([^=]+)=([^&]*)/g;
+
+   while (tokens = regex.exec (queryString))
+   {
+      params[decodeURIComponent (tokens[1])] = decodeURIComponent (tokens[2]);
+   }
+
+   return params;
+}
+  var params = getQueryParams (document.location.search); 
+  if (params.product)
+  {
+   $("#request_custom_fields_360005150940").val(params.product);
+  }
+  //hide org & form option
+  $('.form-field.request_ticket_form_id').hide();
+  $('.form-field.request_organization_id').hide();
+/***** End of New request pages - product pre-select *****/ //Lorna Rickett 
 }); // end of document ready function
 
