@@ -635,7 +635,9 @@ var validSerialNumber=0;
   if(window.location.href.indexOf("form_id=360000679879") > -1){
     $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
     document.getElementById("request_subject").value = "GOLF FORM 360000679879"; 	//Insert Golf form subject line
-    console.log("golf form");
+    $('<p id="golf_form_tips_p" style="max-width: 650px"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
+ 	$("#golf_form_tips_p").html($("#golf_form_tips").html());
+   // console.log("golf form");
   }
   
   /***GOLF FORM***/
@@ -1024,6 +1026,15 @@ function openSoftware(evt, softwareName) {
             $('.article-votes').fadeOut(200);
         }
     });
+  
+  
+  /*add on*/
+  /*when Article Satisfaction has been clicked on YES/NO hide it*/
+  $(".article-vote").click(function(){
+    $(".article-votes").addClass("zd_Hidden");
+  });
+  
+  /*add on*/
 
 /***** Article Satisfaction end *****/ //Amy Ogborn  
 
