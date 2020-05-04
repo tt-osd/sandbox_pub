@@ -2303,11 +2303,11 @@ ul.article-list {
 }
 
 .article-vote-up::before {
-  content: "\2713";
+/*   content: "\2713"; */
 }
 
 .article-vote-down::before {
-  content: "\2715";
+/*   content: "\2715"; */
 }
 
 .article-more-questions {
@@ -2761,7 +2761,7 @@ h3.tt-get-started-step-title {
     bottom: 80px;
   	margin: auto;
     cursor: pointer;
-    background-color: #4A4C4C;
+    background-color: rgba(76,76,76,0.6);
     padding: 10px 30px 20px 30px;
     border-radius: 0px;
 		font-size: 16px;
@@ -2771,10 +2771,14 @@ h3.tt-get-started-step-title {
     text-transform: uppercase;
 		text-align: center;
     color: #FFF;
-		-webkit-box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
-		-moz-box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
-		box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
+   transition: all 0.3s ease-in-out;
+  scroll-behavior: smooth;
 }
+
+.article-votes:hover {
+    background-color: rgba(76,76,76,1);
+}
+
 .article-vote {
   color: #FFF;
   border: none;
@@ -2806,7 +2810,7 @@ h3.tt-get-started-step-title {
   width: 15px;
   background-color: #FFF;
   border-radius: 50%;
-  content: "";
+/*   content: ""; */
 }
 .article-vote[aria-selected="true"]::after {
   color: #FFF !important;
@@ -2814,7 +2818,7 @@ h3.tt-get-started-step-title {
  
 
 .article-vote[aria-selected="true"]::before {
-  color: #FFF !important;
+ color: #FFF !important;
   position: absolute;
   top: 25px;
   left: 0;
@@ -2822,8 +2826,18 @@ h3.tt-get-started-step-title {
   width: 15px;
   background-color: #B1110E;
   border-radius: 50%;
-  content: "";
+/*   content: "";  */
 }
+
+@media (max-width: 600px) {
+  .article-votes{
+    right:unset;
+    bottom: 1em;
+  }
+}
+
+
+
   .ts-sub-footer {
     display: flex;
     flex-direction: column;
