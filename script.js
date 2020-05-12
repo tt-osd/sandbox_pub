@@ -635,9 +635,11 @@ var validSerialNumber=0;
   if(window.location.href.indexOf("form_id=360000679879") > -1){
     $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
     document.getElementById("request_subject").value = "GOLF FORM 360000679879"; 	//Insert Golf form subject line
+
     $('<p id="golf_form_tips_p" style="max-width: 650px"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
     $("#golf_form_tips_p").html($("#golf_form_tips").html());
   // console.log("golf form");
+
   }
   
   /***GOLF FORM***/
@@ -1029,6 +1031,7 @@ function openSoftware(evt, softwareName) {
         }
     });
 
+
     /*add on*/
   /*when Article Satisfaction has been clicked on YES/NO hide it*/
   $(".article-vote").click(function(){
@@ -1036,6 +1039,7 @@ function openSoftware(evt, softwareName) {
   });
   
   /*add on*/
+
 
 /***** Article Satisfaction end *****/ //Amy Ogborn  
 /***** Promoted Articles  *****/ 
@@ -1052,6 +1056,7 @@ $('.article-links').insertAfter('.ts-article-video');
   
 /***** End of Troubleshooting Template *****/ //Amy Ogborn    
 /*****  Get Started Template *****/ 
+
   
   $('.gs-article-header-block').click(function() {
         $('body,html').animate({
@@ -1059,6 +1064,7 @@ $('.article-links').insertAfter('.ts-article-video');
         }, 500);
     });
   
+
 /***** End of Get Started Template *****/ //Amy Ogborn
 /*****  How To Template *****/ 
   
