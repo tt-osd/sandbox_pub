@@ -635,9 +635,7 @@ var validSerialNumber=0;
   if(window.location.href.indexOf("form_id=360000679879") > -1){
     $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
     document.getElementById("request_subject").value = "GOLF FORM 360000679879"; 	//Insert Golf form subject line
-    $('<p id="golf_form_tips_p" style="max-width: 650px"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
- 	$("#golf_form_tips_p").html($("#golf_form_tips").html());
-   // console.log("golf form");
+    console.log("golf form");
   }
   
   /***GOLF FORM***/
@@ -1000,9 +998,9 @@ function openSoftware(evt, softwareName) {
   
 /*****  End Content Pages *******/  
 /***** Back to top function *****/ 
-
+    
     $(window).scroll(function() {
-        if ($(this).scrollTop() >= 600) {
+        if ($(this).scrollTop() >= 2000) {
 
             $('#back-to-top').fadeIn(200);
         } else {
@@ -1017,6 +1015,8 @@ function openSoftware(evt, softwareName) {
     });
 
 /***** End back to top *****/ //Amy Ogborn  
+  
+  
 /***** Article Satisfaction *****/ 
 
     $(window).scroll(function() {
@@ -1026,18 +1026,14 @@ function openSoftware(evt, softwareName) {
             $('.article-votes').fadeOut(200);
         }
     });
-  
-  
-  /*add on*/
-  /*when Article Satisfaction has been clicked on YES/NO hide it*/
-  $(".article-vote").click(function(){
-    $(".article-votes").addClass("zd_Hidden");
-  });
-  
-  /*add on*/
 
 /***** Article Satisfaction end *****/ //Amy Ogborn  
-
+/***** Promoted Articles  *****/ 
+      $('.close').click(function() {
+        $('.promoted-articles-box').hide();
+    });
+  
+ /***** End of Promoted Articles *****/  //Amy Ogborn
 /*****  Troubleshooting Template *****/ 
  
 $('.video-block').prependTo(".ts-article-video");
@@ -1045,27 +1041,23 @@ $('.ts-article-video-header').prependTo(".ts-article-video");
 $('.article-links').insertAfter('.ts-article-video'); 
   
 /***** End of Troubleshooting Template *****/ //Amy Ogborn    
+/*****  Get Started Template *****/ 
   
+  $('.gs-article-header-block').click(function() {
+        $('body,html').animate({
+            scrollTop: 850
+        }, 500);
+    });
+  
+/***** End of Get Started Template *****/ //Amy Ogborn
 /*****  How To Template *****/ 
   
 $('.ht-header-content').appendTo(".ht-article-header");  
-$(".ht-article-body h2").addClass("ht-contents-header");
-$(".ht-article-body").find("h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-first-block' class='ht-block'></div>"); 
-$(".ht-article-body").find("#ht-first-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-second-block' class='ht-block'></div>"); 
-$(".ht-article-body").find("#ht-second-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-third-block' class='ht-block'></div>"); 
-$(".ht-article-body").find("#ht-third-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-fourth-block' class='ht-block'></div>"); 
-$(".ht-article-body").find("#ht-fourth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-fifth-block' class='ht-block'></div>"); 
-$(".ht-article-body").find("#ht-fifth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-sixth-block' class='ht-block'></div>"); 
-$(".ht-article-body").find("#ht-sixth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-seventh-block' class='ht-block'></div>"); 
-$(".ht-article-body").find("#ht-seventh-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-eighth-block' class='ht-block'></div>"); 
-$(".ht-article-body").find("#ht-eighth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-ninth-block' class='ht-block'></div>"); 
-$(".ht-article-body").find("#ht-ninth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-tenth-block' class='ht-block'></div>"); 
-$(".ht-article-body").find("#ht-tenth-block ~ h2:first").nextUntil(".ht-contents-header").addBack().wrapAll("<div id='ht-eleventh-block' class='ht-block'></div>"); 
-$('.ht-article-body ol li').wrapInner("<div class='ht-list-text'></div>");
-$('.ht-article-body ul li').wrapInner("<div class='ht-list-text'></div>");
-$('.ht-article-body img').each(function(){
-  $(this).insertAfter($(this).parent());
-}); 
+$('.ht-article-body strong').contents().unwrap();
+
+// $('.ht-article-body img').each(function(){
+//   $(this).insertAfter($(this).parent());
+// }); 
 /***** End of  How To Template *****/ //Amy Ogborn  
   
 /*****  Email Widget *****/   
