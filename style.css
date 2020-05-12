@@ -2343,12 +2343,16 @@ ul.article-list {
 }
 
 .article-vote-up::before {
-  content: "\2713";
+
+  /* content: "\2713"; */
 }
 
 .article-vote-down::before {
-  content: "\2715";
+  /* content: "\2715"; */
+
+
 }
+
 
 .article-more-questions {
   margin: 10px 0 20px;
@@ -2620,6 +2624,7 @@ ul.article-list {
       width: 50%;
   }
 }
+
 @media (min-width: 1024px) {
 .gs-article-header-block:after {
  			color: #FFF;    
@@ -2890,10 +2895,15 @@ h3.tt-get-started-step-title {
     text-transform: uppercase;
 		text-align: center;
     color: #FFF;
-		-webkit-box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
-		-moz-box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
-		box-shadow: 5px 6px 12px -4px rgba(74,76,76,1);
+    transition: all 0.3s ease-in-out;
+    scroll-behavior: smooth;
 }
+
+.article-votes:hover {
+  background-color: rgba(76,76,76,1);
+}
+
+
 .article-vote {
   color: #FFF;
   border: none;
@@ -2925,7 +2935,8 @@ h3.tt-get-started-step-title {
   width: 15px;
   background-color: #FFF;
   border-radius: 50%;
-  content: "";
+  /* content: ""; */
+
 }
 .article-vote[aria-selected="true"]::after {
   color: #FFF !important;
@@ -2941,7 +2952,14 @@ h3.tt-get-started-step-title {
   width: 15px;
   background-color: #B1110E;
   border-radius: 50%;
-  content: "";
+  /* content: ""; */
+}
+@media (max-width: 600px) {
+  .article-votes{
+    right:unset;
+    bottom: 1em;
+  }
+
 }
   .ts-sub-footer {
     display: flex;
@@ -3547,6 +3565,7 @@ p.ct-content-block-description {
     align-items: center;
   }
 }
+
 .ht-article-body ol li a, .ht-article-body ul li a {
 		    display: contents;
 }
