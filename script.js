@@ -874,8 +874,22 @@ var validSerialNumber=0;
       set_cookie("tt_cp_auth",encrypted,3600000);
   }
   //Code for BuRMA SSO cookie creation - End // Mrunal
- 
-}); // end of js file function - put everything above this line
+  
+   /*** Redirecting untranslated articles to an existing language ****/
+  
+        var notDefaultLanguage = window.location.href.indexOf('/en-gb/') == -1;
+        var isArticle = window.location.href.indexOf('/articles/') > -1;
+        var isErrorPage = $(".error-page").length > 0;
+
+
+        if ( isArticle && notDefaultLanguage && isErrorPage ) {
+            var newURL = window.location.href.replace(/(.*\/hc\/)([\w-]+)(\/.*)/, "$1en-gb$3");
+            window.location.href =  newURL;
+        }  
+  
+   /*** End of Redirecting untranslated articles to an existing language ****/ //Amy DDA-322
+  
+}); // end of DOM js file function - put everything above this line
 
 $(document).ready(function() {  // only insert after this if you need document to be ready
   
