@@ -1093,7 +1093,7 @@ $('.ht-article-body strong').contents().unwrap();
 /*****  Email Widget *****/   
 // Prefilling default info form forms and hide/showing fields
 // Amy Ogborn
-zESettings = {
+ zESettings = {
   webWidget: {
     contactForm: {
 							fields: [
@@ -1109,6 +1109,7 @@ zESettings = {
     							}    
   }
 };  
+
 
 /*****  End Prefill Email Widget *****/   
                   
