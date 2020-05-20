@@ -1,3 +1,66 @@
+<!-- Start of tomtomhel1570114826 Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a"> </script>
+<!-- End of tomtomhelp1570114826 Zendesk Widget script -->
+
+<!-- Start of hiding email and name on webwidget -->
+<script type="text/javascript">
+zE('webWidget:on', 'open', function() { 
+if (HelpCenter.user.role=="anonymous")
+{
+      zE('webWidget', 'updateSettings', {
+              helpCenter: {
+           		   'suppress': false
+              },
+              contactForm: {
+            		  'suppress': true
+              },
+              chat: {
+          		    'suppress': true
+              },
+              talk: {
+            		  'suppress': true
+              }
+      });
+ 				 console.log('suppress ran');
+ 				  var style = document.createElement('style'); //create style element
+ 				
+          style.innerHTML = `
+  					#Embed > div > div > div.sc-gzVnrw.gXwWZI > div:nth-child(1):after {  
+                content: "{{dc 'Homepage_Login'}}";
+  							position: absolute;
+  							bottom: 20px;  							
+              }            
+                         `;
+
+      parent.document.getElementById('webWidget').contentDocument.head.appendChild(style);
+}
+
+    });  
+  
+  
+    zE('webWidget:on', 'open', function() { //on click of web widget
+  console.log('clicked the webwdiget');
+       var style = document.createElement('style'); //create style element
+  console.log('created var');
+          style.innerHTML = `
+  					#Embed > div > div > div > form > div > div.sc-fQejPQ.gWFReM > div:nth-child(1) {  
+                display: none;     
+              }
+  
+            #Embed > div > div > div > form > div > div.sc-fQejPQ.gWFReM > div:nth-child(2) {   
+                display: none;     
+             }
+                         `;
+
+      parent.document.getElementById('webWidget').contentDocument.head.appendChild(style);
+    });  
+</script>
+
+
+<!-- End  of hiding email and name on webwidget -->  
+
+
+
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="true"></script>
 <!-- Google Tag Manager -->
