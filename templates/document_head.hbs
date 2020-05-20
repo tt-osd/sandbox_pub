@@ -25,7 +25,7 @@ if (HelpCenter.user.role=="anonymous")
  				  var style = document.createElement('style'); //create style element
  				
           style.innerHTML = `
-  					#Embed > div > div > div.sc-gzVnrw.gXwWZI > div:nth-child(1):after {  
+  					#Embed div.sc-gzVnrw > div:nth-child(1):after {  
                 content: "{{dc 'Homepage_Login'}}";
   							position: absolute;
   							bottom: 20px;  							
@@ -43,11 +43,11 @@ if (HelpCenter.user.role=="anonymous")
        var style = document.createElement('style'); //create style element
   console.log('created var');
           style.innerHTML = `
-  					#Embed > div > div > div > form > div > div.sc-fQejPQ.gWFReM > div:nth-child(1) {  
+  					#Embed div.sc-jrIrqw > div:nth-child(1) {  
                 display: none;     
               }
   
-            #Embed > div > div > div > form > div > div.sc-fQejPQ.gWFReM > div:nth-child(2) {   
+            #Embed div.sc-jrIrqw > div:nth-child(2) {   
                 display: none;     
              }
                          `;
