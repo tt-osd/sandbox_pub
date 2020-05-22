@@ -49,8 +49,9 @@ function tealium(){
    // $.loadScript('//tags.tiqcdn.com/utag/tomtom/support/prod/utag.js');
     }
     //loading the script
-
+ 
     $.loadScript(tealium_script);
+    $("#tealiumScript").html(tealium_script);
     //console.log("tealium_script  "+tealium_script);
 
    });
