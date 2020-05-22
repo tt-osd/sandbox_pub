@@ -51,7 +51,7 @@ function tealium(){
     //loading the script
  
     $.loadScript(tealium_script);
-    $("#tealiumScript").html(tealium_script);
+
     //console.log("tealium_script  "+tealium_script);
 
    });
@@ -87,7 +87,7 @@ if(the_url.indexOf("categories")!= -1){
   
   
   console.log(utag_data);
- // console.log("tealium independent");
+  console.log("tealium independent");
    //tealium
     }});
 
