@@ -1,10 +1,10 @@
 {
-    "golf_from":{
+    "golf_form":{
         "sandbox":360000679879,
         "prod":123456789
 
     },
-    "strap_from":{
+    "strap_form":{
         "sandbox":360000671760,
         "prod":123456789
 
@@ -13,6 +13,19 @@
         "sandbox":360000569919,
         "prod":360000697820        
     },
+    "second_line_chat":{
+        "sandbox":360002339759,
+        "prod":360002413240        
+    },
+    "tealium":{
+        "sandbox":"//tags.tiqcdn.com/utag/tomtom/support/qa/utag.js",
+        "prod":"//tags.tiqcdn.com/utag/tomtom/support/prod/utag.js" 
+    },
+    "chat_webwidget_src":{
+        "sandbox":"https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a",
+        "prod":"https://static.zdassets.com/ekr/snippet.js?key=9ba5f34a-d620-477e-97cf-361d5d086fdc" 
+    },
+
     "example":{
         "sandbox":123,
         "prod":321        
