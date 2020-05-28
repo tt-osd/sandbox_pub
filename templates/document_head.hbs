@@ -1,72 +1,123 @@
-<!-- Start of tomtomhel1570114826 Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a"> </script>
-<!-- End of tomtomhelp1570114826 Zendesk Widget script -->
+<!--   MAP, author Amy  --> 
+   <label class="zd_Hidden" id="map_json">{{asset 'mappublic.json'}}</label>
+<!--   MAP, author Amy  --> 
 
-<!-- Start of hiding email and name on webwidget -->
+<div class="webwidgetsnippet"></div>
 <script type="text/javascript">
-zE('webWidget:on', 'open', function() { 
-if (HelpCenter.user.role=="anonymous")
-{
-      zE('webWidget', 'updateSettings', {
-              helpCenter: {
-           		   'suppress': false
-              },
-              contactForm: {
-            		  'suppress': true
-              },
-              chat: {
-          		    'suppress': true
-              },
-              talk: {
-            		  'suppress': true
-              }
-      });
- 				 console.log('suppress ran');
- 				  var style = document.createElement('style'); //create style element
- 				
-          style.innerHTML = `
-  					#Embed div.sc-gzVnrw > div:nth-child(1):after {  
-                content: "{{dc 'Homepage_Login'}}";
-  							position: absolute;
-  							bottom: 20px;  							
-              }            
-                         `;
-
-      parent.document.getElementById('webWidget').contentDocument.head.appendChild(style);
+   //load script function
+  jQuery.loadScript = function (url, callback) {
+    jQuery.ajax({
+        url: url,
+        dataType: 'script',
+        success: callback,
+        async: true
+    });
 }
+//load script function 
+  
+  
+var the_url= window.location.href;  //this is the URL value that can be used in all the functions
 
-    });  
-  
-  
-    zE('webWidget:on', 'open', function() { //on click of web widget
-  console.log('clicked the webwdiget');
-       var style = document.createElement('style'); //create style element
-  console.log('created var');
-          style.innerHTML = `
-  					#Embed div.sc-jrIrqw > div:nth-child(1) {  
-                display: none;     
-              }
-  
-            #Embed div.sc-jrIrqw > div:nth-child(2) {   
-                display: none;     
-             }
-                         `;
 
-      parent.document.getElementById('webWidget').contentDocument.head.appendChild(style);
-    });  
+var webwidget_class_hide_email = -1;   //create form id with a default value -1
+var tag_manager_container = -1;
+var webwidget_src = -1;  
+var  webwidget_class_login_message = -1; 
+
+    var id_map_data_source="https:"+$("#map_json").html();
+        
+
+ $.getJSON(id_map_data_source, function(data) {
+  
+  
+      if (the_url.indexOf("sandbox")!= -1) {
+  
+  			webwidget_src = data.webwidget_src.sandbox;
+        webwidget_class_hide_email = data.webwidget_class_hide_email.sandbox;
+  			tag_manager_container = data.tag_manager_container.sandbox;
+ 				webwidget_class_login_message = data.webwidget_class_login_message.sandbox;
+
+        		  } else {
+  			webwidget_src = data.webwidget_src.prod;
+        webwidget_class_hide_email = data.webwidget_class_hide_email.prod;
+  			tag_manager_container = data.tag_manager_container.prod;
+ 				webwidget_class_login_message = data.webwidget_class_login_message.prod;
+
+        }  
+
+          var webwidgetscript = document.createElement('script');
+          webwidgetscript.onload = function() {
+  	      };
+          webwidgetscript.id = "ze-snippet";
+          webwidgetscript.src = webwidget_src;
+          document.getElementsByClassName('webwidgetsnippet')[0].appendChild(webwidgetscript);
+					$("#ze-snippet").unwrap();
+  
+
+      	
+
+			<!-- Start of hiding email and name on webwidget -->       
+      var waitForZen = setInterval(function () {
+        if (window.$zopim === undefined || window.$zopim.livechat === undefined) {
+            return;
+        }
+
+  zE('webWidget:on', 'open', function() { 
+    
+            if (HelpCenter.user.role=="anonymous")     {
+
+                  zE('webWidget', 'updateSettings', {
+                          helpCenter: {
+                                  'suppress': false
+                          },
+                          contactForm: {
+                                  'suppress': true
+                          },
+                          chat: {
+                                  'suppress': true
+                          },
+                          talk: {
+                                  'suppress': true
+                          }
+                  });
+  										var style = document.createElement('style'); //create style element
+                             
+                      style.innerHTML = webwidget_class_login_message  + ` { content: '{{dc 'Homepage_Login'}}'; position: absolute; bottom: 20px; } `;
+            
+                  parent.document.getElementById('webWidget').contentDocument.head.appendChild(style);
+           			} //IF cust is logged out end
+             
+                });                    
+              
+              zE('webWidget:on', 'open', function() { //on click of web widget
+  										 
+       									var style = document.createElement('style'); //create style element
+							  
+          		style.innerHTML = webwidget_class_hide_email ; 			
+  
+  				
+     		      parent.document.getElementById('webWidget').contentDocument.head.appendChild(style);
+
+  
+
+    					}); 
+                  clearInterval(waitForZen);
+            			}, 100);
+					<!-- End  of hiding email and name on webwidget -->  
+  
+          <!-- Google Tag Manager -->  
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer',tag_manager_container);
+          <!-- End Google Tag Manager -->  
+  
+          }); <!-- End  of json mapping -->  
 </script>
 
-
-<!-- End  of hiding email and name on webwidget -->  
 
 
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="true"></script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5RXNHJR');</script>
-<!-- End Google Tag Manager -->
