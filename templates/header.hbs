@@ -1,77 +1,19 @@
-
-
+<!-- load Map and tealium -->
+<label class="zd_Hidden" id="tealium">{{asset 'tealium.js'}}</label>
+<label class="zd_Hidden" id="map_json">{{asset 'mappublic.json'}}</label>
 <script type="text/javascript">
-  //utage data
-   var the_url= window.location.href;
+jQuery.loadScript = function (url, callback) {
+     jQuery.ajax({
+         url: url,
+         dataType: 'script',
+         success: callback,
+         async: true
+     });
+ }
   
-  //load script function
-  jQuery.loadScript = function (url, callback) {
-    jQuery.ajax({
-        url: url,
-        dataType: 'script',
-        success: callback,
-        async: true
-    });
-}
-//load script function
-  
-  
-//loading the script
-    
-  //solution 2 
-  if (the_url.indexOf("sandbox")!= -1) {
-  
-  $.loadScript('//tags.tiqcdn.com/utag/tomtom/support/qa/utag.js', function(){
-//in sandbox
-  });
-  
-  }
-  
-  if (the_url.indexOf("sandbox")== -1) {
-  
-  $.loadScript('//tags.tiqcdn.com/utag/tomtom/support/prod/utag.js', function(){ 
-//on production
-  });
-  
-  }
-  
-  //solution 2 
-  
-  
-  
-  //loading the script
-  //
-  
-  
-   var cutter= ".tomtom.com/hc/";
-   var region_string=the_url.split(cutter)[1];
-   var region=region_string.split('/')[0];
-   var ref= document.referrer;
-   var category="";
-  
-if(the_url.indexOf("categories")!= -1){
-  var finding_category=the_url.split('/');
-  category=finding_category[finding_category.length-1];
-  }else{
-  category="unknow";
-  }
- 
-  var utag_data={
-      site_name     : "support.tomtom.com",
-      site_region  : region,
-      site_language : region,
-      page_referringURL  : ref,
-      page_name : document.title,
-  		page_id:"",
-  		page_category:category,
-  		page_type_id:"",
-  
-  };
-  
-  
-  console.log(utag_data);
-  //utag data 
-  
+<!--   run tealium function -->
+  $.loadScript('https:'+document.getElementById("tealium").innerHTML);
+
 </script>
 
 <header class="header">
