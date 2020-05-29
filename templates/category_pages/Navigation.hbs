@@ -45,25 +45,7 @@
             <a href="{{category.url}}">{{t 'empty'}}</a>
           </i>
         {{/each}}
-        {{#if promoted_articles}}
-              <section class="articles promoted-articles-box">
-                <div class="promoted_header"><h4>ANNOUNCEMENTS</h4><div class="close">X</div></div>
-                <ul class="article-list promoted-articles">
-                  {{#each promoted_articles}}
-                    <li class="promoted-articles-item">
-                        <a href="{{url}}">
-                          {{title}}
-                          {{#if internal}}
-                            <span class="icon-lock" title="{{t 'internal'}}"></span>
-                          {{/if}}
-                          <div class="button promoted-articles-button">></div>
-                        </a>
-                    </li>
-                  {{/each}}
-                </ul>
-              </section>
-            {{/if}}
-      </div>
+        </div>
     </div>
   </div>
 </div>

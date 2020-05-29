@@ -171,5 +171,29 @@ jQuery.loadScript = function (url, callback) {
       </div>
 
    <!--   Locale Pop up, author Amy  --> 
+	<!--   Promoted Articles - announcements, author Amy  --> 
+         {{#if promoted_articles}}
+              <section class="articles promoted-articles-box">
+                <div class="promoted_header"><div id="promoted-arrow" class="zd_Hidden"> </div><h4>{{dc 'announcements_title'}}</h4><div class="close">{{dc 'close_icon'}}</div></div>
+                <ul class="article-list promoted-articles" id="promoted-articles">
+                  {{#each promoted_articles}}
+                    <li class="promoted-articles-item mySlides">
+                        <a href="{{url}}">
+                          {{title}}
+                          {{#if internal}}
+                            <span class="icon-lock" title="{{t 'internal'}}"></span>
+                          {{/if}}
+                          <div class="button promoted-articles-button"></div>
+                        </a>
+                    </li>
+                  {{/each}}
+                </ul>
+               		<div id="left-arrow" onclick="plusSlides(-1)">  </div>                  
+                  <div id="right-arrow" onclick="plusSlides(1)"></div>
+              </section>
+					{{/if}}
+               
+<!--   Promoted Articles, author Amy  --> 
+  
 
   

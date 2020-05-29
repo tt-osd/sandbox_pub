@@ -111,6 +111,45 @@
 }
 /* END  TomTom Icons */
 /**** End fonts ****/
+/*** Bounce effect ***/
+
+@-webkit-keyframes bounce {
+    0%,  
+    100% {
+       -webkit-transform: translateY(0);
+    } 
+    50% {
+        -webkit-transform: translateY(-10px);
+    }
+}
+@-moz-keyframes bounce {
+    0%, 
+    100% {
+       -moz-transform: translateX(0);
+    }
+    50% {
+       -moz-transform: translateX(-10px);
+    }
+}
+@-o-keyframes bounce {
+    0%,
+    100% {
+       -o-transform: translateX(0);
+    }
+    50% {
+       -o-transform: translateX(-10px);
+    }
+}
+@keyframes bounce {
+    0%,  
+    100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+}
+/*** End Bounce effect ***/
 
 body {
   background-color: #f2f2f2;
@@ -1645,8 +1684,11 @@ margin-bottom: 300px
 .promoted-articles-box {
 		z-index: 100;
     position: fixed;
-    bottom: 30px;
+    bottom: 70px;
    	right: 30px;
+    transition-property: position, right, bottom;
+    transition-duration: 0.5s;
+ 		transition-timing-function:ease-in-out;
 }
 section.articles {
   background-color: #FFF; 
@@ -1690,13 +1732,14 @@ ul.article-list.promoted-articles a {
 .promoted-articles-item {
   flex: 1 0 auto;
 }
-li.promoted-articles-item {
+ li.promoted-articles-item {
   display: none;
 }
 
-.promoted-articles-item:first-child {
+/*.promoted-articles-item:nth-child(1){
   display: block;
 }
+ */
 li.promoted-articles-item:after {
 
 }
@@ -1735,6 +1778,71 @@ li.promoted-articles-item:after {
     display: flex;
     justify-content: center;
 }
+/***** Click through Announcements *****/
+#left-arrow {
+  position: absolute;
+  top: 120px;
+  left: 10px;
+}
+#right-arrow{
+  position: absolute;
+  top: 120px;
+  right: 10px;
+}
+#left-arrow:after {
+	font-family: "TomTom Icons";
+  content: "left";
+  position: absolute;
+  cursor: pointer;
+}
+
+#right-arrow:after {
+  font-family: "TomTom Icons";
+  content: "right";
+	cursor: pointer;
+}
+
+/***** End Click through Announcements *****/
+/***** Minimize the announcements / promoted articles *****/
+
+.minimize {
+  transition: all 0.5s ease-in-out;
+  bottom: 70px;
+  right: 0px;
+/*   height: 100px;
+  width: 30px; */
+}
+.minimize-articles {
+  display: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.minimize-header {
+  height: 300px;
+  width: 30px;
+  transition: all 0.5s ease-in-out;
+}
+.minimize-header:hover {
+  animation: bounce 2.5s infinite; 
+   -webkit-animation: bounce 2.5s infinite; 
+   -moz-animation: bounce 2.5s infinite; 
+   -o-animation: bounce 2.5s infinite; 
+}
+
+#promoted-arrow:after {
+  content: "left";
+  font-family: "TomTom Icons";
+  color: #FFF;
+  font-size: 16px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 8px;
+  left: 5px;
+  cursor: pointer;
+}
+
+/***** End Minimize the announcements / promoted articles *****/
 
 /***** Community section in homepage *****/
 .community {
@@ -2511,7 +2619,7 @@ ul.article-list {
 .share-linkedin::before {
   content: "\e900";
 }
-/***** Get Started Atricle *****/
+/***** Get Started Article *****/
 .gs-article-title {
   font-size: 34px;
 }
@@ -2593,7 +2701,7 @@ ul.article-list {
   .gs-article-header {
     flex-direction: row;
     margin-top: 0;
-    height: 85vh;
+    height: 67vh;
   }
 }
 .gs-article-content {
@@ -2652,13 +2760,18 @@ ul.article-list {
   margin-bottom: 100px;
   position: relative;
 }
+.tt-get-started-step p {
+    margin-left: 26px;
+  }
+
 
 .tt-get-started-step p:before {
-  font-family: "TomTom Icons";
-  content: "\0028";
+  content: url('$assets-arrow_head-png');
   display: inline-block;
-  color: #DF1B12;
+    margin-left: -15px;
+    margin-right: 3px;
 }
+
 
 h2.tt-get-started-step-title {
     position: absolute;
@@ -2687,6 +2800,25 @@ h2.tt-get-started-step-title {
 
 h3.tt-get-started-step-title {
 	margin-top: 20px;
+}
+
+.tt-get-started-step-text {
+  width: 60%;
+}
+
+@media (min-width: 1050px) {
+
+.tt-get-started-step-image {
+  position: absolute;
+  top: 15%;
+  right: 50px;
+}
+.multiple-images {
+  top: 55%;
+}
+.tt-get-started-step-image-caption {
+  display: block;
+}
 }
 
 .gs-user-manual-block {
@@ -3190,6 +3322,7 @@ padding: 15px 0;
 .ct-feature-block h3 {
   margin-bottom: 0px;
 }
+
 .ct-feature-block-inner-text {
   margin-top: 0px;
 }
@@ -3204,14 +3337,16 @@ padding: 15px 0;
 .ct-feature-block p {
   padding: 10px 0px;
 }
-.ct-feature-block ol li::before,  .ct-article ul li::before {
-  font-family: "TomTom Icons";
-  content: "\002B";
-  margin-right: 5px;
-}
+
 .ct-article ul li {
   list-style: none;
 }
+ .ct-feature-block ol li::before,  .ct-article ul li::before {
+  content: url('$assets-arrow_head-png');
+  display: inline-block;
+  margin-right: 15px;
+}
+
 .ct-article ul li:before .notick {
       content: none;
 }
@@ -3244,7 +3379,7 @@ padding: 15px 0;
     flex-direction: row;
 }
 }
-.ct-title {
+/* .ct-title {
 	display: flex;
   flex-direction: column;
 	align-items: center;
@@ -3257,10 +3392,9 @@ padding: 15px 0;
     flex-direction: row;
     padding: 50px;
 }
-    .ct-title img { 
-      display: block;
-}
-}
+
+} */
+
 .ct-title h2 {
   margin-bottom: 0px;
   min-width: 75%;
@@ -3272,8 +3406,14 @@ padding: 15px 0;
    	font-size: 55px;   
 	  text-align: left;
   }
+  .ct-title {
+    width: 50%;
+    margin: auto;
+  }
 }
-
+.ct-title img { 
+      display: none;
+}
 .ct-table {
  display: flex; 
  justify-content: space-between;
@@ -3290,6 +3430,26 @@ padding: 15px 0;
   padding: 10px 0;
   margin-bottom: 0px;
   text-align: center;
+}
+
+
+.ct-article-main p, .ct-article-main li {
+  color: #4a4c4c;
+}
+
+@media (min-width: 1024px) {
+.ct-article-main > div > p , .ct-article-main > div > .ct-video-block, .ct-article-main > div > .ct-options-list {
+	position: relative;
+  width: 55%;
+  left: 45%;
+}
+
+.ct-article-main > div > h3, .ct-article-main > div > h4 {
+  font-family: "noway regular";
+	position: relative;
+  width: 40%;
+  top: 60px;
+}
 }
 
 .ct-article-main ol {
@@ -3317,7 +3477,7 @@ padding: 15px 0;
 .ct-article-extra-links {
 }
 .ct-options-list {
-  display: flex;
+
 }
 
 .ct-content-footer {  
@@ -3413,34 +3573,50 @@ p.ct-content-block-description {
 .ct-options {
   border: none;
   background-color: #fff;
-  margin-left: 40px
+  padding: 5px 0;
+  cursor: pointer;
+/*   margin-left: 40px */
 }
 
-.radiobtn {
+/* .radiobtn {
   position: absolute;
   height: 22px;
   width: 22px;
   border: 2px solid #4A4C4C;
   border-radius: 50%;
-  margin-left: -40px;
-  
+  margin-left: -40px;  
+} */
+.ct-options:focus {
+  outline: none;
 }
-.ct-options::after {
+/* .ct-options::after {
  content: " | " ;
  padding: 0 10px;
 }
 .ct-options:last-child:after {
   content: '';
+} */
+.ct-options:before {
+  position: relative;
+/*   height: 22px;
+  width: 22px; */
+  border: 1px solid #e5e5e5;
+  border-radius: 50%;
+	margin-right: 10px;
+  padding: 0px 10px;
+  content:" ";
 }
 
 .ct-options.active:before {
-  position: relative;
+/*   position: relative;
   content:"";
-  left: -18px;
-  border: none;
-  background-color: #4A4C4C;
+  height: 22px;
+  width: 22px; */
+/*   left: -18px; */
+  border: 1px solid #df1b12;
+  background-color: #df1b12;
   border-radius: 50%;  
-  padding: 3px 13px;
+  padding: 0px 10px;
 }
 
 .video-container {
