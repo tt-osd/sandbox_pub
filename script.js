@@ -999,40 +999,40 @@ $(document).ready(function() {  // only insert after this if you need document t
     	  $(".ct-header-description").appendTo(".ct-header-block"); 
 
   
-        $('<button id="option-1" class="ct-options" data="option-1-content"><span class="radiobtn"></span>Android</button>'+
-        '<button class="ct-options" data="option-2-content"><span class="radiobtn"></span>iPhone</button>'+
-        '<button class="ct-options" data="option-3-content"><span class="radiobtn"></span>Windows</button>').appendTo('.ct-options-list'); //adding radio options to content template
+    $('<div id="option-1" class="ct-options" data="option-1-content"><span class="radiobtn"></span>Android</div>'+
+      '<div class="ct-options" data="option-2-content"><span class="radiobtn"></span>iPhone</div>'+
+      '<div class="ct-options" data="option-3-content"><span class="radiobtn"></span>Windows</div>').appendTo('.ct-options-list'); //adding radio options to content template
   
  
-          function openSoftware(evt, softwareName) {
-                  // Declare all variables
-                  var i, tabcontent, tablinks;
+function openSoftware(evt, softwareName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
 
-                  // Get all elements with class="tabcontent" and hide them
-                  tabcontent = document.getElementsByClassName("ct-option-content");
-                  for (i = 0; i < tabcontent.length; i++) {
-                    		tabcontent[i].style.display = "none";
-                  }
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("ct-option-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
 
-                  // Get all elements with class="tablinks" and remove the class "active"
-                  tablinks = document.getElementsByClassName("ct-options");
-                  for (i = 0; i < tablinks.length; i++) {
-                    		tablinks[i].className = tablinks[i].className.replace(" active", "");
-                  }
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("ct-options");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
 
-                  // Show the current tab, and add an "active" class to the button that opened the tab
-                  document.getElementById(softwareName).style.display = "block";
-                  evt.currentTarget.className += " active";
-          }
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(softwareName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
   
   
     $('.ct-options').on('click',function(evt){
-            // where is the software name????
-            var software=$(this).attr("data");
-
-            openSoftware(evt,software);
-
- 		 })
+    // where is the software name????
+    var software=$(this).attr("data");
+     
+    openSoftware(evt,software);
+   
+  })
   
   $("#option-1").click();
   
@@ -1078,11 +1078,63 @@ $(document).ready(function() {  // only insert after this if you need document t
 /***** Article Satisfaction end *****/ //Amy Ogborn 
   
 /***** Promoted Articles  *****/ 
-      $('.close').click(function() {
-       		 $('.promoted-articles-box').hide();
-    	});
+  	var numOfPromos = document.getElementsByClassName("mySlides");
+
+      if (numOfPromos.length === 1) {
+        $('#right-arrow').addClass("zd_Hidden");
+        $('#left-arrow').addClass("zd_Hidden");
+      } 
   
- /***** End of Promoted Articles *****/  //Amy Ogborn
+     
+      $('.close').click(function() {       //This click function is to minimize the announcements box to the side   
+
+        $('.promoted-articles-box').addClass("minimize");
+        $('ul.promoted-articles').addClass("minimize-articles");
+        $('.promoted_header').addClass("minimize-header"); 
+        $('.promoted-articles-box').removeClass("articles");
+	      $('.close').addClass("zd_Hidden");
+        $('.promoted_header h4').addClass("zd_Hidden");
+        $('#right-arrow').addClass("zd_Hidden");
+        $('#left-arrow').addClass("zd_Hidden");
+        $('div#promoted-arrow').removeClass("zd_Hidden");
+        right-arrow
+    });
+  
+    $('#promoted-arrow').click(function() {   //This click function is to reopen the announcements   
+     
+        $('.promoted-articles-box').removeClass("minimize");
+        $('ul.promoted-articles').removeClass("minimize-articles");
+        $('.promoted_header').removeClass("minimize-header"); 
+        $('.promoted-articles-box').addClass("articles");
+	      $('.close').removeClass("zd_Hidden");
+        $('.promoted_header h4').removeClass("zd_Hidden");
+        $('div#promoted-arrow').addClass("zd_Hidden");      
+       if (numOfPromos.length > 1) {
+        $('#right-arrow').removeClass("zd_Hidden");
+        $('#left-arrow').removeClass("zd_Hidden");
+      }      
+    });
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+ window.plusSlides = function (n) {
+  showSlides(slideIndex += n);
+}
+  
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none"; 
+  }
+  slides[slideIndex-1].style.display = "block"; 
+}
+  
+/***** End of Promoted Articles *****/  //Amy Ogborn
   
 /*****  Troubleshooting Template *****/ 
  
@@ -1092,12 +1144,14 @@ $(document).ready(function() {  // only insert after this if you need document t
   
 /***** End of Troubleshooting Template *****/ //Amy Ogborn    
 /*****  Get Started Template *****/ 
+
   
-    $('.gs-article-header-block').click(function() {
-          $('body,html').animate({
-              scrollTop: 850
-          }, 500);
-      });  
+  $('.gs-article-header-block').click(function() {
+        $('body,html').animate({
+            scrollTop: 850
+        }, 500);
+    });
+  
 
 /***** End of Get Started Template *****/ //Amy Ogborn
   
