@@ -1097,7 +1097,7 @@ function openSoftware(evt, softwareName) {
         $('#right-arrow').addClass("zd_Hidden");
         $('#left-arrow').addClass("zd_Hidden");
         $('div#promoted-arrow').removeClass("zd_Hidden");
-        right-arrow
+       
     });
   
     $('#promoted-arrow').click(function() {   //This click function is to reopen the announcements   
