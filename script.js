@@ -245,16 +245,99 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                                 ],
 
                         ticketForms: [
-                       
-                          { id: golf_form_ID_webwidget },
-                          { id: strap_form_ID_webwidget },
-                          { id: email_form_ID_webwidget }                        
-                         
-                                  ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
+                            // pre fill subject line 
+                                { id: strap_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'STRAP FORM '+strap_form_id }}]},
+                                { id: golf_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'GOLF FORM '+golf_form_id }}] },
+                                { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] }                        
+                                 ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
                            
               }    
             }
           };  // End of webwidget settings
+
+// web widget strap form validation
+      
+      
+var waitForZen = setInterval(function () {
+    if (window.$zopim === undefined || window.$zopim.livechat === undefined) {
+        return;
+    }  
+          
+            zE('webWidget:on', 'userEvent', function(event) {
+  
+        //user property in if statement!!!!
+          if((event.action)=="Contact Form Shown"){
+            var a = document.getElementById('webWidget');
+             var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
+             var frame_embed=frameBody.querySelector("#Embed");
+             var form=frame_embed.querySelector("form");
+            
+             //hide name and email field 
+              var email_label=form.querySelector('label[data-fieldid="email"]');
+              var email_input= form.querySelector('input[name="email"]');
+              
+              var name_label=form.querySelector('label[data-fieldid="name"]');
+              var name_input= form.querySelector('input[name="name"]');
+              
+               var subject_label=form.querySelector('label[data-fieldid="subject"]');
+              var subject_input= form.querySelector('input[name="subject"]');
+              
+              email_input.style.display = "none";
+              email_label.style.display = "none";
+              name_label.style.display = "none";
+              name_input.style.display = "none";
+              subject_label.style.display = "none";
+              subject_input.style.display = "none";
+            // end of hiding
+           
+            if((event.properties).id == strap_form_id){
+              
+             
+            var serial = form.querySelector('input[name="key:'+serial_number_eur_field_id+'"]');
+              
+             
+              
+              //find button 
+            serial.maxLength = 12;
+            serial.setAttribute("placeholder", "AB1234C56789"); 
+           serial.addEventListener("input", liveValidation);
+            function liveValidation(e) {
+              var submit_btn = form.querySelector('button[type="submit"]');
+              submit_btn.disabled= true;
+        
+         var serial_number_input = (serial.value).toString(); 
+         if((serial_number_input.length)>=2){
+           var first_digit= parseInt(serial_number_input.charAt(0));
+            if(isNaN(first_digit) ){
+              
+              var seventh_digit= parseInt(serial_number_input.charAt(6));
+               if((isNaN(seventh_digit))){
+                 if((serial_number_input.length)==12){
+                   //checkNums(serial_number_input);
+                   var valid_serial_input=0;
+                   checkNums(serial_number_input,submit_btn,valid_serial_input);
+                    
+                 }else{
+                   //not 12 yet
+                   submit_btn.disabled= true;
+                 }//end of 12 length
+               }//end of 7th character is letter
+              
+            }//end of first character is letter
+         } //end of cheking first 2 characters 
+            }//end of serial number verify function
+            }//end of strap form serial number validation
+    
+          }// end of contact form shown
+      }); //end of web widget strap form validation
+          
+          clearInterval(waitForZen);
+                    }, 100);
+          
+
+
+
+
       
 });  // end access id_map JSON
 /*****  End Prefill Email Widget *****/   
