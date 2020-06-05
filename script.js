@@ -280,17 +280,96 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                           { id: 'email', prefill: { '*':HelpCenter.user.email }}//prefilling email
                                 ],
 
-                        ticketForms: [
-                       
-                          { id: golf_form_ID_webwidget },
-                          { id: strap_form_ID_webwidget },
-                          { id: email_form_ID_webwidget }                        
-                         
-                                  ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
+                                ticketForms: [
+                                    // pre fill subject line 
+                                        { id: strap_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'STRAP FORM '+strap_form_id }}]},
+                                        { id: golf_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'GOLF FORM '+golf_form_id }}] },
+                                        { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] }                        
+                                         ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
                            
               }    
             }
           };  // End of webwidget settings
+
+
+          // web widget strap form validation
+      
+      
+var waitForZen = setInterval(function () {
+    if (window.$zopim === undefined || window.$zopim.livechat === undefined) {
+        return;
+    }  
+          
+            zE('webWidget:on', 'userEvent', function(event) {
+  
+        //user property in if statement!!!!
+          if((event.action)=="Contact Form Shown"){
+            var a = document.getElementById('webWidget');
+             var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
+             var frame_embed=frameBody.querySelector("#Embed");
+             var form=frame_embed.querySelector("form");
+            
+             //hide name and email field 
+              var email_label=form.querySelector('label[data-fieldid="email"]');
+              var email_input= form.querySelector('input[name="email"]');
+              
+              var name_label=form.querySelector('label[data-fieldid="name"]');
+              var name_input= form.querySelector('input[name="name"]');
+              
+               var subject_label=form.querySelector('label[data-fieldid="subject"]');
+              var subject_input= form.querySelector('input[name="subject"]');
+              
+              email_input.style.display = "none";
+              email_label.style.display = "none";
+              name_label.style.display = "none";
+              name_input.style.display = "none";
+              subject_label.style.display = "none";
+              subject_input.style.display = "none";
+            // end of hiding
+           
+            if((event.properties).id == strap_form_id){
+              
+             
+            var serial = form.querySelector('input[name="key:'+serial_number_eur_field_id+'"]');
+              
+             
+              
+              //find button 
+            serial.maxLength = 12;
+            serial.setAttribute("placeholder", "AB1234C56789"); 
+           serial.addEventListener("input", liveValidation);
+            function liveValidation(e) {
+              var submit_btn = form.querySelector('button[type="submit"]');
+              submit_btn.disabled= true;
+        
+         var serial_number_input = (serial.value).toString(); 
+         if((serial_number_input.length)>=2){
+           var first_digit= parseInt(serial_number_input.charAt(0));
+            if(isNaN(first_digit) ){
+              
+              var seventh_digit= parseInt(serial_number_input.charAt(6));
+               if((isNaN(seventh_digit))){
+                 if((serial_number_input.length)==12){
+                   //checkNums(serial_number_input);
+                   var valid_serial_input=0;
+                   checkNums(serial_number_input,submit_btn,valid_serial_input);
+                    
+                 }else{
+                   //not 12 yet
+                   submit_btn.disabled= true;
+                 }//end of 12 length
+               }//end of 7th character is letter
+              
+            }//end of first character is letter
+         } //end of cheking first 2 characters 
+            }//end of serial number verify function
+            }//end of strap form serial number validation
+    
+          }// end of contact form shown
+      }); //end of web widget strap form validation
+          
+          clearInterval(waitForZen);
+                    }, 100);
       
 });  // end access id_map JSON
 /*****  End Prefill Email Widget *****/   
@@ -316,45 +395,73 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
 
 
     function set_cookie(name, value, time) {
-        var CookieDate = new Date();
-        var today = new Date();
-
-        CookieDate.setTime(today.getTime() + time);
-        document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; expires=' + CookieDate.toGMTString() + ';';
-    };
-
-
-       //DDA386 SSO login redirect 
+        //this is a  function which can set cookie with our without time 
+      //when time==0, set a function cookie without expire time
+        if(time==0){
+        document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; ';
+      }else{
+         var CookieDate = new Date();
+          var today = new Date();
   
-  //call this function when user trigger the login function
+          CookieDate.setTime(today.getTime() + time);
+          document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; expires=' + CookieDate.toGMTString() + ';';
+      }
+      };
+
+
+       ////SSO cookie 
+  
+  //this function is creating a function cookie called "sso" to remember user current URL
   // read_cookie() and set_cookie() function is pre created. 
   function createSSOcookie(){
     if (read_cookie("sso") === ""){  
-   var current_url= window.location.href;
-   var encode_current_url=encodeURIComponent(current_url);
-   set_cookie("sso",encode_current_url,60000);
-  }
-}
-
-//call this function after user login and being automatically redirected to homepage by zendesk 
-//read cookie function is pre created
-function redirectAfterLogin(){
-  var sso_encoded=read_cookie("sso");
-  if (sso_encoded != ""){
-   var sso_decode=decodeURIComponent(sso_encoded);
-    window.location.href = sso_decode;
-   } 
-}
+    var current_url= window.location.href;
+    var encode_current_url=encodeURIComponent(current_url);
+    set_cookie("sso",encode_current_url,0);
+    //setCookie, 3rd parameter is 0 means no expire time, this is a function cookie
+   }
+ };
+    
+   //this function remove "sso" cookie by passing cookie name "sso" through parametre 
+   function removeCookie(name){
+     if((read_cookie("sso") != "")){
+        set_cookie(name, '', -1);
+        }
+   };
+   
  
-
-//two dummy buttons to test the functions
-/* $("#sso_cookie").click(function(){
-createSSOcookie();
-});
-
- $("#sso_redirect").click(function(){
-redirectAfterLogin();
-});*/
+ 
+ //this function will redirect user to the URL which stored in "sso" function cookie 
+ //read cookie function is pre created
+ function redirectAccordingSSO_cookie(){
+   var sso_encoded=read_cookie("sso");
+   if ((sso_encoded != "")&&(HelpCenter.user.role !="anonymous")){
+    var sso_decode=decodeURIComponent(sso_encoded);
+     window.location.href = sso_decode;
+     removeCookie("sso");
+    }else{
+      console.log("redirectAccordingSSO_cookie fc is called but there is no sso cookie");
+    }
+ };
+  
+ 
+   $(".login").click(function(){
+     if (HelpCenter.user.role=="anonymous"){
+       //when user started login, the user roll should be anonymous 
+       //call the function createSSOcookie
+       createSSOcookie();
+     }   
+   });
+   
+ redirectAccordingSSO_cookie();  
+ if(HelpCenter.user.role=="anonymous"){
+   removeCookie("sso");
+ }
+   
+ 
+   
+ 
+  //SSO cookie end
 
 //DDA386 SSO login redirect 
 
