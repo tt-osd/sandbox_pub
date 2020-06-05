@@ -280,48 +280,73 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
 
 
     function set_cookie(name, value, time) {
-        var CookieDate = new Date();
-        var today = new Date();
-
-        CookieDate.setTime(today.getTime() + time);
-        document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; expires=' + CookieDate.toGMTString() + ';';
-    };
-
-
-       //DDA386 SSO login redirect 
+        //this is a  function which can set cookie with our without time 
+      //when time==0, set a function cookie without expire time
+        if(time==0){
+        document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; ';
+      }else{
+         var CookieDate = new Date();
+          var today = new Date();
   
-  //call this function when user trigger the login function
+          CookieDate.setTime(today.getTime() + time);
+          document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; expires=' + CookieDate.toGMTString() + ';';
+      }
+      };
+
+
+       ////SSO cookie 
+  
+  //this function is creating a function cookie called "sso" to remember user current URL
   // read_cookie() and set_cookie() function is pre created. 
   function createSSOcookie(){
     if (read_cookie("sso") === ""){  
-   var current_url= window.location.href;
-   var encode_current_url=encodeURIComponent(current_url);
-   set_cookie("sso",encode_current_url,60000);
-  }
-}
-
-//call this function after user login and being automatically redirected to homepage by zendesk 
-//read cookie function is pre created
-function redirectAfterLogin(){
-  var sso_encoded=read_cookie("sso");
-  if (sso_encoded != ""){
-   var sso_decode=decodeURIComponent(sso_encoded);
-    window.location.href = sso_decode;
-   } 
-}
+    var current_url= window.location.href;
+    var encode_current_url=encodeURIComponent(current_url);
+    set_cookie("sso",encode_current_url,0);
+    //setCookie, 3rd parameter is 0 means no expire time, this is a function cookie
+   }
+ };
+    
+   //this function remove "sso" cookie by passing cookie name "sso" through parametre 
+   function removeCookie(name){
+     if((read_cookie("sso") != "")){
+        set_cookie(name, '', -1);
+        }
+   };
+   
  
-
-//two dummy buttons to test the functions
-/* $("#sso_cookie").click(function(){
-createSSOcookie();
-});
-
- $("#sso_redirect").click(function(){
-redirectAfterLogin();
-});*/
-
-//DDA386 SSO login redirect 
-
+ 
+ //this function will redirect user to the URL which stored in "sso" function cookie 
+ //read cookie function is pre created
+ function redirectAccordingSSO_cookie(){
+   var sso_encoded=read_cookie("sso");
+   if ((sso_encoded != "")&&(HelpCenter.user.role !="anonymous")){
+    var sso_decode=decodeURIComponent(sso_encoded);
+     window.location.href = sso_decode;
+     removeCookie("sso");
+    }else{
+      console.log("redirectAccordingSSO_cookie fc is called but there is no sso cookie");
+    }
+ };
+  
+ 
+   $(".login").click(function(){
+     if (HelpCenter.user.role=="anonymous"){
+       //when user started login, the user roll should be anonymous 
+       //call the function createSSOcookie
+       createSSOcookie();
+     }   
+   });
+   
+ redirectAccordingSSO_cookie();  
+ if(HelpCenter.user.role=="anonymous"){
+   removeCookie("sso");
+ }
+   
+ 
+   
+ 
+  //SSO cookie end
 
 
     function ga_tracking(event_category, event_action, event_label) {
