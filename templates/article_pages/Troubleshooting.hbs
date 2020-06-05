@@ -1,3 +1,4 @@
+{{#each article.labels}}<label class="zd_Hidden" id="labels">{{identifier}}</label>{{/each}}
 <div class="ts-body" id="Troubleshooting">
     <nav class="sub-nav">
     <div class="container">
@@ -40,56 +41,69 @@
               </small>
             </div>
           {{/with}}     
-          
-                  <div class="ts-sub-footer">
-                     <div class="ts-sub-footer-box ts-sub-footer-related-faqs article-relatives">
-                          {{#if settings.show_related_articles}}
-                            {{related_articles}}
-                          {{/if}}
-                  	 </div>
-                <div class="ts-sub-footer-box ts-sub-footer-bongo">
-                      			<h3 class="ts-sub-footer-title">{{dc 'bongo_header'}}</h3>
-                    <div class="sub-footer-inner-box">
-                      	<div class="ts-sub-footer-text">
-                        		<p>{{dc 'bongo_subheader'}}</p>
-                       			<img src="{{dc 'subfooter_-_bongo_image'}}" alt="Bongo the Digital Assistant" height="150" width="150">
+          <div class="ts-sub-footer-wrapper">
+                    <h2>{{dc 'subfooter_-_title'}}</h2>
+							<div class="ts-sub-footer">
+
+                     <div class="ts-sub-footer-box ts-sub-footer-related-faqs">
+                         <img src="{{dc 'subfooter_-_user_manual_image'}}" alt="">
+                      <div class="sub-footer-inner-box">	 
+                       <h3 class="ts-sub-footer-title">{{dc 'subfooter_user_manual_header'}}</h3>
+                            <div class="ts-sub-footer-text">
+                        		<p>{{dc 'subfooter_user_manual_subheader'}}</p>                       			
                     		</div>
-                        <div class="sub-footer-arrow">
-                          <a href="{{dc 'subfooter_-_bongo_link'}}">
-                            <div class="button">></div>
+                       <div class="sub-footer-arrow">
+                       	 <a href="{{dc 'subfooter_user_manual_link'}}">
+                            <div class="sub-footer-button">{{dc 'subfooter_-_user_manual_link_text'}}</div>
                           </a>
-                        </div>
-                    </div>  
-                  </div>
-                <div class="ts-sub-footer-box ts-sub-footer-videos">
-                  		<h3 class="ts-sub-footer-title">{{dc 'support_video_header'}}</h3>
-                    <div class="sub-footer-inner-box">
-                      	<div class="ts-sub-footer-text">
-                                <p>{{dc 'support_video_subheader'}}</p>
-                                <img src="{{dc 'subfooter_-_video_image'}}" alt="TomTom Support Videos" height="150" width="150">
-                       	</div>
-                        <div class="sub-footer-arrow">
-                          	<a href="{{dc 'subfooter_-_video_link'}}">
-                            <div class="button">></div>
-                            </a>
-                        </div>
+                          </div>
+                       </div>
                   	 </div>
-                </div>
-                <div class="ts-sub-footer-box ts-sub-footer-community">
-                 		 <h3 class="ts-sub-footer-title">{{dc 'community_header'}}</h3>
-                    <div class="sub-footer-inner-box">
-                         <div class="ts-sub-footer-text">
-                            <p>{{dc 'community_subheader'}}</p>
-                            <img src=" {{dc 'subfooter_-_community_image'}}" alt="TomTom Community" height="150" width="150">
-                        </div>
-                    </div>
-                        <div class="sub-footer-arrow">
-                          	<a href="{{dc 'community_link'}}">
-                            <div class="button">></div>
-                            </a>
-                        </div>
-                  </div>                  
-                </div>
+      <div class="ts-sub-footer-box ts-sub-footer-bongo">
+        <img src="{{dc 'subfooter_-_bongo_image'}}" alt="Bongo the Digital Assistant">
+          <div class="sub-footer-inner-box">          
+       			 <h3 class="ts-sub-footer-title">{{dc 'bongo_header'}}</h3>
+                  <div class="ts-sub-footer-text">
+                  <p>{{dc 'bongo_subheader'}}</p>                       			
+              </div>
+              <div class="sub-footer-arrow">
+                <a href="{{dc 'subfooter_-_bongo_link'}}">
+                  <div class="sub-footer-button">{{dc 'subfooter_-_bongo_link_text'}}</div>
+                </a>
+              </div>
+          </div>  
+        </div>
+      <div class="ts-sub-footer-box ts-sub-footer-videos">
+          <img src="{{dc 'subfooter_-_video_image'}}" alt="TomTom Support Videos">
+      		  <div class="sub-footer-inner-box">    
+    			    <h3 class="ts-sub-footer-title">{{dc 'support_video_header'}}</h3>
+                     <div class="ts-sub-footer-text">
+                      <p>{{dc 'support_video_subheader'}}</p>                              
+              </div>
+              <div class="sub-footer-arrow">
+                  <a href="{{dc 'subfooter_-_video_link'}}">
+                  <div class="sub-footer-button">{{dc 'subfooter_-_video_link_text'}}</div>
+                  </a>
+              </div>
+           </div>
+      </div>
+      <div class="ts-sub-footer-box ts-sub-footer-community">
+                  <img src=" {{dc 'subfooter_-_community_image'}}" alt="TomTom Community">
+     							   <div class="sub-footer-inner-box">  
+     							   <h3 class="ts-sub-footer-title">{{dc 'community_header'}}</h3>
+               <div class="ts-sub-footer-text">
+                  <p>{{dc 'community_subheader'}}</p>                    
+              </div>
+          </div>
+              <div class="sub-footer-arrow">
+                  <a href="{{dc 'community_link'}}">
+                  <div class="sub-footer-button">{{dc'subfooter_-_community_link_text'}}</div>
+                  </a>
+              </div>
+        </div>                  
+</div>
+          </div>     
+          
          </footer>
       </article>
     </div>

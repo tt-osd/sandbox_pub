@@ -1,52 +1,32 @@
-<section class="section hero">
-  <div class="hero-inner">
-    <h1>{{dc 'homepage_welcome'}}</h1>
-    <p>{{dc 'homepage_tagline'}}</p>
-    {{search submit=false instant=settings.instant_search class='search search-full' placeholder='Type keyword'}}
-        {{#if signed_in}}
-<!--         		<p><a class="login hero_login" data-auth-action="signin" role="" rel="nofollow" title="Opens a dialogue" href="/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb&amp;locale=en-gb">{{dc 'homepage_login'}}</a></p> -->
-				{{else}}
-        		<p><a class="login hero_login" data-auth-action="signin" role="" rel="nofollow" title="Opens a dialogue" href="/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-					gb&amp;locale=en-gb">{{dc 'homepage_login'}}</a></p>
-        {{/if}}
-    <p><a class="search_link" href="{{dc 'find_serial_number_link'}}">{{dc 'find_serial_number'}}</a> </p>
-  </div>
-
-
-</section>
-
-
-
 <div class="home_container">
-  <section class="section knowledge-base" id="home-section">
-    <h2>{{dc 'homepage_category_block_title'}}</h2>
+<!-- <section class="section knowledge-base" id="home-section"> -->
+<!--     <h2>{{dc 'homepage_category_block_title'}}</h2> -->
     <section class="categories blocks">
-      <ul class="blocks-list">
+      <div class="tile-grid">
+        <div class="tile-grid__groups">
+      <ul class="tile-grid__group">
+        <li class="blocks-item-home blocks-item tile-grid-group__tile" id="">
+                     <section class="">
+                 			 <div class="homepage-title">
+                    			<h1>{{dc 'homepage_welcome'}}</h1>
+                  	  		<p>{{dc 'homepage_tagline'}}</p>
+                 	   						{{search submit=false instant=settings.instant_search class='search search-full' placeholder='Type keyword'}}
+                        						{{#if signed_in}}
+                        						{{else}}
+<!-- <p><a class="login hero_login" data-auth-action="signin" role="" rel="nofollow" title="Opens a dialogue" href="/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-					gb&amp;locale=en-gb">{{dc 'homepage_login'}}</a></p> -->
+                        						{{/if}}
+                										<!--     <p><a class="search_link" href="{{dc 'find_serial_number_link'}}">{{dc 'find_serial_number'}}</a> </p> -->
+                  				</div>
+                				</section>
+        </li>
         {{#each categories}}
           {{#if ../has_multiple_categories}}
-            <li class="blocks-item">
+            <li class="blocks-item tile-grid-group__tile" id="blocks-item-{{id}}">
               <a href='{{url}}' class="blocks-item-link">       
-                <img class="category-icon" src="
-                                                {{#contains url '360002347259'}}  
-                                                {{asset 'navigation-devices.png'}}
-                                                {{/contains}}
-                                                {{#contains url '360002347279'}}  
-                                                {{asset 'apps.png'}}
-                                                {{/contains}}
-                                                {{#contains url '360002323840'}}  
-                                                {{asset 'sports.png'}}
-                                                {{/contains}}
-                                                {{#contains url '360002415879'}}   
-                                                {{asset 'accounts-orders.png'}}
-                                                {{/contains}}
-                                                {{#contains url '360002396000'}}  
-                                                {{asset 'user-manuals.png'}}
-                                                {{/contains}}
-                                                {{#contains url '360002415859'}}
-                                                {{asset 'learn-more.png'}}
-                                                {{/contains}}
-                                                ">                
+<!--                 <img class="category-icon" src="{{asset 'apps.png'}}">                 -->
                 <h4 class="blocks-item-title">{{name}}</h4>
-<!--                 <p class="blocks-item-description">{{excerpt description}}</p> -->
+ 						    <p class="blocks-item-description">{{excerpt description}}</p>
+                <div class="button"></div>
               </a>
             </li>
           {{else}}
@@ -57,15 +37,18 @@
                     {{name}}
                   </h4>
                   <p class="blocks-item-description">{{excerpt description}}</p>
+                  
                 </a>
               </li>
             {{/each}}
           {{/if}}
         {{/each}}
       </ul>
+      </div>
+    </div>
       {{pagination}}
     </section>
 
 
-  </section>
+<!--   </section> -->
 </div>

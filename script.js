@@ -55,9 +55,10 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
     var AttachmentsFileDrop = document.getElementById("upload-dropzone");
     var title = document.getElementsByTagName("h1")[0];
     /*hard coded ID*/
-    var GDPROption= document.getElementsByClassName("request_custom_fields_" + gdpr_reason_field_id);
+    var GDPROption = document.getElementsByClassName("request_custom_fields_" + gdpr_reason_field_id);
     /*hard coded ID*/
     function isLetter(str) {      return str.length === 1 && str.match(/[a-z]/i);    }    
+       
       
             //orgainse the form IDs 
             //Golf form
@@ -72,7 +73,8 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
 //testing URL hc/en-gb/requests/new?ticket_form_id=360000671760 
       
 if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the strap form
-  							
+  							   	var strap_page_title = document.getElementById("strap_page_title").innerHTML; 
+                    document.title = strap_page_title;
 
                     $("#new_request .form-field").addClass("required"); //add required class to attachments
                     $(".datepicker").attr('required', 'true');  // make date picker required
@@ -86,8 +88,8 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                     $('<p id="strap_form_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
                          $("#strap_form_tips_p").html($("#strap_form_tips").html());
 
-  									SubjectLine.value ="STRAP FORM "+strap_form_id; //Insert Strap form subject line	
- 										DescriptionBox.value = "This is a Strap Request"; // Add value to description as it's 'required'
+  									SubjectLine.value = strap_page_title + " " + strap_form_id; //Insert Strap form subject line	
+ 										DescriptionBox.value = strap_page_title; // Add value to description as it's 'required'
 
                       //create a live validation form
 
@@ -187,37 +189,71 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
 											/***GDPR FORM***/
       
                       else if (window.location.href.indexOf(gdpr_form_ID_checker) > -1) {
-                         
+                        
+                      var GDPR_page_title = document.getElementById("GDPR_page_title").innerHTML; 
+                    	document.title = GDPR_page_title;
+
+                       
                    
                       //testing URL hc/en-gb/requests/new?ticket_form_id=360000569919
 
                              // title.innerHTML = "{{dc 'gdpr_request_form'}}" ;
                                 $(".form-field").addClass("zd_Hidden");
                                 $(".request_custom_fields_" + gdpr_reason_field_id).removeClass("zd_Hidden");
-                                //SubjectLine.value = SubjectLine.value + "GDPR FORM 360000569919"; 			
-                                //DescriptionBox.value = DescriptionBox.value + "This is a GDPR REQUEST"; 			
+                              
                         //code review: levitt
                      
                         //update
-                        SubjectLine.value ="GDPR FORM "+gdpr_form_id;
-                        DescriptionBox.value = "This is a GDPR REQUEST"; 
+                        SubjectLine.value = GDPR_page_title + " " + gdpr_form_id;
+                        DescriptionBox.value = GDPR_page_title; 
                         (AttachmentsFileDrop.parentElement).classList.add("zd_Hidden");
-                        /***GDPR FORM***/
-                      	} else {
-                          /*** End of GDPR FORM***/
+                        /*** End ofGDPR FORM***/
+                      	}   else if (window.location.href.indexOf(email_form_id) > -1) { 
+                            /*** Email FORM***/
+                          var email_page_title = document.getElementById("email_page_title").innerHTML; 
+                          document.title = email_page_title; 
+                          /*** Email FORM***/
+                        } else {
+                        
                           /***GOLF FORM***/
 													//testing URL hc/en-gb/requests/new?ticket_form_id=360000679879
   
                           if (window.location.href.indexOf(golf_form_ID_checker) > -1){
+                      var golf_page_title = document.getElementById("golf_page_title").innerHTML; 
+                    	document.title = golf_page_title; 
                                    $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
-                           					SubjectLine.value = "GOLF FORM "+golf_form_id;
+                           					SubjectLine.value = golf_page_title + " " + golf_form_id;
                                     $('<p id="golf_form_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
                                     $("#golf_form_tips_p").html($("#golf_form_tips").html());                                               
                             
                                  /*** End of GOLF FORM ***/
                              } // end of if golf form 
                         	} //end of if-else-if statement for all the forms}
-  					   } // end the current page is a form page 
+
+  					   } // end the current page is a form page         
+         								 if(the_url.indexOf("/requests/") > -1){  
+                           	var request_title = document.getElementsByClassName("request-title")[0].innerText;
+                           console.log(request_title);
+                           /*****  Request Pages *******/  
+                              // GDPR Request Download page
+       											  if (request_title.indexOf(gdpr_form_id) >= 0) {                          
+                                $(".comment-form").addClass("zd_Hidden");
+                                $(".my-activities-nav").addClass("zd_Hidden");
+                                $(".breadcrumbs").addClass("zd_Hidden");
+                                $(".request-details").addClass("zd_Hidden");                              
+                                $(".request-attachments").addClass("ts-request-attachments");   
+                                $(".attachments").addClass("download-button");   
+                              } else if (request_title.indexOf(golf_form_id) >= 0) {
+                                   console.log(request_title);
+                                $('<div class="comment" id="golf_thank_you"></div>').prependTo('.request-main');
+                                $("#golf_thank_you").html($("#golf_thank_you_dc").html());
+                              }
+                         } /*****  End Request Pages *******/  
+//   if($(".request-title:contains('360000569919')").length) {
+
+//   };
+
+
 
 
   
@@ -245,103 +281,20 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                                 ],
 
                         ticketForms: [
-                            // pre fill subject line 
-                                { id: strap_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'STRAP FORM '+strap_form_id }}]},
-                                { id: golf_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'GOLF FORM '+golf_form_id }}] },
-                                { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] }                        
-                                 ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
+                       
+                          { id: golf_form_ID_webwidget },
+                          { id: strap_form_ID_webwidget },
+                          { id: email_form_ID_webwidget }                        
+                         
+                                  ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
                            
               }    
             }
           };  // End of webwidget settings
-
-// web widget strap form validation
-      
-      
-var waitForZen = setInterval(function () {
-    if (window.$zopim === undefined || window.$zopim.livechat === undefined) {
-        return;
-    }  
-          
-            zE('webWidget:on', 'userEvent', function(event) {
-  
-        //user property in if statement!!!!
-          if((event.action)=="Contact Form Shown"){
-            var a = document.getElementById('webWidget');
-             var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
-             var frame_embed=frameBody.querySelector("#Embed");
-             var form=frame_embed.querySelector("form");
-            
-             //hide name and email field 
-              var email_label=form.querySelector('label[data-fieldid="email"]');
-              var email_input= form.querySelector('input[name="email"]');
-              
-              var name_label=form.querySelector('label[data-fieldid="name"]');
-              var name_input= form.querySelector('input[name="name"]');
-              
-               var subject_label=form.querySelector('label[data-fieldid="subject"]');
-              var subject_input= form.querySelector('input[name="subject"]');
-              
-              email_input.style.display = "none";
-              email_label.style.display = "none";
-              name_label.style.display = "none";
-              name_input.style.display = "none";
-              subject_label.style.display = "none";
-              subject_input.style.display = "none";
-            // end of hiding
-           
-            if((event.properties).id == strap_form_id){
-              
-             
-            var serial = form.querySelector('input[name="key:'+serial_number_eur_field_id+'"]');
-              
-             
-              
-              //find button 
-            serial.maxLength = 12;
-            serial.setAttribute("placeholder", "AB1234C56789"); 
-           serial.addEventListener("input", liveValidation);
-            function liveValidation(e) {
-              var submit_btn = form.querySelector('button[type="submit"]');
-              submit_btn.disabled= true;
-        
-         var serial_number_input = (serial.value).toString(); 
-         if((serial_number_input.length)>=2){
-           var first_digit= parseInt(serial_number_input.charAt(0));
-            if(isNaN(first_digit) ){
-              
-              var seventh_digit= parseInt(serial_number_input.charAt(6));
-               if((isNaN(seventh_digit))){
-                 if((serial_number_input.length)==12){
-                   //checkNums(serial_number_input);
-                   var valid_serial_input=0;
-                   checkNums(serial_number_input,submit_btn,valid_serial_input);
-                    
-                 }else{
-                   //not 12 yet
-                   submit_btn.disabled= true;
-                 }//end of 12 length
-               }//end of 7th character is letter
-              
-            }//end of first character is letter
-         } //end of cheking first 2 characters 
-            }//end of serial number verify function
-            }//end of strap form serial number validation
-    
-          }// end of contact form shown
-      }); //end of web widget strap form validation
-          
-          clearInterval(waitForZen);
-                    }, 100);
-          
-
-
-
-
       
 });  // end access id_map JSON
 /*****  End Prefill Email Widget *****/   
-  
+
 
     //general cookie functions
     //levitt 
@@ -363,73 +316,48 @@ var waitForZen = setInterval(function () {
 
 
     function set_cookie(name, value, time) {
-        //this is a  function which can set cookie with our without time 
-      //when time==0, set a function cookie without expire time
-        if(time==0){
-        document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; ';
-      }else{
-         var CookieDate = new Date();
-          var today = new Date();
-  
-          CookieDate.setTime(today.getTime() + time);
-          document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; expires=' + CookieDate.toGMTString() + ';';
-      }
-      };
+        var CookieDate = new Date();
+        var today = new Date();
+
+        CookieDate.setTime(today.getTime() + time);
+        document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; expires=' + CookieDate.toGMTString() + ';';
+    };
 
 
-       ////SSO cookie 
+       //DDA386 SSO login redirect 
   
-  //this function is creating a function cookie called "sso" to remember user current URL
+  //call this function when user trigger the login function
   // read_cookie() and set_cookie() function is pre created. 
   function createSSOcookie(){
     if (read_cookie("sso") === ""){  
-    var current_url= window.location.href;
-    var encode_current_url=encodeURIComponent(current_url);
-    set_cookie("sso",encode_current_url,0);
-    //setCookie, 3rd parameter is 0 means no expire time, this is a function cookie
-   }
- };
-    
-   //this function remove "sso" cookie by passing cookie name "sso" through parametre 
-   function removeCookie(name){
-     if((read_cookie("sso") != "")){
-        set_cookie(name, '', -1);
-        }
-   };
-   
+   var current_url= window.location.href;
+   var encode_current_url=encodeURIComponent(current_url);
+   set_cookie("sso",encode_current_url,60000);
+  }
+}
+
+//call this function after user login and being automatically redirected to homepage by zendesk 
+//read cookie function is pre created
+function redirectAfterLogin(){
+  var sso_encoded=read_cookie("sso");
+  if (sso_encoded != ""){
+   var sso_decode=decodeURIComponent(sso_encoded);
+    window.location.href = sso_decode;
+   } 
+}
  
- 
- //this function will redirect user to the URL which stored in "sso" function cookie 
- //read cookie function is pre created
- function redirectAccordingSSO_cookie(){
-   var sso_encoded=read_cookie("sso");
-   if ((sso_encoded != "")&&(HelpCenter.user.role !="anonymous")){
-    var sso_decode=decodeURIComponent(sso_encoded);
-     window.location.href = sso_decode;
-     removeCookie("sso");
-    }else{
-      console.log("redirectAccordingSSO_cookie fc is called but there is no sso cookie");
-    }
- };
-  
- 
-   $(".login").click(function(){
-     if (HelpCenter.user.role=="anonymous"){
-       //when user started login, the user roll should be anonymous 
-       //call the function createSSOcookie
-       createSSOcookie();
-     }   
-   });
-   
- redirectAccordingSSO_cookie();  
- if(HelpCenter.user.role=="anonymous"){
-   removeCookie("sso");
- }
-   
- 
-   
- 
-  //SSO cookie end
+
+//two dummy buttons to test the functions
+/* $("#sso_cookie").click(function(){
+createSSOcookie();
+});
+
+ $("#sso_redirect").click(function(){
+redirectAfterLogin();
+});*/
+
+//DDA386 SSO login redirect 
+
 
 
     function ga_tracking(event_category, event_action, event_label) {
@@ -1083,23 +1011,7 @@ $(document).ready(function() {  // only insert after this if you need document t
 // End 
 /***** END FORMS *****/ //Amy Ogborn  
   
-/*****  Request Pages *******/  
-// GDPR Request Download page
-  
-  if($(".request-title:contains('360000569919')").length) {
 
-  	    $(".request-title").addClass("zd_Hidden");
-    	  $(".request-main").addClass("zd_Hidden");
-    	  $(".my-activities-nav").addClass("zd_Hidden");
-      	$(".breadcrumbs").addClass("zd_Hidden");
-        $(".request-details").addClass("zd_Hidden");
-        $(".request-attachments").removeClass("zd_Hidden");   
-        $(".request-attachments").addClass("ts-request-attachments");   
-        $(".attachments").addClass("download-button");   
-  };
-
-
-/*****  End Request Pages *******/  
 /*****  Content Pages *******/  
   	    $("<div class='ct-header-block'></div>").prependTo(".ct-article"); 
   	    $(".ct-article-header").prependTo(".ct-header-block"); 
@@ -1222,8 +1134,8 @@ function openSoftware(evt, softwareName) {
         $('#left-arrow').removeClass("zd_Hidden");
       }      
     });
-
-if (numOfPromos.length > 0 ) {
+  
+if (numOfPromos.length > 0 ) {  
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -1231,7 +1143,7 @@ showSlides(slideIndex);
  window.plusSlides = function (n) {
   showSlides(slideIndex += n);
 }
-  
+
 
 function showSlides(n) {
   var i;
@@ -1244,7 +1156,6 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block"; 
 }
 }
-  
 /***** End of Promoted Articles *****/  //Amy Ogborn
   
 /*****  Troubleshooting Template *****/ 
@@ -1291,7 +1202,7 @@ function showSlides(n) {
         };
 
 				//Add the profile icon to the header
-$('<svg width="16" height="16" class="profile-icon"><path d="M2 14h12v-.012c0-.056-.11-.22-.602-.544-.62-.418-1.495-.778-2.613-1.058-1.034-.251-1.963-.374-2.785-.374-.822 0-1.75.123-2.772.371-1.131.283-2.006.643-2.64 1.07-.478.316-.588.48-.588.535V14zm6-3.988c.99 0 2.076.144 3.257.431 1.342.335 2.428.783 3.258 1.341.99.655 1.485 1.39 1.485 2.204V16H0v-2.012c0-.814.495-1.549 1.485-2.204.83-.558 1.916-1.006 3.258-1.34 1.181-.288 2.267-.432 3.257-.432zM8 6c.362 0 .672-.084.969-.26.318-.188.56-.43.747-.747a1.83 1.83 0 00.26-.969 1.96 1.96 0 00-.271-1.013 2.01 2.01 0 00-.736-.751A1.833 1.833 0 008 2a1.83 1.83 0 00-.969.26 2.01 2.01 0 00-.736.751 1.96 1.96 0 00-.271 1.013c0 .362.084.672.26.969.188.318.43.56.747.747.297.176.607.26.969.26zm0 2c-.719 0-1.381-.18-1.988-.539a4.065 4.065 0 01-1.45-1.449 3.832 3.832 0 01-.538-1.988c0-.719.18-1.39.539-2.012A4.008 4.008 0 016.012.539 3.832 3.832 0 018 0c.719 0 1.381.18 1.988.539.607.36 1.09.85 1.45 1.473a3.97 3.97 0 01.538 2.012c0 .719-.18 1.381-.539 1.988a4.065 4.065 0 01-1.449 1.45A3.845 3.845 0 018 8z" fill-rule="evenodd"></path></svg>').prependTo('.user-info > [role="button"]');   
+        $('<svg width="16" height="16" class="profile-icon"><path d="M2 14h12v-.012c0-.056-.11-.22-.602-.544-.62-.418-1.495-.778-2.613-1.058-1.034-.251-1.963-.374-2.785-.374-.822 0-1.75.123-2.772.371-1.131.283-2.006.643-2.64 1.07-.478.316-.588.48-.588.535V14zm6-3.988c.99 0 2.076.144 3.257.431 1.342.335 2.428.783 3.258 1.341.99.655 1.485 1.39 1.485 2.204V16H0v-2.012c0-.814.495-1.549 1.485-2.204.83-.558 1.916-1.006 3.258-1.34 1.181-.288 2.267-.432 3.257-.432zM8 6c.362 0 .672-.084.969-.26.318-.188.56-.43.747-.747a1.83 1.83 0 00.26-.969 1.96 1.96 0 00-.271-1.013 2.01 2.01 0 00-.736-.751A1.833 1.833 0 008 2a1.83 1.83 0 00-.969.26 2.01 2.01 0 00-.736.751 1.96 1.96 0 00-.271 1.013c0 .362.084.672.26.969.188.318.43.56.747.747.297.176.607.26.969.26zm0 2c-.719 0-1.381-.18-1.988-.539a4.065 4.065 0 01-1.45-1.449 3.832 3.832 0 01-.538-1.988c0-.719.18-1.39.539-2.012A4.008 4.008 0 016.012.539 3.832 3.832 0 018 0c.719 0 1.381.18 1.988.539.607.36 1.09.85 1.45 1.473a3.97 3.97 0 01.538 2.012c0 .719-.18 1.381-.539 1.988a4.065 4.065 0 01-1.449 1.45A3.845 3.845 0 018 8z" fill-rule="evenodd"></path></svg>').prependTo('.user-info > [role="button"]');   
 
 /*****  End Temp Header *****/   // Amy
 
