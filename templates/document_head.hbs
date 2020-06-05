@@ -89,18 +89,7 @@ var  webwidget_class_login_message = -1;
              
                 });                    
               
-              zE('webWidget:on', 'open', function() { //on click of web widget
-  										 
-       									var style = document.createElement('style'); //create style element
-							  
-          		style.innerHTML = webwidget_class_hide_email ; 			
-  
-  				
-     		      parent.document.getElementById('webWidget').contentDocument.head.appendChild(style);
-
-  
-
-    					}); 
+       
                   clearInterval(waitForZen);
             			}, 100);
 					<!-- End  of hiding email and name on webwidget -->  
