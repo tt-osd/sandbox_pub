@@ -51,6 +51,14 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
       
      if(the_url.indexOf("ticket_form_id")!= -1){     //the current page is a form page 
      
+         //form only available for logged in user
+      
+       if(HelpCenter.user.role =="anonymous"){
+        $(".container").addClass("zd_Hidden");
+         $(".login")[0].click();
+       }
+       //form only available for logged in user
+       
      
     //create general variables of form elements, easy to manage 
     var SubjectLine = document.getElementById("request_subject"); 
