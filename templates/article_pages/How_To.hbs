@@ -86,7 +86,20 @@
               </div>
         </div>                  
 </div>
-          </div>   
+          </div>  
+
+           {{#with article}}
+            <div class="article-votes">
+              <div class="article-votes-question">{{dc 'article_satisfaction'}}</div>
+              <div class="article-votes-controls" role='radiogroup'>
+                {{vote 'up' role='radio' class='article-vote article-vote-up'}} |
+                {{vote 'down' role='radio' class='article-vote article-vote-down'}}
+              </div>
+              <small class="article-votes-count">
+                {{vote 'label' class='article-vote-label'}}
+              </small>
+            </div>
+          {{/with}}      
          </footer>
     </article>
   </div>

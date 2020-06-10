@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
           email_form_id=data.email_form_id.prod;
           serial_number_eur_field_id=data.serial_number_eur_field_id.prod;
           gdpr_reason_field_id=data.gdpr_reason_field_id.prod;   
-          golfer_section_id=data.golfer_section_id.sandbox;  
+          golfer_section_id=data.golfer_section_id.prod;  
           }//end of get form/fields ID
       
      if(the_url.indexOf("ticket_form_id")!= -1){     //the current page is a form page 
@@ -237,7 +237,7 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
       
          								 if(the_url.indexOf("/requests/") > -1){  
                            	var request_title = document.getElementsByClassName("request-title")[0].innerText;
-                           console.log(request_title);
+                        
                            /*****  Request Pages *******/  
                               // GDPR Request Download page
        											  if (request_title.indexOf(gdpr_form_id) >= 0) {                          
@@ -248,7 +248,7 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                                 $(".request-attachments").addClass("ts-request-attachments");   
                                 $(".attachments").addClass("download-button");   
                               } else if (request_title.indexOf(golf_form_id) >= 0) {
-                                   console.log(request_title);
+                          
                                 $('<div class="comment" id="golf_thank_you"></div>').prependTo('.request-main');
                                 $("#golf_thank_you").html($("#golf_thank_you_dc").html());
                               }
@@ -1286,14 +1286,13 @@ function showSlides(n) {
  
           var theLabels = document.getElementsByClassName("labels");
           if (theLabels.length > 0 ) {  
-                console.log("look at me I have labels!");
-                console.log(theLabels); 
+         
                 var i;          
                 for (i = 0; i < theLabels.length; i++) {
                     var colorthese = theLabels[i].innerText;
-                    console.log(colorthese);
+                   
                     if ($('.ts-article-title').html().indexOf(colorthese) != -1){
-                      				console.log("the title contains " + colorthese);
+                      			
                             $(".ts-article-title:contains("+colorthese+")").html(function(_, html) {
                                 return html.replace(colorthese, '<span class="ts-red">'+colorthese+'</span>');
                           });
