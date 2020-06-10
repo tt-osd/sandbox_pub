@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
       var email_form_id= -1;
   		var serial_number_eur_field_id = -1;
   		var gdpr_reason_field_id = -1;
+      var golfer_section_id = -1;
   //create form id with a default value -1
       
       // declare varliables inside map json
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
           email_form_id=data.email_form_id.sandbox;
         	serial_number_eur_field_id=data.serial_number_eur_field_id.sandbox;
           gdpr_reason_field_id=data.gdpr_reason_field_id.sandbox;   
+       		golfer_section_id=data.golfer_section_id.sandbox;  
         		  } else {
             
            //form id get the production id value
@@ -44,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
           email_form_id=data.email_form_id.prod;
           serial_number_eur_field_id=data.serial_number_eur_field_id.prod;
           gdpr_reason_field_id=data.gdpr_reason_field_id.prod;   
+          golfer_section_id=data.golfer_section_id.sandbox;  
           }//end of get form/fields ID
       
      if(the_url.indexOf("ticket_form_id")!= -1){     //the current page is a form page 
@@ -230,7 +233,8 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                              } // end of if golf form 
                         	} //end of if-else-if statement for all the forms}
 
-  					   } // end the current page is a form page         
+  					   } // end the current page is a form page   
+      
          								 if(the_url.indexOf("/requests/") > -1){  
                            	var request_title = document.getElementsByClassName("request-title")[0].innerText;
                            console.log(request_title);
@@ -252,9 +256,9 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
 //   if($(".request-title:contains('360000569919')").length) {
 
 //   };
-
-
-
+      if (window.location.href.indexOf(golfer_section_id) > -1){
+         document.getElementById("golf_form_block").style.display = "flex";     
+   		 }
 
   
 /*****  Email Widget *****/   
@@ -282,12 +286,21 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
 
                                 ticketForms: [
                                     // pre fill subject line 
-                                        { id: strap_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'STRAP FORM '+strap_form_id }}]},
-                                        { id: golf_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'GOLF FORM '+golf_form_id }}] },
+                                      //  { id: strap_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'STRAP FORM '+strap_form_id }}]},
+                                      //  { id: golf_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'GOLF FORM '+golf_form_id }}] },
                                         { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] }                        
                                          ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
                            
-              }    
+              },  
+               color: {
+                          theme: '#008D8D',
+                          launcher: '#008D8D', // This will also update the badge
+                          launcherText: '#FFF',
+                          button: '#004B7F',
+                          resultLists: '#000',
+                          header: '#008D8D',
+                          articleLinks: '#DF1B12'
+                      }
             }
           };  // End of webwidget settings
 
@@ -1269,7 +1282,25 @@ function showSlides(n) {
  
         $('.video-block').prependTo(".ts-article-video");
         $('.ts-article-video-header').prependTo(".ts-article-video");
-        $('.article-links').insertAfter('.ts-article-video'); 
+        $('.article-links').insertAfter('.ts-article-video');
+ 
+          var theLabels = document.getElementsByClassName("labels");
+          if (theLabels.length > 0 ) {  
+                console.log("look at me I have labels!");
+                console.log(theLabels); 
+                var i;          
+                for (i = 0; i < theLabels.length; i++) {
+                    var colorthese = theLabels[i].innerText;
+                    console.log(colorthese);
+                    if ($('.ts-article-title').html().indexOf(colorthese) != -1){
+                      				console.log("the title contains " + colorthese);
+                            $(".ts-article-title:contains("+colorthese+")").html(function(_, html) {
+                                return html.replace(colorthese, '<span class="ts-red">'+colorthese+'</span>');
+                          });
+                    }             
+                  }
+            }
+  
   
 /***** End of Troubleshooting Template *****/ //Amy Ogborn    
 /*****  Get Started Template *****/ 

@@ -1,5 +1,5 @@
-{{#each article.labels}}<label class="zd_Hidden" id="labels">{{identifier}}</label>{{/each}}
 <div class="ts-body" id="Troubleshooting">
+  {{#each article.labels}}<label class="zd_Hidden labels">{{identifier}}</label>{{/each}}
     <nav class="sub-nav">
     <div class="container">
       {{breadcrumbs}}
@@ -45,20 +45,20 @@
                     <h2>{{dc 'subfooter_-_title'}}</h2>
 							<div class="ts-sub-footer">
 
-                     <div class="ts-sub-footer-box ts-sub-footer-related-faqs">
-                         <img src="{{dc 'subfooter_-_user_manual_image'}}" alt="">
-                      <div class="sub-footer-inner-box">	 
-                       <h3 class="ts-sub-footer-title">{{dc 'subfooter_user_manual_header'}}</h3>
-                            <div class="ts-sub-footer-text">
-                        		<p>{{dc 'subfooter_user_manual_subheader'}}</p>                       			
-                    		</div>
-                       <div class="sub-footer-arrow">
-                       	 <a href="{{dc 'subfooter_user_manual_link'}}">
-                            <div class="sub-footer-button">{{dc 'subfooter_-_user_manual_link_text'}}</div>
-                          </a>
-                          </div>
-                       </div>
-                  	 </div>
+       <div class="ts-sub-footer-box ts-sub-footer-related-faqs">
+           <img src="{{dc 'subfooter_-_user_manual_image'}}" alt="">
+        <div class="sub-footer-inner-box">	 
+         <h3 class="ts-sub-footer-title">{{dc 'subfooter_user_manual_header'}}</h3>
+              <div class="ts-sub-footer-text">
+              <p>{{dc 'subfooter_user_manual_subheader'}}</p>                       			
+          </div>
+         <div class="sub-footer-arrow">
+           <a href="{{dc 'subfooter_user_manual_link'}}">
+              <div class="sub-footer-button">{{dc 'subfooter_-_user_manual_link_text'}}</div>
+            </a>
+            </div>
+         </div>
+       </div>
       <div class="ts-sub-footer-box ts-sub-footer-bongo">
         <img src="{{dc 'subfooter_-_bongo_image'}}" alt="Bongo the Digital Assistant">
           <div class="sub-footer-inner-box">          
