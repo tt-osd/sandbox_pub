@@ -2370,6 +2370,50 @@ ul.article-list {
   align-self: flex-end;
 } 
 }
+
+.form_block {
+  margin: auto;
+  background-color: #FFF;
+  max-width: 800px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+}
+
+#golf_form_block {
+  display: none;
+}
+
+.form_link_title {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.form_img {
+  display: none;
+  background-size: cover;
+}
+@media (min-width: 764px) {
+  .form_img {
+	  display: block;    
+  }
+}
+.form_img img {
+ width: 100px;
+}
+.form_text,  .form_link{
+  padding: 20px;
+  margin: auto;
+}
+.form_link {
+    font-family: "gotham book";
+		font-size: 12px;
+/*   	margin: auto; */
+}
+.form_link::before {
+  font-family: "TomTom Icons";
+  content: "\0028";  
+  color: #FFF;
+}
 /***** End Section pages *****/
 /***** Article *****/
 .article {
@@ -3017,7 +3061,8 @@ h3.tt-get-started-step-title {
   padding: 50px;
   display: flex;
   align-items: center;
-  margin-bottom: 70px;
+  margin-top: 20px;
+  margin-bottom: 60px;
 }
 
 .gs-user-manual-text,  .gs-user-manual-download {
@@ -3033,8 +3078,7 @@ h3.tt-get-started-step-title {
   font-family: "TomTom Icons";
   color: #FFF;
   font-weight: 400px;
-  content: "\0030"
-  
+  content: "\0030"  
 }
 
 .gs-user-manual-title, .gs-user-manual-description {
@@ -3108,6 +3152,9 @@ h3.tt-get-started-step-title {
   .ts-article-title, .ht-article-title {
     font-size: 45px;
   }
+}
+.ts-red {
+  color: #DF1B12;
 }
 .ts-article-body img, {
   height: auto;
