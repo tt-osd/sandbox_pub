@@ -22,35 +22,98 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
       var email_form_id= -1;
   		var serial_number_eur_field_id = -1;
   		var gdpr_reason_field_id = -1;
-      var golfer_section_id = -1;
-  //create form id with a default value -1
+      var golfer_section_id = -1; 
+      var nav_cat_id="";
+      var spts_cat_id="";
+      var apps_cat_id="";
+      var userManualsReleaseInfo_cat_id="";
+      var tthome_section_id="";
+      var vanilla_sso_server = -1;
+      var vanilla_redirect_url = -1;
+       //create form id with a default value -1
+
+        //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
+ function checkNums(serial_number_input,submit_button,validSerialNumber){
+    //a forloop run 10 times check the 3rd to 12th characher, besides 7th, the rest should be number
+
+
+    for(var i=2; i<=11;i++){
+      if(i != 6){
+      var currentNum= parseInt(serial_number_input.charAt(i));
+        if(!(isNaN(currentNum) )){
+            submit_button.disabled = false;
+         validSerialNumber=1;
+        }else{
+          validSerialNumber=0;
+          submit_button.disabled = true;
+          break;
+        }
+      }
+    }
+
+
+    // when the function exected, turn the "validSerialNumber" into 1, which means the serial number is valid 
+
+    if(validSerialNumber==1){
+        submit_button.disabled = false;
+
+    }else{
+        submit_button.disabled = true;
+    }
+
+
+  };
+  //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
+
       
       // declare varliables inside map json
       
       if (the_url.indexOf("sandbox")!= -1) {
          
          //form id get the sandbox id value
-          golf_form_id=data.golf_form_id.sandbox;
-          strap_form_id=data.strap_form_id.sandbox;
-          gdpr_form_id=data.gdpr_form_id.sandbox;
-          email_form_id=data.email_form_id.sandbox;
-        	serial_number_eur_field_id=data.serial_number_eur_field_id.sandbox;
-          gdpr_reason_field_id=data.gdpr_reason_field_id.sandbox;   
-       		golfer_section_id=data.golfer_section_id.sandbox;  
+           golf_form_id=data.golf_form_id.sandbox;
+           strap_form_id=data.strap_form_id.sandbox;
+           gdpr_form_id=data.gdpr_form_id.sandbox;
+           email_form_id=data.email_form_id.sandbox;
+           serial_number_eur_field_id=data.serial_number_eur_field_id.sandbox;
+           gdpr_reason_field_id=data.gdpr_reason_field_id.sandbox;   
+           golfer_section_id=data.golfer_section_id.sandbox; 
+           nav_cat_id=data.naviagtion_category_id.sandbox;
+           spts_cat_id=data.sports_category_id.sandbox;
+           apps_cat_id=data.apps_category_id.sandbox;
+           userManualsReleaseInfo_cat_id=data.user_manual_release_info_category_id.sandbox;
+  				 tthome_section_id=data.tthome_section_id.sandbox; 
+       		 vanilla_redirect_url=data.vanilla_redirect_url.sandbox; 
+        	 vanilla_sso_server=data.vanilla_sso_server.sandbox; 
         		  } else {
             
            //form id get the production id value
-          golf_form_id=data.golf_form_id.prod;
-          strap_form_id=data.strap_form_id.prod;
-          gdpr_form_id=data.gdpr_form_id.prod;
-          email_form_id=data.email_form_id.prod;
-          serial_number_eur_field_id=data.serial_number_eur_field_id.prod;
-          gdpr_reason_field_id=data.gdpr_reason_field_id.prod;   
-          golfer_section_id=data.golfer_section_id.prod;  
+            golf_form_id=data.golf_form_id.prod;
+            strap_form_id=data.strap_form_id.prod;
+            gdpr_form_id=data.gdpr_form_id.prod;
+            email_form_id=data.email_form_id.prod;
+            serial_number_eur_field_id=data.serial_number_eur_field_id.prod;
+            gdpr_reason_field_id=data.gdpr_reason_field_id.prod;   
+            golfer_section_id=data.golfer_section_id.prod; 
+            nav_cat_id=data.naviagtion_category_id.prod;
+            spts_cat_id=data.sports_category_id.prod;
+            apps_cat_id=data.apps_category_id.prod;
+            userManualsReleaseInfo_cat_id=data.user_manual_release_info_category_id.prod;
+            tthome_section_id=data.tthome_section_id.prod; 
+            vanilla_redirect_url=data.vanilla_redirect_url.prod; 
+            vanilla_sso_server=data.vanilla_sso_server.prod; 
           }//end of get form/fields ID
       
      if(the_url.indexOf("ticket_form_id")!= -1){     //the current page is a form page 
      
+         //form only available for logged in user
+      
+       if(HelpCenter.user.role =="anonymous"){
+        $(".container").addClass("zd_Hidden");
+         $(".login")[0].click();
+       }
+       //form only available for logged in user
+       
      
     //create general variables of form elements, easy to manage 
     var SubjectLine = document.getElementById("request_subject"); 
@@ -115,40 +178,6 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                     var validSerialNumber=0;
                        //set a variable for serial number validation with 0 default which means not valid yet
 
-                      //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
-                      function checkNums(serial_number_input){
-                        //a forloop run 10 times check the 3rd to 12th characher, besides 7th, the rest should be number
-
-
-                        for(var i=2; i<=11;i++){
-                          if(i != 6){
-                          var currentNum= parseInt(serial_number_input.charAt(i));
-                            if(!(isNaN(currentNum) )){
-                               button.disabled = false;
-                             validSerialNumber=1;
-                            }else{
-                              validSerialNumber=0;
-                              button.disabled = true;
-                              break;
-                            }
-                          }
-                        }
-
-
-                        // when the function exected, turn the "validSerialNumber" into 1, which means the serial number is valid 
-
-                        if(validSerialNumber==1){
-                          button.disabled = false;
-
-                        }else{
-                           button.disabled = true;
-
-                        }
-
-
-                      }
-                      //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
-
 
 
                      $("#request_custom_fields_" + serial_number_eur_field_id).on('input',function() {
@@ -170,7 +199,7 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                                     if((serial_number_input.length)==12){
                                       //here call the function to check the number part
                                       // to be implemented
-                                      checkNums(serial_number_input);
+                                      checkNums(serial_number_input,button,validSerialNumber);
                                     
                                     }else{
                                        button.disabled = true;
@@ -258,7 +287,68 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
 //   };
       if (window.location.href.indexOf(golfer_section_id) > -1){
          document.getElementById("golf_form_block").style.display = "flex";     
-   		 }
+            }
+            
+
+//prepare chat tag data
+  
+
+var chat_tag="prd_npr";  
+if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
+
+  chat_tag="prd_nav";
+
+}else if((the_url.indexOf("articles")!= -1) || (the_url.indexOf("sections")!= -1)){
+  //articles or sections page
+    var bread=document.querySelector('ol[class="breadcrumbs"]');
+    var category_from_breadcrumb=bread.getElementsByTagName('li')[1];
+    var anchor=((category_from_breadcrumb.getElementsByTagName('a'))[0]).href;
+   if((anchor.indexOf(nav_cat_id)!= -1)){
+     chat_tag="prd_nav";
+   }else if((anchor.indexOf(spts_cat_id)!= -1)){
+     chat_tag="prd_spts";
+   }else if((anchor.indexOf(apps_cat_id)!= -1)){
+     chat_tag="prd_apps";
+   }else if((anchor.indexOf(userManualsReleaseInfo_cat_id)!= -1)){
+     chat_tag="prd_nav";
+   }else{}
+  
+  
+  //when on the article or section page, there is a 3rd element on breadcrumb
+  //if this 3rd one is TOMTOM home, then chat tag is prd_auto
+  var tomtomHOME_from_breadcrumb=bread.getElementsByTagName('li')[2];
+  var TT_HOME_anchor=((tomtomHOME_from_breadcrumb.getElementsByTagName('a'))[0]).href;
+  if(TT_HOME_anchor.indexOf(tthome_section_id)!= -1){
+   chat_tag="prd_auto";
+  }
+  
+  
+}else if((the_url.indexOf(spts_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
+  //sports category page 
+  chat_tag="prd_spts";
+
+}else if((the_url.indexOf(apps_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
+  //Apps category page 
+  chat_tag="prd_apps";
+    
+}else if((the_url.indexOf(userManualsReleaseInfo_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
+ //User-Manuals-Release-Info category page 
+  chat_tag="prd_nav";
+ 
+}else if((the_url.includes("/contributions"))||(the_url.includes("/following"))||(the_url.includes("/requests"))||(the_url.includes("/profiles"))){
+  
+   chat_tag="prd_npr";
+}else{
+  chat_tag="prd_nav"; 
+}
+
+ console.log("chat_tag "+chat_tag);
+ //chat  tag end
+
+
+
+
+
 
   
 /*****  Email Widget *****/   
@@ -275,7 +365,7 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
 
   
 
-          // Amy Ogborn
+         // Amy Ogborn
            zESettings = {
             webWidget: {
               contactForm: {
@@ -300,7 +390,12 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                           resultLists: '#000',
                           header: '#008D8D',
                           articleLinks: '#DF1B12'
-                      }
+                      }, 
+               chat: {
+                 		   departments: {
+                 	     enabled: []
+                  								  }
+      							}
             }
           };  // End of webwidget settings
 
@@ -380,10 +475,48 @@ var waitForZen = setInterval(function () {
     
           }// end of contact form shown
       }); //end of web widget strap form validation
+
+
+
+      //pre fill chat user name, email and tag 
+      zE('webWidget', 'prefill',
+      {
+        name:
+        {
+          value: HelpCenter.user.name,
+          readOnly: true // optional
+        },
+        email:
+        {
+          value: HelpCenter.user.email,
+          readOnly: true // optional
+        },
+      });
+  zE('webWidget', 'chat:removeTags', ['prd_npr','prd_nav','prd_apps','prd_spts','prd_auto']);
+  zE('webWidget', 'chat:addTags', [chat_tag]);
+
+//pre fill chat user name, email and tag 
           
           clearInterval(waitForZen);
                     }, 100);
-      
+
+        //MRUNAL CODE START FOR VANILLA SSO
+              var vsso = window.location.search;
+              if(vsso != ''){
+                var search = vsso.includes("vanillaSSO=signin");
+                if(search){
+                  if(HelpCenter.user.email != null){
+     
+                    window.location.href = vanilla_sso_server+"zenApi/src/vanillaSSO.php?param="+window.btoa(HelpCenter.user.email); }
+         
+                   }else{
+          
+                    window.location.href = vanilla_redirect_url ;
+                
+                  }
+                }              
+ 					 //MRUNAL CODE END
+
 });  // end access id_map JSON
 /*****  End Prefill Email Widget *****/   
 
@@ -765,88 +898,14 @@ var waitForZen = setInterval(function () {
 
 
 
-      function sunshineSearch(searchType,searchKey,searchValue){
-        //to make the inside function only execute when the page is the Nav category page
-        var the_domain= window.location.href;
-        var the_domain_header=the_domain.split(".com");
-        var the_url_header =the_domain_header[0];
-        var querry = JSON.stringify({"query":{"type":searchType,"key":searchKey,"contains":searchValue }});
-        
-    
-        var xhr = new XMLHttpRequest();
-        var url = the_url_header+".com/api/sunshine/objects/search",
-        username = "ccdev@groups.tomtom.com",
-        password = "@=lx4+68}g";
-        xhr.withCredentials = true;
-        xhr.open("POST", url, true, username, password);
-            xhr.send(querry);
-          
-          
-       xhr.addEventListener("readystatechange", function() {
-    if(this.readyState === 4) {
-   
-     
-      var i, result_array_length=((JSON.parse(this.responseText)).data).length;
-     
-      //debug code
-      /*
-      console.log("response from serial prefix search");
-     console.log((JSON.parse(this.responseText)).data);
-  console.log("response from serial prefix search");
-      */
-      //debug code
-      
-      if((((JSON.parse(this.responseText)).data).length)>0){
-        
-        document.getElementById("product_results_box").innerHTML="";
-         for(i=0; i<result_array_length;i++){
-             var xhr2 = new XMLHttpRequest();   
-             var searchKEY=((JSON.parse(this.responseText)).data)[i].attributes.id
-             var querry2 = JSON.stringify({"query":{"type":"tt_product","key":"product_id","contains":searchKEY }});
-             xhr2.open("POST", url, true, username, password);
-             xhr2.send(querry2); 
-             xhr2.addEventListener("readystatechange",function(){
-                 if(this.readyState === 4) {
-                   
-                   
-                   //debug code
-             /*      
-   		console.log("response from tt_product 4 digits ID search");
-     	console.log((JSON.parse(this.responseText)).data[0]);
-			console.log("response from tt_product 4 digits ID search");
-              */     
-                   //debug code
-                   
-                    if(! (( typeof((JSON.parse(this.responseText)).data[0])) =="undefined")){
-                    document.getElementById("product_results_box").innerHTML +=' <div class="single_result" id="'+((JSON.parse(this.responseText)).data)[0].attributes.software+"€"+((JSON.parse(this.responseText)).data)[0].id+'"><label class="pt_record" id="'+((JSON.parse(this.responseText)).data)[0].id+'">'+((JSON.parse(this.responseText)).data)[0].attributes.product_name+'</label></div>';
-                         
-                       $(".single_result").on('click',function(){
-                       read_spa_Software(this.id);
-                       });
-                       
-                     }
-                 }
- 
-             }); 
- 
-         }
- 
-      } else {
-         alert("there is no such prefix with "+searchValue);
-      }
-    
-    } 
-    });
- 
- 
-       }
+
 
 
 
        $("#tt_serial_no_input").on('input',function(){   
         var tt_serial_number_input = (document.getElementById("tt_serial_no_input").value).toString(); 
         if((tt_serial_number_input.length)==2){
-            sunshineSearch("tt_serial_number","serial_prefix",tt_serial_number_input);
+           // sunshineSearch("tt_serial_number","serial_prefix",tt_serial_number_input);
         }
       });
    
