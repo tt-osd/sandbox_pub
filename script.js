@@ -32,6 +32,9 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
       var vanilla_redirect_url = -1;
        //create form id with a default value -1
 
+
+
+
         //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
  function checkNums(serial_number_input,submit_button,validSerialNumber){
     //a forloop run 10 times check the 3rd to 12th characher, besides 7th, the rest should be number
@@ -71,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
       if (the_url.indexOf("sandbox")!= -1) {
          
          //form id get the sandbox id value
+
            golf_form_id=data.golf_form_id.sandbox;
            strap_form_id=data.strap_form_id.sandbox;
            gdpr_form_id=data.gdpr_form_id.sandbox;
@@ -102,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
             tthome_section_id=data.tthome_section_id.prod; 
             vanilla_redirect_url=data.vanilla_redirect_url.prod; 
             vanilla_sso_server=data.vanilla_sso_server.prod; 
+
           }//end of get form/fields ID
       
      if(the_url.indexOf("ticket_form_id")!= -1){     //the current page is a form page 
