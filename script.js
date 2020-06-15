@@ -505,22 +505,20 @@ var waitForZen = setInterval(function () {
           clearInterval(waitForZen);
                     }, 100);
 
-        //MRUNAL CODE START FOR VANILLA SSO
-              var vsso = window.location.search;
-              if(vsso != ''){
-                var search = vsso.includes("vanillaSSO=signin");
-                if(search){
-                  if(HelpCenter.user.email != null){
-     
-                    window.location.href = vanilla_sso_server+"zenApi/src/vanillaSSO.php?param="+window.btoa(HelpCenter.user.email); }
-         
-                   }else{
-          
-                    window.location.href = vanilla_redirect_url ;
-                
+            //VANILLA SSO START
+                  var vsso = window.location.search;
+                  if(vsso != ''){
+                    var search = vsso.includes("vanillaSSO=signin");
+                    if(search){
+                      if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous"){
+                        set_cookie("vanillaSession",true,0);
+                        window.location.href = vanilla_sso_server+"zenApi/src/vanillaSSO.php?param="+window.btoa(HelpCenter.user.email);
+                       }else{
+                        window.location.href = vanilla_redirect_url ;
+                      }
+                    }
                   }
-                }              
- 					 //MRUNAL CODE END
+            //VANILLA SSO END  //Mrunal
 
 });  // end access id_map JSON
 /*****  End Prefill Email Widget *****/   
@@ -1168,45 +1166,35 @@ var waitForZen = setInterval(function () {
 
 $(document).ready(function() {  // only insert after this if you need document to be ready
   
+    var on__this_url= window.location.href;
+ 
+/***** Responsive Videos *****/
   
-/***** FORMS *****/   
-//This code is to ensure only Signed in users see the request form if we add class="request"
-//end
-  
-        (function(_w, _d, $){
-
-            $(_d).ready(function(){
-                var _locale = window.location.pathname.replace('/', '')
-                .replace('?','/').split('/')[1];
-                if (HelpCenter.user.role=='end_user') {
-                $('.request')
-                .html('<a class="submit-a-request" href="/hc/'+
-                _locale+'/requests/new">'+
-                'Submit a request</a>');
-                } else if (HelpCenter.user.role=='anonymous') {
-                $('.request')
-                .html('<a href="/hc/'+
-                _locale+'/signin">'+
-                'Submit a request</a>');
-            }
-            }); 
-
-        }(window, document, jQuery));
-// End 
-/***** END FORMS *****/ //Amy Ogborn  
-  
-
-/*****  Content Pages *******/  
-  	    $("<div class='ct-header-block'></div>").prependTo(".ct-article"); 
-  	    $(".ct-article-header").prependTo(".ct-header-block"); 
-  	    $(".ct-article-sub-header").appendTo(".ct-header-block"); 
-    	  $(".ct-header-description").appendTo(".ct-header-block"); 
-
-  
-    $('<div id="option-1" class="ct-options" data="option-1-content"><span class="radiobtn"></span>Android</div>'+
-      '<div class="ct-options" data="option-2-content"><span class="radiobtn"></span>iPhone</div>'+
-      '<div class="ct-options" data="option-3-content"><span class="radiobtn"></span>Windows</div>').appendTo('.ct-options-list'); //adding radio options to content template
-  
+    if (on__this_url.indexOf("/articles/")!= -1) {
+    	$('.video-container').removeClass("video-container");
+      $('.video-block').removeClass("video-block");
+    	$('iframe[src*="youtube"]').wrap("<div class='video-container'></div>");
+ 			$('.video-container').wrap("<div class='video-block'></div>");
+      $('.video-block').prependTo(".ts-article-video");
+      $('.ts-article-video-header').prependTo(".ts-article-video");
+      $('.article-links').appendTo('.ts-article-video');
+/***** End Responsive Videos *****/
+/***** Article Fixes *****/ 
+  		$('.tts-note').addClass("article-note");  
+ 		 	$('.article-note').removeClass("tts-note");  
+      $('.note').addClass("article-note");  
+ 		 	$('.article-note').removeClass("note");  
+      $('.btn').addClass("button");  
+ 		 	$('.button').removeClass("btn"); 
+/***** End Article Fixes *****/ 
+/*****  Content Pages *******/   
+      $("<div class='ct-header-block'></div>").prependTo(".ct-article"); 
+      $(".ct-article-header").prependTo(".ct-header-block"); 
+      $(".ct-article-sub-header").appendTo(".ct-header-block"); 
+      $(".ct-header-description").appendTo(".ct-header-block");   
+      $('<div id="option-1" class="ct-options" data="option-1-content"><span class="radiobtn"></span>Android</div>'+
+        '<div class="ct-options" data="option-2-content"><span class="radiobtn"></span>iPhone</div>'+
+        '<div class="ct-options" data="option-3-content"><span class="radiobtn"></span>Windows</div>').appendTo('.ct-options-list'); //adding radio options to content template  
  
 function openSoftware(evt, softwareName) {
   // Declare all variables
@@ -1257,10 +1245,7 @@ function openSoftware(evt, softwareName) {
             scrollTop: 0
         }, 500);
     });
-
-/***** End back to top *****/ //Amy Ogborn  
-  
-  
+/***** End back to top *****/ //Amy Ogborn    
 /***** Article Satisfaction *****/ 
 
     $(window).scroll(function() {
@@ -1270,8 +1255,6 @@ function openSoftware(evt, softwareName) {
             $('.article-votes').fadeOut(200);
         }
     });
-
-
   /*add on*/
     /*when Article Satisfaction has been clicked on YES/NO hide it*/
         $(".article-vote").click(function(){
@@ -1279,8 +1262,7 @@ function openSoftware(evt, softwareName) {
         });
 
   /*add on*/
-/***** Article Satisfaction end *****/ //Amy Ogborn 
-  
+/***** Article Satisfaction end *****/ //Amy Ogborn   
 /***** Promoted Articles  *****/ 
   	var numOfPromos = document.getElementsByClassName("mySlides");
 
@@ -1290,7 +1272,7 @@ function openSoftware(evt, softwareName) {
       } 
   
      
-      $('.close').click(function() {       //This click function is to minimize the announcements box to the side   
+      $('.close').click(function() {       // This click function is to minimize the announcements box to the side   
 
         $('.promoted-articles-box').addClass("minimize");
         $('ul.promoted-articles').addClass("minimize-articles");
@@ -1328,7 +1310,6 @@ showSlides(slideIndex);
   showSlides(slideIndex += n);
 }
 
-
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
@@ -1340,14 +1321,9 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block"; 
 }
 }
-/***** End of Promoted Articles *****/  //Amy Ogborn
-  
-/*****  Troubleshooting Template *****/ 
- 
-        $('.video-block').prependTo(".ts-article-video");
-        $('.ts-article-video-header').prependTo(".ts-article-video");
-        $('.article-links').insertAfter('.ts-article-video');
- 
+/***** End of Promoted Articles *****/  //Amy Ogborn  
+/*****  Troubleshooting Template *****/
+
           var theLabels = document.getElementsByClassName("labels");
           if (theLabels.length > 0 ) {  
          
@@ -1362,8 +1338,7 @@ function showSlides(n) {
                           });
                     }             
                   }
-            }
-  
+            }  
   
 /***** End of Troubleshooting Template *****/ //Amy Ogborn    
 /*****  Get Started Template *****/ 
@@ -1375,9 +1350,7 @@ function showSlides(n) {
         }, 500);
     });
   
-
-/***** End of Get Started Template *****/ //Amy Ogborn
-  
+/***** End of Get Started Template *****/ //Amy Ogborn  
 /*****  How To Template *****/ 
 
       $('.ht-header-content').appendTo(".ht-article-header");  
@@ -1386,8 +1359,37 @@ function showSlides(n) {
         // $('.ht-article-body img').each(function(){
         //   $(this).insertAfter($(this).parent());
         // }); 
+  
 /***** End of  How To Template *****/ //Amy Ogborn  
-                    
+} //end of 'if this is on an article'     
+  
+/***** End of  Article Templates *****/ //Amy Ogborn   
+  
+/***** FORMS *****/   
+//This code is to ensure only Signed in users see the request form if we add class="request"
+//end
+  
+        (function(_w, _d, $){
+
+            $(_d).ready(function(){
+                var _locale = window.location.pathname.replace('/', '')
+                .replace('?','/').split('/')[1];
+                if (HelpCenter.user.role=='end_user') {
+                $('.request')
+                .html('<a class="submit-a-request" href="/hc/'+
+                _locale+'/requests/new">'+
+                'Submit a request</a>');
+                } else if (HelpCenter.user.role=='anonymous') {
+                $('.request')
+                .html('<a href="/hc/'+
+                _locale+'/signin">'+
+                'Submit a request</a>');
+            }
+            }); 
+
+        }(window, document, jQuery));
+// End 
+/***** END FORMS *****/ //Amy Ogborn  
 /*****  Temp Header *****/ 
 
         //toggle the hamburger menu

@@ -3123,6 +3123,44 @@ h3.tt-get-started-step-title {
   font-size: 50px;
 	padding-bottom: -20px;
 }
+.tt-responsive-image {
+  position: relative; 
+  min-height: 1px; 
+  min-width: 1px; 
+/*   display: block; */
+}
+/**** This is temporary CSS ****/
+.tt-get-started-step .tt-get-started-step-image .tt-get-started-step-image-caption { 
+  max-width: 100%; 
+  text-align: center; 
+  width: 100%; 
+}
+.tt-get-started-step .tt-get-started-step-image .tt-get-started-step-image-caption { 
+/*   display: inline-block;  */
+  max-width: 392px; 
+/*   font-size: 12px;  */
+/*   color: #aaa;  */
+  margin-top: 18px;
+}
+.getstarted-step .tt-responsive-image span { 
+  text-align: center; 
+}
+.tt-responsive-image img, .tt-responsive-image span {
+  max-width: 100%; 
+}
+.pptracks.active, .pptracksbtn.active, .tt-responsive-image span {
+  display: block; 
+}
+.tt-get-started-step .tt-responsive-image img, .tt-get-started-step .tt-responsive-image span {
+  text-align: center; 
+}
+.tt-content :last-child, .tt-page404-content p:last-child {
+  margin-bottom: 0; 
+}
+.tt-responsive-image img, .tt-responsive-image span {
+  max-width: 100%; 
+}
+/**** This is temporary CSS ****/
 
 /***** End Get Started *****/
 
@@ -3186,18 +3224,18 @@ h3.tt-get-started-step-title {
 
 .ts-article-body h2 {
   font-family: "Gotham Bold";
-  display: inline-block;
+	color: #8DC3EB;
 }
 
-.ts-article-body h2::after {
+/* .ts-article-body h2::after {
   content: "continue";
   color: #DF1B12;
   font-family: "TomTom Icons";
   vertical-align: top;
-}
+} */
 .ts-article-body h3 {
-  display: inline-block;
-  vertical-align: -webkit-baseline-middle;
+  font-family: "Gotham Bold";
+	color: #61ADE0;  
 }
 
 .ts-article-body ul, .ts-article-body ol {
