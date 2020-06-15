@@ -1263,6 +1263,49 @@ function openSoftware(evt, softwareName) {
 
   /*add on*/
 /***** Article Satisfaction end *****/ //Amy Ogborn   
+
+/*****  Troubleshooting Template *****/
+
+          var theLabels = document.getElementsByClassName("labels");
+          if (theLabels.length > 0 ) {  
+         
+                var i;          
+                for (i = 0; i < theLabels.length; i++) {
+                    var colorthese = theLabels[i].innerText;
+                   
+                    if ($('.ts-article-title').html().indexOf(colorthese) != -1){
+                      			
+                            $(".ts-article-title:contains("+colorthese+")").html(function(_, html) {
+                                return html.replace(colorthese, '<span class="ts-red">'+colorthese+'</span>');
+                          });
+                    }             
+                  }
+            }  
+  
+/***** End of Troubleshooting Template *****/ //Amy Ogborn    
+/*****  Get Started Template *****/ 
+
+  
+  $('.gs-article-header-block').click(function() {
+        $('body,html').animate({
+            scrollTop: 850
+        }, 500);
+    });
+  
+/***** End of Get Started Template *****/ //Amy Ogborn  
+/*****  How To Template *****/ 
+
+      $('.ht-header-content').appendTo(".ht-article-header");  
+      $('.ht-article-body strong').contents().unwrap();
+
+        // $('.ht-article-body img').each(function(){
+        //   $(this).insertAfter($(this).parent());
+        // }); 
+  
+/***** End of  How To Template *****/ //Amy Ogborn  
+} //end of 'if this is on an article'       
+  
+/***** End of  Article Templates *****/ //Amy Ogborn   
 /***** Promoted Articles  *****/ 
   	var numOfPromos = document.getElementsByClassName("mySlides");
 
@@ -1321,50 +1364,7 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block"; 
 }
 }
-/***** End of Promoted Articles *****/  //Amy Ogborn  
-/*****  Troubleshooting Template *****/
-
-          var theLabels = document.getElementsByClassName("labels");
-          if (theLabels.length > 0 ) {  
-         
-                var i;          
-                for (i = 0; i < theLabels.length; i++) {
-                    var colorthese = theLabels[i].innerText;
-                   
-                    if ($('.ts-article-title').html().indexOf(colorthese) != -1){
-                      			
-                            $(".ts-article-title:contains("+colorthese+")").html(function(_, html) {
-                                return html.replace(colorthese, '<span class="ts-red">'+colorthese+'</span>');
-                          });
-                    }             
-                  }
-            }  
-  
-/***** End of Troubleshooting Template *****/ //Amy Ogborn    
-/*****  Get Started Template *****/ 
-
-  
-  $('.gs-article-header-block').click(function() {
-        $('body,html').animate({
-            scrollTop: 850
-        }, 500);
-    });
-  
-/***** End of Get Started Template *****/ //Amy Ogborn  
-/*****  How To Template *****/ 
-
-      $('.ht-header-content').appendTo(".ht-article-header");  
-      $('.ht-article-body strong').contents().unwrap();
-
-        // $('.ht-article-body img').each(function(){
-        //   $(this).insertAfter($(this).parent());
-        // }); 
-  
-/***** End of  How To Template *****/ //Amy Ogborn  
-} //end of 'if this is on an article'     
-  
-/***** End of  Article Templates *****/ //Amy Ogborn   
-  
+/***** End of Promoted Articles *****/  //Amy Ogborn   
 /***** FORMS *****/   
 //This code is to ensure only Signed in users see the request form if we add class="request"
 //end
