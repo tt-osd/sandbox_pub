@@ -1204,6 +1204,32 @@ var waitForZen = setInterval(function () {
         }  
   
    /*** End of Redirecting untranslated articles to an existing language ****/ //Amy DDA-322
+        /*** No results found tracking ****/
+              var results_event_category = "";
+              var results_event_action = "";
+              var results_event_label = "";   
+              var resultslist = document.getElementsByClassName('search-results-list');
+              if (window.location.href.indexOf("/search?utf8") > -1 && (resultslist.length === 0)){
+                var resultsheader = document.getElementsByClassName('search-results-subheading');
+                var resultsheaderstring = resultsheader[0].innerHTML;
+
+                var customersearch = resultsheaderstring.substring (
+                  resultsheaderstring.indexOf('"') + 1, 
+                  resultsheaderstring.lastIndexOf('"')
+                );
+               
+                  results_event_category = "Search Results";
+                  results_event_action = "No Results found";
+                  results_event_label = customersearch;                  
+								var waitForUtag = setInterval(function () {                 
+                       ga_tracking(results_event_category, results_event_action, results_event_label);  
+                    clearInterval(waitForUtag);
+                } , 1000);          
+                 
+
+              }
+  
+  /*** End of No results found tracking ****/ //my DDA-512
   
 }); // end of DOM js file function - put everything above this line
 
@@ -1477,6 +1503,51 @@ function showSlides(n) {
                 $('.form-field.request_ticket_form_id').hide();
                 $('.form-field.request_organization_id').hide();
   /***** End of New request pages - product pre-select *****/ //Lorna Rickett 
+    /***** Temporary hide/show CSS *****/
+  $("#option-2").addClass('button');
+  $("#option-1").addClass('button');
+  $("#option-3").addClass('button');
+
+    /***** Temporary hide/show CSS *****/
   
   
 }); // end of document ready function
+  /***** Temporary hide/show CSS *****/
+function showOption(e, t, n) {    for (i = t; i <= n; i++) i !== e && (document.getElementById("option-" + i).className = "tts-options tts-inactive", document.getElementById("option-" + i + "-content").style.display = "none");    document.getElementById("option-" + e).className = "tts-options tts-active", document.getElementById("option-" + e + "-content").style.display = "block"} 
+  
+
+function box_toggle(e) {
+    "none" == document.getElementById(e).style.display ? document.getElementById(e).style.display = "block" : document.getElementById(e).style.display = "none"
+}
+
+function box_show(a) {
+  
+    "none" == document.getElementById(a).style.display && (document.getElementById(a).style.display = "block")
+}
+
+function box_hide(e) {
+
+    document.getElementById(e).style.display = "none"
+}
+
+function kmt_Toggle(e, t, o) {
+    var m = document.getElementById(e);
+    t.originalInnerHTML || (t.originalInnerHTML = t.innerHTML), "none" != m.style.display ? (m.style.display = "none", t.innerHTML = t.originalInnerHTML) : "none" == m.style.display && (m.style.display = "", t.innerHTML = answer_string[o].close)
+}
+function kmt_ShowBoxPopup(e, t) {
+    var o = document.getElementById(e).innerHTML;
+    showBoxPopupWin = window.open("", e, "height=400,width=710,screenX=250,screenY=80, scrollbars=yes"), showBoxPopupWin.document.write('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd"><html><head><title>' + e + '</title><link rel="stylesheet" href="http://uk.support.tomtom.com/euf/assets/themes/standard/tomtom_site.css"><script language="JavaScript" type="text/javascript" src="http://uk.support.tomtom.com/euf/assets/js/reset.js"></script></head><body>' + o + "</body</html>"), window.focus && showBoxPopupWin.focus()
+}
+
+function kmt_ShowBox(e) {
+    if ("block" == document.getElementById(e).style.display) return document.getElementById(e).style.display = "none", !1;
+    for (levels = e.match(/_/g), allBoxes = document.getElementsByTagName("div"), i = 0; i < allBoxes.length; i++) allBoxes[i].id.match("BOX") && (document.getElementById(allBoxes[i].id).style.display = "none");
+    if (document.getElementById(e).style.display = "block", null == levels) return !1;
+    if(e) {for (levels = levels.length + 1, temp = e, i = 0; i < levels; i++) temp = temp.substring(temp, temp.length - 3), temp.length > 2 && (document.getElementById(temp).style.display = "block");}
+    return !1
+}
+
+function kmt_HideBox(e) {
+    return document.getElementById(e).style.display = "none", !1
+}
+  /***** End temporary hide/show CSS *****/
