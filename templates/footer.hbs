@@ -1,4 +1,104 @@
+<label id="bongo_id" class="zd_Hidden">{{dc 'bongoappid'}}</label>
+<div id="css_bongo" class="zd_Hidden">{{asset 'bongo.css'}}</div>
+<script> 
+      
+   
+        var link = document.createElement('link');  
+        // set the attributes for link element 
+        link.rel = 'stylesheet';  
+        link.type = 'text/css'; 
+  			//get css url
+        var bongoCss="https:"+$("#css_bongo").html();
+        link.href = bongoCss;  
+        // Get HTML head element to append  
+        // link element to it  
+        document.getElementsByTagName('HEAD')[0].appendChild(link);  
+
+</script>  
+<label class="zd_Hidden" id="init_bot">{{asset 'init_bot.js'}}</label>
+<script type="text/javascript">
+//jQuery.loadScript = function (url, callback) is already exist in header
+  $.loadScript('https:'+document.getElementById("init_bot").innerHTML);
+
+</script>
+
+
+
 <footer class="footer">
+  
+   <div class="ts-sub-footer-wrapper">
+                    <h2>{{dc 'subfooter_-_title'}}</h2>
+							<div class="ts-sub-footer">
+
+       <div class="ts-sub-footer-box ts-sub-footer-related-faqs">
+           <img src="{{dc 'subfooter_-_user_manual_image'}}" alt="">
+        <div class="sub-footer-inner-box">	 
+         <h3 class="ts-sub-footer-title">{{dc 'subfooter_user_manual_header'}}</h3>
+              <div class="ts-sub-footer-text">
+              <p>{{dc 'subfooter_user_manual_subheader'}}</p>                       			
+          </div>
+         <div class="sub-footer-arrow">
+           <a href="{{dc 'subfooter_user_manual_link'}}">
+              <div class="sub-footer-button">{{dc 'subfooter_-_user_manual_link_text'}}</div>
+            </a>
+            </div>
+         </div>
+       </div>
+      <div class="ts-sub-footer-box ts-sub-footer-bongo">
+        <img src="{{dc 'subfooter_-_bongo_image'}}" alt="Bongo the Digital Assistant">
+          <div class="sub-footer-inner-box">          
+       			 <h3 class="ts-sub-footer-title">{{dc 'bongo_header'}}</h3>
+                  <div class="ts-sub-footer-text">
+                  <p>{{dc 'bongo_subheader'}}</p>                       			
+              </div>
+              <div class="sub-footer-arrow" id="bongo_place">
+                <label id="bongo_open" >
+                  <div class="sub-footer-button bongo_open">{{dc 'subfooter_-_bongo_link_text'}}</div>
+                </label>
+             <label id="bongo_alter" class="zd_Hidden">{{dc 'subfooter_-_bongo_link'}}</label>
+              </div>
+          </div>  
+        </div>
+      <div class="ts-sub-footer-box ts-sub-footer-videos">
+          <img src="{{dc 'subfooter_-_video_image'}}" alt="TomTom Support Videos">
+      		  <div class="sub-footer-inner-box">    
+    			    <h3 class="ts-sub-footer-title">{{dc 'support_video_header'}}</h3>
+                     <div class="ts-sub-footer-text">
+                      <p>{{dc 'support_video_subheader'}}</p>                              
+              </div>
+              <div class="sub-footer-arrow">
+                  <a href="{{dc 'subfooter_-_video_link'}}">
+                  <div class="sub-footer-button">{{dc 'subfooter_-_video_link_text'}}</div>
+                  </a>
+              </div>
+           </div>
+      </div>
+      <div class="ts-sub-footer-box ts-sub-footer-community">
+                  <img src=" {{dc 'subfooter_-_community_image'}}" alt="TomTom Community">
+     							   <div class="sub-footer-inner-box">  
+     							   <h3 class="ts-sub-footer-title">{{dc 'community_header'}}</h3>
+               <div class="ts-sub-footer-text">
+                  <p>{{dc 'community_subheader'}}</p>                    
+              </div>
+          </div>
+              <div class="sub-footer-arrow">
+                  <a href="{{dc 'community_link'}}">
+                  <div class="sub-footer-button">{{dc'subfooter_-_community_link_text'}}</div>
+                  </a>
+              </div>
+        </div>                  
+</div>
+          </div>   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <div class="footer-social">
     <div class="footer-social-items">
       <a class="footer-social-items__item" href="https://www.facebook.com/TomTom/" title="Facebook" target="blank">
