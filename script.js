@@ -347,7 +347,7 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
   chat_tag="prd_nav"; 
 }
 
- console.log("chat_tag "+chat_tag);
+
  //chat  tag end
 
 
@@ -589,7 +589,7 @@ var waitForZen = setInterval(function () {
      window.location.href = sso_decode;
      removeCookie("sso");
     }else{
-      console.log("redirectAccordingSSO_cookie fc is called but there is no sso cookie");
+
     }
  };
   
@@ -757,7 +757,7 @@ var waitForZen = setInterval(function () {
 
     var h = window.screen.height;
     var indexx = h * 0.65;
-    //alert(indexx);
+
     window.ontouchmove = function() {
         survey_on_mobile();
     };
@@ -910,36 +910,36 @@ var waitForZen = setInterval(function () {
 
 
     //serial number
-    function read_spa_Software(software){
-        var software_decode_head =software.split("€");
-        var software_decode=software_decode_head[0];
+//     function read_spa_Software(software){
+//         var software_decode_head =software.split("€");
+//         var software_decode=software_decode_head[0];
         
-        var thisURL= window.location.href;
-        var URL_decode=thisURL.split("/hc/")[0];
-        var target_URL = URL_decode;
+//         var thisURL= window.location.href;
+//         var URL_decode=thisURL.split("/hc/")[0];
+//         var target_URL = URL_decode;
     
-                    switch (software_decode) {
-                        case 'TomTom HOME':
-                            target_URL += "/hc/en-gb/sections/360003585479-TomTom-HOME";              
-                            break;
-                        case 'MyDrive Connect':
-                             target_URL += "/hc/en-gb/sections/360003542620-MyDrive-Connect";
-                            break;
-                        case 'Bandit Studio':
-                            target_URL += "/hc/en-gb/sections/360003586039-TomTom-Bandit-Action-Camera";
-                            break;
-                        case 'Wi-Fi®':
-                            target_URL += "/hc/en-gb/sections/360003542600-Wi-Fi";
-                            break;
-                        case 'MySports Connect':
-                            target_URL += "/hc/en-gb/sections/360003542980-Sports-Watch";
-                            break;
-                        case 'N/A':
-                           target_URL =thisURL;
-                    }
-                  window.location.href = target_URL;  
-        //end of function
-      }
+//                     switch (software_decode) {
+//                         case 'TomTom HOME':
+//                             target_URL += "/hc/en-gb/sections/360003585479-TomTom-HOME";              
+//                             break;
+//                         case 'MyDrive Connect':
+//                              target_URL += "/hc/en-gb/sections/360003542620-MyDrive-Connect";
+//                             break;
+//                         case 'Bandit Studio':
+//                             target_URL += "/hc/en-gb/sections/360003586039-TomTom-Bandit-Action-Camera";
+//                             break;
+//                         case 'Wi-Fi®':
+//                             target_URL += "/hc/en-gb/sections/360003542600-Wi-Fi";
+//                             break;
+//                         case 'MySports Connect':
+//                             target_URL += "/hc/en-gb/sections/360003542980-Sports-Watch";
+//                             break;
+//                         case 'N/A':
+//                            target_URL =thisURL;
+//                     }
+//                   window.location.href = target_URL;  
+//         //end of function
+//       }
 
 
 
@@ -948,12 +948,12 @@ var waitForZen = setInterval(function () {
 
 
 
-       $("#tt_serial_no_input").on('input',function(){   
-        var tt_serial_number_input = (document.getElementById("tt_serial_no_input").value).toString(); 
-        if((tt_serial_number_input.length)==2){
-           // sunshineSearch("tt_serial_number","serial_prefix",tt_serial_number_input);
-        }
-      });
+//        $("#tt_serial_no_input").on('input',function(){   
+//         var tt_serial_number_input = (document.getElementById("tt_serial_no_input").value).toString(); 
+//         if((tt_serial_number_input.length)==2){
+//            // sunshineSearch("tt_serial_number","serial_prefix",tt_serial_number_input);
+//         }
+//       });
    
 
 
