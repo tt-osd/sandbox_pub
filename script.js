@@ -861,6 +861,49 @@ var waitForZen = setInterval(function () {
     // exit survey
 
 
+  //start of bongo render, open and close
+  // create a var to check if the bongo is already loaded, 0 by default means not loaded
+  
+  
+  var bongo_loaded=0;
+    $("#bongo_open").click(function(){
+      var lo = HelpCenter.user.locale; 
+      if(lo.includes("en")){// bongo only works on English locale
+          // to open a conversation with bongo, click talk to bongo from subfooter
+      if( bongo_loaded==1){
+         //when bongo is loaded, open chat by showing the chat window
+          var bongo=document.getElementById("web-messenger-container"); 
+   				bongo.classList.remove("zd_Hidden");    
+      }else{
+        //when bongo is not loaded, open chat by render the bot
+          Bots.render(document.getElementById('bongo_place'));
+          var bongo=document.getElementById("web-messenger-container"); 
+          //add the css changes to make bongo fit in sub footer 
+          bongo.classList.add("zd_Bongo");
+      } 
+      
+       ga_tracking("Bongo", "clicks", "bongo opened");
+       
+      }else{
+        var bongo_alter=$("#bongo_alter").html();
+        window.location.href = bongo_alter; 
+      }
+    
+  });
+
+  
+  //to close a bongo chat window, click anywhere eles on the page but bongo to hide the window
+  $('body').click(function(evt){    
+       if(evt.target.id == "bongo_place")
+          return;
+       if($(evt.target).closest('#bongo_place').length)
+          return;             
+          var bongo=document.getElementById("web-messenger-container"); 
+          bongo.classList.add("zd_Hidden");    
+          bongo_loaded=1; // when hidding the chat window, to remember that bongo is already loaded. 
+          ga_tracking("Bongo", "clicks", "bongo closed");
+});
+    //end of bongo render, open and close
 
 
 

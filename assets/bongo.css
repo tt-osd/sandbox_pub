@@ -1,0 +1,22 @@
+
+
+
+.zd_Bongo{
+    right: unset !important;
+    width: 330px !important;
+    height: 500px !important;
+    margin-bottom: -10px !important;
+    border-radius: 10px !important;
+    position: absolute !important;
+      box-shadow: 0 0 12px rgba(0,0,0,.15);
+      z-index: unset  !important;
+    
+    }
+    
+    .bongo_open{
+        cursor:pointer;
+        text-transform: uppercase;
+      }
+      
+    
+    

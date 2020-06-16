@@ -3367,6 +3367,10 @@ h3.tt-get-started-step-title {
 
 }
 
+.ts-sub-footer-wrapper{
+  background-color: #f2f2f2;
+ }
+
 .ts-sub-footer-wrapper h2 {
   padding: 0 80px;
   margin-top: 20px;
