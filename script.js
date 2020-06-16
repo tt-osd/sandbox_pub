@@ -882,7 +882,7 @@ var waitForZen = setInterval(function () {
           bongo.classList.add("zd_Bongo");
       } 
       
-       ga_tracking("Bongo", "clicks", "bongo opened");
+       ga_tracking("Bongo", "clicked", "bongo opened");
        
       }else{
         var bongo_alter=$("#bongo_alter").html();
@@ -901,7 +901,7 @@ var waitForZen = setInterval(function () {
           var bongo=document.getElementById("web-messenger-container"); 
           bongo.classList.add("zd_Hidden");    
           bongo_loaded=1; // when hidding the chat window, to remember that bongo is already loaded. 
-          ga_tracking("Bongo", "clicks", "bongo closed");
+          ga_tracking("Bongo", "clicked", "bongo closed");
 });
     //end of bongo render, open and close
 
