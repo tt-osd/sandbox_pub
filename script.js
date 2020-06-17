@@ -866,8 +866,15 @@ var waitForZen = setInterval(function () {
   
   
   var bongo_loaded=0;
+
+  function getLocale() {
+    return window.location.href
+           .split('/hc/')[1]
+           .split('/')[0];
+   }
+
     $("#bongo_open").click(function(){
-      var lo = HelpCenter.user.locale; 
+      var lo = getLocale();
       if(lo.includes("en")){// bongo only works on English locale
           // to open a conversation with bongo, click talk to bongo from subfooter
       if( bongo_loaded==1){
