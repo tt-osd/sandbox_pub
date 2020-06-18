@@ -442,6 +442,10 @@
         {"country_code":"en-sp"},
         {"chat_department":"EN_Chat"}
       ],
+      "en-us":[        
+        {"country_code":"en-us"},
+        {"chat_department":"US_Chat"}
+      ],
     "example":{
         "sandbox":123,
         "prod":321        
