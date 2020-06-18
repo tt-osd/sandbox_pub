@@ -27,8 +27,7 @@ var  webwidget_class_login_message = -1;
     var id_map_data_source="https:"+$("#map_json").html();
 
 
- $.getJSON(id_map_data_source, function(data) {
-  
+ $.getJSON(id_map_data_source, function(data) {  
   
       if (the_url.indexOf("sandbox")!= -1) {
   
@@ -43,7 +42,9 @@ var  webwidget_class_login_message = -1;
   			tag_manager_container = data.tag_manager_container.prod;
  				webwidget_class_login_message = data.webwidget_class_login_message.prod;
 
-        }  
+        }
+
+  
 
           var webwidgetscript = document.createElement('script');
           webwidgetscript.onload = function() {
@@ -87,39 +88,59 @@ var  webwidget_class_login_message = -1;
                   parent.document.getElementById('webWidget').contentDocument.head.appendChild(style);
            			} //IF cust is logged out end
              
-                });                
-              
+                });                 
          
-  var country_code = document.documentElement.lang;
-  var country_code_lower = country_code.toLowerCase();
-  console.log(country_code_lower);	
   
-  zE('webWidget:on', 'chat:departmentStatus', function(dept) {
-    console.log(country_code_lower);
-  if (dept.name === 'UK_Chat' && dept.status === 'online' && (country_code_lower === 'en-gb' ||country_code_lower === 'en-ie' ||country_code_lower === 'en-za')) {
-    console.log(dept.name + ' is ' + dept.status);      //optional logging
-    zE('webWidget', 'updateSettings', {
-      webWidget: {
-        chat: {
-          departments: {
-            enabled: [''],
-            select: 'UK_Chat'
-          },
-          suppress: false
-        }
-      }
-    });
-  } else if (dept.name === 'UK_Chat' && dept.status !== 'online' && country_code_lower === 'en-gb' ) {
-    console.log(dept.name + ' is ' + dept.status);      //optional logging
-    zE('webWidget', 'updateSettings', {
-      webWidget: {
-        chat: {
-          suppress: true
-        }
-      }
-    });
+
+  
+    function getLocalechat() {
+    return window.location.href
+           .split('/hc/')[1]
+           .split('/')[0];
+   }
+  
+  var chatLocale = getLocalechat();
+  var chat_department="unknown"
+  var country_code="unknown"
+  
+Object.keys(data).forEach((key,index)=>{
+  
+  if(key==chatLocale){
+  console.log("country code " +(data[key])[0].country_code);
+  chat_department=(data[key])[1].chat_department;
+  country_code=(data[key])[0].country_code;
+ 
   }
-});   
+  }); 
+  
+
+
+  zE('webWidget:on', 'chat:departmentStatus', function(dept) {
+  if (dept.name === chat_department && dept.status === 'online' && chatLocale === country_code ) {  
+  zE('webWidget', 'updateSettings', {
+    webWidget: {
+      chat: {
+        departments: {
+          enabled: [''],
+          select: chat_department
+        },
+        suppress: false
+      }
+    }
+  });
+} else { 
+  if (dept.name === chat_department && dept.status !== 'online' && chatLocale === country_code ) {
+        
+        zE('webWidget', 'updateSettings', {
+          webWidget: {
+            chat: {
+              suppress: true
+            }
+          }
+        });
+      } 
+  }
+}); 
           clearInterval(waitForZen);
         }, 100);
   
