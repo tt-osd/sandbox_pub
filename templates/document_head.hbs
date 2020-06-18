@@ -87,11 +87,44 @@ var  webwidget_class_login_message = -1;
                   parent.document.getElementById('webWidget').contentDocument.head.appendChild(style);
            			} //IF cust is logged out end
              
-                });                    
+                });                
               
-       
-                  clearInterval(waitForZen);
-            			}, 100);
+         
+  var country_code = document.documentElement.lang;
+  var country_code_lower = country_code.toLowerCase();
+  console.log(country_code_lower);	
+  
+  zE('webWidget:on', 'chat:departmentStatus', function(dept) {
+    console.log(country_code_lower);
+  if (dept.name === 'UK_Chat' && dept.status === 'online' && (country_code_lower === 'en-gb' ||country_code_lower === 'en-ie' ||country_code_lower === 'en-za')) {
+    console.log(dept.name + ' is ' + dept.status);      //optional logging
+    zE('webWidget', 'updateSettings', {
+      webWidget: {
+        chat: {
+          departments: {
+            enabled: [''],
+            select: 'UK_Chat'
+          },
+          suppress: false
+        }
+      }
+    });
+  } else if (dept.name === 'UK_Chat' && dept.status !== 'online' && country_code_lower === 'en-gb' ) {
+    console.log(dept.name + ' is ' + dept.status);      //optional logging
+    zE('webWidget', 'updateSettings', {
+      webWidget: {
+        chat: {
+          suppress: true
+        }
+      }
+    });
+  }
+});   
+          clearInterval(waitForZen);
+        }, 100);
+  
+  
+  
 					<!-- End  of hiding email and name on webwidget -->  
   
           <!-- Google Tag Manager -->  
