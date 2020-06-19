@@ -92,23 +92,16 @@ var  webwidget_class_login_message = -1;
              
                 });                 
          
-  
 
   
-    function getLocalechat() {
-    return window.location.href
-           .split('/hc/')[1]
-           .split('/')[0];
-   }
-  
-  var chatLocale = getLocalechat();
+   var chatLocale = HelpCenter.user.locale
   var chat_department="unknown"
   var country_code="unknown"
   
 Object.keys(data).forEach((key,index)=>{
   
   if(key==chatLocale){
-  console.log("country code " +(data[key])[0].country_code);
+ 
   chat_department=(data[key])[1].chat_department;
   country_code=(data[key])[0].country_code;
  
