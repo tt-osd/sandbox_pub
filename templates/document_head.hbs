@@ -62,6 +62,8 @@ var  webwidget_class_login_message = -1;
         if (window.$zopim === undefined || window.$zopim.livechat === undefined) {
             return;
         }
+  
+  
 
   zE('webWidget:on', 'open', function() { 
     
@@ -113,7 +115,7 @@ Object.keys(data).forEach((key,index)=>{
   }
   }); 
   
-
+	zE('webWidget', 'setLocale', country_code);	
 
   zE('webWidget:on', 'chat:departmentStatus', function(dept) {
   if (dept.name === chat_department && dept.status === 'online' && chatLocale === country_code ) {  
@@ -141,6 +143,8 @@ Object.keys(data).forEach((key,index)=>{
       } 
   }
 }); 
+  
+  
           clearInterval(waitForZen);
         }, 100);
   
