@@ -436,11 +436,11 @@
       ],
       "en-nz":[        
         {"country_code":"en-nz"},
-        {"chat_department":"EN_Chat"}
+        {"chat_department":"NZ_Chat"}
       ],
-      "en-sp":[        
-        {"country_code":"en-sp"},
-        {"chat_department":"EN_Chat"}
+      "en-sg":[        
+        {"country_code":"en-sg"},
+        {"chat_department":"AU_Chat"}
       ],
       "en-us":[        
         {"country_code":"en-us"},
