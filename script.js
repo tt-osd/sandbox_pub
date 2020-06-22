@@ -756,11 +756,9 @@ var waitForZen = setInterval(function () {
     //mobile version
 
     var h = window.screen.height;
-    var indexx = h * 0.65;
+    var indexx = h * 0.70;
 
-    window.ontouchmove = function() {
-        survey_on_mobile();
-    };
+   
 
     function survey_on_mobile() {
 
@@ -769,12 +767,16 @@ var waitForZen = setInterval(function () {
             if (read_cookie("exit_survey") === "") {
 
                 if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
-                    $('#survey_modal').addClass("zd_Hidden");
+                    $('#survey_modal').removeClass("zd_Hidden");
                 }
 
             }
         }
     };
+
+    window.ontouchmove = function() {
+      survey_on_mobile();
+  };
 
     //mobile version
 
@@ -901,14 +903,20 @@ var waitForZen = setInterval(function () {
   
   //to close a bongo chat window, click anywhere eles on the page but bongo to hide the window
   $('body').click(function(evt){    
-       if(evt.target.id == "bongo_place")
-          return;
-       if($(evt.target).closest('#bongo_place').length)
-          return;             
-          var bongo=document.getElementById("web-messenger-container"); 
-          bongo.classList.add("zd_Hidden");    
-          bongo_loaded=1; // when hidding the chat window, to remember that bongo is already loaded. 
-          ga_tracking("Bongo", "clicked", "bongo closed");
+    if(evt.target.id == "bongo_place")
+    return;
+ if($(evt.target).closest('#bongo_place').length)
+    return;             
+    var bongo=document.getElementById("web-messenger-container"); 
+    if(bongo!=null){
+   
+    bongo_loaded=1; // when hidding the chat window, to remember that bongo is already loaded. 
+      if(!(bongo.classList.contains("zd_Hidden"))){
+        ga_tracking("Bongo", "clicked", "bongo closed");
+      }
+       bongo.classList.add("zd_Hidden");    
+    
+    }
 });
     //end of bongo render, open and close
 
