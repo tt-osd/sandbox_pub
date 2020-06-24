@@ -178,7 +178,7 @@ jQuery.loadScript = function (url, callback) {
 	<!--   Promoted Articles - announcements, author Amy  --> 
          {{#if promoted_articles}}
               <section class="articles promoted-articles-box">
-                <div class="promoted_header"><div id="promoted-arrow" class="zd_Hidden"> </div><h4>{{dc 'announcements_title'}}</h4><div class="close">{{dc 'close_icon'}}</div></div>
+                <div class="promoted_header"><div class="close">{{dc 'close_icon'}}</div><div id="promoted-arrow" class="zd_Hidden"></div></div>
                 <ul class="article-list promoted-articles" id="promoted-articles">
                   {{#each promoted_articles}}
                     <li class="promoted-articles-item mySlides">
@@ -187,7 +187,7 @@ jQuery.loadScript = function (url, callback) {
                           {{#if internal}}
                             <span class="icon-lock" title="{{t 'internal'}}"></span>
                           {{/if}}
-                          <div class="button promoted-articles-button"></div>
+                          <div class="promoted-articles-button">{{dc 'read_more'}}</div>
                         </a>
                     </li>
                   {{/each}}

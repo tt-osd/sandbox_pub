@@ -1872,38 +1872,58 @@ margin-bottom: 300px
 .promoted-articles-box {
 		z-index: 100;
     position: fixed;
-    bottom: 70px;
-   	right: 30px;
+    top: 96px;
+   	right: 16px;
+  	left: auto;
     transition-property: position, right, bottom;
     transition-duration: 0.5s;
  		transition-timing-function:ease-in-out;
+   	display: flex;
+  	width: 90%;
 }
-section.articles {
-  background-color: #FFF; 
-  width: 400px;
+@media (min-width: 700px) {
+.promoted-articles-box {
+   	width: 450px;
+  }
 }
+section.articles {  
+  /*   background-color: #FFF;  */
+ }
 
 .promoted_header {
-  background-color: #DF1B12;
+  background-color: #000;
   color: #FFF;
   text-align: center;
   padding: 5px;
-  margin: 0 auto;
+  width: 50px;
+  border-right: 1px #FFF solid;
 }
 .promoted_header h4 { 
-margin-bottom: 0;
+		margin-bottom: 0;
+    color: #FFF;
 }
 .close {
   position: absolute;
-  right: 10px;
-  top: 8px;
+  left: 20px;
+  top: 40%;
 	font-family: "gotham";
   cursor: pointer;  
 }
+
 ul.article-list.promoted-articles {
   list-style: none;
-  padding: 20px 50px;
+  padding: 20px 50px 60px 50px;
   margin: 0;
+  background-color: #000;
+  color: #FFF;
+  width:90%;
+
+}
+@media (min-width: 700px) {
+  ul.article-list.promoted-articles {
+      width:400px;
+  }
+  
 }
 ul.article-list.promoted-articles a {
   text-transform:none;
@@ -1914,11 +1934,11 @@ ul.article-list.promoted-articles a {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 200px;
 }
 
 .promoted-articles-item {
-  flex: 1 0 auto;
+  flex-direction: column;
+  color: #FFF;
 }
  li.promoted-articles-item {
   display: none;
@@ -1945,7 +1965,7 @@ li.promoted-articles-item:after {
 .promoted-articles-item a {
   display: block;
   padding: 15px 0;
-  color: $text_color;
+  color: #FFF;
 }
 
 .promoted-articles-item .icon-lock::before {
@@ -1954,40 +1974,43 @@ li.promoted-articles-item:after {
 .promoted-articles-button {
     position: absolute;
   	bottom: 10px;
-    right: 10px;
+    left: 100px;
     display: block;
-    width: 50px;
-  	height: 50px;
+  	width: auto;
+  	font-family: "gotham bold";
+  	text-transform: uppercase;
+  	font-weight: 800;
 }
 .promoted-articles-button:after {
    	font-family: "TomTom Icons";
     content: "\0028";
-    color: #FFF; 
-    display: flex;
-    justify-content: center;
+    color: #DF1B12; 
+		vertical-align: top;
 }
 /***** Click through Announcements *****/
 #left-arrow {
   position: absolute;
-  top: 120px;
-  left: 10px;
+  left: 60px;
+  top: 30px;
 }
 #right-arrow{
   position: absolute;
-  top: 120px;
   right: 10px;
+  top: 30px;
 }
 #left-arrow:after {
 	font-family: "TomTom Icons";
   content: "left";
   position: absolute;
   cursor: pointer;
+  color: #FFF;
 }
 
 #right-arrow:after {
   font-family: "TomTom Icons";
   content: "right";
 	cursor: pointer;
+  color: #FFF;
 }
 
 /***** End Click through Announcements *****/
@@ -1997,8 +2020,8 @@ li.promoted-articles-item:after {
   transition: all 0.5s ease-in-out;
   bottom: 70px;
   right: 0px;
-/*   height: 100px;
-  width: 30px; */
+	border-right: none;
+  width: 30px;
 }
 .minimize-articles {
   display: none;
@@ -2006,7 +2029,7 @@ li.promoted-articles-item:after {
 }
 
 .minimize-header {
-  height: 300px;
+  height: 150px;
   width: 30px;
   transition: all 0.5s ease-in-out;
 }
@@ -2025,7 +2048,7 @@ li.promoted-articles-item:after {
   width: 20px;
   height: 20px;
   position: absolute;
-  top: 8px;
+  top: 10px;
   left: 5px;
   cursor: pointer;
 }

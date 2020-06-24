@@ -9,6 +9,11 @@
         "prod":360000746480
 
     },
+    "talk_form_id":{
+        "sandbox":360000794359,
+        "prod":360000796079
+
+    },
     "strap_form_id":{
         "sandbox":360000671760,
         "prod":360000746440
@@ -356,7 +361,7 @@
       ],
       "no":[        
         {"country_code":"no"},
-        {"chat_department":"FR_Chat"}
+        {"chat_department":"NO_Chat"}
       ],
       "pl":[        
         {"country_code":"pl"},
@@ -376,63 +381,59 @@
       ],
       "de-at":[        
         {"country_code":"de-at"},
-        {"chat_department":"DE_Chat"}
+        {"chat_department":"DE-AT_Chat"}
       ],
       "nl-be":[        
         {"country_code":"nl-be"},
-        {"chat_department":"NL_Chat"}
+        {"chat_department":"NL-BE_Chat"}
       ],
       "fr-be":[        
         {"country_code":"fr-be"},
-        {"chat_department":"FR_Chat"}
+        {"chat_department":"FR-BE_Chat"}
       ],
       "en-ca":[        
         {"country_code":"en-ca"},
-        {"chat_department":"UK_Chat"}
+        {"chat_department":"EN-CA_Chat"}
       ],
       "en-hu":[        
         {"country_code":"en-hu"},
-        {"chat_department":"UK_Chat"}
+        {"chat_department":"HU_Chat"}
       ],
       "en-gr":[        
         {"country_code":"en-gr"},
-        {"chat_department":"UK_Chat"}
+        {"chat_department":"GR_Chat"}
       ],
       "en-ie":[        
         {"country_code":"en-ie"},
-        {"chat_department":"UK_Chat"}
+        {"chat_department":"EN-IE_Chat"}
       ],
       "fr-lu":[        
         {"country_code":"fr-lu"},
-        {"chat_department":"FR_Chat"}
+        {"chat_department":"FR-LU_Chat"}
       ],
       "fr-ch":[        
         {"country_code":"fr-ch"},
-        {"chat_department":"FR_Chat"}
+        {"chat_department":"FR-CH_Chat"}
       ],
       "de-ch":[        
         {"country_code":"de-ch"},
-        {"chat_department":"DE_Chat"}
+        {"chat_department":"DE-CH_Chat"}
       ],
       "es-ar":[        
         {"country_code":"es-ar"},
-        {"chat_department":"ES_Chat"}
-      ],
-      "pt-br":[        
-        {"country_code":"pt-br"},
-        {"chat_department":"PT_Chat"}
+        {"chat_department":"ES-AR_Chat"}
       ],
       "fr-ca":[        
         {"country_code":"fr-ca"},
-        {"chat_department":"FR_Chat"}
+        {"chat_department":"FR-CA_Chat"}
       ],
       "es-mx":[        
         {"country_code":"es-mx"},
-        {"chat_department":"ES_Chat"}
+        {"chat_department":"ES-MX_Chat"}
       ],
       "en-za":[        
         {"country_code":"en-za"},
-        {"chat_department":"EN_Chat"}
+        {"chat_department":"EN-ZA_Chat"}
       ],
       "en-nz":[        
         {"country_code":"en-nz"},
@@ -440,11 +441,35 @@
       ],
       "en-sg":[        
         {"country_code":"en-sg"},
-        {"chat_department":"AU_Chat"}
+        {"chat_department":"SG_Chat"}
       ],
       "en-us":[        
         {"country_code":"en-us"},
         {"chat_department":"US_Chat"}
+      ],
+      "en-in":[        
+        {"country_code":"en-in"},
+        {"chat_department":"EN-IN_Chat"}
+      ],
+      "zh-cn":[        
+        {"country_code":"zh-cn"},
+        {"chat_department":"CN_Chat"}
+      ],
+      "zh-tw":[        
+        {"country_code":"zh-tw"},
+        {"chat_department":"TW_Chat"}
+      ],
+      "tr":[        
+        {"country_code":"tr"},
+        {"chat_department":"TR_Chat"}
+      ],
+      "ja":[        
+        {"country_code":"ja"},
+        {"chat_department":"JP_Chat"}
+      ],
+      "ko":[        
+        {"country_code":"ko"},
+        {"chat_department":"KR_Chat"}
       ],
     "example":{
         "sandbox":123,

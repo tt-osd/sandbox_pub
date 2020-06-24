@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
       var tthome_section_id="";
       var vanilla_sso_server = -1;
       var vanilla_redirect_url = -1;
+     	var talk_form_id = -1;
        //create form id with a default value -1
 
 
@@ -89,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
   				 tthome_section_id=data.tthome_section_id.sandbox; 
        		 vanilla_redirect_url=data.vanilla_redirect_url.sandbox; 
         	 vanilla_sso_server=data.vanilla_sso_server.sandbox; 
+          talk_form_id=data.talk_form_id.sandbox;
         		  } else {
             
            //form id get the production id value
@@ -106,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
             tthome_section_id=data.tthome_section_id.prod; 
             vanilla_redirect_url=data.vanilla_redirect_url.prod; 
             vanilla_sso_server=data.vanilla_sso_server.prod; 
+            talk_form_id=data.talk_form_id.prod;
 
           }//end of get form/fields ID
       
@@ -365,14 +368,22 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
             //GDPR form
             var strap_form_ID_webwidget= strap_form_id;
      				 //strap form
-            var email_form_ID_webwidget= email_form_id;
-  
+            var email_form_ID_webwidget= email_form_id; 
 
-  
+     // Amy Ogborn
 
-         // Amy Ogborn
-           zESettings = {
-            webWidget: {
+  var talkLocale = HelpCenter.user.locale
+  var talkLocaleLower = talkLocale.toLowerCase();      
+
+      if (talkLocaleLower === 'fr' || talkLocale === 'fr-be' || talkLocale === 'fr-ca' || talkLocale === 'fr-ch' || talkLocale === 'it' || talkLocale === 'pl'  || talkLocale === 'pt' || talkLocale === 'pt-br' || talkLocale === 'es'  ){ // Include all the page you want the talk options to show up
+  
+                 zESettings = {
+            webWidget: 
+                      {contactOptions: {
+                          enabled: true,
+                          contactButton: { '*': 'Get in touch' },
+                        	contactFormLabel: { '*': 'Email us or call us' }
+                        },
               contactForm: {
                         fields: [
                           { id: 'name', prefill: { '*':HelpCenter.user.name }}, //prefilling username
@@ -383,6 +394,7 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
                                     // pre fill subject line 
                                       //  { id: strap_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'STRAP FORM '+strap_form_id }}]},
                                       //  { id: golf_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'GOLF FORM '+golf_form_id }}] },
+                                  			{ id: talk_form_id, fields: [{id: 'subject',prefill: {'*': '360000794359' }}] },
                                         { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] }                        
                                          ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
                            
@@ -403,9 +415,52 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
       							}
             }
           };  // End of webwidget settings
+      } else {
+                   zESettings = {
+            webWidget: 
+                      {
+                        contactOptions: {
+                          enabled: true,
+                          contactButton: { '*': 'Get in touch' },                        	
+                        },
+              contactForm: {
+                        fields: [
+                          { id: 'name', prefill: { '*':HelpCenter.user.name }}, //prefilling username
+                          { id: 'email', prefill: { '*':HelpCenter.user.email }}//prefilling email
+                                ],
+
+                                ticketForms: [
+                                    // pre fill subject line 
+                                      //  { id: strap_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'STRAP FORM '+strap_form_id }}]},
+                                      //  { id: golf_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'GOLF FORM '+golf_form_id }}] },
+                                  		//	{ id: talk_form_id, fields: [{id: 'subject',prefill: {'*': '360000794359' }}, {id: 'description', prefill: {'*': 'Hide this feild'}}] },
+                                        { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] }                        
+                                         ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
+                           
+              },  
+               color: {
+                          theme: '#008D8D',
+                          launcher: '#008D8D', // This will also update the badge
+                          launcherText: '#FFF',
+                          button: '#004B7F',
+                          resultLists: '#000',
+                          header: '#008D8D',
+                          articleLinks: '#DF1B12'
+                      }, 
+               chat: {
+                 		   departments: {
+                 	     enabled: []
+                  								  }
+      							}
+            }
+          };  // End of webwidget settings
+        
+      }
 
 
-          // web widget strap form validation
+          // web widget strap form validation and talk showing
+      
+      
       
       
 var waitForZen = setInterval(function () {
@@ -417,30 +472,47 @@ var waitForZen = setInterval(function () {
   
         //user property in if statement!!!!
           if((event.action)=="Contact Form Shown"){
-            var a = document.getElementById('webWidget');
-             var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
-             var frame_embed=frameBody.querySelector("#Embed");
-             var form=frame_embed.querySelector("form");
+            		var a = document.getElementById('webWidget');
+            		var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
+             		var frame_embed=frameBody.querySelector("#Embed");
+             		var form=frame_embed.querySelector("form");
             
-             //hide name and email field 
-              var email_label=form.querySelector('label[data-fieldid="email"]');
-              var email_input= form.querySelector('input[name="email"]');
+            		//hide name and email field 
+              	var email_label=form.querySelector('label[data-fieldid="email"]');
+              	var email_input= form.querySelector('input[name="email"]');
               
-              var name_label=form.querySelector('label[data-fieldid="name"]');
-              var name_input= form.querySelector('input[name="name"]');
+              	var name_label=form.querySelector('label[data-fieldid="name"]');
+              	var name_input= form.querySelector('input[name="name"]');
               
-               var subject_label=form.querySelector('label[data-fieldid="subject"]');
-              var subject_input= form.querySelector('input[name="subject"]');
-              
-              email_input.style.display = "none";
-              email_label.style.display = "none";
-              name_label.style.display = "none";
-              name_input.style.display = "none";
-              subject_label.style.display = "none";
-              subject_input.style.display = "none";
-            // end of hiding
+               	var subject_label=form.querySelector('label[data-fieldid="subject"]');
+              	var subject_input= form.querySelector('input[name="subject"]');
+            
+                var description_label=form.querySelector('label[data-fieldid="description"]');
+                var description_input= form.querySelector('textarea[name="description"]');
+                var description_hint= form.querySelector('div[data-garden-id="forms.text_hint"]');
+            		  
+                  email_input.style.display = "none";
+                  email_label.style.display = "none";
+                  name_label.style.display = "none";
+                  name_input.style.display = "none";
+                  subject_label.style.display = "none";
+                  subject_input.style.display = "none";
+                // end of hiding
+            
+						if((event.properties).id == talk_form_id) { // this is to hide the other feild on the phone us (talk) webwdiget
+              	 	var attatchments_button= form.querySelector('button');
+              		attatchments_button.style.display = "none";
+                	var attatchments_label= form.querySelector('label[for="dropzone-input"]');
+              		attatchments_label.style.display = "none";
+                  var dropdown_button= form.querySelector('div[type="button"]');
+              		dropdown_button.style.display = "none";                       		
+                	description_label.style.display = "none";
+               		description_input.style.display = "none";
+              		description_hint.style.display = "none";
+            }
+            
            
-            if((event.properties).id == strap_form_id){
+            if((event.properties).id == strap_form_id) {
               
              
             var serial = form.querySelector('input[name="key:'+serial_number_eur_field_id+'"]');
@@ -631,12 +703,7 @@ var waitForZen = setInterval(function () {
     //general cookie functions
 
     function post_decline_tt_settings() {
-        $("#cookie_bar_buttons_post_close").removeClass("zd_Hidden");
-        $("#cookie_bar_buttons_decline").addClass("zd_Hidden");
-        $("#cookie_bar_buttons_accept").addClass("zd_Hidden");
-
-        $("#cookie_bar_content").addClass("zd_Hidden");
-        $("#cookie_bar_post_decline_text").removeClass("zd_Hidden");
+        $("#tt_cookie_bar").addClass("zd_Hidden");
     }
 
 
