@@ -494,7 +494,7 @@ var waitForZen = setInterval(function () {
             
                 var description_label=form.querySelector('label[data-fieldid="description"]');
                 var description_input= form.querySelector('textarea[name="description"]');
-                var description_hint= form.querySelector('div[data-garden-id="forms.text_hint"]');
+              //  var description_hint= form.querySelector('div[data-garden-id="forms.text_hint"]');
 
 
                 var request_locale_label=form.querySelector('label[data-fieldid="key:'+email_form_request_local_field+'"]');
@@ -507,9 +507,13 @@ var waitForZen = setInterval(function () {
                   name_input.style.display = "none";
                   subject_label.style.display = "none";
                   subject_input.style.display = "none";
+              
+                // end of hiding
+
+                if((event.properties).id == email_form_id){
                   request_locale_label.style.display = "none";
                   request_locale_input.style.display = "none";
-                // end of hiding
+                }
             
 						if((event.properties).id == talk_form_id) { // this is to hide the other feild on the phone us (talk) webwdiget
               	 	var attatchments_button= form.querySelector('button');
@@ -520,7 +524,7 @@ var waitForZen = setInterval(function () {
               		dropdown_button.style.display = "none";                       		
                 	description_label.style.display = "none";
                		description_input.style.display = "none";
-              		description_hint.style.display = "none";
+              	//	description_hint.style.display = "none";
             }
             
            
