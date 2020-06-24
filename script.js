@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
       var tthome_section_id="";
       var vanilla_sso_server = -1;
       var vanilla_redirect_url = -1;
-     	var talk_form_id = -1;
+       var talk_form_id = -1;
+       var email_form_request_local_field=-1;
        //create form id with a default value -1
 
 
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
        		 vanilla_redirect_url=data.vanilla_redirect_url.sandbox; 
         	 vanilla_sso_server=data.vanilla_sso_server.sandbox; 
           talk_form_id=data.talk_form_id.sandbox;
+          email_form_request_local_field=data.email_form_request_local.sandbox;
         		  } else {
             
            //form id get the production id value
@@ -109,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
             vanilla_redirect_url=data.vanilla_redirect_url.prod; 
             vanilla_sso_server=data.vanilla_sso_server.prod; 
             talk_form_id=data.talk_form_id.prod;
-
+            email_form_request_local_field=data.email_form_request_local.prod;
           }//end of get form/fields ID
       
      if(the_url.indexOf("ticket_form_id")!= -1){     //the current page is a form page 
@@ -373,7 +375,8 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
      // Amy Ogborn
 
   var talkLocale = HelpCenter.user.locale
-  var talkLocaleLower = talkLocale.toLowerCase();      
+  var talkLocaleLower = talkLocale.toLowerCase();   
+   
 
       if (talkLocaleLower === 'fr' || talkLocale === 'fr-be' || talkLocale === 'fr-ca' || talkLocale === 'fr-ch' || talkLocale === 'it' || talkLocale === 'pl'  || talkLocale === 'pt' || talkLocale === 'pt-br' || talkLocale === 'es'  ){ // Include all the page you want the talk options to show up
   
@@ -395,7 +398,8 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
                                       //  { id: strap_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'STRAP FORM '+strap_form_id }}]},
                                       //  { id: golf_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'GOLF FORM '+golf_form_id }}] },
                                   			{ id: talk_form_id, fields: [{id: 'subject',prefill: {'*': '360000794359' }}] },
-                                        { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] }                        
+                                      //  { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] } 
+                                        { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }},{id: email_form_request_local_field ,prefill: {'*': talkLocale }}] }                          
                                          ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
                            
               },  
@@ -434,7 +438,8 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
                                       //  { id: strap_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'STRAP FORM '+strap_form_id }}]},
                                       //  { id: golf_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'GOLF FORM '+golf_form_id }}] },
                                   		//	{ id: talk_form_id, fields: [{id: 'subject',prefill: {'*': '360000794359' }}, {id: 'description', prefill: {'*': 'Hide this feild'}}] },
-                                        { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] }                        
+                                       // { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] }  
+                                        { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }},{id: email_form_request_local_field ,prefill: {'*': talkLocale }}] }                      
                                          ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
                            
               },  
@@ -490,6 +495,11 @@ var waitForZen = setInterval(function () {
                 var description_label=form.querySelector('label[data-fieldid="description"]');
                 var description_input= form.querySelector('textarea[name="description"]');
                 var description_hint= form.querySelector('div[data-garden-id="forms.text_hint"]');
+
+
+                var request_locale_label=form.querySelector('label[data-fieldid="key:'+email_form_request_local_field+'"]');
+                var request_locale_input= form.querySelector('div[name="key:'+email_form_request_local_field+'"]');
+            
             		  
                   email_input.style.display = "none";
                   email_label.style.display = "none";
@@ -497,6 +507,8 @@ var waitForZen = setInterval(function () {
                   name_input.style.display = "none";
                   subject_label.style.display = "none";
                   subject_input.style.display = "none";
+                  request_locale_label.style.display = "none";
+                  request_locale_input.style.display = "none";
                 // end of hiding
             
 						if((event.properties).id == talk_form_id) { // this is to hide the other feild on the phone us (talk) webwdiget

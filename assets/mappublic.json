@@ -302,14 +302,10 @@
     "announcements_section_id":{
         "sandbox":360003869119,
         "prod":360004078300        
-    },
-    "utag_url_script":{
-        "sandbox":123,
-        "prod":321        
-    },
-    "utag_url_script":{
-        "sandbox":123,
-        "prod":321        
+    }, 
+    "email_form_request_local":{
+        "sandbox":360011667140,
+        "prod":360011647459        
     },
     "vanilla_redirect_url":{
         "sandbox":"https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin&locale=en-gb",
