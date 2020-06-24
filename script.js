@@ -374,11 +374,9 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
 
      // Amy Ogborn
 
-  var talkLocale = HelpCenter.user.locale
-  var talkLocaleLower = talkLocale.toLowerCase();   
-   
+ 	var talkLocale = $('html').attr('lang').toLowerCase();    
 
-      if (talkLocaleLower === 'fr' || talkLocale === 'fr-be' || talkLocale === 'fr-ca' || talkLocale === 'fr-ch' || talkLocale === 'it' || talkLocale === 'pl'  || talkLocale === 'pt' || talkLocale === 'pt-br' || talkLocale === 'es'  ){ // Include all the page you want the talk options to show up
+      if (talkLocale === 'fr' || talkLocale === 'fr-be' || talkLocale === 'fr-ca' || talkLocale === 'fr-ch' || talkLocale === 'it' || talkLocale === 'pl'  || talkLocale === 'pt' || talkLocale === 'pt-br' || talkLocale === 'es'  ){ // Include all the page you want the talk options to show up
   
                  zESettings = {
             webWidget: 
