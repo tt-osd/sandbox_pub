@@ -605,6 +605,25 @@ var waitForZen = setInterval(function () {
                     }
                   }
             //VANILLA SSO END  //Mrunal
+      
+            //Code for BuRMA SSO cookie creation - Start 
+      var server_url = vanilla_sso_server+'zenApi/src/repairController.php';
+      if (read_cookie("tt_cp_auth") === "" && HelpCenter.user.email != null){
+        $.ajax({
+          url : server_url+'?userCookieEmail='+HelpCenter.user.email,
+          type : 'GET',
+          dataType:'JSON',
+          success : function(response) {
+            set_cookie("tt_cp_auth",response.encryptemail,3600000);
+          },
+          error : function(request,error)
+          {
+            console.log('error : '+error);
+            console.log("Request: "+JSON.stringify(request));
+          }
+        });
+      }
+  //Code for BuRMA SSO cookie creation - End // Asmita
 
 });  // end access id_map JSON
 /*****  End Prefill Email Widget *****/   

@@ -1,3 +1,68 @@
+<!-- Repair/BuRMA CSS and JS -->
+<style>
+ #cs_BURMA_Frame, #no_BURMA_user {
+	display: none;
+}
+</style>
+
+<script type="text/javascript">
+   
+$(document).ready(function(){
+  $.getJSON(id_map_data_source, function(data) {
+  	var php_api_server = -1;
+  	if (the_url.indexOf("sandbox")!= -1) {
+  		php_api_server=data.vanilla_sso_server.sandbox; 
+    } else {
+  		php_api_server = data.vanilla_sso_server.prod;
+  	}
+  
+    ///BuRMA call setup          
+    ////get current user 
+    var current_user = HelpCenter.user.email;
+		var server_url = php_api_server+'zenApi/src/repairController.php';
+  
+    apiendpoint = "contact/type/"+current_user;
+  	///// call api for getting user type ///// 
+    getAPIresponse(apiendpoint, current_user, 'getusertype');
+
+    function successCallBack(data){
+    	///If API is for checking user type///
+     	if(data.requesttype == 'getusertype') {
+        contacttype = data.result.type;
+        if(contacttype == 3) {	////if user is BuRMA, show ifrmae
+           $('#tt_burma').attr('src', data.burmaLocaleUrl);
+           $('#cs_BURMA_Frame').show();
+        } else {	////else show message (show repair list - pending)
+           $('#no_BURMA_user').show();              
+        }
+     	} else { //// for showing user repair list (pending) 
+        //console.log(data);
+     	}
+  	}   
+		/* Function for all API calls */
+    function getAPIresponse(apiendpoint, useremail, requesttype) {
+			burma_url = server_url+'?apiendpoint='+apiendpoint+'&useremail='+useremail+'&requesttype='+requesttype;
+      $.ajax({
+          url : burma_url,
+          type : 'GET',
+          dataType:'JSON',
+          success : successCallBack,
+          error : function(request,error)
+          {
+            console.log('error : '+error);
+            console.log("Request: "+JSON.stringify(request));
+          }
+      });
+    }
+  });
+});
+</script> 
+  
+<label class="zd_Hidden" id="map_json">{{asset 'map_json'}}</label>
+<!-- Repair/BuRMA CSS and JS - End - Asmita -->
+
+
+
 <div class="my-activities-nav">
   <div class="container">
     <nav class="collapsible-nav">
@@ -123,6 +188,21 @@
       </table>
     {{/if}}
   </div>
+  
+  <!--  Asmita - Repairs/BuRMA HTML  -->
+  <br>
+  <div class="requests">
+    <h1>{{dc 'repairs'}}</h1>
+    <div id="cs_BURMA_Frame" class="tt-container tb">
+      <iframe height="500" width="1000" id="tt_burma" class="tts-burma">
+      <p>{{dc 'iframe_error_message'}}</p>
+      </iframe>
+    </div>
+    <div id="no_BURMA_user" class="tt-container tb">
+      <p>{{dc 'repairs_-_login_message'}}</p>
+    </div>
+  </div>
+<!--  Repairs/BuRMA HTML - End  -Asmita -->
 
   {{pagination}}
 </div>
