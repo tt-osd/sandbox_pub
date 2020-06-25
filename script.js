@@ -602,6 +602,12 @@ var waitForZen = setInterval(function () {
                        }else{
                         window.location.href = vanilla_redirect_url ;
                       }
+                    } else {
+                      iscookie = document.cookie.indexOf('vanillaSession=');
+                      if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscookie > -1){
+                        removeCookie("vanillaSession");
+                        window.location.href = vanilla_sso_server+"zenApi/src/vanillaSSO.php?param="+window.btoa(HelpCenter.user.email);
+                      }
                     }
                   }
             //VANILLA SSO END  //Mrunal
@@ -1297,14 +1303,6 @@ var waitForZen = setInterval(function () {
                               }
                           });
                       // Above code is zendesk 
-  
-                        //Code for BuRMA SSO cookie creation - Start 
-  const secureKey = "N@vI5aT3";
-  if (read_cookie("tt_cp_auth") === "" && HelpCenter.user.email != null){
-      var encrypted = CryptoJS.AES.encrypt(HelpCenter.user.email, secureKey);
-      set_cookie("tt_cp_auth",encrypted,3600000);
-  }
-  //Code for BuRMA SSO cookie creation - End // Mrunal
   
    /*** Redirecting untranslated articles to an existing language ****/
   
