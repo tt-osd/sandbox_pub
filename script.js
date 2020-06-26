@@ -624,8 +624,8 @@ var waitForZen = setInterval(function () {
           },
           error : function(request,error)
           {
-            console.log('error : '+error);
-            console.log("Request: "+JSON.stringify(request));
+           // console.log('error : '+error);
+            //console.log("Request: "+JSON.stringify(request));
           }
         });
       }
