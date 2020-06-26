@@ -22,7 +22,7 @@ var the_url= window.location.href;  //this is the URL value that can be used in 
 var webwidget_class_hide_email = -1;   //create form id with a default value -1
 var tag_manager_container = -1;
 var webwidget_src = -1;  
-var  webwidget_class_login_message = -1; 
+
 
     var id_map_data_source="https:"+$("#map_json").html();
 
@@ -34,13 +34,13 @@ var  webwidget_class_login_message = -1;
   			webwidget_src = data.webwidget_src.sandbox;
         webwidget_class_hide_email = data.webwidget_class_hide_email.sandbox;
   			tag_manager_container = data.tag_manager_container.sandbox;
- 				webwidget_class_login_message = data.webwidget_class_login_message.sandbox;
+ 			
 
         		  } else {
   			webwidget_src = data.webwidget_src.prod;
         webwidget_class_hide_email = data.webwidget_class_hide_email.prod;
   			tag_manager_container = data.tag_manager_container.prod;
- 				webwidget_class_login_message = data.webwidget_class_login_message.prod;
+ 			
 
         }
 
@@ -83,11 +83,33 @@ var  webwidget_class_login_message = -1;
                                   'suppress': true
                           }
                   });
-  										var style = document.createElement('style'); //create style element
-                             
-                      style.innerHTML = webwidget_class_login_message  + ` { content: '{{dc 'Homepage_Login'}}'; position: absolute; bottom: 20px; } `;
-            
-                  parent.document.getElementById('webWidget').contentDocument.head.appendChild(style);
+
+
+  zE('webWidget:on', 'userEvent', function(event) {
+   if((event.category)=="Zendesk Web Widget"){
+        var a = document.getElementById('webWidget');
+        var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
+  			 var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
+  				var loginMSG = document.createElement('p'); 
+
+ 					loginMSG.style.position = 'absolute';
+  				loginMSG.style.bottom = '20px';
+  loginMSG.style.width = '100%';
+  loginMSG.style.textAlign = 'center';
+  loginMSG.style.paddingRight = '4%';
+
+  var textnode = document.createTextNode(dc_Homepage_Login); 
+  			loginMSG.appendChild(textnode);  
+ 				 frameBody.appendChild(loginMSG);  
+  
+  }
+  });
+
+
+
+
+
+  		
            			} //IF cust is logged out end
              
                 });                 
