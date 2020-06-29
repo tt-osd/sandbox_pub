@@ -175,10 +175,6 @@
         "sandbox": "https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a",
         "prod": "https://static.zdassets.com/ekr/snippet.js?key=9ba5f34a-d620-477e-97cf-361d5d086fdc" 
     },
-    "webwidget_class_login_message":{
-        "sandbox": "#Embed div.sc-gzVnrw > div:nth-child(1):after",
-        "prod":"#Embed div.sc-gzVnrw > div:nth-child(1):after" 
-    },
     "webwidget_class_hide_email":{
         "sandbox": "#Embed div.sc-iybRtq > div:nth-child(1) { display: none; } #Embed div.sc-iybRtq > div:nth-child(2) { display: none; }",
         "prod": "#Embed div.sc-iybRtq > div:nth-child(1) { display: none; } #Embed div.sc-iybRtq > div:nth-child(2) { display: none; }" 

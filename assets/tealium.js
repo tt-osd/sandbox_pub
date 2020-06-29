@@ -162,7 +162,7 @@ if (language.match(/^(en-ca|en-us|fr-ca|pt-br|es-ar|es-mx)$/)) {
   };
   
   
-  console.log(utag_data);
+ // console.log(utag_data);
    //tealium
 
 
