@@ -372,93 +372,61 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
      				 //strap form
             var email_form_ID_webwidget= email_form_id; 
 
-     // Amy Ogborn
-
- 	var talkLocale = $('html').attr('lang').toLowerCase();    
-
-      if (talkLocale === 'fr' || talkLocale === 'fr-be' || talkLocale === 'fr-ca' || talkLocale === 'fr-ch' || talkLocale === 'pl'  || talkLocale === 'pt' || talkLocale === 'pt-br' || talkLocale === 'es'  ){ // Include all the page you want the talk options to show up
-  
-                 zESettings = {
-            webWidget: 
-                      {contactOptions: {
-                          enabled: true,
-                          contactButton: { '*': 'Get in touch' },
-                        	contactFormLabel: { '*': 'Email us or call us' }
-                        },
-              contactForm: {
-                        fields: [
-                          { id: 'name', prefill: { '*':HelpCenter.user.name }}, //prefilling username
-                          { id: 'email', prefill: { '*':HelpCenter.user.email }}//prefilling email
-                                ],
-
-                                ticketForms: [
-                                    // pre fill subject line 
-                                      //  { id: strap_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'STRAP FORM '+strap_form_id }}]},
-                                      //  { id: golf_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'GOLF FORM '+golf_form_id }}] },
-                                  			{ id: talk_form_id, fields: [{id: 'subject',prefill: {'*': '360000794359' }}] },
-                                      //  { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] } 
-                                        { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }},{id: email_form_request_local_field ,prefill: {'*': talkLocale }}] }                          
-                                         ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
-                           
-              },  
-               color: {
-                          theme: '#008D8D',
-                          launcher: '#008D8D', // This will also update the badge
-                          launcherText: '#FFF',
-                          button: '#004B7F',
-                          resultLists: '#000',
-                          header: '#008D8D',
-                          articleLinks: '#DF1B12'
-                      }, 
-               chat: {
-                 		   departments: {
-                 	     enabled: []
-                  								  }
-      							}
-            }
-          };  // End of webwidget settings
-      } else {
-                   zESettings = {
-            webWidget: 
-                      {
-                        contactOptions: {
-                          enabled: true,
-                          contactButton: { '*': 'Get in touch' },                        	
-                        },
-              contactForm: {
-                        fields: [
-                          { id: 'name', prefill: { '*':HelpCenter.user.name }}, //prefilling username
-                          { id: 'email', prefill: { '*':HelpCenter.user.email }}//prefilling email
-                                ],
-
-                                ticketForms: [
-                                    // pre fill subject line 
-                                      //  { id: strap_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'STRAP FORM '+strap_form_id }}]},
-                                      //  { id: golf_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'GOLF FORM '+golf_form_id }}] },
-                                  		//	{ id: talk_form_id, fields: [{id: 'subject',prefill: {'*': '360000794359' }}, {id: 'description', prefill: {'*': 'Hide this feild'}}] },
-                                       // { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }}] }  
-                                        { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }},{id: email_form_request_local_field ,prefill: {'*': talkLocale }}] }                      
-                                         ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
-                           
-              },  
-               color: {
-                          theme: '#008D8D',
-                          launcher: '#008D8D', // This will also update the badge
-                          launcherText: '#FFF',
-                          button: '#004B7F',
-                          resultLists: '#000',
-                          header: '#008D8D',
-                          articleLinks: '#DF1B12'
-                      }, 
-               chat: {
-                 		   departments: {
-                 	     enabled: []
-                  								  }
-      							}
-            }
-          };  // End of webwidget settings
-        
-      }
+            var talkLocale = $('html').attr('lang').toLowerCase();   
+            var chatLabel=document.getElementById("chatLabel").textContent;
+            var chatlabelonline=document.getElementById("chatlabelonline").textContent;
+            var chatlabeloffline=document.getElementById("chatlabeloffline").textContent;
+            var contactformlabel=document.getElementById("contactformlabel").textContent;
+            var talk_form_id_per_selected_local=0;
+               if (talkLocale === 'fr' || talkLocale === 'fr-be' || talkLocale === 'fr-ca' 
+               || talkLocale === 'fr-ch' || talkLocale === 'pl'  || talkLocale === 'pt' 
+               || talkLocale === 'pt-br' || talkLocale === 'es'  ){
+                 talk_form_id_per_selected_local=talk_form_id;
+               } // Include all the page you want the talk options to show up
+           
+           zESettings = {
+                     webWidget: 
+                               {contactOptions: {
+                                   enabled: true,
+                                  chatLabelOnline: { '*': chatlabelonline },
+                                   chatLabelOffline: { '*': chatlabeloffline },
+                                   contactFormLabel: { '*': contactformlabel}//if Talk then show Email us or phone us; else just Email us
+                                 },
+                       contactForm: {
+                                 fields: [
+                                   { id: 'name', prefill: { '*':HelpCenter.user.name }}, //prefilling username
+                                   { id: 'email', prefill: { '*':HelpCenter.user.email }}//prefilling email
+                                         ],
+         
+                                         ticketForms: [
+                                                 { id: talk_form_id_per_selected_local, fields: [{id: 'subject',prefill: {'*': '360000794359' }}] },
+                                                 { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }},{id: email_form_request_local_field ,prefill: {'*': talkLocale }}] }                          
+                                                  ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
+                                    
+                       },  
+                        color: {
+                                   theme: '#df1b12',
+                                   launcher: '#df1b12', // This will also update the badge
+                                   launcherText: '#FFF',
+                                   button: '#df1b12',
+                                   resultLists: '#000',
+                                   header: '#df1b12',
+                                   articleLinks: '#DF1B12'
+                               }, 
+                                                     launcher: {
+                                                      chatLabel: {"*": chatLabel},
+                                                      label:{"*": chatLabel}
+               },
+                        chat: {
+                                 departments: {
+                                 enabled: []
+                                             }
+                             }
+                     }
+                   };  // End of webwidget settings
+                
+         
+         
 
 
           // web widget strap form validation and talk showing

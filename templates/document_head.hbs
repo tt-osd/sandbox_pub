@@ -66,6 +66,8 @@ var webwidget_src = -1;
   
 
   zE('webWidget:on', 'open', function() { 
+  
+  
     
             if (HelpCenter.user.role=="anonymous")     {
 
@@ -85,25 +87,21 @@ var webwidget_src = -1;
                   });
 
 
-  zE('webWidget:on', 'userEvent', function(event) {
-   if((event.category)=="Zendesk Web Widget"){
         var a = document.getElementById('webWidget');
         var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
   			 var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
   				var loginMSG = document.createElement('p'); 
 
  					loginMSG.style.position = 'absolute';
-  				loginMSG.style.bottom = '20px';
-  loginMSG.style.width = '100%';
+  				loginMSG.style.marginTop = '50px';
   loginMSG.style.textAlign = 'center';
-  loginMSG.style.paddingRight = '4%';
+  loginMSG.style.padding = '5%';
 
   var textnode = document.createTextNode(dc_Homepage_Login); 
   			loginMSG.appendChild(textnode);  
  				 frameBody.appendChild(loginMSG);  
   
-  }
-  });
+
 
 
 
