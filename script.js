@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
    var the_url= window.location.href;
   //this is the URL value that can be used in all the functions
 
+  if(the_url.indexOf("requests/ccd")!= -1){
+    var hide_CC_page_main=document.querySelector('main[role="main"]');
+    hide_CC_page_main.classList.add("zd_Hidden");
+    window.location.href=the_url.split("/ccd")[0];
+  }
+
 /*** MAP ***/  
      
     //get the id_map JSON access URL from asset
@@ -254,6 +260,8 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                             /*** Email FORM***/
                           var email_page_title = document.getElementById("email_page_title").innerHTML; 
                           document.title = email_page_title; 
+                          $(".request_custom_fields_"+email_form_request_local_field).addClass("zd_Hidden");
+                          $("#request_custom_fields_"+email_form_request_local_field).val(HelpCenter.user.locale);
                           /*** Email FORM***/
                         } else {
                         
