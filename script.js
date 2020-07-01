@@ -414,7 +414,8 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
                                    articleLinks: '#DF1B12'
                                }, 
                                                      launcher: {
-                                                       chatLabel: {"*": chatLabel} 
+                                                      chatLabel: {"*": chatLabel},
+                                                      label:{"*": chatLabel}
                },
                         chat: {
                                  departments: {
