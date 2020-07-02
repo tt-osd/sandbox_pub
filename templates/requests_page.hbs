@@ -79,20 +79,6 @@ $(document).ready(function(){
   <header class="my-activities-header">
     <h1>{{t 'my_requests'}}</h1>
 
-    <div class="my-activities-sub-nav">
-      <nav class="collapsible-nav collapsible-nav-border">
-        <button type="button" class="collapsible-nav-toggle" aria-label="{{t 'toggle_navigation'}}" aria-expanded="false"></button>
-        <ul class="collapsible-nav-list">
-          {{#each filters}}
-            {{#if selected}}
-              <li aria-selected=true>{{name}}</li>
-            {{else}}
-              <li><a href="{{url}}">{{name}}</a></li>
-            {{/if}}
-          {{/each}}
-        </ul>
-      </nav>
-    </div>
   </header>
 
   {{#form 'requests_filter' class='requests-table-toolbar'}}
