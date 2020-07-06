@@ -9,17 +9,18 @@
 
 
 <script type="text/javascript">
-jQuery.loadScript = function (url, callback) {
-     jQuery.ajax({
-         url: url,
-         dataType: 'script',
-         success: callback,
-         async: true
-     });
- }
+ var tea; //this var will hold the utag src from Map.JSON
+  var utagFC=document.createElement('script'); // create a script tag to load the custome tealium function
+  utagFC.onload = function () { // when tealium function is loaded
+	 tea=tealium();// call the function and var tea will get the utag src
+  var tealiumScript = document.createElement('script'); //create a tag to load utag
+	tealiumScript.src = tea;//get the src for utag script
+  document.head.appendChild(tealiumScript); //append to document head
+ };
+  utagFC.src='https:'+document.getElementById("tealium").innerHTML; //get the tealium function access url from map tealium.js from asset
+  document.head.appendChild(utagFC);// append to document head 
   
-<!--   run tealium function -->
-  $.loadScript('https:'+document.getElementById("tealium").innerHTML);
+ 
 
 </script>
 

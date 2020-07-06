@@ -1,40 +1,34 @@
 function tealium(){
     
-  //load script function
-     jQuery.loadScript = function (url, callback) {
-      jQuery.ajax({
-          url: url,
-          dataType: 'script',
-          success: callback,
-          async: true
-      });
-  }
-  //load script function
-      
-   //tealium
-   //get utag script from MAP
-   var id_map_data_source="https:"+$("#map_json").html();
-   $.getJSON(id_map_data_source, function(data){
-       var tealium_script="";
+
+  //new function for get JSON
+  function readMap(myURL){
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",myURL,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;          
+}
+var id_map_data_source="https:"+$("#map_json").html();
+var mapObject = JSON.parse(readMap(id_map_data_source));
+console.log("NEW:");
+
+
+var tealium_script="";
     
 
-      //loading the script
-   if (the_url.indexOf("sandbox")!= -1) {
-    tealium_script=data.tealium.sandbox;
-   
-  
-    }
-    
-    if (the_url.indexOf("sandbox")== -1) {
-        tealium_script=data.tealium.prod;
-  
-    }
-    //loading the script
- 
-    $.loadScript(tealium_script);
+//loading the script
+if (the_url.indexOf("sandbox")!= -1) {
+tealium_script=mapObject.tealium.sandbox;
 
- 
-   });
+
+}
+
+if (the_url.indexOf("sandbox")== -1) {
+  tealium_script=mapObject.tealium.prod;
+
+}
+
+
       
 
   
@@ -161,15 +155,10 @@ if (language.match(/^(en-ca|en-us|fr-ca|pt-br|es-ar|es-mx)$/)) {
   
   };
   
-  
- // console.log(utag_data);
-   //tealium
-
-
-
+ 
+return tealium_script;
    
 
 
 };
 
-tealium();
