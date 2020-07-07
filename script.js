@@ -567,26 +567,25 @@ var waitForZen = setInterval(function () {
           clearInterval(waitForZen);
                     }, 100);
 
-            //VANILLA SSO START
-                  var vsso = window.location.search;
-                  if(vsso != ''){
-                    var search = vsso.includes("vanillaSSO=signin");
-                    if(search){
-                      if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous"){
-                        set_cookie("vanillaSession",true,0);
-                        window.location.href = vanilla_sso_server+"zenApi/src/vanillaSSO.php?param="+window.btoa(HelpCenter.user.email);
-                       }else{
-                        window.location.href = vanilla_redirect_url ;
-                      }
-                    } else {
-                      iscookie = document.cookie.indexOf('vanillaSession=');
-                      if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscookie > -1){
-                        removeCookie("vanillaSession");
-                        window.location.href = vanilla_sso_server+"zenApi/src/vanillaSSO.php?param="+window.btoa(HelpCenter.user.email);
-                      }
-                    }
-                  }
-            //VANILLA SSO END  //Mrunal
+//VANILLA SSO START
+var vsso = window.location.search;
+if(vsso != ''){
+  var search = vsso.includes("vanillaSSO=signin");
+  if(search){
+    if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous"){
+      //window.location.href = vanilla_sso_server+"zenApi/src/vanillaSSO.php?param="+window.btoa(HelpCenter.user.email);
+     }else{
+      set_cookie("vanillaSession","true",0);
+      window.location.href = vanilla_redirect_url;
+    }
+  }
+}
+iscookie = read_cookie('vanillaSession');
+if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscookie == "true"){
+  removeCookie("vanillaSession");
+  window.location.href = vanilla_sso_server+"zenApi/src/vanillaSSO.php?param="+window.btoa(HelpCenter.user.email);
+}
+//VANILLA SSO END  //Mrunal
       
             //Code for BuRMA SSO cookie creation - Start 
       var server_url = vanilla_sso_server+'zenApi/src/repairController.php';
