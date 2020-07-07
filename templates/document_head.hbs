@@ -1,7 +1,7 @@
 <!--   MAP, author Amy  --> 
    <label class="zd_Hidden" id="map_json">{{asset 'mappublic.json'}}</label>
 <!--   MAP, author Amy  --> 
-
+<label class="zd_Hidden" id="helpCenterSwitch">{{dc 'fe_v_helpcenter_switch'}}</label>
 <div class="webwidgetsnippet"></div>
 <script type="text/javascript">
    //load script function
@@ -65,16 +65,30 @@ var webwidget_src = -1;
   
   
 
-  zE('webWidget:on', 'open', function() { 
+  zE('webWidget:on', 'open', function() {
+
+
+      var helpCenterSwitch=document.getElementById("helpCenterSwitch").textContent;
+  var suppress_setting = true;
+  if(helpCenterSwitch === "FALSE"){
+  suppress_setting = false;
+  }
+ 
+
+   zE('webWidget', 'updateSettings', {
+                         helpCenter: {
+                            'suppress': suppress_setting     
+                          }
+                  }); 
   
   
     
             if (HelpCenter.user.role=="anonymous")     {
 
                   zE('webWidget', 'updateSettings', {
-                          helpCenter: {
+                       /*   helpCenter: {
                                   'suppress': false
-                          },
+                          },*/
                           contactForm: {
                                   'suppress': true
                           },

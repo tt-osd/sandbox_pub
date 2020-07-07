@@ -282,7 +282,7 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
 
   					   } // end the current page is a form page   
       
-         								 if(the_url.indexOf("/requests/") > -1){  
+         								 if((the_url.indexOf("/requests/") > -1)&&(the_url.indexOf("new?ticket_form_id") <= -1)){  
                            	var request_title = document.getElementsByClassName("request-title")[0].innerText;
                         
                            /*****  Request Pages *******/  
@@ -385,6 +385,7 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
             var chatlabelonline=document.getElementById("chatlabelonline").textContent;
             var chatlabeloffline=document.getElementById("chatlabeloffline").textContent;
             var contactformlabel=document.getElementById("contactformlabel").textContent;
+            var widget_helpcenter_placeholder=document.getElementById("widget_helpcenter_placeholder").textContent;
             var talk_form_id_per_selected_local=0;
                if (talkLocale === 'fr' || talkLocale === 'fr-be' || talkLocale === 'fr-ca' 
                || talkLocale === 'fr-ch' || talkLocale === 'pl'  || talkLocale === 'pt' 
@@ -400,6 +401,13 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
                                    chatLabelOffline: { '*': chatlabeloffline },
                                    contactFormLabel: { '*': contactformlabel}//if Talk then show Email us or phone us; else just Email us
                                  },
+                                 helpCenter: {
+                                  searchPlaceholder: {
+                                    '*': widget_helpcenter_placeholder
+                                  },
+                                                               
+                                },
+
                        contactForm: {
                                  fields: [
                                    { id: 'name', prefill: { '*':HelpCenter.user.name }}, //prefilling username
