@@ -581,7 +581,7 @@ if(vsso != ''){
   var search = vsso.includes("vanillaSSO=signin");
   if(search){
     if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous"){
-      //window.location.href = vanilla_sso_server+"zenApi/src/vanillaSSO.php?param="+window.btoa(HelpCenter.user.email);
+      window.location.href = vanilla_sso_server+"zenApi/src/vanillaSSO.php?param="+window.btoa(HelpCenter.user.email);
      }else{
       set_cookie("vanillaSession","true",0);
       window.location.href = vanilla_redirect_url;
