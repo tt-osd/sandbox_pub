@@ -99,8 +99,53 @@ var webwidget_src = -1;
                                   'suppress': true
                           }
                   });
+  
+  
+    var a = document.getElementById('webWidget');
+        var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
+  			 var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
+  				var loginMSG = document.createElement('p'); 
+loginMSG.setAttribute("id", "none_logged_in_reminder");
+ 				loginMSG.style.position = 'absolute';
+  		//		loginMSG.style.bottom = '15px';
+  loginMSG.style.textAlign = 'center';
+  loginMSG.style.padding = '5%';
+  loginMSG.style.color="#df1b12";
 
+  var textnode = document.createTextNode(dc_Homepage_Login); 
+  			loginMSG.appendChild(textnode); 
+  
+  
+  
 
+if(suppress_setting == true){
+   loginMSG.style.marginTop = '50px';
+  frameBody.appendChild(loginMSG); 
+ 
+ // console.log("suppress_setting "+suppress_setting);
+  }
+  
+  
+  if(suppress_setting == false){
+  
+  zE('webWidget:on', 'userEvent', function(event) {
+  //console.log(event);
+  if(event.action == "Help Center Search"){
+  
+  	loginMSG.style.bottom = '15px';
+ 	 frameBody.appendChild(loginMSG); 
+  
+   $("#none_logged_in_reminder").removeClass("zd_Hidden");
+ //  console.log("sdhfgkasjh");
+  }
+  if(vent.action =="Help Center Article Viewed"){
+  $("#none_logged_in_reminder").addClass("zd_Hidden");
+  }
+  });
+  
+ // console.log("suppress_setting "+suppress_setting);
+  }
+ 
       //  var a = document.getElementById('webWidget');
        // var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
   	//		 var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
@@ -113,7 +158,7 @@ var webwidget_src = -1;
 
   //var textnode = document.createTextNode(dc_Homepage_Login); 
   //			loginMSG.appendChild(textnode);  
- //				 frameBody.appendChild(loginMSG);  
+ //				  
   
 
 
