@@ -21,7 +21,7 @@ $(document).ready(function(){
     var current_user = HelpCenter.user.email;
 		var server_url = php_api_server+'zenApi/src/repairController.php';
   
-    apiendpoint = "contact/type/"+current_user;
+    apiendpoint = "contact/type/"+current_user+"/";
   	///// call api for getting user type ///// 
     getAPIresponse(apiendpoint, current_user, 'getusertype');
 
