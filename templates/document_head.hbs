@@ -1,6 +1,7 @@
 
    <label class="zd_Hidden" id="map_json">{{asset 'mappublic.json'}}</label>
 
+<label class="zd_Hidden" id="helpCenterSwitch">{{dc 'fe_v_helpcenter_switch'}}</label>
 
 <div class="webwidgetsnippet"></div>
 <script type="text/javascript">
@@ -65,16 +66,30 @@ var webwidget_src = -1;
   
   
 
-  zE('webWidget:on', 'open', function() { 
+  zE('webWidget:on', 'open', function() {
+
+
+      var helpCenterSwitch=document.getElementById("helpCenterSwitch").textContent;
+  var suppress_setting = true;
+  if(helpCenterSwitch === "FALSE"){
+  suppress_setting = false;
+  }
+ 
+
+   zE('webWidget', 'updateSettings', {
+                         helpCenter: {
+                            'suppress': suppress_setting     
+                          }
+                  }); 
   
   
     
             if (HelpCenter.user.role=="anonymous")     {
 
                   zE('webWidget', 'updateSettings', {
-                          helpCenter: {
+                       /*   helpCenter: {
                                   'suppress': false
-                          },
+                          },*/
                           contactForm: {
                                   'suppress': true
                           },
@@ -85,21 +100,66 @@ var webwidget_src = -1;
                                   'suppress': true
                           }
                   });
-
-
-        var a = document.getElementById('webWidget');
+  
+  
+    var a = document.getElementById('webWidget');
         var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
   			 var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
   				var loginMSG = document.createElement('p'); 
-
- 					loginMSG.style.position = 'absolute';
-  				loginMSG.style.marginTop = '50px';
+loginMSG.setAttribute("id", "none_logged_in_reminder");
+ 				loginMSG.style.position = 'absolute';
+  		//		loginMSG.style.bottom = '15px';
   loginMSG.style.textAlign = 'center';
   loginMSG.style.padding = '5%';
+  loginMSG.style.color="#df1b12";
 
   var textnode = document.createTextNode(dc_Homepage_Login); 
-  			loginMSG.appendChild(textnode);  
- 				 frameBody.appendChild(loginMSG);  
+  			loginMSG.appendChild(textnode); 
+  
+  
+  
+
+if(suppress_setting == true){
+   loginMSG.style.marginTop = '50px';
+  frameBody.appendChild(loginMSG); 
+ 
+ // console.log("suppress_setting "+suppress_setting);
+  }
+  
+  
+  if(suppress_setting == false){
+  
+  zE('webWidget:on', 'userEvent', function(event) {
+  //console.log(event);
+  if(event.action == "Help Center Search"){
+  
+  	loginMSG.style.bottom = '15px';
+ 	 frameBody.appendChild(loginMSG); 
+  
+   $("#none_logged_in_reminder").removeClass("zd_Hidden");
+ //  console.log("sdhfgkasjh");
+  }
+  if(vent.action =="Help Center Article Viewed"){
+  $("#none_logged_in_reminder").addClass("zd_Hidden");
+  }
+  });
+  
+ // console.log("suppress_setting "+suppress_setting);
+  }
+ 
+      //  var a = document.getElementById('webWidget');
+       // var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
+  	//		 var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
+  	//			var loginMSG = document.createElement('p'); 
+
+ 	//				loginMSG.style.position = 'absolute';
+  	//			loginMSG.style.marginTop = '50px';
+  //loginMSG.style.textAlign = 'center';
+  //loginMSG.style.padding = '5%';
+
+  //var textnode = document.createTextNode(dc_Homepage_Login); 
+  //			loginMSG.appendChild(textnode);  
+ //				  
   
 
 
@@ -182,6 +242,8 @@ Object.keys(data).forEach((key,index)=>{
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="true"></script>
 
-<meta name="google-site-verification" content="ljumiUrq9ftUwsIQWi3VTRsv8EtAkpdjzejD-X6V0x0" />
+
+<!-- <meta name="google-site-verification" content="ljumiUrq9ftUwsIQWi3VTRsv8EtAkpdjzejD-X6V0x0" /> -->
+<meta name="google-site-verification" content="RwaPYuP6P4uhBt-5lwuPIKYfdf6nP9AgxV7mg6_Gi0k" /> 
 
 
