@@ -3,26 +3,30 @@
 <label class="zd_Hidden" id="chatlabelonline">{{dc 'chatlabelonline'}}</label>
 <label class="zd_Hidden" id="chatlabeloffline">{{dc 'chatlabeloffline'}}</label>
 <label class="zd_Hidden" id="contactformlabel">{{dc 'contactformlabel'}}</label>
-<!-- load Map and tealium -->
 <label class="zd_Hidden" id="tealium">{{asset 'tealium.js'}}</label>
 <label class="zd_Hidden" id="map_json">{{asset 'mappublic.json'}}</label>
 
+<script>
+  var utag_data="";
+</script>
 
-<script type="text/javascript">
+<script type="text/javascript" >  
  var tea; //this var will hold the utag src from Map.JSON
   var utagFC=document.createElement('script'); // create a script tag to load the custome tealium function
   utagFC.onload = function () { // when tealium function is loaded
 	 tea=tealium();// call the function and var tea will get the utag src
-  var tealiumScript = document.createElement('script'); //create a tag to load utag
-	tealiumScript.src = tea;//get the src for utag script
-  document.head.appendChild(tealiumScript); //append to document head
+  var tealiumScript = document.createElement('script'); //create a tag to load utag   
+  utag_data=tea.utag_data_slot;
+  tealiumScript.src = tea.tealium_script_slot;//get the src for utag script
+  document.head.appendChild(tealiumScript); //append to document head 
  };
   utagFC.src='https:'+document.getElementById("tealium").innerHTML; //get the tealium function access url from map tealium.js from asset
   document.head.appendChild(utagFC);// append to document head 
-  
- 
-
 </script>
+
+
+
+
 
 <header class="header">
   <div class="header-inner">
@@ -75,7 +79,7 @@
 </header>
   
 
-<!--   cookie bar, author levitt  -->
+
   <div class="cookie_bar zd_Hidden" id="tt_cookie_bar">
     <div class="cookie_bar_inner">
       <div class="cookie_bar_text">
@@ -91,9 +95,7 @@
     
     </div>
   </div>
-  <!--   cookie bar, author levitt  -->
 
-  <!--   Exit survey, author levitt  -->
   <div id="survey_modal" class="modal zd_Hidden">
     <span id="es_thx" class="zd_Hidden">{{dc 'exit_survey_post_response'}}</span>
 
@@ -136,8 +138,7 @@
         </div>
 
     </div>
-  <!--   Exit survey, author levitt  -->
-   <!--   Locale Pop up, author Amy  --> 
+
  <div class="locale_overlay overlay zd_Hidden">
      <div class="overlay_inner">
         <div class="locale_box">
@@ -178,8 +179,7 @@
         </div>
       </div>
 
-   <!--   Locale Pop up, author Amy  --> 
-	<!--   Promoted Articles - announcements, author Amy  --> 
+
          {{#if promoted_articles}}
               <section class="articles promoted-articles-box">
                 <div class="promoted_header"><div class="close">{{dc 'close_icon'}}</div><div id="promoted-arrow" class="zd_Hidden"></div></div>
@@ -201,7 +201,7 @@
               </section>
 					{{/if}}
                
-<!--   Promoted Articles, author Amy  --> 
+
 
 
 <!-- start load bongo  --> 

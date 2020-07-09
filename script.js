@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
             var strap_form_ID_checker="form_id="+strap_form_id;
       
 /***** STRAP REQUEST FORM *******/
-//STRAP FORM //Built by Levitt, remapped by Amy
+
 //testing URL hc/en-gb/requests/new?ticket_form_id=360000671760 
       
 if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the strap form
@@ -249,7 +249,7 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                                 $(".form-field").addClass("zd_Hidden");
                                 $(".request_custom_fields_" + gdpr_reason_field_id).removeClass("zd_Hidden");
                               
-                        //code review: levitt
+                       
                      
                         //update
                         SubjectLine.value = GDPR_page_title + " " + gdpr_form_id;
@@ -612,7 +612,7 @@ var waitForZen = setInterval(function () {
 
 
     //general cookie functions
-    //levitt 
+  
 
     function read_cookie(cname) {
         var name = cname + "=";
@@ -1061,7 +1061,7 @@ var waitForZen = setInterval(function () {
 
 
 
-    // above code are edited by levit
+    
 
                       // Below code is zendesk
                           function closest(element, selector) {
@@ -1292,7 +1292,7 @@ var waitForZen = setInterval(function () {
             window.location.href =  newURL;
         }  
   
-   /*** End of Redirecting untranslated articles to an existing language ****/ //Amy DDA-322
+   /*** End of Redirecting untranslated articles to an existing language ****/
         /*** No results found tracking ****/
               var results_event_category = "";
               var results_event_action = "";
@@ -1461,7 +1461,7 @@ function openSoftware(evt, softwareName) {
             scrollTop: 0
         }, 500);
     });
-/***** End back to top *****/ //Amy Ogborn    
+/***** End back to top *****/ 
 /***** Article Satisfaction *****/ 
 
     $(window).scroll(function() {
@@ -1478,7 +1478,7 @@ function openSoftware(evt, softwareName) {
         });
 
   /*add on*/
-/***** Article Satisfaction end *****/ //Amy Ogborn   
+/***** Article Satisfaction end *****/
 
 /*****  Troubleshooting Template *****/
 
@@ -1498,7 +1498,7 @@ function openSoftware(evt, softwareName) {
                   }
             }  
   
-/***** End of Troubleshooting Template *****/ //Amy Ogborn    
+/***** End of Troubleshooting Template *****/   
 /*****  Get Started Template *****/ 
 
   
@@ -1508,7 +1508,7 @@ function openSoftware(evt, softwareName) {
         }, 500);
     });
   
-/***** End of Get Started Template *****/ //Amy Ogborn  
+/***** End of Get Started Template *****/ 
 /*****  How To Template *****/ 
 
       $('.ht-header-content').appendTo(".ht-article-header");  
@@ -1518,10 +1518,10 @@ function openSoftware(evt, softwareName) {
         //   $(this).insertAfter($(this).parent());
         // }); 
   
-/***** End of  How To Template *****/ //Amy Ogborn  
+/***** End of  How To Template *****/ 
 } //end of 'if this is on an article'       
   
-/***** End of  Article Templates *****/ //Amy Ogborn   
+/***** End of  Article Templates *****/ 
 /***** Promoted Articles  *****/ 
   	var numOfPromos = document.getElementsByClassName("mySlides");
 
@@ -1580,7 +1580,7 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block"; 
 }
 }
-/***** End of Promoted Articles *****/  //Amy Ogborn   
+/***** End of Promoted Articles *****/ 
 /***** FORMS *****/   
 //This code is to ensure only Signed in users see the request form if we add class="request"
 //end
@@ -1605,7 +1605,7 @@ function showSlides(n) {
 
         }(window, document, jQuery));
 // End 
-/***** END FORMS *****/ //Amy Ogborn  
+/***** END FORMS *****/ 
 /*****  Temp Header *****/ 
 
         //toggle the hamburger menu
@@ -1623,7 +1623,7 @@ function showSlides(n) {
 				//Add the profile icon to the header
         $('<svg width="16" height="16" class="profile-icon"><path d="M2 14h12v-.012c0-.056-.11-.22-.602-.544-.62-.418-1.495-.778-2.613-1.058-1.034-.251-1.963-.374-2.785-.374-.822 0-1.75.123-2.772.371-1.131.283-2.006.643-2.64 1.07-.478.316-.588.48-.588.535V14zm6-3.988c.99 0 2.076.144 3.257.431 1.342.335 2.428.783 3.258 1.341.99.655 1.485 1.39 1.485 2.204V16H0v-2.012c0-.814.495-1.549 1.485-2.204.83-.558 1.916-1.006 3.258-1.34 1.181-.288 2.267-.432 3.257-.432zM8 6c.362 0 .672-.084.969-.26.318-.188.56-.43.747-.747a1.83 1.83 0 00.26-.969 1.96 1.96 0 00-.271-1.013 2.01 2.01 0 00-.736-.751A1.833 1.833 0 008 2a1.83 1.83 0 00-.969.26 2.01 2.01 0 00-.736.751 1.96 1.96 0 00-.271 1.013c0 .362.084.672.26.969.188.318.43.56.747.747.297.176.607.26.969.26zm0 2c-.719 0-1.381-.18-1.988-.539a4.065 4.065 0 01-1.45-1.449 3.832 3.832 0 01-.538-1.988c0-.719.18-1.39.539-2.012A4.008 4.008 0 016.012.539 3.832 3.832 0 018 0c.719 0 1.381.18 1.988.539.607.36 1.09.85 1.45 1.473a3.97 3.97 0 01.538 2.012c0 .719-.18 1.381-.539 1.988a4.065 4.065 0 01-1.449 1.45A3.845 3.845 0 018 8z" fill-rule="evenodd"></path></svg>').prependTo('.user-info > [role="button"]');   
 
-/*****  End Temp Header *****/   // Amy
+/*****  End Temp Header *****/   
 
   /*****  New request pages - product pre-select *****/ 
               function getQueryParams (queryString)

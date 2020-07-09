@@ -10,7 +10,7 @@ function tealium(){
 }
 var id_map_data_source="https:"+$("#map_json").html();
 var mapObject = JSON.parse(readMap(id_map_data_source));
-console.log("NEW:");
+
 
 
 var tealium_script="";
@@ -155,10 +155,15 @@ if (language.match(/^(en-ca|en-us|fr-ca|pt-br|es-ar|es-mx)$/)) {
   
   };
   
-    
-    console.log(utag_data);
+  
+  var tealium_object={
+      tealium_script_slot: tealium_script,
+      utag_data_slot:utag_data
+  };
+
+
  
-return tealium_script;
+return tealium_object;
    
 
 
