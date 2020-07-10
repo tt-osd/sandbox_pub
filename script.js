@@ -483,34 +483,70 @@ var waitForZen = setInterval(function () {
                 var request_locale_input= form.querySelector('div[name="key:'+email_form_request_local_field+'"]');
             
             		  
+                if((email_input != null )&&(email_label != null)){
                   email_input.style.display = "none";
-                  email_label.style.display = "none";
-                  name_label.style.display = "none";
-                  name_input.style.display = "none";
-                  subject_label.style.display = "none";
-                  subject_input.style.display = "none";
+                 email_label.style.display = "none";
+               }
+               
+               if((name_input != null )&&(name_label != null)){
+              name_label.style.display = "none";
+                     name_input.style.display = "none";
+               }
+               
+                if((subject_input != null )&&(subject_label != null)){
+          subject_label.style.display = "none";
+                    subject_input.style.display = "none";
+               }
               
                 // end of hiding
 
                 if((event.properties).id == email_form_id){
-                  request_locale_label.style.display = "none";
-                  request_locale_input.style.display = "none";
+                       if((request_locale_input != null )&&(request_locale_label != null)){
+          					request_locale_label.style.display = "none";
+                    request_locale_input.style.display = "none";
+            }
                 }
             
-						if((event.properties).id == talk_form_id) { // this is to hide the other feild on the phone us (talk) webwdiget
-              	 	var attatchments_button= form.querySelector('button');
-              		attatchments_button.style.display = "none";
-                	var attatchments_label= form.querySelector('label[for="dropzone-input"]');
-              		attatchments_label.style.display = "none";
-                  var dropdown_button= form.querySelector('div[type="button"]');
-              		dropdown_button.style.display = "none";                       		
-                	description_label.style.display = "none";
-               		description_input.style.display = "none";
-              	//	description_hint.style.display = "none";
-            }
+                if((event.properties).id == talk_form_id) { // this is to hide the other feild on the phone us (talk) webwdiget
+                  var attatchments_button= form.querySelector('button');
+                 
+                 var attatchments_label= form.querySelector('label[for="dropzone-input"]');
+             
+                    if((attatchments_button != null )&&(attatchments_label != null)){
+                   attatchments_button.style.display = "none";
+                 attatchments_label.style.display = "none";
+           }
+             
+             
+                 
+                 var dropdown_button= form.querySelector('div[type="button"]');
+               
+             
+             
+                      if(dropdown_button != null ){
+                 dropdown_button.style.display = "none";  
+             
+           }
+             
+             
+                    if((description_input != null )&&(description_label != null)){
+description_label.style.display = "none";
+                  description_input.style.display = "none";
+           }
+             
+                 
+               //	description_hint.style.display = "none";
+           }
             
            
             if((event.properties).id == strap_form_id) {
+               /*******************/
+              /*******************/
+              /*******************/
+              // when releasing the strap form, check != null before hide anything!
+              /*******************/
+              /*******************/
+              /*******************/
               
              
             var serial = form.querySelector('input[name="key:'+serial_number_eur_field_id+'"]');
