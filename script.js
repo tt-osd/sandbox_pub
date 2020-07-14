@@ -387,11 +387,25 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
             var contactformlabel=document.getElementById("contactformlabel").textContent;
             var widget_helpcenter_placeholder=document.getElementById("widget_helpcenter_placeholder").textContent;
             var talk_form_id_per_selected_local=0;
-               if (talkLocale === 'fr' || talkLocale === 'fr-be' || talkLocale === 'fr-ca' 
+
+
+            var phoneline=(document.getElementById("phoneline").textContent).split("/");
+      var pl;      
+      for (pl in phoneline){
+        if(phoneline[pl]==talkLocale){
+          talk_form_id_per_selected_local=talk_form_id;
+        }
+      }
+
+
+
+/*               if (talkLocale === 'fr' || talkLocale === 'fr-be' || talkLocale === 'fr-ca' 
                || talkLocale === 'fr-ch' || talkLocale === 'pl'  || talkLocale === 'pt' 
                || talkLocale === 'pt-br' || talkLocale === 'es'  ){
                  talk_form_id_per_selected_local=talk_form_id;
                } // Include all the page you want the talk options to show up
+
+               */
            
            zESettings = {
                      webWidget: 

@@ -15,6 +15,13 @@
     });
 }
 //load script function 
+
+
+function loginFromWidget(){
+   
+console.log("log in from widget");
+  
+  } 
   
   
 var the_url= window.location.href;  //this is the URL value that can be used in all the functions
@@ -58,7 +65,7 @@ var webwidget_src = -1;
 
       	
 
-			<!-- Start of hiding email and name on webwidget -->       
+			/*Start of hiding email and name on webwidget */   
       var waitForZen = setInterval(function () {
         if (window.$zopim === undefined || window.$zopim.livechat === undefined) {
             return;
@@ -87,9 +94,6 @@ var webwidget_src = -1;
             if (HelpCenter.user.role=="anonymous")     {
 
                   zE('webWidget', 'updateSettings', {
-                       /*   helpCenter: {
-                                  'suppress': false
-                          },*/
                           contactForm: {
                                   'suppress': true
                           },
@@ -108,7 +112,6 @@ var webwidget_src = -1;
   				var loginMSG = document.createElement('p'); 
 loginMSG.setAttribute("id", "none_logged_in_reminder");
  				loginMSG.style.position = 'absolute';
-  		//		loginMSG.style.bottom = '15px';
   loginMSG.style.textAlign = 'center';
   loginMSG.style.padding = '5%';
   loginMSG.style.color="#df1b12";
@@ -116,50 +119,34 @@ loginMSG.setAttribute("id", "none_logged_in_reminder");
   var textnode = document.createTextNode(dc_Homepage_Login); 
   			loginMSG.appendChild(textnode); 
   
-  
+    loginMSG.addEventListener("click", loginFromWidget); 
   
 
 if(suppress_setting == true){
    loginMSG.style.marginTop = '50px';
   frameBody.appendChild(loginMSG); 
- 
- // console.log("suppress_setting "+suppress_setting);
   }
   
   
   if(suppress_setting == false){
   
   zE('webWidget:on', 'userEvent', function(event) {
-  //console.log(event);
+ 
   if(event.action == "Help Center Search"){
   
   	loginMSG.style.bottom = '15px';
  	 frameBody.appendChild(loginMSG); 
   
-   $("#none_logged_in_reminder").removeClass("zd_Hidden");
- //  console.log("sdhfgkasjh");
+
+
   }
-  if(event.action =="Help Center Article Viewed"){
-  $("#none_logged_in_reminder").addClass("zd_Hidden");
-  }
+
   });
   
- // console.log("suppress_setting "+suppress_setting);
+
   }
  
-      //  var a = document.getElementById('webWidget');
-       // var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
-  	//		 var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
-  	//			var loginMSG = document.createElement('p'); 
-
- 	//				loginMSG.style.position = 'absolute';
-  	//			loginMSG.style.marginTop = '50px';
-  //loginMSG.style.textAlign = 'center';
-  //loginMSG.style.padding = '5%';
-
-  //var textnode = document.createTextNode(dc_Homepage_Login); 
-  //			loginMSG.appendChild(textnode);  
- //				  
+ 			  
   
 
 
@@ -213,6 +200,74 @@ Object.keys(data).forEach((key,index)=>{
             }
           }
         });
+
+
+        function scf(){
+  var a = document.getElementById('webWidget');
+  var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
+  var frame_embed=frameBody.querySelector("#Embed");
+  var form=frame_embed.querySelector("form");
+  var layer=form.querySelector('div[id="conver_layer"]');
+  layer.remove();
+
+  
+  }
+
+
+    
+  zE('webWidget:on', 'userEvent', function(event){
+ if(event.action == "Contact Form Shown"){
+  	var a = document.getElementById('webWidget');
+  
+            		var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
+             		var frame_embed=frameBody.querySelector("#Embed");
+             		var form=frame_embed.querySelector("form");
+                if(form != null ){
+  
+  var cover_layer=document.createElement('div');
+  cover_layer.id = 'conver_layer';
+   cover_layer.setAttribute("style", "position:absolute; height:100%; width:100%; text-align:center; background-color:#fff;padding:0 5%;");
+  
+   var container_a=document.createElement('div');
+   container_a.id = 'chat_offline';
+  container_a.setAttribute("style", " width:100%; box-shadow:0 0.07143rem 0.57143rem 0 rgba(0, 0, 0, 0.2); border-radius:0.28571rem; text-align:center; padding:35px 0; user-select: none; margin-top:5%;");
+   var chatOffline = document.createElement('span');
+  
+  
+  var chatOffline_node = document.createTextNode(`{{dc 'chatlabeloffline'}}`); 
+  chatOffline.appendChild(chatOffline_node); 
+  container_a.appendChild(chatOffline);
+  
+  
+  var container_b=document.createElement('div');
+  container_b.id = 'open_contactForm';
+  container_b.setAttribute("style", " width:100%; box-shadow:0 0.07143rem 0.57143rem 0 rgba(0, 0, 0, 0.2); border-radius:0.28571rem; text-align:center; padding:35px 0; cursor:pointer;margin-top:5%;");
+ var show_contactForm = document.createElement('span');
+   
+  
+  var show_contactForm_node = document.createTextNode(`{{dc 'contactformlabel'}}`); 
+  			show_contactForm.appendChild(show_contactForm_node); 
+  container_b.appendChild(show_contactForm);
+  cover_layer.appendChild(container_b);
+  cover_layer.appendChild(container_a);
+  container_b.addEventListener("click", scf);
+  
+    form.appendChild(cover_layer); 
+  
+  
+            }
+  
+ 
+
+  }
+  
+  });
+
+
+
+
+
+
       } 
   }
 }); 
