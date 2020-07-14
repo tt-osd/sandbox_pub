@@ -105,24 +105,32 @@ var webwidget_src = -1;
                           }
                   });
   
+
   
     var a = document.getElementById('webWidget');
         var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
-  			 var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
-  				var loginMSG = document.createElement('p'); 
-loginMSG.setAttribute("id", "none_logged_in_reminder");
+  
+     var login_reminder_box=document.createElement('div');
+       login_reminder_box.id = 'login_reminder_box';
+  login_reminder_box.setAttribute("style", "position:absolute; width:94%; bottom:0; margin: 0 3%; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;");
+  
+
+  
+  			var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
+  			var loginMSG = document.createElement('p'); 
+     
+        var textnode = document.createTextNode(dc_Homepage_Login); 
+        loginMSG.appendChild(textnode); 
+  
+    //loginMSG.addEventListener("click", loginFromWidget); 
+  
+
+if(suppress_setting == true){
+   loginMSG.setAttribute("id", "none_logged_in_reminder");
  				loginMSG.style.position = 'absolute';
   loginMSG.style.textAlign = 'center';
   loginMSG.style.padding = '5%';
   loginMSG.style.color="#df1b12";
-
-  var textnode = document.createTextNode(dc_Homepage_Login); 
-  			loginMSG.appendChild(textnode); 
-  
-    loginMSG.addEventListener("click", loginFromWidget); 
-  
-
-if(suppress_setting == true){
    loginMSG.style.marginTop = '50px';
   frameBody.appendChild(loginMSG); 
   }
@@ -134,8 +142,9 @@ if(suppress_setting == true){
  
   if(event.action == "Help Center Search"){
   
-  	loginMSG.style.bottom = '15px';
- 	 frameBody.appendChild(loginMSG); 
+   //loginMSG.style.bottom = '15px';
+   login_reminder_box.appendChild(loginMSG); 
+ 	 frameBody.appendChild(login_reminder_box); 
   
 
 
@@ -214,7 +223,9 @@ Object.keys(data).forEach((key,index)=>{
   }
 
 
-    
+   var phone_line=(document.getElementById("phoneline").textContent);
+   if((phone_line.indexOf(chatLocale))==-1){
+  //for no phone line country, show chat off line message when chat is off line
   zE('webWidget:on', 'userEvent', function(event){
  if(event.action == "Contact Form Shown"){
   	var a = document.getElementById('webWidget');
@@ -262,6 +273,8 @@ Object.keys(data).forEach((key,index)=>{
   }
   
   });
+  
+  }
 
 
 
