@@ -43,8 +43,8 @@ var mapObject = JSON.parse(readMap(id_map_data_source));
 
 function loginFromWidget(){   
 
-  //var searchKey=(the_url.split(".tomtom.com")[0]).split("https://")[1];
-  //var login_via_widget=mapObject.loginFromWidget[searchKey];
+ // var searchKey=(the_url.split(".tomtom.com")[0]).split("https://")[1];
+ // var login_via_widget=mapObject.loginFromWidget[searchKey];
 
      utag.link({
             'event_category': "Zendesk Web Widget",
@@ -177,8 +177,7 @@ if(suppress_setting == true){
   frameBody.appendChild(loginMSG); 
   }*/
   
-  
-  if(suppress_setting == false){  //review here, no need to check supress setting anymore???
+
   
   zE('webWidget:on', 'userEvent', function(event) {
  
@@ -189,14 +188,15 @@ if(suppress_setting == true){
    login_reminder_box.addEventListener("click", loginFromWidget); 
  	 frameBody.appendChild(login_reminder_box); 
   
-
+// this does not apply to if dutch FAQ is suppressed
+//because it will not enter "Help Center Search" if-statement
 
   }
 
   });
   
 
-  }
+  
  
  			  
   
