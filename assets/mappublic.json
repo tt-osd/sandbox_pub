@@ -307,6 +307,10 @@
         "sandbox":"https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
         "prod":"https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"        
     },
+    "loginFromWidget":{
+        "supportsandbox":"https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
+        "help":"https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"        
+    },
     "vanilla_sso_server":{
         "sandbox":"https://10.66.244.239/",
         "prod":"https://tccare.tomtomgroup.com/"        

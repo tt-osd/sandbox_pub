@@ -16,8 +16,6 @@
 }
 //load script function 
 
-
-
   
   
 var the_url= window.location.href;  //this is the URL value that can be used in all the functions
@@ -30,8 +28,7 @@ var webwidget_src = -1;
 
     var id_map_data_source="https:"+$("#map_json").html();
 
-
-    //login from widget
+  //login from widget
 
   function readMap(myURL){
     var Httpreq = new XMLHttpRequest(); // a new request
@@ -43,13 +40,16 @@ var webwidget_src = -1;
 var mapObject = JSON.parse(readMap(id_map_data_source));
 
 function loginFromWidget(){   
-console.log(mapObject);
+
+  var searchKey=(the_url.split(".tomtom.com")[0]).split("https://")[1];
+  var login_via_widget=mapObject.loginFromWidget[searchKey];
+ window.location.href = login_via_widget;
 }
 
 
 //login from widget 
-
-
+  
+  
  $.getJSON(id_map_data_source, function(data) {  
   
       if (the_url.indexOf("sandbox")!= -1) {
@@ -127,7 +127,22 @@ console.log(mapObject);
   
      var login_reminder_box=document.createElement('div');
        login_reminder_box.id = 'login_reminder_box';
-  login_reminder_box.setAttribute("style", "position:absolute; width:94%; bottom:0; margin: 0 3%; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;");
+  login_reminder_box.setAttribute("style", "position:absolute; width:341px; bottom:0; margin: 0 1px; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
+  
+  
+  //adjust login section on mobile size
+  function adjustSize(x) {
+  if (x.matches) { // If media query matches
+     login_reminder_box.setAttribute("style", "position:absolute; width:100%; bottom:0; margin: 0; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
+  console.log("media query");
+  }
+}
+
+var x = window.matchMedia("only screen and (max-width: 768px)");
+adjustSize(x); // Call listener function at run time
+x.addListener(adjustSize);
+  //adjust login section on mobile size
+  
   
 
   
@@ -137,18 +152,18 @@ console.log(mapObject);
         var textnode = document.createTextNode(dc_Homepage_Login); 
         loginMSG.appendChild(textnode); 
   
-    //loginMSG.addEventListener("click", loginFromWidget); 
+   
   
-
+/*
 if(suppress_setting == true){
-   loginMSG.setAttribute("id", "none_logged_in_reminder");
+  /* loginMSG.setAttribute("id", "none_logged_in_reminder");
  				loginMSG.style.position = 'absolute';
   loginMSG.style.textAlign = 'center';
   loginMSG.style.padding = '5%';
   loginMSG.style.color="#df1b12";
    loginMSG.style.marginTop = '50px';
   frameBody.appendChild(loginMSG); 
-  }
+  }*/
   
   
   if(suppress_setting == false){
@@ -159,6 +174,7 @@ if(suppress_setting == true){
   
    //loginMSG.style.bottom = '15px';
    login_reminder_box.appendChild(loginMSG); 
+   login_reminder_box.addEventListener("click", loginFromWidget); 
  	 frameBody.appendChild(login_reminder_box); 
   
 
