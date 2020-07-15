@@ -17,11 +17,7 @@
 //load script function 
 
 
-function loginFromWidget(){
-   
-console.log("log in from widget");
-  
-  } 
+
   
   
 var the_url= window.location.href;  //this is the URL value that can be used in all the functions
@@ -33,6 +29,25 @@ var webwidget_src = -1;
 
 
     var id_map_data_source="https:"+$("#map_json").html();
+
+
+    //login from widget
+
+  function readMap(myURL){
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",myURL,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;          
+}
+
+var mapObject = JSON.parse(readMap(id_map_data_source));
+
+function loginFromWidget(){   
+console.log(mapObject);
+}
+
+
+//login from widget 
 
 
  $.getJSON(id_map_data_source, function(data) {  
