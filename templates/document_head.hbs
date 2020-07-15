@@ -43,6 +43,14 @@ function loginFromWidget(){
 
   var searchKey=(the_url.split(".tomtom.com")[0]).split("https://")[1];
   var login_via_widget=mapObject.loginFromWidget[searchKey];
+
+     utag.link({
+            'event_category': "Zendesk Web Widget",
+            'event_action': "Logged In",
+            'event_label': ""
+        });
+
+        
  window.location.href = login_via_widget;
 }
 
@@ -166,7 +174,7 @@ if(suppress_setting == true){
   }*/
   
   
-  if(suppress_setting == false){
+  if(suppress_setting == false){  //review here, no need to check supress setting anymore???
   
   zE('webWidget:on', 'userEvent', function(event) {
  
