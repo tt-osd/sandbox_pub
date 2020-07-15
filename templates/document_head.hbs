@@ -39,10 +39,12 @@ var webwidget_src = -1;
 
 var mapObject = JSON.parse(readMap(id_map_data_source));
 
+
+
 function loginFromWidget(){   
 
-  var searchKey=(the_url.split(".tomtom.com")[0]).split("https://")[1];
-  var login_via_widget=mapObject.loginFromWidget[searchKey];
+  //var searchKey=(the_url.split(".tomtom.com")[0]).split("https://")[1];
+  //var login_via_widget=mapObject.loginFromWidget[searchKey];
 
      utag.link({
             'event_category': "Zendesk Web Widget",
@@ -50,8 +52,10 @@ function loginFromWidget(){
             'event_label': ""
         });
 
+
+ $(".login")[0].click();
         
- window.location.href = login_via_widget;
+// window.location.href = login_via_widget;
 }
 
 
