@@ -142,18 +142,26 @@ function loginFromWidget(){
   login_reminder_box.setAttribute("style", "position:absolute; width:341px; bottom:0; margin: 0 1px; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
   
   
-  //adjust login section on mobile size
-  function adjustSize(x) {
+ //adjust login section on mobile size
+ 
+
+  
+  var full_size_widget = a.style.width;
+  if(full_size_widget== "100%"){
+  login_reminder_box.setAttribute("style", "position:absolute; width:100%; bottom:0; margin: 0; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
+   console.log("full_size_widget "+full_size_widget);
+  }
+ 
+ 
+   /* function adjustSize(x) { save this code for future reference, when we need to use Javascript control media query
   if (x.matches) { // If media query matches
-     login_reminder_box.setAttribute("style", "position:absolute; width:100%; bottom:0; margin: 0; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
-  console.log("media query");
   }
 }
-
-var x = window.matchMedia("only screen and (max-width: 768px)");
+var x = window.matchMedia("media query value here");
 adjustSize(x); // Call listener function at run time
-x.addListener(adjustSize);
+x.addListener(adjustSize);*/
   //adjust login section on mobile size
+  
   
   
 
