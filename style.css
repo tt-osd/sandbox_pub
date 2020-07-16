@@ -201,6 +201,13 @@ a {
   text-transform: uppercase;
 }
 
+
+article a {
+  color: #004b7f;
+  text-decoration: none;
+  text-transform: uppercase;
+ }
+
 a:hover, a:active, a:focus {
   text-decoration: none;
 }
