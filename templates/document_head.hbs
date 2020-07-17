@@ -4,6 +4,7 @@
 <label class="zd_Hidden" id="helpCenterSwitch">{{dc 'fe_v_helpcenter_switch'}}</label>
 
 <div class="webwidgetsnippet"></div>
+ 
 <script type="text/javascript">
    //load script function
   jQuery.loadScript = function (url, callback) {
@@ -104,26 +105,26 @@ function loginFromWidget(){
 
 
       var helpCenterSwitch=document.getElementById("helpCenterSwitch").textContent;
-  var suppress_setting = true;
-  if(helpCenterSwitch === "FALSE"){
-  suppress_setting = false;
-  }
- 
+  
+//  console.log("helpCenterSwitch dc "+helpCenterSwitch);
 
+  
+  if((HelpCenter.user.role!="anonymous")&&(helpCenterSwitch == "TRUE")){
+  // if user logged in and according to DC:helpCenterSwitch(nl and nl-be) has true
+  // suppress the help center
    zE('webWidget', 'updateSettings', {
-                         helpCenter: {
-                            'suppress': suppress_setting     
+   												helpCenter: {
+                            'suppress': true     
                           }
-                  }); 
+                  });
+  }
   
   
-    
+  
             if (HelpCenter.user.role=="anonymous")     {
 
                   zE('webWidget', 'updateSettings', {
-                          contactForm: {
-                                  'suppress': true
-                          },
+   												
                           chat: {
                                   'suppress': true
                           },
@@ -132,11 +133,13 @@ function loginFromWidget(){
                           }
                   });
   
+ 
+  
 
   
     var a = document.getElementById('webWidget');
         var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
-  
+ 
      var login_reminder_box=document.createElement('div');
        login_reminder_box.id = 'login_reminder_box';
   login_reminder_box.setAttribute("style", "position:absolute; width:341px; bottom:0; margin: 0 1px; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
@@ -173,18 +176,9 @@ x.addListener(adjustSize);*/
         loginMSG.appendChild(textnode); 
   
    
-  
-/*
-if(suppress_setting == true){
-  /* loginMSG.setAttribute("id", "none_logged_in_reminder");
- 				loginMSG.style.position = 'absolute';
-  loginMSG.style.textAlign = 'center';
-  loginMSG.style.padding = '5%';
-  loginMSG.style.color="#df1b12";
-   loginMSG.style.marginTop = '50px';
-  frameBody.appendChild(loginMSG); 
-  }*/
-  
+    
+
+ 
 
   
   zE('webWidget:on', 'userEvent', function(event) {
@@ -207,7 +201,55 @@ if(suppress_setting == true){
   
  
  			  
+   //twisting
+  if(helpCenterSwitch == "TRUE"){
+  //if user not logged in and has a true value for suppress the help center, 
+  //suppress the help center and use the contact form as a place holder
+   zE('webWidget', 'updateSettings', {
+   											contactForm: {
+                                  'suppress': false
+                          },
+  helpCenter: {
+                            'suppress': true     
+                          }
+                  });
   
+  zE('webWidget:on', 'userEvent', function(event){
+ if(event.action == "Contact Form Shown"){
+  
+  
+   
+  var dutch_cover_layer=document.createElement('div');
+  dutch_cover_layer.id = 'dutch_cover_layer';
+   dutch_cover_layer.setAttribute("style", "position:absolute; height:100%; width:100%; text-align:center; background-color:#fff;padding:0;");
+  
+ 
+  
+  var frame_embed=frameBody.querySelector("#Embed");
+  var form=frame_embed.querySelector("form");
+  login_reminder_box.setAttribute("style", "position:absolute; width:100%; margin: 0; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
+  login_reminder_box.appendChild(loginMSG); 
+   login_reminder_box.addEventListener("click", loginFromWidget); 
+  dutch_cover_layer.appendChild(login_reminder_box); 
+  form.appendChild(dutch_cover_layer); 
+  //console.log("form "+form);
+  
+  }});
+  
+  
+  }else{
+  //if user not logged in and has a false value for suppress the help center
+  // turn off the contact form and show the help center
+   zE('webWidget', 'updateSettings', {
+   											contactForm: {
+                                  'suppress': true
+                          },
+  helpCenter: {
+                            'suppress': false     
+                          }
+                  });
+  }
+  //twisting 
 
 
 
