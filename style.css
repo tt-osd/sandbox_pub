@@ -204,7 +204,7 @@ a {
 
 article a {
   color: #004b7f;
-  text-decoration: none;
+  text-decoration: underline;
   text-transform: uppercase;
  }
 
