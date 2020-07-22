@@ -1,12 +1,18 @@
+
+<div class="header_search" id="accounts-page-header">   
+			<div class="container">
+          <h1>{{ dc 'homepage_welcome'}}</h1>
+        	{{search  instant=settings.instant_search scoped=true}}
+      </div>
+</div>
 <nav class="sub-nav">
    <div class="container">
     {{breadcrumbs}}
    </div>
   </nav>
-    <header class="page-header" id="accounts-page-header">
+  <header class="page-header">
       <div class="container category-container">	
         <h1>{{category.name}}</h1>
-       {{search submit=false class="search category-search" placeholder="Type keyword here"}}
       </div>
     </header>
 <div class="category-body">

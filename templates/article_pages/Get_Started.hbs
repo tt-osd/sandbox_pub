@@ -1,4 +1,11 @@
-<nav class="sub-nav" id="Get_started">
+<div id="Get_started">
+<div class="header_search">   
+			<div class="container">
+          <h1>{{ dc 'homepage_welcome'}}</h1>
+        	{{search  instant=settings.instant_search scoped=true}}
+      </div>
+</div>
+<nav class="sub-nav">
   <div class="container">
     {{breadcrumbs}}
   </div>
@@ -43,7 +50,7 @@
         {{dc "back_to_top"}}
       </div>
  </article>
-
+  </div>
     
 
 
