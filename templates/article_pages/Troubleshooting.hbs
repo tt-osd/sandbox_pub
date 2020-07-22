@@ -1,5 +1,11 @@
-<div class="ts-body" id="Troubleshooting">
+<div class="ts-body" id="Troubleshooting">  
   {{#each article.labels}}<label class="zd_Hidden labels">{{identifier}}</label>{{/each}}
+  <div class="header_search">   
+			<div class="container">
+          <h1>{{ dc 'homepage_welcome'}}</h1>
+        	{{search  instant=settings.instant_search scoped=true}}
+      </div>
+</div>
     <nav class="sub-nav">
     <div class="container">
       {{breadcrumbs}}

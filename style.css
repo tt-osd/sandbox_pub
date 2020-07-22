@@ -201,12 +201,12 @@ a {
   text-transform: uppercase;
 }
 
-
 article a {
   color: #004b7f;
   text-decoration: underline;
   text-transform: uppercase;
  }
+
 
 a:hover, a:active, a:focus {
   text-decoration: none;
@@ -1037,7 +1037,21 @@ ul.nav-text-links {
   color: $link_color;
 }
 
+.header_search {
+  padding: 30px 0px;
+  background-color: #BCDCF5;  
+  color: #FFF;
+}
 
+.header_search h1 {
+  font-size: 25px;
+}
+
+@media (min-width: 768px) {
+  .header_search h1 {
+  font-size: 45px;
+}  
+}
 
 /***** User info in header *****/
 img#user-avatar.user-avatar {
@@ -1377,14 +1391,20 @@ img#user-avatar.user-avatar {
   border: 1px solid #e5e5e5;
   border-radius: 0px;
   box-sizing: border-box;
-  color: #e5e5e5;
+  color: #4A4c4c;
   height: 60px;
   padding: 10px 16px 10px 20px;
   -webkit-appearance: none;
   width: 100%;
   font-family: Noway; 
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 300;
+}
+
+@media (min-width: 768px) {
+    .search input[type="search"] {
+      font-size: 20px;
+}
 }
 
 [dir="rtl"] .search input[type="search"] {
@@ -1393,19 +1413,16 @@ img#user-avatar.user-avatar {
 }
 
 .search input[type="search"]:focus {
-  color: #4c4c4c;
+  color: #000;
 }
 
-.search::after {
-  font-family: "TomTom Icons";
-  top: 30px;
-  right: 10px;
-  transform: translateY(-50%);
-  background-color: transparent;
-  color: #000;
-  content: "\0025";
-  font-size: 40px;
+.search input[type="submit"] {
+	top: 6px;
+  right: 6px;
   position: absolute;
+  min-width: 0;
+  max-width: 100px;
+  padding: 0 5px;
 }
 
 [dir="rtl"] .search::right {
@@ -1592,7 +1609,6 @@ ul.blocks-list {
 }
 
 .blocks-item:hover *, .blocks-item:focus *, .blocks-item:active * {
-  color: #000;
   text-decoration: none;
 }
 
@@ -1738,7 +1754,7 @@ ul.blocks-list {
 }   
 }
 .tile-grid-group__tile:nth-child(1) {
-  background-image: url('$assets-homepage-hero-jpg');
+  background-color: #8DC3EB;
   color: #fff;
   background-position: right;
   background-size: cover;
@@ -1871,9 +1887,6 @@ margin-bottom: 300px
     transition: all 0.3s ease-in-out;
 }
 
-
-.category-icon {
-}
 
 /***** Promoted articles *****/
 .promoted-articles-box {
@@ -2272,32 +2285,32 @@ ul.article-list {
   font-size: 18px;
 }
 #navigation-page-header {
-  background-color: #8DC3EB;
-  color: #FFF;	
+  background-color: #BCDCF5;
+  color: #000;	
 }
 
 #sports-page-header {
-  background-color: #008D8D;
+  background-color: #E94743;
   color: #FFF;	
 }
 
 #apps-page-header {
-  background-color: #004B7F;
+  background-color: #65A7A9;
   color: #FFF;	 
 }
 
 #accounts-page-header {
-  background-color: #000;
-  color: #FFF;	 
+  background-color: #FFDC7A;
+  color: #000;	 
 }
 
 #user-page-header {
-  background-color: #FDC530;
+  background-color: #F8C9DF;
   color: #FFF;	 
 }
 
 #learn-page-header {
-  background-color: #002E5E;
+  background-color: #5D7CA8;
   color: #FFF;	 
 }
 /***** End Category pages *****/
@@ -2444,6 +2457,7 @@ ul.article-list {
   content: "\0028";  
   color: #FFF;
 }
+
 /***** End Section pages *****/
 /***** Article *****/
 .article {

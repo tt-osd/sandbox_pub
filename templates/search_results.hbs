@@ -1,8 +1,13 @@
-<div class="search-results-container ">
+<div class="search-results-container ">  
+  <div class="header_search">   
+			<div class="container">
+          <h1>{{ dc 'homepage_welcome'}}</h1>
+        	{{search  instant=settings.instant_search}}
+      </div>
+</div>
 <nav class="sub-nav">
     <div class="container search-result-breadcrumbs-nav">
       {{breadcrumbs}}
-      {{search submit=false}}
     </div>
   </nav>
 

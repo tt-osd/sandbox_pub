@@ -61,7 +61,12 @@ $(document).ready(function(){
 <label class="zd_Hidden" id="map_json">{{asset 'map_json'}}</label>
 <!-- Repair/BuRMA CSS and JS - End - Asmita -->
 
-
+<div class="header_search">   
+			<div class="container">
+          <h1>{{ dc 'homepage_welcome'}}</h1>
+        	{{search  instant=settings.instant_search}}
+      </div>
+</div>
 
 <div class="my-activities-nav">
   <div class="container">
