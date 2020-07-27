@@ -1476,6 +1476,16 @@ function showSlides(n) {
 }
 }
 /***** End of Promoted Articles *****/ 
+/*** Locale Footer Scroll ***/
+  
+  
+$(".footer_btn").click(function(){
+window.scrollTo(0,document.body.scrollHeight); 
+});  
+  
+ /*** End of Locale Footer Scroll ***/ // Amy
+  
+
 }); // end of DOM js file function - put everything above this line
 
 $(document).ready(function() {  // only insert after this if you need document to be ready
