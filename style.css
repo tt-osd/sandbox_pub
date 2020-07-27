@@ -2460,6 +2460,10 @@ ul.article-list {
 
 /***** End Section pages *****/
 /***** Article *****/
+#default {
+  background-color: #fff;
+}
+
 .article {
   /*
   * The article grid is defined this way to optimize readability:
@@ -2477,7 +2481,17 @@ ul.article-list {
     padding: 0 30px;
   }
 }
+#default article h1, #default article h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+#default .article-body p:first-of-type {  
+  font-size: 1.3em;  
+}
 
+#default article li {
+  line-height: 2;
+}
 .article-container {
   display: flex;
   flex-direction: column;

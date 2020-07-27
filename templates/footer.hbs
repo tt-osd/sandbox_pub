@@ -315,7 +315,7 @@
         {{#if alternative_locales}}
           <div class=" language-selector">
             <button class="dropdown-toggle footer_btn" aria-haspopup="true">
-              {{current_locale.name}}
+             <span class="tt-flag-image {{dc 'footer_country'}}"></span> {{current_locale.name}}
             </button>
             <span class="dropdown-menu dropdown_menu_add_on dropdown-menu-end wide_footer"  role="menu" id="tt_footer">
               <div class="footer_container">
@@ -442,15 +442,8 @@
                   <a href="/hc/change_language/en-za?return_to=%2Fhc%2Fen-za" dir="ltr" rel="nofollow" role="menuitem"><span class="tt-flag-image south_africa"></span>{{dc 'local_country_south_africa'}} | {{dc 'local_language_en'}}</a>
                 </div>
                 
-              </div>
-              
-              
-              <div class="footer_column">
-  <!--               <label class="footer_continent">Africa</label>
-                <div id='africa' >
-                  <a href="/hc/change_language/en-za?return_to=%2Fhc%2Fen-za" dir="ltr" rel="nofollow" role="menuitem"><span class="tt-flag-image south_africa"></span>South Africa | en</a>
-                </div> -->
-              </div>
+              </div>             
+
               
               <div class="footer_column">
                 <label class="footer_continent">{{dc 'local_continent_asia_pacific'}}</label>
