@@ -201,12 +201,12 @@ a {
   text-transform: uppercase;
 }
 
+
 article a {
   color: #004b7f;
   text-decoration: underline;
   text-transform: uppercase;
  }
-
 
 a:hover, a:active, a:focus {
   text-decoration: none;
@@ -1037,21 +1037,7 @@ ul.nav-text-links {
   color: $link_color;
 }
 
-.header_search {
-  padding: 30px 0px;
-  background-color: #BCDCF5;  
-  color: #FFF;
-}
 
-.header_search h1 {
-  font-size: 25px;
-}
-
-@media (min-width: 768px) {
-  .header_search h1 {
-  font-size: 45px;
-}  
-}
 
 /***** User info in header *****/
 img#user-avatar.user-avatar {
@@ -1391,20 +1377,14 @@ img#user-avatar.user-avatar {
   border: 1px solid #e5e5e5;
   border-radius: 0px;
   box-sizing: border-box;
-  color: #4A4c4c;
+  color: #e5e5e5;
   height: 60px;
   padding: 10px 16px 10px 20px;
   -webkit-appearance: none;
   width: 100%;
   font-family: Noway; 
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 300;
-}
-
-@media (min-width: 768px) {
-    .search input[type="search"] {
-      font-size: 20px;
-}
 }
 
 [dir="rtl"] .search input[type="search"] {
@@ -1413,16 +1393,19 @@ img#user-avatar.user-avatar {
 }
 
 .search input[type="search"]:focus {
-  color: #000;
+  color: #4c4c4c;
 }
 
-.search input[type="submit"] {
-	top: 6px;
-  right: 6px;
+.search::after {
+  font-family: "TomTom Icons";
+  top: 30px;
+  right: 10px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: #000;
+  content: "\0025";
+  font-size: 40px;
   position: absolute;
-  min-width: 0;
-  max-width: 100px;
-  padding: 0 5px;
 }
 
 [dir="rtl"] .search::right {
@@ -1609,6 +1592,7 @@ ul.blocks-list {
 }
 
 .blocks-item:hover *, .blocks-item:focus *, .blocks-item:active * {
+  color: #000;
   text-decoration: none;
 }
 
@@ -1887,6 +1871,9 @@ margin-bottom: 300px
     transition: all 0.3s ease-in-out;
 }
 
+
+.category-icon {
+}
 
 /***** Promoted articles *****/
 .promoted-articles-box {
@@ -2285,32 +2272,32 @@ ul.article-list {
   font-size: 18px;
 }
 #navigation-page-header {
-  background-color: #BCDCF5;
-  color: #000;	
+  background-color: #8DC3EB;
+  color: #FFF;	
 }
 
 #sports-page-header {
-  background-color: #E94743;
+  background-color: #008D8D;
   color: #FFF;	
 }
 
 #apps-page-header {
-  background-color: #65A7A9;
+  background-color: #004B7F;
   color: #FFF;	 
 }
 
 #accounts-page-header {
-  background-color: #FFDC7A;
-  color: #000;	 
+  background-color: #000;
+  color: #FFF;	 
 }
 
 #user-page-header {
-  background-color: #F8C9DF;
+  background-color: #FDC530;
   color: #FFF;	 
 }
 
 #learn-page-header {
-  background-color: #5D7CA8;
+  background-color: #002E5E;
   color: #FFF;	 
 }
 /***** End Category pages *****/
@@ -2457,13 +2444,8 @@ ul.article-list {
   content: "\0028";  
   color: #FFF;
 }
-
 /***** End Section pages *****/
 /***** Article *****/
-#default {
-  background-color: #fff;
-}
-
 .article {
   /*
   * The article grid is defined this way to optimize readability:
@@ -2481,17 +2463,7 @@ ul.article-list {
     padding: 0 30px;
   }
 }
-#default article h1, #default article h2 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-#default .article-body p:first-of-type {  
-  font-size: 1.3em;  
-}
 
-#default article li {
-  line-height: 2;
-}
 .article-container {
   display: flex;
   flex-direction: column;
@@ -7883,3 +7855,26 @@ box-shadow: 2px 5px 5px 0px rgba(190,190,190,1);
   margin:0.7em 0;
 }
 /*serial prefix checker*/
+
+/***IE box***/
+.notification-bar-ie {
+background-color: #fdc530;
+color: #000;
+max-height: 300px;
+fill: #000;
+transition: opacity 0.3s, visibility 0.3s, transform 0.3s, max-height 0.3, padding 0.3s;
+  padding: 24px 0;
+  display: none;
+}
+.notification-bar__inner
+{
+  width: 1440px;
+  max-width: 1440px;
+  padding: 0px 40px;
+}
+@media all and (min-width:48em)
+{
+  .notification-bar-ie {
+padding: 40px 0 48px;
+  }
+}

@@ -1,3 +1,5 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+
 
    <label class="zd_Hidden" id="map_json">{{asset 'mappublic.json'}}</label>
 
@@ -6,6 +8,7 @@
 <div class="webwidgetsnippet"></div>
  
 <script type="text/javascript">
+  
    //load script function
   jQuery.loadScript = function (url, callback) {
     jQuery.ajax({
@@ -169,7 +172,7 @@ x.addListener(adjustSize);*/
   
 
   
-  			var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
+  			var dc_Homepage_Login= '{{dc 'Homepage_Login'}}';
   			var loginMSG = document.createElement('p'); 
      
         var textnode = document.createTextNode(dc_Homepage_Login); 
