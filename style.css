@@ -201,12 +201,12 @@ a {
   text-transform: uppercase;
 }
 
+
 article a {
   color: #004b7f;
   text-decoration: underline;
   text-transform: uppercase;
  }
-
 
 a:hover, a:active, a:focus {
   text-decoration: none;
@@ -1052,6 +1052,7 @@ ul.nav-text-links {
   font-size: 45px;
 }  
 }
+
 
 /***** User info in header *****/
 img#user-avatar.user-avatar {
@@ -2457,13 +2458,12 @@ ul.article-list {
   content: "\0028";  
   color: #FFF;
 }
-
 /***** End Section pages *****/
 /***** Article *****/
+
 #default {
   background-color: #fff;
 }
-
 .article {
   /*
   * The article grid is defined this way to optimize readability:
@@ -2481,17 +2481,7 @@ ul.article-list {
     padding: 0 30px;
   }
 }
-#default article h1, #default article h2 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-#default .article-body p:first-of-type {  
-  font-size: 1.3em;  
-}
 
-#default article li {
-  line-height: 2;
-}
 .article-container {
   display: flex;
   flex-direction: column;
@@ -7883,3 +7873,26 @@ box-shadow: 2px 5px 5px 0px rgba(190,190,190,1);
   margin:0.7em 0;
 }
 /*serial prefix checker*/
+
+/***IE box***/
+.notification-bar-ie {
+background-color: #fdc530;
+color: #000;
+max-height: 300px;
+fill: #000;
+transition: opacity 0.3s, visibility 0.3s, transform 0.3s, max-height 0.3, padding 0.3s;
+  padding: 24px 0;
+  display: none;
+}
+.notification-bar__inner
+{
+  width: 1440px;
+  max-width: 1440px;
+  padding: 0px 40px;
+}
+@media all and (min-width:48em)
+{
+  .notification-bar-ie {
+padding: 40px 0 48px;
+  }
+}

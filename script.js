@@ -430,7 +430,7 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
          
                                          ticketForms: [
                                                  { id: talk_form_id_per_selected_local, fields: [{id: 'subject',prefill: {'*': '360000794359' }}] },
-                                                 { id: email_form_ID_webwidget, fields: [{id: email_form_request_local_field ,prefill: {'*': talkLocale }}] }                          
+                                                 { id: email_form_ID_webwidget, fields: [{id: 'subject',prefill: {'*': 'EMAIL FORM '+email_form_id }},{id: email_form_request_local_field ,prefill: {'*': talkLocale }}] }                          
                                                   ] //displays the ticket forms: Contact, strap form and Golf. Add any IDs you want to show
                                     
                        },  
@@ -507,13 +507,13 @@ var waitForZen = setInterval(function () {
                      name_input.style.display = "none";
                }
                
-          					// if((subject_input != null )&&(subject_label != null)){
-          					// subject_label.style.display = "none";
-          					// subject_input.style.display = "none";
-          					// }
+                if((subject_input != null )&&(subject_label != null)){
+          subject_label.style.display = "none";
+                    subject_input.style.display = "none";
+               }
               
                 // end of hiding
-          
+
                 if((event.properties).id == email_form_id){
                        if((request_locale_input != null )&&(request_locale_label != null)){
           					request_locale_label.style.display = "none";
@@ -1375,117 +1375,8 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
 
               }
   
- 		/*** End of No results found tracking ****/ //Amy DDA-512
-   /*** Search bar placeholder ****/ //Amy DDA-578
-         var searchbar_placeholder=(document.getElementById("searchbar_placeholder").textContent);
-    				if(searchbar_placeholder != null ) {     
-     					document.getElementById("query").placeholder = searchbar_placeholder ;        
-						}
-     
-   /*** End Search bar placeholder ****/ //Amy DDA-578
-   /*** Locale setting cookie ****/ //Amy DDA-646  
- if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
-                  
-
-            if (read_cookie("tomtomlocale ") === "") {
-              var zendesklocale = window.location.pathname.replace('/', '').replace('?','/').split('/')[1];
-							var tomtomlocale = zendesklocale.replace("-", "_");              
-              set_cookie("tomtomlocale",tomtomlocale,0);         
-             }
+  /*** End of No results found tracking ****/ //my DDA-512
   
-            if (HelpCenter.user.role!='anonymous') {
-              function remove_cookie(name){
-               if((read_cookie("tomtomlocale") != "")){
-                  set_cookie(name, "", -1);
-                  }
-             };
-
-            if (read_cookie("tomtomlocale") != "") {              
-                remove_cookie("tomtomlocale");     
-                  };
-            }
- }
-     /*** Locale setting cookie ****/ //Amy DDA-646    
-  
-  /***** Promoted Articles  *****/ 
-  	var numOfPromos = document.getElementsByClassName("mySlides");
-
-      if (numOfPromos.length === 1) {
-        $('#right-arrow').addClass("zd_Hidden");
-        $('#left-arrow').addClass("zd_Hidden");
-      } 
-  
-   
-      $('.close').click(function() {       // This click function is to minimize the announcements box to the side   
-
-        $('.promoted-articles-box').addClass("minimize");
-        $('ul.promoted-articles').addClass("minimize-articles");
-        $('.promoted_header').addClass("minimize-header"); 
-        $('.promoted-articles-box').removeClass("articles");
-	      $('.close').addClass("zd_Hidden");
-        $('.promoted_header h4').addClass("zd_Hidden");
-        $('#right-arrow').addClass("zd_Hidden");
-        $('#left-arrow').addClass("zd_Hidden");
-        $('div#promoted-arrow').removeClass("zd_Hidden"); 
-         if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
-        set_cookie("announcement","true",0);
-         }
-    });
-
-    if (read_cookie("announcement") === "true") {
-         $('.close').click();       
-    }
-  
-    $('#promoted-arrow').click(function() {   //This click function is to reopen the announcements   
-     
-        $('.promoted-articles-box').removeClass("minimize");
-        $('ul.promoted-articles').removeClass("minimize-articles");
-        $('.promoted_header').removeClass("minimize-header"); 
-        $('.promoted-articles-box').addClass("articles");
-	      $('.close').removeClass("zd_Hidden");
-        $('.promoted_header h4').removeClass("zd_Hidden");
-        $('div#promoted-arrow').addClass("zd_Hidden");      
-       if (numOfPromos.length > 1) {
-        $('#right-arrow').removeClass("zd_Hidden");
-        $('#left-arrow').removeClass("zd_Hidden");
-      }   
-       if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
-       set_cookie("announcement","false",0);
-       }
-    });
-
-  
-if (numOfPromos.length > 0 ) {  
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
- window.plusSlides = function (n) {
-  showSlides(slideIndex += n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1} 
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none"; 
-  }
-  slides[slideIndex-1].style.display = "block"; 
-}
-}
-/***** End of Promoted Articles *****/ 
-/*** Locale Footer Scroll ***/
-  
-  
-$(".footer_btn").click(function(){
-window.scrollTo(0,document.body.scrollHeight); 
-});  
-  
- /*** End of Locale Footer Scroll ***/ // Amy
-  
-
 }); // end of DOM js file function - put everything above this line
 
 $(document).ready(function() {  // only insert after this if you need document to be ready
@@ -1688,7 +1579,65 @@ function openSoftware(evt, softwareName) {
 } //end of 'if this is on an article'       
   
 /***** End of  Article Templates *****/ 
+/***** Promoted Articles  *****/ 
+  	var numOfPromos = document.getElementsByClassName("mySlides");
 
+      if (numOfPromos.length === 1) {
+        $('#right-arrow').addClass("zd_Hidden");
+        $('#left-arrow').addClass("zd_Hidden");
+      } 
+  
+     
+      $('.close').click(function() {       // This click function is to minimize the announcements box to the side   
+
+        $('.promoted-articles-box').addClass("minimize");
+        $('ul.promoted-articles').addClass("minimize-articles");
+        $('.promoted_header').addClass("minimize-header"); 
+        $('.promoted-articles-box').removeClass("articles");
+	      $('.close').addClass("zd_Hidden");
+        $('.promoted_header h4').addClass("zd_Hidden");
+        $('#right-arrow').addClass("zd_Hidden");
+        $('#left-arrow').addClass("zd_Hidden");
+        $('div#promoted-arrow').removeClass("zd_Hidden");
+       
+    });
+  
+    $('#promoted-arrow').click(function() {   //This click function is to reopen the announcements   
+     
+        $('.promoted-articles-box').removeClass("minimize");
+        $('ul.promoted-articles').removeClass("minimize-articles");
+        $('.promoted_header').removeClass("minimize-header"); 
+        $('.promoted-articles-box').addClass("articles");
+	      $('.close').removeClass("zd_Hidden");
+        $('.promoted_header h4').removeClass("zd_Hidden");
+        $('div#promoted-arrow').addClass("zd_Hidden");      
+       if (numOfPromos.length > 1) {
+        $('#right-arrow').removeClass("zd_Hidden");
+        $('#left-arrow').removeClass("zd_Hidden");
+      }      
+    });
+  
+if (numOfPromos.length > 0 ) {  
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+ window.plusSlides = function (n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none"; 
+  }
+  slides[slideIndex-1].style.display = "block"; 
+}
+}
+/***** End of Promoted Articles *****/ 
 /***** FORMS *****/   
 //This code is to ensure only Signed in users see the request form if we add class="request"
 //end
@@ -1806,3 +1755,6 @@ function kmt_HideBox(e) {
     return document.getElementById(e).style.display = "none", !1
 }
   /***** End temporary hide/show CSS *****/
+
+
+
