@@ -1666,11 +1666,13 @@ ul.blocks-list {
   	height: 50px;
 }
 .blocks-item .button:after {
-    content:  url($assets-chevron_right-svg);
-    vertical-align: text-top;
+    content:  url($assets-chevron_right_white-svg);
+    position: absolute;
+    top: 16.5px;
+    left: 16.5px;
+    width: 20px;
+    height: 20px;
     color: #FFF; 
-    display: flex;
-    justify-content: center;
 }
 
 .blocks-item:hover, .blocks-item:focus, .blocks-item:active {
@@ -7969,3 +7971,26 @@ box-shadow: 2px 5px 5px 0px rgba(190,190,190,1);
   margin:0.7em 0;
 }
 /*serial prefix checker*/
+
+/***IE box***/
+.notification-bar-ie {
+background-color: #fdc530;
+color: #000;
+max-height: 300px;
+fill: #000;
+transition: opacity 0.3s, visibility 0.3s, transform 0.3s, max-height 0.3, padding 0.3s;
+  padding: 24px 0;
+  display: none;
+}
+.notification-bar__inner
+{
+  width: 1440px;
+  max-width: 1440px;
+  padding: 0px 40px;
+}
+@media all and (min-width:48em)
+{
+  .notification-bar-ie {
+padding: 40px 0 48px;
+  }
+}
