@@ -5,14 +5,15 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
   /******** Home page META description ***********/ // DDA-673 Amy
 
   var homePage = document.getElementById("home-section");
-  var homepage_metadescription  = document.getElementById("homepage_metadescription").textContent;
+
    if (homePage){
-     
+  var homepage_metadescription  = document.getElementById("homepage_metadescription").textContent;  
   var homepage_meta = document.createElement('meta');
   homepage_meta.setAttribute('name', 'description');
  	homepage_meta.content = homepage_metadescription;
   document.getElementsByTagName('head')[0].appendChild(homepage_meta);
   }
+
   /******** End Home page META description ***********/  // DDA-673 Amy
   
   //this is the URL value that can be used in all the functions
@@ -1422,7 +1423,7 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
             }
  }
      /*** Locale setting cookie ****/ //Amy DDA-646    
-  
+
   /***** Promoted Articles  *****/ 
   	var numOfPromos = document.getElementsByClassName("mySlides");
 
