@@ -1,6 +1,19 @@
 /* PLESAE READ - There are 2 document ready functions one is below in DOMContentLoaded and there is (document).ready at the bottom if you require the whole document to load */
 
 document.addEventListener('DOMContentLoaded', function() { // **** Include all JS in this function
+    
+  /******** Home page META description ***********/ // DDA-673 Amy
+
+  var homePage = document.getElementById("home-section");
+  var homepage_metadescription  = document.getElementById("homepage_metadescription").textContent;
+   if (homePage){
+     
+  var homepage_meta = document.createElement('meta');
+  homepage_meta.setAttribute('name', 'description');
+ 	homepage_meta.content = homepage_metadescription;
+  document.getElementsByTagName('head')[0].appendChild(homepage_meta);
+  }
+  /******** End Home page META description ***********/  // DDA-673 Amy
   
   //this is the URL value that can be used in all the functions
    var the_url= window.location.href;
@@ -445,7 +458,10 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
                                }, 
                                                      launcher: {
                                                       chatLabel: {"*": chatLabel},
-                                                      label:{"*": chatLabel}
+                                                      label:{"*": chatLabel},
+                                                       mobile: {
+          labelVisible: true
+        }
                },
                         chat: {
                                  departments: {
@@ -1565,9 +1581,7 @@ $(document).ready(function() {  // only insert after this if you need document t
   		$('.tts-note').addClass("article-note");  
  		 	$('.article-note').removeClass("tts-note");  
       $('.note').addClass("article-note");  
- 		 	$('.article-note').removeClass("note");  
-      $('.btn').addClass("button");  
- 		 	$('.button').removeClass("btn"); 
+ 		 	$('.article-note').removeClass("note");
 /***** End Article Fixes *****/ 
 /*****  Content Pages *******/   
       $("<div class='ct-header-block'></div>").prependTo(".ct-article"); 
@@ -1758,17 +1772,10 @@ function openSoftware(evt, softwareName) {
                 $('.form-field.request_ticket_form_id').hide();
                 $('.form-field.request_organization_id').hide();
   /***** End of New request pages - product pre-select *****/ //Lorna Rickett 
-    /***** Temporary hide/show CSS *****/
-  $("#option-2").addClass('button');
-  $("#option-1").addClass('button');
-  $("#option-3").addClass('button');
 
-    /***** Temporary hide/show CSS *****/
-  
-  
 }); // end of document ready function
   /***** Temporary hide/show CSS *****/
-function showOption(e, t, n) {    for (i = t; i <= n; i++) i !== e && (document.getElementById("option-" + i).className = "tts-options tts-inactive", document.getElementById("option-" + i + "-content").style.display = "none");    document.getElementById("option-" + e).className = "tts-options tts-active", document.getElementById("option-" + e + "-content").style.display = "block"} 
+function showOption(e, t, n) {    for (i = t; i <= n; i++) i !== e && (document.getElementById("option-" + i).className = "tts-options tts-inactive", document.getElementById("option-" + i + "-content").style.display = "none");    document.getElementById("option-" + e).className = "tts-options tts-active", document.getElementById("option-" + e + "-content").style.display = "block"} 
   
 
 function box_toggle(e) {

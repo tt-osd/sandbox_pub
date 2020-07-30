@@ -8,9 +8,9 @@
 @font-face { 
   font-family: "Gotham black";
   src: local("Gotham black");
-  src: urL("$assets-gotham_black-eot"),
-    	 urL("$assets-gotham_black-otf") format('truetype'),
-       urL("$assets-gotham_black-woff") format('woff');
+  src: url("$assets-gotham_black-eot"),
+    	 url("$assets-gotham_black-otf") format('truetype'),
+       url("$assets-gotham_black-woff") format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -20,9 +20,9 @@
 @font-face { 
   font-family: "Gotham bold";
   src: local("Gotham bold");
-  src: urL("$assets-gotham_bold-eot"),
-    	 urL("$assets-gotham_bold-otf") format('truetype'),
-       urL("$assets-gotham_bold-woff") format('woff');
+  src: url("$assets-gotham_bold-eot"),
+    	 url("$assets-gotham_bold-otf") format('truetype'),
+       url("$assets-gotham_bold-woff") format('woff');
   font-weight: bold;
   font-style: normal;
 }
@@ -32,9 +32,9 @@
 @font-face { 
   font-family: "Gotham book";
   src: local("Gotham book");
-  src: urL("$assets-gotham_book-eot"),
-    	 urL("$assets-gotham_book-otf") format('truetype'),
-       urL("$assets-gotham_book-woff") format('woff');
+  src: url("$assets-gotham_book-eot"),
+    	 url("$assets-gotham_book-otf") format('truetype'),
+       url("$assets-gotham_book-woff") format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -44,9 +44,9 @@
 @font-face { 
   font-family: "Gotham medium";
   src: local("Gotham medium");
-  src: urL("$assets-gotham_medium-eot"),
-    	 urL("$assets-gotham_medium-otf") format('truetype'),
-       urL("$assets-gotham_medium-woff") format('woff');
+  src: url("$assets-gotham_medium-eot"),
+    	 url("$assets-gotham_medium-otf") format('truetype'),
+       url("$assets-gotham_medium-woff") format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -56,9 +56,9 @@
 @font-face { 
   font-family: "Gotham ssm black";
   src: local("Gotham ssm black");
-  src: urL("$assets-gotham_ssm_black-eot"),
-    	 urL("$assets-gotham_ssm_black-otf") format('truetype'),
-       urL("$assets-gotham_ssm_black-woff") format('woff');
+  src: url("$assets-gotham_ssm_black-eot"),
+    	 url("$assets-gotham_ssm_black-otf") format('truetype'),
+       url("$assets-gotham_ssm_black-woff") format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -68,9 +68,9 @@
 @font-face { 
   font-family: "Gotham ssm bold";
   src: local("Gotham ssm bold");
-  src: urL("$assets-gotham_ssm_bold-eot"),
-    	 urL("$assets-gotham_ssm_bold-otf") format('truetype'),
-       urL("$assets-gotham_ssm_bold-woff") format('woff');
+  src: url("$assets-gotham_ssm_bold-eot"),
+    	 url("$assets-gotham_ssm_bold-otf") format('truetype'),
+       url("$assets-gotham_ssm_bold-woff") format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -80,9 +80,9 @@
 @font-face { 
   font-family: "Gotham ssm medium";
   src: local("Gotham ssm medium");
-  src: urL("$assets-gotham_ssm_medium-eot"),
-    	 urL("$assets-gotham_ssm_medium-otf") format('truetype'),
-       urL("$assets-gotham_ssm_medium-woff") format('woff');
+  src: url("$assets-gotham_ssm_medium-eot"),
+    	 url("$assets-gotham_ssm_medium-otf") format('truetype'),
+       url("$assets-gotham_ssm_medium-woff") format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -92,20 +92,60 @@
 @font-face { 
   font-family: "Gotham ssm book";
   src: local("Gotham ssm book");
-  src: urL("$assets-gotham_ssm_book-eot"),
-    	 urL("$assets-gotham_ssm_book-otf") format('truetype'),
-       urL("$assets-gotham_ssm_book-woff") format('woff');
+  src: url("$assets-gotham_ssm_book-eot"),
+    	 url("$assets-gotham_ssm_book-otf") format('truetype'),
+       url("$assets-gotham_ssm_book-woff") format('woff');
   font-weight: normal;
   font-style: normal;
 }
 /* END Gotham ssm book*/
+/* BEGIN Noway Regular */ 
+@font-face { 
+  font-family: "noway";
+  src: local("Noway Regular");
+  src:    	
+    url("$assets-noway_regular-otf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* END Noway Regular */ 
+/* BEGIN Noway Italic */ 
+@font-face { 
+  font-family: "Noway Italic";
+  src: local("Noway Italic");
+  src:    	
+    url("$assets-noway_regular_italic-otf") format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+/* END Noway Italic */ 
+/* BEGIN Noway Bold */ 
+@font-face { 
+  font-family: "Noway Bold";
+  src: local("Noway Bold");
+  src:    	
+    url("$assets-noway_bold-otf") format('truetype');
+  font-weight: normal;
+  font-style: bold;
+}
+/* END Noway Bold */ 
+/* BEGIN Noway Bold Italic */ 
+@font-face { 
+  font-family: "Noway Bold Italic";
+  src: local("Noway Bold Italic");
+  src:    	
+    url("$assets-noway_bold_italic-otf") format('truetype');
+  font-weight: normal;
+  font-style: bold italic;
+}
+/* END Noway Bold Italic*/ 
 /* BEGIN TomTom Icons */ 
 @font-face { 
   font-family: "TomTom Icons";
   src: local("TomTom Icons");
-  src: urL("$assets-tomtom-icons-eot"),
-    	 urL("$assets-tomtom-icons-svg")  format('svg'),
-       urL("$assets-tomtom-icons-ttf") format('truetype');
+  src: url("$assets-tomtom-icons-eot"),
+    	 url("$assets-tomtom-icons-svg")  format('svg'),
+       url("$assets-tomtom-icons-ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -154,7 +194,7 @@
 body {
   background-color: #f2f2f2;
   color: $text_color;
-  font-family: "noway";
+  font-family: noway, "noway";
   font-weight: normal;
   font-size: 16px;
   line-height: 1.538461538;
@@ -201,12 +241,12 @@ a {
   text-transform: uppercase;
 }
 
-
 article a {
   color: #004b7f;
   text-decoration: underline;
   text-transform: uppercase;
  }
+
 
 a:hover, a:active, a:focus {
   text-decoration: none;
@@ -822,7 +862,6 @@ ul.nav-text-links {
 
 .nav-text-links a {
   text-transform: none;
-  color: #000;
 }
 
 .header-link {
@@ -855,9 +894,8 @@ ul.nav-text-links {
 	display: none;
   position: fixed;
   left: 0px;
-  top: 70px;
+  top: 71px;
 	background-color: #fff;
-  max-width: 310px;
   width: calc(100% - 48px);
   height: 100%;
 }
@@ -874,9 +912,20 @@ ul.nav-text-links {
     display: flex; */
 }
 .nav-icons {
-		justify-content: space-evenly;
-    display: flex;
-  	
+padding: 20px 0px;
+height: 69px;
+display: block;
+}
+.nav-icon {
+  fill: #666;
+  display: block;
+width: 58px;
+margin-top: 2px;
+float: left;
+}
+
+.nav-icon svg path {
+  color: #f2f2f2;  
 }
 .nav-main-hamburger {
     fill: #666;
@@ -924,7 +973,17 @@ ul.nav-text-links {
     display: none;
 }
 }
-
+@media only screen and (max-width: 600px) {
+.nav-icon
+  {
+    display: none;
+  }
+  .nav-icons
+  {
+    margin-left: 40px;
+  }
+  
+}
 /***** End Temp Header ****/
 
 
@@ -980,7 +1039,7 @@ ul.nav-text-links {
 
 .nav-wrapper a {
   border: 0;
-  color: #555;
+  color: #66;
   font-size: 18px;
   width: 100%;
   text-align: center;
@@ -1001,7 +1060,9 @@ ul.nav-text-links {
   background-color: transparent;
   color: #000;
 }
-
+.login {
+  padding: 12px 22px;
+}
 .nav-wrapper a.login {
   display: inline-block;
 }
@@ -1053,14 +1114,16 @@ ul.nav-text-links {
 }  
 }
 
-
 /***** User info in header *****/
 img#user-avatar.user-avatar {
   display: none;
 }
 
 .user-info {
-  display: inline-block;
+display: block;
+width: 58px;
+float: left;
+position: relative;
 }
 
 .user-info .dropdown-toggle::after {
@@ -1075,7 +1138,8 @@ img#user-avatar.user-avatar {
 
 .user-info > [role="button"] {
   border: 0;
-  color: #000;
+  color: #666;
+  fill: #666;
   min-width: 0;
   padding: 0;
   white-space: nowrap;
@@ -1322,6 +1386,7 @@ img#user-avatar.user-avatar {
     -ms-flex-pack: center;
     justify-content: center;
     background: #000;
+  	border-bottom:1px solid #4a4c4c;
 }
 .footer-social-items {
   display:flex;
@@ -1362,21 +1427,18 @@ img#user-avatar.user-avatar {
 .breadcrumbs li {
   color: #000;
   display: inline;
-  font-weight: 300;
-  font-size: 16px;
+  font-size: 18px;
   max-width: 450px;
   overflow: hidden;
   text-overflow: ellipsis;
   text-transform: uppercase;
-  font-family: "noway";
+  font-family: Noway, "noway";
 }
 
 .breadcrumbs li + li::before {
-  content: ">";
   margin: 0 8px;
-  color: #DF1B12;
-  font-weight: 700;
-  font-family: "gotham bold";
+  content:  url($assets-chevron_right-svg);
+  vertical-align: text-top;
 }
 
 .breadcrumbs li:last-child a {
@@ -1489,6 +1551,12 @@ img#user-avatar.user-avatar {
 .page-header h1 {
   flex-grow: 1;
   margin: auto;
+  font-size: 35px;
+}
+@media (min-width: 768px) {
+  .page-header h1 {
+    font-size: 45px;
+  }
 }
 
 .page-header-description {
@@ -1544,7 +1612,7 @@ img#user-avatar.user-avatar {
 /***** Blocks *****/
 /* Used in Homepage#categories and Community#topics */
 .home_container {
-  max-width: 1660px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0;
 }
@@ -1598,8 +1666,8 @@ ul.blocks-list {
   	height: 50px;
 }
 .blocks-item .button:after {
-   	font-family: "TomTom Icons";
-    content: "\0028";
+    content:  url($assets-chevron_right-svg);
+    vertical-align: text-top;
     color: #FFF; 
     display: flex;
     justify-content: center;
@@ -1681,6 +1749,12 @@ ul.blocks-list {
     position: relative;
 }
 
+@media (min-width: 764px) {
+.tile-grid {
+ 	 margin-left: 0;
+    margin-right: 0;
+}
+}
 .tile-grid__groups {
     position: relative;
 }
@@ -2458,12 +2532,13 @@ ul.article-list {
   content: "\0028";  
   color: #FFF;
 }
+
 /***** End Section pages *****/
 /***** Article *****/
-
 #default {
   background-color: #fff;
 }
+
 .article {
   /*
   * The article grid is defined this way to optimize readability:
@@ -2481,7 +2556,17 @@ ul.article-list {
     padding: 0 30px;
   }
 }
+#default article h1, #default article h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+#default .article-body p:first-of-type {  
+  font-size: 1.3em;  
+}
 
+#default article li {
+  line-height: 2;
+}
 .article-container {
   display: flex;
   flex-direction: column;
@@ -3036,12 +3121,14 @@ ul.article-list {
 }
 .tt-get-started-step {
   background-color: #FFF;
-  padding: 50px;  
+  padding: 60px;  
   margin-bottom: 100px;
   position: relative;
 }
 .tt-get-started-step p {
-    margin-left: 26px;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
   }
 
 
@@ -3067,6 +3154,7 @@ h2.tt-get-started-step-title {
 		height: 80px;
     font-size: 25px;
     line-height: 60px;
+    left: 25px;
 }
 @media (min-width: 1024px) {
   h2.tt-get-started-step-title {
@@ -3075,6 +3163,7 @@ h2.tt-get-started-step-title {
     font-size: 50px;
     line-height: 130px;
 		top: -100px;
+    left: 10px;
   }
 }
 
@@ -3120,13 +3209,16 @@ h3.tt-get-started-step-title {
 .gs-user-manual-download {
     font-family: "gotham book";
 		font-size: 12px;
+  	text-decoration: none;
+ 		padding: 12px 20px;
 /*   	margin: auto; */
 }
-.gs-user-manual-download::before {
+.gs-user-manual-download::after {
   font-family: "TomTom Icons";
   color: #FFF;
-  font-weight: 400px;
-  content: "\0030"  
+  font-weight: 400;
+  content: "\0030";
+  margin-left: 5px;
 }
 
 .gs-user-manual-title, .gs-user-manual-description {
@@ -3159,11 +3251,13 @@ h3.tt-get-started-step-title {
   	vertical-align: middle;
   }
 
-#back-to-top::before {
+#back-to-top::after {
   font-family: "TomTom Icons";
   color: #FFF;
   content: "\0029";
 }
+
+
 #back-to-top:hover {
   background-color: #4A4C4C;
 }
@@ -3417,6 +3511,7 @@ h3.tt-get-started-step-title {
 
 .ts-sub-footer-wrapper{
   background-color: #f2f2f2;
+  padding-bottom: 20px;
  }
 
 .ts-sub-footer-wrapper h2 {
@@ -3496,6 +3591,7 @@ h3.tt-get-started-step-title {
   		content: '\0028';
   		color: #DF1B12;
   		vertical-align: bottom;
+  		margin-left: 5px;
 }
 
 .article-relatives {
@@ -4387,7 +4483,7 @@ p.ct-content-block-description {
   -webkit-hyphens: auto;
   word-break: break-word;
   word-wrap: break-word;
-  font-family: "noway";
+  font-family: noway, "noway";
   line-height: 1.6;
   overflow-x: auto;
 }
@@ -6797,7 +6893,7 @@ ul.profile-activity-list {
   word-break: break-word;
   color: #4A4C4C;
   font-weight: 400;
-  font-family: "noway";
+  font-family: noway, "noway";
 }
 
 .results-list-item-link{
@@ -7291,7 +7387,7 @@ padding: 24px;
 }
 
 .locale_text_country_text {
-    font-family: "Noway";
+    font-family: noway, "Noway";
     font-size: 16px;
     line-height: 24px;
     margin: 40px 0;
@@ -7873,26 +7969,3 @@ box-shadow: 2px 5px 5px 0px rgba(190,190,190,1);
   margin:0.7em 0;
 }
 /*serial prefix checker*/
-
-/***IE box***/
-.notification-bar-ie {
-background-color: #fdc530;
-color: #000;
-max-height: 300px;
-fill: #000;
-transition: opacity 0.3s, visibility 0.3s, transform 0.3s, max-height 0.3, padding 0.3s;
-  padding: 24px 0;
-  display: none;
-}
-.notification-bar__inner
-{
-  width: 1440px;
-  max-width: 1440px;
-  padding: 0px 40px;
-}
-@media all and (min-width:48em)
-{
-  .notification-bar-ie {
-padding: 40px 0 48px;
-  }
-}
