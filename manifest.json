@@ -1,11 +1,7 @@
 {
-  "name": "Test Environment 1.0",
+  "name": "IE 11 fixes\n",
   "author": "Zendesk",
-
- 
-
   "version": "1.11.26",
-
   "api_version": 1,
   "default_locale": "en-gb",
   "settings": [

@@ -60,7 +60,7 @@ if (the_url.indexOf("/categories/")!= -1){
 } else if (the_url.indexOf("/new?ticket_form_id=")!= -1) { 
     page_category = "Form";
  
-} else if (the_url.indexOf("/requests/")!= -1) { 
+} else if (the_url.indexOf("/requests")!= -1) { 
     page_category = "Request";
   
 } else if (the_url.indexOf("/search")!= -1) { 
@@ -94,8 +94,7 @@ if (the_url.indexOf("/articles/")!= -1){
 
     page_id = the_url.substring(
         the_url.lastIndexOf("articles/") + 9, 
-        the_url.lastIndexOf("articles/") + 21, 
-                                        );
+        the_url.lastIndexOf("articles/") + 21);
 
 if (troubleshooting) {
     page_type_id = "Troubleshooting";

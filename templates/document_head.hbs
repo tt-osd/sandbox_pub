@@ -141,7 +141,7 @@ function loginFromWidget(){
  
      var login_reminder_box=document.createElement('div');
        login_reminder_box.id = 'login_reminder_box';
-  login_reminder_box.setAttribute("style", "position:absolute; width:341px; bottom:0; margin: 0 1px; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
+  login_reminder_box.setAttribute("style", "position:absolute; width:341px; bottom:21px; left: 18px; margin: 0 1px; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
   
   
  //adjust login section on mobile size
@@ -168,7 +168,7 @@ x.addListener(adjustSize);*/
   
 
   
-  			var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
+  			var dc_Homepage_Login= '{{dc 'Homepage_Login'}}';
   			var loginMSG = document.createElement('p'); 
      
         var textnode = document.createTextNode(dc_Homepage_Login); 
@@ -265,7 +265,21 @@ x.addListener(adjustSize);*/
    var chatLocale = HelpCenter.user.locale
   var chat_department="unknown"
   var country_code="unknown"
-  
+
+
+
+
+for (key in data){
+    if(chatLocale == key)
+    {
+        //console.log(data[key]);
+        chat_department=data[key][1].chat_department;
+        country_code=data[key][0].country_code;
+    }
+}
+
+
+ /*****ie11 hates this****** 
 Object.keys(data).forEach((key,index)=>{
   
   if(key==chatLocale){
@@ -275,7 +289,7 @@ Object.keys(data).forEach((key,index)=>{
  
   }
   }); 
-  
+   *****ie11 hates this******/ 
 	zE('webWidget', 'setLocale', country_code);	
 
   zE('webWidget:on', 'chat:departmentStatus', function(dept) {
@@ -337,7 +351,7 @@ Object.keys(data).forEach((key,index)=>{
    var chatOffline = document.createElement('span');
   
   
-  var chatOffline_node = document.createTextNode(`{{dc 'chatlabeloffline'}}`); 
+  var chatOffline_node = document.createTextNode('{{dc 'chatlabeloffline'}}'); 
   chatOffline.appendChild(chatOffline_node); 
   container_a.appendChild(chatOffline);
   
@@ -348,7 +362,7 @@ Object.keys(data).forEach((key,index)=>{
  var show_contactForm = document.createElement('span');
    
   
-  var show_contactForm_node = document.createTextNode(`{{dc 'contactformlabel'}}`); 
+  var show_contactForm_node = document.createTextNode('{{dc 'contactformlabel'}}'); 
   			show_contactForm.appendChild(show_contactForm_node); 
   container_b.appendChild(show_contactForm);
   cover_layer.appendChild(container_b);

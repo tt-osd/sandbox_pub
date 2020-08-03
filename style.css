@@ -8,6 +8,7 @@
 @font-face { 
   font-family: "Gotham black";
   src: local("Gotham black");
+  src: url('webfont.eot'); /* IE9 Compat Modes */
   src: url("$assets-gotham_black-eot"),
     	 url("$assets-gotham_black-otf") format('truetype'),
        url("$assets-gotham_black-woff") format('woff');
@@ -194,7 +195,7 @@
 body {
   background-color: #f2f2f2;
   color: $text_color;
-  font-family: noway, "noway";
+  font-family: "noway", Noway Regular,Helvetica,Arial,sans-serif;
   font-weight: normal;
   font-size: 16px;
   line-height: 1.538461538;
@@ -1229,6 +1230,17 @@ position: relative;
   width: 14px;
 }
 
+
+/***internet explorer warning*****/
+.colored-article__content
+{
+  text-align: center;
+}
+.colored-article__body
+{
+  color: #666;
+}
+
 /***** Footer *****/
 /***** Footer *****/
 .footer {
@@ -1742,6 +1754,7 @@ ul.blocks-list {
   color: #000;
   margin: 0;
   text-transform: none;
+  min-height: 170px;
 }
 
 .blocks-item-description:not(:empty) {
@@ -1808,7 +1821,7 @@ ul.blocks-list {
     display: -ms-grid;
     display: grid;
     width: 100%;
-    -ms-grid-columns: 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
     grid-template-columns: 0fr 1fr;
     -ms-grid-rows: 200px;
     grid-template-rows: 200px;
@@ -1827,7 +1840,7 @@ ul.blocks-list {
 @media (min-width: 1200px) { 
   .tile-grid__group {
     	grid-template-columns: 1fr 1fr 1fr 1fr;
-  	  -ms-grid-rows: 360px;
+  	  -ms-grid-rows: 1fr 1fr 1fr;
   	  grid-template-rows: 360px;
   	  grid-auto-rows: 360px;      
   }
@@ -1848,7 +1861,45 @@ ul.blocks-list {
     grid-column: span 1;
     -ms-grid-row-span: 1;
     grid-row: span 1;
+  -ms-grid-rows: 1fr 1fr 1fr;
 } 
+@media all and (max-width: 1000px) {
+  .tile-grid__group > li:nth-of-type(1){
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}
+.tile-grid__group > li:nth-of-type(2){
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+}
+.tile-grid__group > li:nth-of-type(3){
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+}
+.tile-grid__group > li:nth-of-type(4){
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+}
+.tile-grid__group > li:nth-of-type(5){
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+}
+.tile-grid__group > li:nth-of-type(6){
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+}
+.tile-grid__group > li:nth-of-type(7){
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+}
+  .tile-grid__group
+  {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+  
+  
+  
 }
 
 @media (min-width: 1200px) {
@@ -1936,6 +1987,37 @@ ul.blocks-list {
   border-right: 1px solid #e5e5e5;
 }
 }
+/*IE11 needs to be set per box (oh yes)*/
+.tile-grid__group > li:nth-of-type(1){
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}
+.tile-grid__group > li:nth-of-type(2){
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+}
+.tile-grid__group > li:nth-of-type(3){
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+}
+.tile-grid__group > li:nth-of-type(4){
+    -ms-grid-row: 2;
+    -ms-grid-column: 4;
+}
+.tile-grid__group > li:nth-of-type(5){
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+}
+.tile-grid__group > li:nth-of-type(6){
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+}
+.tile-grid__group > li:nth-of-type(7){
+    -ms-grid-row: 3;
+    -ms-grid-column: 4;
+}
+
+/*IE11 needs to be set per box (oh yes)*/
 /***** Homepage *****/
 .section {
   margin-bottom: 40px;
@@ -7975,6 +8057,67 @@ only screen and (min-resolution:2dppx) {
       text-transform: none !important;
 }
 
+/*IE11 needs to be set per box (oh yes)*/
+.footer__content--grid > div:nth-of-type(1){
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}
+.footer__content--grid > div:nth-of-type(2){
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+}
+.footer__content--grid > div:nth-of-type(3){
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+}
+.footer__content--grid > div:nth-of-type(4){
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+}
+.footer__content--grid > div:nth-of-type(5){
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+}
+.footer__content--grid > div:nth-of-type(6){
+    -ms-grid-row: 1;
+    -ms-grid-column: 6;
+}
+.footer__content--grid > div:nth-of-type(7){
+    -ms-grid-row: 1;
+    -ms-grid-column: 7;
+}
+@media (max-width: 700px){
+  .footer__content--grid > div:nth-of-type(1){
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}
+.footer__content--grid > div:nth-of-type(2){
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+}
+.footer__content--grid > div:nth-of-type(3){
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+}
+.footer__content--grid > div:nth-of-type(4){
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+}
+.footer__content--grid > div:nth-of-type(5){
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+}
+.footer__content--grid > div:nth-of-type(6){
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+}
+.footer__content--grid > div:nth-of-type(7){
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+}
+}
+
+/*IE11 needs to be set per box (oh yes)*/
 
 /*footer*/
 
