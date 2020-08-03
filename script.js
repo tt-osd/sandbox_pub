@@ -1,4 +1,4 @@
-/* PLESAE READ - There are 2 document ready functions one is below in DOMContentLoaded and there is (document).ready at the bottom if you require the whole document to load */
+/* PLEASE READ - There are 2 document ready functions one is below in DOMContentLoaded and there is (document).ready at the bottom if you require the whole document to load */
 
 document.addEventListener('DOMContentLoaded', function() { // **** Include all JS in this function
     
@@ -367,8 +367,10 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
  //User-Manuals-Release-Info category page 
   chat_tag="prd_nav";
  
-}else if((the_url.includes("/contributions"))||(the_url.includes("/following"))||(the_url.includes("/requests"))||(the_url.includes("/profiles"))){
-  
+}
+      //ie11 hates this
+      //else if((the_url.includes("/contributions"))||(the_url.includes("/following"))||(the_url.includes("/requests"))||(the_url.includes("/profiles"))){
+  else if((the_url.indexOf("/contributions")!= -1)||(the_url.indexOf("/following")!= -1)||(the_url.indexOf("/requests")!= -1)||(the_url.indexOf("/profiles")!= -1)){
    chat_tag="prd_npr";
 }else{
   chat_tag="prd_nav"; 
@@ -489,6 +491,7 @@ var waitForZen = setInterval(function () {
             zE('webWidget:on', 'userEvent', function(event) {
   
         //user property in if statement!!!!
+              //alert(event.action);
           if((event.action)=="Contact Form Shown"){
             		var a = document.getElementById('webWidget');
             		var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
@@ -512,7 +515,7 @@ var waitForZen = setInterval(function () {
 
                 var request_locale_label=form.querySelector('label[data-fieldid="key:'+email_form_request_local_field+'"]');
                 var request_locale_input= form.querySelector('div[name="key:'+email_form_request_local_field+'"]');
-            
+
             		  
                 if((email_input != null )&&(email_label != null)){
                   email_input.style.display = "none";
