@@ -351,9 +351,8 @@ Object.keys(data).forEach((key,index)=>{
   container_a.setAttribute("style", " width:100%; box-shadow:0 0.07143rem 0.57143rem 0 rgba(0, 0, 0, 0.2); border-radius:0.28571rem; text-align:center; padding:35px 0; user-select: none; margin-top:5%;");
    var chatOffline = document.createElement('span');
   
-  var escape_ = document.getElementById("chatOffline").replace(/(?:\r\n|\r|\n)/g, '\n');
-  var chatOffline_node = chatOffline.innerHTML(escape_);
-  //chatOffline.appendChild(chatOffline_node); 
+  var chatOffline_node = document.createTextNode(`{{dc 'chatlabeloffline'}}`); 
+  chatOffline.appendChild(chatOffline_node); 
   container_a.appendChild(chatOffline);
   
   
