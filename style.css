@@ -928,16 +928,6 @@ display: block;
   padding: 20px 0px;
   margin-right: 15px;
 }
-@media (min-width: 1224px) {
-  .nav-icon {
-  margin-right: 20px;
-  }
-}
-@media (min-width: 1600px) {
-    .nav-icon {
-  margin-right: 40px;
-  }
-}
 .user-info {
     padding: 20px 0px;
 }
@@ -1451,13 +1441,15 @@ position: relative;
 
 /***** Breadcrumbs *****/
 .breadcrumbs {
-    margin: auto 0;
+  margin: auto 0;
   padding: 0;
   background-color: transparent;
+  line-height: 14px;
 }
 
 @media (min-width: 768px) {
   .breadcrumbs {
+    padding: 5px 0;
   }
 }
 
@@ -1470,18 +1462,20 @@ position: relative;
   text-overflow: ellipsis;
   text-transform: uppercase;
   font-family: Noway, "noway";
+  vertical-align: middle;
+  line-height: 14px;
 }
 
 .breadcrumbs li + li::before {
   margin: 0 8px;
   content:  url($assets-chevron_right-svg);
-  vertical-align: text-top;
+  vertical-align: middle;
+  line-height: 14px;
 }
 
 .breadcrumbs li:last-child a {
   color: #DF1B12;
 }
-
 /***** Search field *****/
 .search {
   position: relative;
@@ -3390,22 +3384,24 @@ h3.tt-get-started-step-title {
   	margin: auto;
     cursor: pointer;
     background-color: #000;
-    padding: 35px 10px;
+  	padding: 16px 24px;
     border-radius: 0px;
-		font-size: 16px;
+		font-size: 14px;
  	  letter-spacing: 2px;
-    font-family: "gotham bold";
-    width: 200px;
-    height: 100px;
+    font-family: "gotham bold", gotham;
     text-transform: uppercase;
 		text-align: center;
     color: #FFF;
+    line-height: 16px;
   	vertical-align: middle;
+    transition: background-color .12s ease-in-out, border-color .12s ease-in-out, color .15s ease-in-out;
   }
+
 
 #back-to-top::after {
   color: #FFF;
   content: url("$assets-white-arrow-up-svg");
+  margin-left: 14px;
 }
 
 
