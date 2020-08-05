@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /***** Base *****/
 * {
   box-sizing: border-box;
@@ -246,6 +246,9 @@ article a {
   color: #004b7f;
   text-decoration: underline;
   text-transform: uppercase;
+ }
+#Manuals article a {
+  text-decoration: none;
  }
 
 
@@ -1234,7 +1237,9 @@ position: relative;
 /***internet explorer warning*****/
 .colored-article__content
 {
-  text-align: center;
+  text-align: justify;
+  margin: 0 auto;
+  width: 80%
 }
 .colored-article__body
 {
@@ -4414,6 +4419,7 @@ p.ct-content-block-description {
 .um-article-info td:nth-child(1){
   font-family: 'Gotham bold';
   font-size: 20px;
+  max-width: 150px;
 }
 
 .um-article-info td:nth-child(2) a:after, .um-article-info td:nth-child(3) a:after {
@@ -4426,6 +4432,12 @@ p.ct-content-block-description {
 }
 .adobe_reader {
   text-align: center;
+}
+@media (max-width: 500px) {
+  .um-article-info td:nth-child(2) a:after, .um-article-info td:nth-child(3) a:after {
+    margin-left: 10px;
+    margin-right: 30px;
+	}
 }
 @media (min-width: 1024px) {
  .um-article-header {
