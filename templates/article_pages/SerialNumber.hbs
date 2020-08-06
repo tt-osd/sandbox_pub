@@ -1,0 +1,40 @@
+<div class="ts-body" id="Manuals">
+  <div class="header_search">   
+			<div class="container">
+          <h1>{{ dc 'homepage_welcome'}}</h1>
+        	{{search  instant=settings.instant_search scoped=true}}
+      </div>
+</div>
+    <nav class="sub-nav">
+    <div class="container">
+        <div class="article_search">
+        </div>
+      {{breadcrumbs}}
+    </div>
+  </nav>
+ 
+    <div class="um-article-container" id="um-article-container">
+      <article class="">
+        <header class="container um-article-header">
+<!--           <h2 class="um-sub-title">{{dc "user_manual"}}</h2> -->
+          <h1 title="{{article.title}}" class="ts-article-title">
+            {{article.title}}
+            {{#if article.internal}}
+              <span class="icon-lock" title="{{t 'internal'}}"></span>
+            {{/if}}
+          </h1>
+        </header>
+    <section class="um-article-info">
+      <div class="">
+        <div class="article-content">
+          <div class="article-body">{{article.body}}</div>
+        </div>
+      </div>
+    </section>
+
+      </article>
+      <footer>
+      </footer>
+    </div>
+  </div>
+
