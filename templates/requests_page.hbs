@@ -1,13 +1,59 @@
 <!-- Repair/BuRMA CSS and JS -->
 <style>
- #cs_BURMA_Frame, #no_BURMA_user {
+ #cs_BURMA_Frame, #no_BURMA_user, #repair_user, #cs_MyRepair_Details, #cs_MyRepair_List {
 	display: none;
 }
 </style>
 
 <script type="text/javascript">
-   
-$(document).ready(function(){
+    //general cookie functions
+    //levitt 
+
+    function read_cookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    };
+
+
+    function set_cookie(name, value, time) {
+        //this is a  function which can set cookie with our without time 
+      //when time==0, set a function cookie without expire time
+        if(time==0){
+        document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; ';
+      }else{
+         var CookieDate = new Date();
+          var today = new Date();
+  
+          CookieDate.setTime(today.getTime() + time);
+          document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; expires=' + CookieDate.toGMTString() + ';';
+      }
+      };
+$(document).ready(function(){ 
+    //Code for BuRMA SSO cookie creation - Start 
+    var server_url = 'https://10.66.244.239/zenApi/src/repairController.php';
+    if (read_cookie("tt_cp_auth") === "" && HelpCenter.user.email != null){
+      $.ajax({
+        url : server_url,
+        type : 'POST',
+        dataType:'JSON',
+        data : { ce_check: HelpCenter.user.email},
+        success : function(response) {
+          set_cookie("tt_cp_auth",response.encryptemail,3600000);
+        }
+      });
+    }
+  //Code for BuRMA SSO cookie creation - End // Asmita
+  
   $.getJSON(id_map_data_source, function(data) {
   	var php_api_server = -1;
   	if (the_url.indexOf("sandbox")!= -1) {
@@ -21,7 +67,7 @@ $(document).ready(function(){
     var current_user = HelpCenter.user.email;
 		var server_url = php_api_server+'zenApi/src/repairController.php';
   
-    apiendpoint = "contact/type/"+current_user+"/";
+    apiendpoint = "contact/type/";
   	///// call api for getting user type ///// 
     getAPIresponse(apiendpoint, current_user, 'getusertype');
 
@@ -32,26 +78,106 @@ $(document).ready(function(){
         if(contacttype == 3) {	////if user is BuRMA, show ifrmae
            $('#tt_burma').attr('src', data.burmaLocaleUrl);
            $('#cs_BURMA_Frame').show();
-        } else {	////else show message (show repair list - pending)
-           $('#no_BURMA_user').show();              
+        } else {
+           apiendpoint = "rma/list/"+current_user;
+           getAPIresponse(apiendpoint, current_user, 'getrmalist');
         }
-     	} else { //// for showing user repair list (pending) 
-        //console.log(data);
-     	}
-  	}   
+     	} else if(data.requesttype == 'getrmalist') {
+  			var rmalist = data.result;
+        $.each(rmalist, function(index, value){          
+          if(!isNaN(index)) {
+            var requestStatusTtitle = getRequestStatus(value.statusName);
+            $("#MyRepair_List").find("tbody").append("<tr><td class='MyRepairDetails' id='"+value.rmaID+"' >"+value.product+"</td><td>"+value.datecreated+"</td><td class='requests-table-status'><span class=''>"+requestStatusTtitle+"</span></td></tr>"); 
+          }                   
+        });
+  			$("#cs_MyRepair_List").show();                                      
+   		}  else {  
+  			requestDetails = data.result;
+        $('#cs_MyRepair_Details').show();
+        $("#request_name").html("<b>"+requestDetails.request+"</b>");
+        $("#date_created").html(requestDetails.datecreated);
+        $("#date_updated").html(requestDetails.dateupdated);
+        var requestStatusTtitle = getRequestStatus(requestDetails.requeststatusname);
+        $("#current_status").html(requestStatusTtitle);
+        $("#customer").html(requestDetails.customer);
+        $("#ship_address").html(requestDetails.address);
+        $("#phone_number").html(requestDetails.phonenumber);
+		    $('html,body').animate({
+        scrollTop: $(".repairs_details_container").offset().top},
+        'slow');                            
+      }
+  	}  
+  
+   	$(document.body).on('click', '.MyRepairDetails' ,function(){
+        rma_id = $(this)[0].id;
+        apiendpoint = "rma/details/"+rma_id+"/";
+        getAPIresponse(apiendpoint, current_user, 'getrmadetails');
+    });  
+  
+  	function getRequestStatus(requestStatus) {
+  		var rstatus = ''; 
+  		switch (requestStatus) {
+        case "repairs_request_status_01":
+          rstatus = $("#repairs_request_status_01").text();
+                         
+          break;
+        case "repairs_request_status_04":
+          rstatus = $("#repairs_request_status_04").text();
+                           
+          break;
+        case "repairs_request_status_05":
+          rstatus = $("#repairs_request_status_05").text();
+
+          break;
+        case "repairs_request_status_06":
+          rstatus = $("#repairs_request_status_06").text();
+                       
+          break;
+        case "repairs_request_status_07":
+          rstatus = $("#repairs_request_status_09").text();
+   
+          break;
+        case "repairs_request_status_10":
+          rstatus = $("#repairs_request_status_10").text();
+
+          break;
+        case "repairs_request_status_11":
+          rstatus = $("#repairs_request_status_11").text();
+
+          break;
+  			case "repairs_request_status_12":
+          rstatus = $("#repairs_request_status_12").text();
+
+  				break;
+  			case "repairs_request_status_17":
+          rstatus = $("#repairs_request_status_17").text();
+
+  				break;
+  			case "repairs_request_status_18":
+          rstatus = $("#repairs_request_status_18").text();
+
+  				break;
+  			case "repairs_request_status_20":
+          rstatus = $("#repairs_request_status_20").text();
+                        
+  				break;
+  			case "repairs_request_status_21":
+          rstatus = $("#repairs_request_status_21").text();
+                       
+  				break;
+      }
+			return rstatus;
+  	}	
+        
 		/* Function for all API calls */
-    function getAPIresponse(apiendpoint, useremail, requesttype) {
-			burma_url = server_url+'?apiendpoint='+apiendpoint+'&useremail='+useremail+'&requesttype='+requesttype;
+    function getAPIresponse(apiendpoint, curruseremail, requesttype) {
+			burma_url = server_url;
       $.ajax({
-          url : burma_url,
-          type : 'GET',
+          url : burma_url, 
+          type : 'POST',
           dataType:'JSON',
-          success : successCallBack,
-          error : function(request,error)
-          {
-            console.log('error : '+error);
-            console.log("Request: "+JSON.stringify(request));
-          }
+  				data : { e_valid: curruseremail, r_type: requesttype, e_point: apiendpoint},
+          success : successCallBack
       });
     }
   });
@@ -71,16 +197,18 @@ $(document).ready(function(){
 <div class="my-activities-nav">
   <div class="container">
     <nav class="collapsible-nav">
-      <button type="button" class="collapsible-nav-toggle" aria-label="{{t 'toggle_navigation'}}" aria-expanded="false"></button>
+<!--       <button type="button" class="collapsible-nav-toggle" aria-label="{{t 'toggle_navigation'}}" aria-expanded="false"></button> -->
       <ul class="collapsible-nav-list">
-        <li aria-selected=true>{{t 'requests'}}</li>
-        <li>{{link 'subscriptions'}}</li>
+        <li id="requests_header" class="current"><a href="/hc/en-gb/requests">{{t 'requests'}}</a></li>
+        <li id="repairs_header"><a href="#repairs">{{dc 'repairs_title'}}</a></li>
+        <li id="subscriptions_header">{{link 'subscriptions'}}</li>
       </ul>
     </nav>
   </div>
 </div>
 
 <div class="container">
+ <div id="requests" class="requests"> 
   <header class="my-activities-header">
     <h1>{{t 'my_requests'}}</h1>
 
@@ -154,7 +282,7 @@ $(document).ready(function(){
                 <div class="requests-table-meta meta-group">
                   <span class="meta-data">#{{id}}</span>
                   <span class="meta-data">{{date created_at timeago=true}}</span>
-                  <span class="status-label status-label-{{status}}" title="{{status_description}}">
+                  <span class="" title="{{status_description}}">
                     {{status_name}}
                   </span>
                 </div>
@@ -169,7 +297,7 @@ $(document).ready(function(){
               </td>
               <td>{{date updated_at timeago=true}}</td>
               <td class="requests-table-status">
-                <span class="status-label status-label-{{status}}" title="{{status_description}}">
+                <span class="" title="{{status_description}}">
                   {{status_name}}
                 </span>
               </td>
@@ -179,21 +307,87 @@ $(document).ready(function(){
       </table>
     {{/if}}
   </div>
-  
-  <!--  Asmita - Repairs/BuRMA HTML  -->
-  <br>
-  <div class="requests">
-    <h1>{{dc 'repairs'}}</h1>
+     {{pagination}}
+  </div> 
+  </div>
+   <!--  Asmita - Repairs/BuRMA HTML  -->
+
+  <label class="zd_Hidden" id="repairs_request_status_01">{{dc 'repairs_request_status_01'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_04">{{dc 'repairs_request_status_04'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_05">{{dc 'repairs_request_status_05'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_06">{{dc 'repairs_request_status_06'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_07">{{dc 'repairs_request_status_07'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_09">{{dc 'repairs_request_status_09'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_10">{{dc 'repairs_request_status_10'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_11">{{dc 'repairs_request_status_11'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_12">{{dc 'repairs_request_status_12'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_17">{{dc 'repairs_request_status_17'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_18">{{dc 'repairs_request_status_18'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_20">{{dc 'repairs_request_status_20'}}</label>
+  <label class="zd_Hidden" id="repairs_request_status_21">{{dc 'repairs_request_status_21'}}</label>
+
+  <div id="repairs" class="repairs">
+  <div class="repairs_list_container container">
+  <header class="my-activities-header">
+    <h1>{{dc 'repairs_title'}}</h1>
+    </header>
+    <div id="repair_user" user-data=""></div>
     <div id="cs_BURMA_Frame" class="tt-container tb">
       <iframe height="500" width="1000" id="tt_burma" class="tts-burma">
-      <p>{{dc 'iframe_error_message'}}</p>
+      <p>{{dc 'iframe_not_supported'}}</p>
       </iframe>
     </div>
-    <div id="no_BURMA_user" class="tt-container tb">
-      <p>{{dc 'repairs_-_login_message'}}</p>
-    </div>
+    <div>
+      <div id="cs_MyRepair_List" class="tt-container tt-account-settings">
+        <table id="MyRepair_List" class="table requests-table tt-divider-table my-activities-table">
+          <thead>
+          <tr>
+            <th>{{dc 'repairs_list_header_rma_number'}}</th>
+            <th>{{dc 'repairs_list_header_request_date'}}</th>
+            <th>{{dc 'repairs_list_header_request_status'}}</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
   </div>
+  </div>
+  </div>
+ <div class="repairs_details_container">
+   <div class="container">
+  <div id="cs_MyRepair_Details" class="table requests-table tt-divider-table my-activities-table">
+      <div class="repairs_details__inner_container">
+    <h3 id="request_name"></h3>
+    <table>
+      <tr>
+        <td>{{dc 'repairs_-_date_created'}}</td>
+        <td id="date_created"></td>
+      </tr>
+      <tr>
+        <td>{{dc 'repairs_-_date_updated'}}</td>
+        <td id="date_updated"></td>
+      </tr>
+      <tr>
+        <td>{{dc 'repairs_-_status'}}</td>
+        <td id="current_status_block"><span id="current_status"></span></td>
+      </tr>
+      <tr>
+        <td>{{dc 'repairs_-_customer'}}</td>
+        <td id="customer"></td>
+      </tr>
+      <tr>
+        <td>{{dc 'repairs_-_address'}}</td>
+        <td id="ship_address"></td>
+      </tr>
+      <tr>
+        <td>{{dc 'repairs_-_phone_number'}}</td>
+        <td id="phone_number"></td>
+      </tr>
+    </table>
+     </div>
+  </div>
+</div>
+</div>
+</div>     
 <!--  Repairs/BuRMA HTML - End  -Asmita -->
 
-  {{pagination}}
-</div>
+
