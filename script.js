@@ -50,8 +50,11 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
       var tthome_section_id="";
       var vanilla_sso_server = -1;
       var vanilla_redirect_url = -1;
-       var talk_form_id = -1;
-       var email_form_request_local_field=-1;
+      var talk_form_id = -1;
+      var email_form_request_local_field=-1;
+      var auto_renewal_refund_form_id=-1;
+      var refund_form_id=-1;
+      var ordernumber_field_id=-1;
        //create form id with a default value -1
 
 
@@ -112,7 +115,10 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
        		 vanilla_redirect_url=data.vanilla_redirect_url.sandbox; 
         	 vanilla_sso_server=data.vanilla_sso_server.sandbox; 
           talk_form_id=data.talk_form_id.sandbox;
-          email_form_request_local_field=data.email_form_request_local.sandbox;
+         	 email_form_request_local_field=data.email_form_request_local.sandbox;
+        	 auto_renewal_refund_form_id=data.auto_renewal_refund_form_id.sandbox;
+           refund_form_id=data.refund_form_id.sandbox;
+         	 ordernumber_field_id=data.ordernumber_field_id.sandbox;
         		  } else {
             
            //form id get the production id value
@@ -132,6 +138,9 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
             vanilla_sso_server=data.vanilla_sso_server.prod; 
             talk_form_id=data.talk_form_id.prod;
             email_form_request_local_field=data.email_form_request_local.prod;
+            auto_renewal_refund_form_id=data.auto_renewal_refund_form_id.prod;
+           	refund_form_id=data.refund_form_id.prod;
+            ordernumber_field_id=data.ordernumber_field_id.prod;
           }//end of get form/fields ID
       
      if(the_url.indexOf("ticket_form_id")!= -1){     //the current page is a form page 
@@ -277,14 +286,94 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                           $(".request_custom_fields_"+email_form_request_local_field).addClass("zd_Hidden");
                           $("#request_custom_fields_"+email_form_request_local_field).val(HelpCenter.user.locale);
                           /*** Email FORM***/
-                        } else {
+                        } else if (window.location.href.indexOf(refund_form_id) > -1) {
+                          
+                          /*** Refund Request FORM***/ 				//testing URL hc/en-gb/requests/new?ticket_form_id=360000849779
+                        		var refund_request_page_title = document.getElementById("refund_request_page_title").innerHTML; 
+                            document.title = refund_request_page_title;
+            								$('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
+                           	SubjectLine.value = refund_request_page_title + " " + refund_form_id;      
+                          
+										 //disable the submit button 
+                      var refund_button = (document.getElementsByName("commit"))[0];
+                      refund_button.disabled = true;
+                      // after the following validation is passed, this button will be enabled.
+											var order_number_feild =  document.getElementById("request_custom_fields_" + ordernumber_field_id);
+                      var order_number_feild_full =  document.getElementsByClassName("request_custom_fields_" + ordernumber_field_id)[0]; 
+                      // order number input max length is 9
+                      order_number_feild.maxLength = 9;
+                      // order number input max length is 9
+											order_number_feild.setAttribute("placeholder", "40*******"); 
+                      order_number_feild_full.classList.add("required");
+                      //order number allows letters and numbers only, no punctuation or special characters
+                      order_number_feild.setAttribute("pattern", "[A-Za-z0-9]+");
+                      //order number allows letters and numbers only, no punctuation or special characters
+
+                      //order number live validation
+                     $("#request_custom_fields_" + ordernumber_field_id).on('input',function() {
+                         var order_number_input = (document.getElementById("request_custom_fields_" + ordernumber_field_id).value).toString(); 
+
+                                    if((order_number_input.length)==9){                      
+                                       refund_button.disabled = false;                                    
+                                    			}else{
+                                       refund_button.disabled = true;
+                                    }
+                         
+                     }); // end of order number on input function 
+                          
+                        /*** Refund Request FORM***/
+                          
+                        }  else if (window.location.href.indexOf(auto_renewal_refund_form_id) > -1) {
+                          
+                          /*** Auto renewal Refund Request FORM***/ 				//testing URL hc/en-gb/requests/new?ticket_form_id=360000875500
+                        		var auto_renewal_request_page_title = document.getElementById("auto_renewal_request_page_title").innerHTML; 
+                            document.title = auto_renewal_request_page_title;
+            								$('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
+                           	SubjectLine.value = auto_renewal_request_page_title + " " + auto_renewal_refund_form_id; 
+                            DescriptionBox.value = auto_renewal_request_page_title; 
+                              $(".request_description").addClass("zd_Hidden");
+                            (AttachmentsFileDrop.parentElement).classList.add("zd_Hidden");
+                          
+                          	$('<p id="auto_renewal_form" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
+                            $("#auto_renewal_form").html($("#renewal_refund_request_intro").html());     
+                          
+                          										 //disable the submit button 
+                      var refund_button = document.getElementsByName("commit")[0];
+                      refund_button.disabled = true;
+                      // after the following validation is passed, this button will be enabled.
+											var order_number_feild =  document.getElementById("request_custom_fields_" + ordernumber_field_id);
+                      var order_number_feild_full =  document.getElementsByClassName("request_custom_fields_" + ordernumber_field_id)[0]; 
+                      // order number input max length is 9
+                      order_number_feild.maxLength = 9;
+                      // order number input max length is 9
+											order_number_feild.setAttribute("placeholder", "40*******"); 
+                      order_number_feild_full.classList.add("required");
+                      //order number allows letters and numbers only, no punctuation or special characters
+                      order_number_feild.setAttribute("pattern", "[A-Za-z0-9]+");
+                      //order number allows letters and numbers only, no punctuation or special characters
+
+                      //order number live validation
+                     $("#request_custom_fields_" + ordernumber_field_id).on('input',function() {
+                         var order_number_input = (document.getElementById("request_custom_fields_" + ordernumber_field_id).value).toString(); 
+
+                                    if((order_number_input.length)==9){                      
+                                       refund_button.disabled = false;                                    
+                                    			}else{
+                                       refund_button.disabled = true;
+                                    }
+                         
+                     }); // end of order number on input function 
+                        /*** Auto renewal Refund Request FORM***/
+                          
+                        } 
+              					else {
                         
                           /***GOLF FORM***/
 													//testing URL hc/en-gb/requests/new?ticket_form_id=360000679879
   
                           if (window.location.href.indexOf(golf_form_ID_checker) > -1){
-                      var golf_page_title = document.getElementById("golf_page_title").innerHTML; 
-                    	document.title = golf_page_title; 
+                  							    var golf_page_title = document.getElementById("golf_page_title").innerHTML; 
+                    								document.title = golf_page_title; 
                                    $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
                            					SubjectLine.value = golf_page_title + " " + golf_form_id;
                                     $('<p id="golf_form_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
