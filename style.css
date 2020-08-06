@@ -4399,7 +4399,7 @@ p.ct-content-block-description {
   color: #DF1B12;
 }
 .um-article-info table {
-  width: 100%;
+  width: 100% !important;
 }
 .um-article-info tr {
   border-bottom: 1px #7a7e80 solid;
