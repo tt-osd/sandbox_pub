@@ -4241,7 +4241,7 @@ p.ct-content-block-description {
   margin: 5px 0;
 }
 
-.ht-article-body h2, .ht-article-body h3, .ht-article-body h4 {
+.ht-article-body h2, .ht-article-body h3, .ht-article-body h4, #repairs {
 	scroll-margin-top: 2em;
   margin-top: 2em;
 }
@@ -5407,7 +5407,12 @@ p.ct-content-block-description {
   line-height: 45px;
   order: 1;
 }
-
+.current {
+  border-bottom: solid 4px #df1B12;
+}
+#repairs_header {
+  cursor: pointer;
+}
 @media (min-width: 768px) {
   .collapsible-nav-list li {
     line-height: normal;
@@ -5433,7 +5438,7 @@ p.ct-content-block-description {
     border-bottom: 4px solid #ddd;
   }
   .collapsible-nav-list li:hover a {
-    padding: 15px 0 11px 0;
+/*     padding: 15px 0 11px 0; */
     text-decoration: none;
   }
 }
@@ -5595,7 +5600,12 @@ p.ct-content-block-description {
 .my-activities-table td:first-child {
   padding-left: 0;
 }
-
+.my-activities-table td:first-child:hover {
+  cursor: pointer;
+}
+#cs_MyRepair_Details.my-activities-table td:first-child:hover {
+  cursor: auto;
+}
 @media (min-width: 1024px) {
   .my-activities-table th:first-child,
   .my-activities-table td:first-child {
@@ -5779,7 +5789,37 @@ p.ct-content-block-description {
   bottom: 0;
   font-size: 10px;
 }
+/************** Repairs Details Table **************/
 
+.repairs_details_container {  
+  background-color: #fff;
+}
+
+/* #current_status_block span {  
+	padding: 3px 10px;
+  color: #FFF;
+  border-radius: 0px;
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 2px;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: "gotham";
+} */
+.repairs_details_container {
+  margin-top: 30px 0x;
+}
+.repairs_details__inner_container {
+  padding: 30px 0;
+}
+
+#cs_MyRepair_Details td:first-child {
+  font-family: gotham, "gotham";
+  text-transform: uppercase;
+}
+/************** End of Repairs Details Table **************/
 /* Following table */
 .subscriptions-unsubscribe a {
   background: #DF1B12;
