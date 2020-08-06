@@ -25,35 +25,6 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
     hide_CC_page_main.classList.add("zd_Hidden");
     window.location.href=the_url.split("/ccd")[0];
   }
-  
-    if(the_url.indexOf("/requests")!= -1){
-
-          var requestsPage = document.getElementById("requests");
-          var repairsPage = document.getElementById("repairs");
-          repairsPage.classList.add("zd_Hidden");
-          var current = document.getElementsByClassName("current")[0];
-          var repairsHeader = document.getElementById('repairs_header');
-          var requestsHeader = document.getElementById('requests_header');
-
-        repairsHeader.onclick =  function() {
-              if (!repairsPage.style.display || repairsPage.style.display === "none") {
-                        repairsPage.classList.remove("zd_Hidden");
-                				requestsPage.classList.add("zd_Hidden");  
-                				repairsHeader.classList.add("current");  
-                				requestsHeader.classList.remove("current");
-                    } 
-        };   
-
-    
-  
-  if(the_url.indexOf("/requests#repairs")!= -1){ 
-    									 repairsPage.classList.remove("zd_Hidden");
-                				requestsPage.classList.add("zd_Hidden");  
-                				repairsHeader.classList.add("current");  
-                				requestsHeader.classList.remove("current");
-   }
-
-  }
 
 /*** MAP ***/  
      
@@ -414,7 +385,36 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
 
   					   } // end the current page is a form page   
       
-         								 if((the_url.indexOf("/requests/") > -1)&&(the_url.indexOf("new?ticket_form_id") <= -1)){  
+         								 if((the_url.indexOf("/requests/") > -1)&&(the_url.indexOf("new?ticket_form_id") <= -1)){
+                           
+                             /************ Repaire page on requests page *****************/                  
+
+//                                         var requestsPage = document.getElementById("requests");
+//                                         var repairsPage = document.getElementById("repairs");
+//                                         repairsPage.classList.add("zd_Hidden");
+//                                         var current = document.getElementsByClassName("current")[0];
+//                                         var repairsHeader = document.getElementById('repairs_header');
+//                                         var requestsHeader = document.getElementById('requests_header');
+
+//                                       repairsHeader.onclick =  function() {
+//                                             if (!repairsPage.style.display || repairsPage.style.display === "none") {
+//                                                       repairsPage.classList.remove("zd_Hidden");
+//                                                       requestsPage.classList.add("zd_Hidden");  
+//                                                       repairsHeader.classList.add("current");  
+//                                                       requestsHeader.classList.remove("current");
+//                                                   } 
+//                                       };   
+
+
+
+//                                 if(the_url.indexOf("/requests#repairs")!= -1){ 
+//                                                      repairsPage.classList.remove("zd_Hidden");
+//                                                       requestsPage.classList.add("zd_Hidden");  
+//                                                       repairsHeader.classList.add("current");  
+//                                                       requestsHeader.classList.remove("current");
+//                                  }
+
+                                      /************ Repaire page on requests page *****************/       
                            	var request_title = document.getElementsByClassName("request-title")[0].innerText;
                         
                            /*****  Request Pages *******/  
