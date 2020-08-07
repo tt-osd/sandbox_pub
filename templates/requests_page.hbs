@@ -41,6 +41,9 @@
 $(document).ready(function(){ 
     //Code for BuRMA SSO cookie creation - Start 
     var server_url = 'https://10.66.244.239/zenApi/src/repairController.php';
+     if(window.location.hostname.includes('help')) {
+			server_url = 'https://tccare.tomtomgroup.com/zenApi/src/repairController.php';
+    }
     if (read_cookie("tt_cp_auth") === "" && HelpCenter.user.email != null){
       $.ajax({
         url : server_url,
@@ -87,7 +90,20 @@ $(document).ready(function(){
         $.each(rmalist, function(index, value){          
           if(!isNaN(index)) {
             var requestStatusTtitle = getRequestStatus(value.statusName);
-            $("#MyRepair_List").find("tbody").append("<tr><td class='MyRepairDetails' id='"+value.rmaID+"' >"+value.product+"</td><td>"+value.datecreated+"</td><td class='requests-table-status'><span class=''>"+requestStatusTtitle+"</span></td></tr>"); 
+            $("#MyRepair_List").find("tbody").append("<tr><td class='MyRepairDetails' id='"+value.rmaID+"' >"+value.product+"</td><td>"+value.datecreated+"</td><td class='requests-table-status'><span class='rma_status'>"+requestStatusTtitle+"</span></td></tr>"); 
+            if(value.statusName == "repairs_request_status_05") {
+							if(value.type == "DER" || value.type == "OOW") {
+								$(".rma_status").find(".BUF").hide();
+              } else if(value.type == "BUF") {
+								$(".rma_status").find(".DER").hide();
+              }
+            } else if (value.statusName == "repairs_request_status_07") {
+							if(value.type == "DER" || value.type == "OOW") {
+								$(".rma_status").find(".BUF").hide();
+              } else if(value.type == "BUF") {
+								$(".rma_status").find(".DER").hide();
+              }
+            }
           }                   
         });
   			$("#cs_MyRepair_List").show();                                      
@@ -99,6 +115,19 @@ $(document).ready(function(){
         $("#date_updated").html(requestDetails.dateupdated);
         var requestStatusTtitle = getRequestStatus(requestDetails.requeststatusname);
         $("#current_status").html(requestStatusTtitle);
+        if(requestDetails.requeststatusname == "repairs_request_status_05") {
+          if(requestDetails.rmatype == "DER" || requestDetails.rmatype == "OOW") {
+            $("#current_status").find(".BUF").hide();
+          } else if(requestDetails.rmatype == "BUF") {
+            $("#current_status").find(".DER").hide();
+          }
+        } else if (requestDetails.requeststatusname == "repairs_request_status_07") {
+          if(requestDetails.rmatype == "DER" || requestDetails.rmatype == "OOW") {
+            $(".current_status").find(".BUF").hide();
+          } else if(requestDetails.rmatype == "BUF") {
+            $(".current_status").find(".DER").hide();
+          }
+        }
         $("#customer").html(requestDetails.customer);
         $("#ship_address").html(requestDetails.address);
         $("#phone_number").html(requestDetails.phonenumber);
@@ -118,19 +147,19 @@ $(document).ready(function(){
   		var rstatus = ''; 
   		switch (requestStatus) {
         case "repairs_request_status_01":
-          rstatus = $("#repairs_request_status_01").text();
+          rstatus = $("#repairs_request_status_01").html();
                          
           break;
         case "repairs_request_status_04":
-          rstatus = $("#repairs_request_status_04").text();
+          rstatus = $("#repairs_request_status_04").html();
                            
           break;
         case "repairs_request_status_05":
-          rstatus = $("#repairs_request_status_05").text();
+          rstatus = $("#repairs_request_status_05").html();
 
           break;
         case "repairs_request_status_06":
-          rstatus = $("#repairs_request_status_06").text();
+          rstatus = $("#repairs_request_status_06").html();
                        
           break;
         case "repairs_request_status_07":
@@ -138,31 +167,31 @@ $(document).ready(function(){
    
           break;
         case "repairs_request_status_10":
-          rstatus = $("#repairs_request_status_10").text();
+          rstatus = $("#repairs_request_status_10").html();
 
           break;
         case "repairs_request_status_11":
-          rstatus = $("#repairs_request_status_11").text();
+          rstatus = $("#repairs_request_status_11").html();
 
           break;
   			case "repairs_request_status_12":
-          rstatus = $("#repairs_request_status_12").text();
+          rstatus = $("#repairs_request_status_12").html();
 
   				break;
   			case "repairs_request_status_17":
-          rstatus = $("#repairs_request_status_17").text();
+          rstatus = $("#repairs_request_status_17").html();
 
   				break;
   			case "repairs_request_status_18":
-          rstatus = $("#repairs_request_status_18").text();
+          rstatus = $("#repairs_request_status_18").html();
 
   				break;
   			case "repairs_request_status_20":
-          rstatus = $("#repairs_request_status_20").text();
+          rstatus = $("#repairs_request_status_20").html();
                         
   				break;
   			case "repairs_request_status_21":
-          rstatus = $("#repairs_request_status_21").text();
+          rstatus = $("#repairs_request_status_21").html();
                        
   				break;
       }
@@ -200,7 +229,7 @@ $(document).ready(function(){
 <!--       <button type="button" class="collapsible-nav-toggle" aria-label="{{t 'toggle_navigation'}}" aria-expanded="false"></button> -->
       <ul class="collapsible-nav-list">
         <li id="requests_header" class="current"><a href="/hc/en-gb/requests">{{t 'requests'}}</a></li>
-<!--         <li id="repairs_header"><a href="#repairs">{{dc 'repairs_title'}}</a></li> -->
+        <li id="repairs_header"><a href="#repairs">{{dc 'repairs_title'}}</a></li>
         <li id="subscriptions_header">{{link 'subscriptions'}}</li>
       </ul>
     </nav>
