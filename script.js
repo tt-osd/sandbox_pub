@@ -385,36 +385,46 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
 
   					   } // end the current page is a form page   
       
-         								 if((the_url.indexOf("/requests/") > -1)&&(the_url.indexOf("new?ticket_form_id") <= -1)){
-                           
-                             /************ Repaire page on requests page *****************/                  
+      
+                                          
+                                    var lastPart = the_url.substr(the_url.lastIndexOf('/') + 1);
 
-//                                         var requestsPage = document.getElementById("requests");
-//                                         var repairsPage = document.getElementById("repairs");
-//                                         repairsPage.classList.add("zd_Hidden");
-//                                         var current = document.getElementsByClassName("current")[0];
-//                                         var repairsHeader = document.getElementById('repairs_header');
-//                                         var requestsHeader = document.getElementById('requests_header');
+                                    if ((lastPart === "requests") ||(lastPart === "requests#repairs"))  { // if the end of the url is requests                
+         								              
+      													/************ Repaire page on requests page *****************/                  
 
-//                                       repairsHeader.onclick =  function() {
-//                                             if (!repairsPage.style.display || repairsPage.style.display === "none") {
-//                                                       repairsPage.classList.remove("zd_Hidden");
-//                                                       requestsPage.classList.add("zd_Hidden");  
-//                                                       repairsHeader.classList.add("current");  
-//                                                       requestsHeader.classList.remove("current");
-//                                                   } 
-//                                       };   
+                                        var requestsPage = document.getElementById("requests");
+                                        var repairsPage = document.getElementById("repairs");
+                                        repairsPage.classList.add("zd_Hidden");
+                                        var current = document.getElementsByClassName("current")[0];
+                                        var repairsHeader = document.getElementById('repairs_header');
+                                        var requestsHeader = document.getElementById('requests_header');
+
+                                      repairsHeader.onclick =  function() {
+                                            if (!repairsPage.style.display || repairsPage.style.display === "none") {
+                                                      repairsPage.classList.remove("zd_Hidden");
+                                                      requestsPage.classList.add("zd_Hidden");  
+                                                      repairsHeader.classList.add("current");  
+                                                      requestsHeader.classList.remove("current");
+                                                  } 
+                                      };   
 
 
 
-//                                 if(the_url.indexOf("/requests#repairs")!= -1){ 
-//                                                      repairsPage.classList.remove("zd_Hidden");
-//                                                       requestsPage.classList.add("zd_Hidden");  
-//                                                       repairsHeader.classList.add("current");  
-//                                                       requestsHeader.classList.remove("current");
-//                                  }
-
-                                      /************ Repaire page on requests page *****************/       
+                                if(the_url.indexOf("/requests#repairs")!= -1){ 
+                                                     repairsPage.classList.remove("zd_Hidden");
+                                                      requestsPage.classList.add("zd_Hidden");  
+                                                      repairsHeader.classList.add("current");  
+                                                      requestsHeader.classList.remove("current");
+                                 }
+                                   /************ Repair page on requests page *****************/   
+                                    }
+      
+      
+      
+      if((the_url.indexOf("/requests/") > -1)&&(the_url.indexOf("new?ticket_form_id") <= -1)){                         
+  			
+                                  
                            	var request_title = document.getElementsByClassName("request-title")[0].innerText;
                         
                            /*****  Request Pages *******/  
@@ -431,6 +441,7 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                                 $('<div class="comment" id="golf_thank_you"></div>').prependTo('.request-main');
                                 $("#golf_thank_you").html($("#golf_thank_you_dc").html());
                               }
+                             
                          } /*****  End Request Pages *******/  
 //   if($(".request-title:contains('360000569919')").length) {
 
@@ -1383,17 +1394,17 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
                               }
                           });
 
-                          function toggleNavigation(toggle, menu) {
-                              var isExpanded = menu.getAttribute('aria-expanded') === 'true';
-                              menu.setAttribute('aria-expanded', !isExpanded);
-                              toggle.setAttribute('aria-expanded', !isExpanded);
-                          }
+//                           function toggleNavigation(toggle, menu) {
+//                               var isExpanded = menu.getAttribute('aria-expanded') === 'true';
+//                               menu.setAttribute('aria-expanded', !isExpanded);
+//                               toggle.setAttribute('aria-expanded', !isExpanded);
+//                           }
 
-                          function closeNavigation(toggle, menu) {
-                              menu.setAttribute('aria-expanded', false);
-                              toggle.setAttribute('aria-expanded', false);
-                              toggle.focus();
-                          }
+//                           function closeNavigation(toggle, menu) {
+//                               menu.setAttribute('aria-expanded', false);
+//                               toggle.setAttribute('aria-expanded', false);
+//                               toggle.focus();
+//                           }
 
 /*not being used a block of code (below)*/
                           // var burgerMenu = document.querySelector('.header .menu-button');
@@ -1420,19 +1431,19 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
                           //Toggles expanded aria to collapsible elements
                           var collapsible = document.querySelectorAll('.collapsible-nav, .collapsible-sidebar');
 
-                          Array.prototype.forEach.call(collapsible, function(el) {
-                              var toggle = el.querySelector('.collapsible-nav-toggle, .collapsible-sidebar-toggle');
+//                           Array.prototype.forEach.call(collapsible, function(el) {
+//                               var toggle = el.querySelector('.collapsible-nav-toggle, .collapsible-sidebar-toggle');
 
-                              el.addEventListener('click', function(e) {
-                                  toggleNavigation(toggle, this);
-                              });
+//                               el.addEventListener('click', function(e) {
+//                                   toggleNavigation(toggle, this);
+//                               });
 
-                              el.addEventListener('keyup', function(e) {
-                                  if (e.keyCode === 27) { // Escape key
-                                      closeNavigation(toggle, this);
-                                  }
-                              });
-                          });
+//                               el.addEventListener('keyup', function(e) {
+//                                   if (e.keyCode === 27) { // Escape key
+//                                       closeNavigation(toggle, this);
+//                                   }
+//                               });
+//                           });
 
                           // Submit organization form in the request page
                           var requestOrganisationSelect = document.querySelector('#request-organization select');

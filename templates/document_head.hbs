@@ -1,9 +1,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <label class="zd_Hidden" id="map_json">{{asset 'mappublic.json'}}</label>
 <label class="zd_Hidden" id="helpCenterSwitch">{{dc 'fe_v_helpcenter_switch'}}</label>
-<label class="zd_Hidden" id="chatOffline">{{dc 'chatlabeloffline'}}</label>
-<script src="https://www.googleoptimize.com/optimize.js?id=GTM-M3FHJ2Q"></script> 
-<!-- Google Optimize snippet -->
+<script src="https://www.googleoptimize.com/optimize.js?id=GTM-M3FHJ2Q"></script>
 <div class="webwidgetsnippet"></div>
  
 <script type="text/javascript">
@@ -81,7 +79,6 @@ function loginFromWidget(){
 
         }
 
-  
 
           var webwidgetscript = document.createElement('script');
           webwidgetscript.onload = function() {
@@ -98,12 +95,22 @@ function loginFromWidget(){
       var waitForZen = setInterval(function () {
         if (window.$zopim === undefined || window.$zopim.livechat === undefined) {
             return;
-        }
-  
-  
+        }  
+
 
   zE('webWidget:on', 'open', function() {
 
+        if (the_url.indexOf("/hc/de") === -1) {  
+    				zE('webWidget', 'updateSettings', {
+            webWidget: {
+            answerBot: {
+            suppress: true
+            }
+            }
+  					 });
+        }
+  console.log("debug");
+ 
 
       var helpCenterSwitch=document.getElementById("helpCenterSwitch").textContent;
   
@@ -143,7 +150,7 @@ function loginFromWidget(){
  
      var login_reminder_box=document.createElement('div');
        login_reminder_box.id = 'login_reminder_box';
-  login_reminder_box.setAttribute("style", "position:absolute; width:341px; bottom:21px; left: 18px; margin: 0 1px; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
+  login_reminder_box.setAttribute("style", "position:absolute; width:341px; bottom:0; margin: 0 1px; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
   
   
  //adjust login section on mobile size
@@ -170,7 +177,7 @@ x.addListener(adjustSize);*/
   
 
   
-  			var dc_Homepage_Login= '{{dc 'Homepage_Login'}}';
+  			var dc_Homepage_Login= `{{dc 'Homepage_Login'}}`;
   			var loginMSG = document.createElement('p'); 
      
         var textnode = document.createTextNode(dc_Homepage_Login); 
@@ -267,21 +274,7 @@ x.addListener(adjustSize);*/
    var chatLocale = HelpCenter.user.locale
   var chat_department="unknown"
   var country_code="unknown"
-
-
-
-
-for (key in data){
-    if(chatLocale == key)
-    {
-        //console.log(data[key]);
-        chat_department=data[key][1].chat_department;
-        country_code=data[key][0].country_code;
-    }
-}
-
-
- /*****ie11 hates this****** 
+  
 Object.keys(data).forEach((key,index)=>{
   
   if(key==chatLocale){
@@ -291,7 +284,7 @@ Object.keys(data).forEach((key,index)=>{
  
   }
   }); 
-   *****ie11 hates this******/ 
+  
 	zE('webWidget', 'setLocale', country_code);	
 
   zE('webWidget:on', 'chat:departmentStatus', function(dept) {
@@ -352,6 +345,7 @@ Object.keys(data).forEach((key,index)=>{
   container_a.setAttribute("style", " width:100%; box-shadow:0 0.07143rem 0.57143rem 0 rgba(0, 0, 0, 0.2); border-radius:0.28571rem; text-align:center; padding:35px 0; user-select: none; margin-top:5%;");
    var chatOffline = document.createElement('span');
   
+  
   var chatOffline_node = document.createTextNode(`{{dc 'chatlabeloffline'}}`); 
   chatOffline.appendChild(chatOffline_node); 
   container_a.appendChild(chatOffline);
@@ -363,7 +357,7 @@ Object.keys(data).forEach((key,index)=>{
  var show_contactForm = document.createElement('span');
    
   
-  var show_contactForm_node = document.createTextNode('{{dc 'contactformlabel'}}'); 
+  var show_contactForm_node = document.createTextNode(`{{dc 'contactformlabel'}}`); 
   			show_contactForm.appendChild(show_contactForm_node); 
   container_b.appendChild(show_contactForm);
   cover_layer.appendChild(container_b);

@@ -5621,7 +5621,9 @@ p.ct-content-block-description {
 .my-activities-table td:not(:first-child) {
   display: none;
 }
-
+#cs_MyRepair_Details.my-activities-table td:not(:first-child) {
+      display: table-cell;  
+}
 @media (min-width: 768px) {
   .my-activities-table td:not(:first-child) {
     display: table-cell;
