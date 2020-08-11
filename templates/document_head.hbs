@@ -179,7 +179,7 @@ x.addListener(adjustSize);*/
   
 
   
-  			var dc_Homepage_Login= '{{dc 'Homepage_Login'}}';
+  			var dc_Homepage_Login= "{{dc 'Homepage_Login'}}";
   			var loginMSG = document.createElement('p'); 
      
         var textnode = document.createTextNode(dc_Homepage_Login); 
@@ -361,7 +361,7 @@ Object.keys(data).forEach((key,index)=>{
   container_a.setAttribute("style", " width:100%; box-shadow:0 0.07143rem 0.57143rem 0 rgba(0, 0, 0, 0.2); border-radius:0.28571rem; text-align:center; padding:35px 0; user-select: none; margin-top:5%;");
    var chatOffline = document.createElement('span');
   
-  var chatOffline_node = document.createTextNode(`{{dc 'chatlabeloffline'}}`); 
+  var chatOffline_node = document.createTextNode(`{{dc "chatlabeloffline"}}`); 
   chatOffline.appendChild(chatOffline_node); 
   container_a.appendChild(chatOffline);
   
@@ -372,7 +372,7 @@ Object.keys(data).forEach((key,index)=>{
  var show_contactForm = document.createElement('span');
    
   
-  var show_contactForm_node = document.createTextNode('{{dc 'contactformlabel'}}'); 
+  var show_contactForm_node = document.createTextNode("{{dc 'contactformlabel'}}"); 
   			show_contactForm.appendChild(show_contactForm_node); 
   container_b.appendChild(show_contactForm);
   cover_layer.appendChild(container_b);
