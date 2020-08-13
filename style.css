@@ -6103,6 +6103,10 @@ p.ct-content-block-description {
   font-family: "gotham bold";
   text-transform: uppercase;
 }
+.request_custom_fields_360008935919 a, .request_custom_fields_360008494940 a, #request_custom_fields_360012879779, #request_custom_fields_360011224940 {
+  pointer-events: none;
+  background-color: #bebebe;
+}
 
 /***** Pagination *****/
 .pagination {

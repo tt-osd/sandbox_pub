@@ -53,8 +53,11 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
       var talk_form_id = -1;
       var email_form_request_local_field=-1;
       var auto_renewal_refund_form_id=-1;
-      var refund_form_id=-1;
+  		var refund_form_id=-1;
       var ordernumber_field_id=-1;
+      var sap_order_number_eur_field=-1;
+      var sap_total_refund_amount_eur_field=-1;
+      var sap_currency_eur_field=-1;
        //create form id with a default value -1
 
 
@@ -111,14 +114,18 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
            spts_cat_id=data.sports_category_id.sandbox;
            apps_cat_id=data.apps_category_id.sandbox;
            userManualsReleaseInfo_cat_id=data.user_manual_release_info_category_id.sandbox;
-  				 tthome_section_id=data.tthome_section_id.sandbox; 
-       		 vanilla_redirect_url=data.vanilla_redirect_url.sandbox; 
-        	 vanilla_sso_server=data.vanilla_sso_server.sandbox; 
-          talk_form_id=data.talk_form_id.sandbox;
-         	 email_form_request_local_field=data.email_form_request_local.sandbox;
-        	 auto_renewal_refund_form_id=data.auto_renewal_refund_form_id.sandbox;
+           tthome_section_id=data.tthome_section_id.sandbox; 
+           vanilla_redirect_url=data.vanilla_redirect_url.sandbox; 
+           vanilla_sso_server=data.vanilla_sso_server.sandbox; 
+            talk_form_id=data.talk_form_id.sandbox;
+           email_form_request_local_field=data.email_form_request_local.sandbox;
+           auto_renewal_refund_form_id=data.auto_renewal_refund_form_id.sandbox;
            refund_form_id=data.refund_form_id.sandbox;
-         	 ordernumber_field_id=data.ordernumber_field_id.sandbox;
+           ordernumber_field_id=data.ordernumber_field_id.sandbox;
+          sap_order_number_eur_field=data.sap_order_number_eur_field.sandbox;
+          sap_total_refund_amount_eur_field=data.sap_total_refund_amount_eur_field.sandbox;
+          sap_currency_eur_field=data.sap_currency_eur_field.sandbox;
+        
         		  } else {
             
            //form id get the production id value
@@ -141,6 +148,9 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
             auto_renewal_refund_form_id=data.auto_renewal_refund_form_id.prod;
            	refund_form_id=data.refund_form_id.prod;
             ordernumber_field_id=data.ordernumber_field_id.prod;
+            sap_order_number_eur_field=data.sap_order_number_eur_field.prod;
+            sap_total_refund_amount_eur_field=data.sap_total_refund_amount_eur_field.prod;
+            sap_currency_eur_field=data.sap_currency_eur_field.prod;
           }//end of get form/fields ID
       
      if(the_url.indexOf("ticket_form_id")!= -1){     //the current page is a form page 
@@ -326,43 +336,30 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                         }  else if (window.location.href.indexOf(auto_renewal_refund_form_id) > -1) {
                           
                           /*** Auto renewal Refund Request FORM***/ 				//testing URL hc/en-gb/requests/new?ticket_form_id=360000875500
-                        		var auto_renewal_request_page_title = document.getElementById("auto_renewal_request_page_title").innerHTML; 
-                            document.title = auto_renewal_request_page_title;
+                           /*** Auto renewal Refund Request FORM***/ 				//testing URL hc/en-gb/requests/new?ticket_form_id=360000875500
+            								var auto_renewal_request_page_title = document.getElementById("auto_renewal_request_page_title").innerHTML; 
+                           	var renewal_refund_amount = document.getElementById("renewal_refund_amount").innerHTML; 
+                          	var renewal_refund_currency = document.getElementById("renewal_refund_currency").innerHTML; 
+            								document.title = auto_renewal_request_page_title; // document title (page title) 
             								$('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
-                           	SubjectLine.value = auto_renewal_request_page_title + " " + auto_renewal_refund_form_id; 
-                            DescriptionBox.value = auto_renewal_request_page_title; 
-                              $(".request_description").addClass("zd_Hidden");
-                            (AttachmentsFileDrop.parentElement).classList.add("zd_Hidden");
+            								SubjectLine.value = auto_renewal_request_page_title + " " + auto_renewal_refund_form_id;  //pre fill subject line
+                            var auto_order_number_feild =   document.getElementById("request_custom_fields_" + sap_order_number_eur_field);                     
+                            auto_order_number_feild.maxLength = 9;                  
+                            auto_order_number_feild.setAttribute("placeholder", "40*******"); 
+                          	var refund_amount_field =   document.getElementById("request_custom_fields_" + sap_total_refund_amount_eur_field);    
+                         		refund_amount_field.value = renewal_refund_amount;  //pre fill refund amount line
+                          	refund_amount_field.setAttribute("readonly", true);
+            								(AttachmentsFileDrop.parentElement).classList.add("zd_Hidden");      
+                         		var auto_renewal_currency_field =   document.getElementById("request_custom_fields_" + sap_currency_eur_field);
+                      			var auto_renewal_currency_field_full = document.getElementsByClassName("request_custom_fields_" + sap_currency_eur_field)[0];                          	
+                          	var auto_renewal_currency_field_anchor = auto_renewal_currency_field_full.getElementsByTagName('a')[0];    
+                          	auto_renewal_currency_field.value = renewal_refund_currency; 
+                            auto_renewal_currency_field_anchor.innerHTML = renewal_refund_currency;         
+                             
                           
-                          	$('<p id="auto_renewal_form" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
-                            $("#auto_renewal_form").html($("#renewal_refund_request_intro").html());     
-                          
-                          										 //disable the submit button 
-                      var refund_button = document.getElementsByName("commit")[0];
-                      refund_button.disabled = true;
-                      // after the following validation is passed, this button will be enabled.
-											var order_number_feild =  document.getElementById("request_custom_fields_" + ordernumber_field_id);
-                      var order_number_feild_full =  document.getElementsByClassName("request_custom_fields_" + ordernumber_field_id)[0]; 
-                      // order number input max length is 9
-                      order_number_feild.maxLength = 9;
-                      // order number input max length is 9
-											order_number_feild.setAttribute("placeholder", "40*******"); 
-                      order_number_feild_full.classList.add("required");
-                      //order number allows letters and numbers only, no punctuation or special characters
-                      order_number_feild.setAttribute("pattern", "[A-Za-z0-9]+");
-                      //order number allows letters and numbers only, no punctuation or special characters
+                          $('<p id="auto_renewal_form" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
+                          $("#auto_renewal_form").html($("#renewal_refund_request_intro").html());     
 
-                      //order number live validation
-                     $("#request_custom_fields_" + ordernumber_field_id).on('input',function() {
-                         var order_number_input = (document.getElementById("request_custom_fields_" + ordernumber_field_id).value).toString(); 
-
-                                    if((order_number_input.length)==9){                      
-                                       refund_button.disabled = false;                                    
-                                    			}else{
-                                       refund_button.disabled = true;
-                                    }
-                         
-                     }); // end of order number on input function 
                         /*** Auto renewal Refund Request FORM***/
                           
                         } 
