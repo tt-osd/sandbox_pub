@@ -354,7 +354,9 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                       			var auto_renewal_currency_field_full = document.getElementsByClassName("request_custom_fields_" + sap_currency_eur_field)[0];                          	
                           	var auto_renewal_currency_field_anchor = auto_renewal_currency_field_full.getElementsByTagName('a')[0];    
                           	auto_renewal_currency_field.value = renewal_refund_currency; 
-                            auto_renewal_currency_field_anchor.innerHTML = renewal_refund_currency;         
+                            auto_renewal_currency_field_anchor.innerHTML = renewal_refund_currency;
+                           	DescriptionBox.value = auto_renewal_refund_form_id; 
+                         		$('.request_description').addClass("zd_Hidden");
                              
                           
                           $('<p id="auto_renewal_form" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
