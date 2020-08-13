@@ -649,19 +649,19 @@ display: block;
 }
 }
 /***** Tables *****/
-.table {
+table, .table {
   width: 100%;
   table-layout: fixed;
 }
 
 @media (min-width: 768px) {
-  .table {
+table, .table {
     table-layout: auto;
   }
 }
 
-.table th,
-.table th a {
+table th, .table th,
+table th a, .table th a {
   color: lighten($text_color, 20%);
   font-size: 16px;
   font-weight: 300;
@@ -669,41 +669,40 @@ display: block;
   font-family: "Gotham Bold";
 }
 
-[dir="rtl"] .table th, [dir="rtl"]
-.table th a {
+[dir="rtl"] .table th, [dir="rtl"] .table th a, [dir="rtl"] table th, [dir="rtl"] table th a {
   text-align: right;
 }
 
-.table tr {
+table tr, .table tr {
   border-bottom: 1px solid #ddd;
   display: block;
   padding: 20px 0;
 }
 
 @media (min-width: 768px) {
-  .table tr {
+table tr,   .table tr {
     display: table-row;
   }
 }
 
-.table td {
+table td, .table td {
   display: block;
 }
 
 @media (min-width: 768px) {
-  .table td {
+table td,   .table td {
     display: table-cell;
   }
 }
 
 @media (min-width: 1024px) {
-  .table td, .table th {
+table td, .table td, .table th, table th {
     padding: 20px 30px;
   }
 }
 
 @media (min-width: 768px) {
-  .table td, .table th {
+table td, .table td, .table th, table th {
     padding: 10px 20px;
   }
 }
@@ -1271,12 +1270,12 @@ position: relative;
 
 
 
-.footer a {
+.footer .footer__link-groups a {
   color: #666;
   transition: color .3s;
 }
 
-.footer a:hover {
+.footer .footer__link-groups a:hover {
   color: #BEBEBE;
 }
 
@@ -3701,6 +3700,14 @@ h3.tt-get-started-step-title {
           width: 20%;
           padding: 30px;
       } 
+}
+.ts-sub-footer-title, .ts-sub-footer-text{
+    color: #000;
+    text-decoration: none;
+    text-transform: none;
+}
+.ts-sub-footer-box:hover, .ts-sub-footer-box img, .ts-sub-footer-title {
+  cursor: pointer;
 }
 .ts-sub-footer-box img {
   width: -webkit-fill-available;
