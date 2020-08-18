@@ -1,6 +1,18 @@
 /* PLEASE READ - There are 2 document ready functions one is below in DOMContentLoaded and there is (document).ready at the bottom if you require the whole document to load */
 
 document.addEventListener('DOMContentLoaded', function() { // **** Include all JS in this function
+    //chevron
+//iphone userAgent: iPhone
+if (navigator.userAgent.indexOf('Mac') != -1){
+  $(".breadcrumbs li+li").addClass("chevron_mac");
+}else if(navigator.userAgent.indexOf('Windows') != -1){
+   $(".breadcrumbs li+li").addClass("chevron_win");
+}else{
+  $(".breadcrumbs li+li").addClass("chevron_general");
+}
+
+//chevron 
+
     
   /******** Home page META description ***********/ // DDA-673 Amy
 

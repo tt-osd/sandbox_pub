@@ -1465,12 +1465,34 @@ position: relative;
   line-height: 14px;
 }
 
-.breadcrumbs li + li::before {
+/*.breadcrumbs li + li::before {
   margin: 0 8px;
   content:  url($assets-chevron_right-svg);
   vertical-align: middle;
   line-height: 14px;
+} */
+
+.chevron_mac::before{
+  margin: 0 8px;
+ content:  url($assets-chevron_right-svg);
+vertical-align: text-bottom; 
+ line-height: 14px;
 }
+
+.chevron_win::before{
+  margin: 0 8px;
+ content:  url($assets-chevron_right-svg);
+vertical-align: middle; 
+ line-height: 14px;
+}
+
+.chevron_general::before{
+  margin: 0 8px;
+ content:  url($assets-chevron_right-svg);
+vertical-align: middle; 
+ line-height: 14px;
+}
+
 
 .breadcrumbs li:last-child a {
   color: #DF1B12;
