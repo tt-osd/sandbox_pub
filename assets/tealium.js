@@ -40,6 +40,7 @@ if (the_url.indexOf("sandbox")== -1) {
    var page_type_id="";
    var page_id = ""
    var homepage = document.getElementById('home-section'); 
+   var userId=HelpCenter.user.identifier;
   
 
 if (the_url.indexOf("/categories/")!= -1){
@@ -150,7 +151,7 @@ if (language.match(/^(en-ca|en-us|fr-ca|pt-br|es-ar|es-mx)$/)) {
     page_category: page_category,    
     page_type_id:page_type_id,
     page_id: page_id,
-    user_id:0
+    user_id:userId
   
   };
   
