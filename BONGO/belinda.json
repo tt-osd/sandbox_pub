@@ -1,0 +1,2678 @@
+[
+  {
+    "ID_forBongo": 3863,
+    "Product_forBongo": "TomTom Runner Cardio / Multi-Sport Cardio",
+    "Serial_Prefix_forBongo": "HE",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 3863,
+    "Product_forBongo": "TomTom Runner Cardio / Multi-Sport Cardio",
+    "Serial_Prefix_forBongo": "HF",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 2997,
+    "Product_forBongo": "TomTom Runner / Multi-Sport",
+    "Serial_Prefix_forBongo": "HC",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 2997,
+    "Product_forBongo": "TomTom Runner / Multi-Sport",
+    "Serial_Prefix_forBongo": "HD",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 3821,
+    "Product_forBongo": "TomTom GO 60 / 61",
+    "Serial_Prefix_forBongo": "VC",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3821,
+    "Product_forBongo": "TomTom GO 60 / 61",
+    "Serial_Prefix_forBongo": "VA",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3821,
+    "Product_forBongo": "TomTom GO 60 / 61",
+    "Serial_Prefix_forBongo": "VD",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3821,
+    "Product_forBongo": "TomTom GO 60 / 61",
+    "Serial_Prefix_forBongo": "VV",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3821,
+    "Product_forBongo": "TomTom GO 60 / 61",
+    "Serial_Prefix_forBongo": "V8",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3822,
+    "Product_forBongo": "TomTom GO 50 / 51",
+    "Serial_Prefix_forBongo": "VF",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3822,
+    "Product_forBongo": "TomTom GO 50 / 51",
+    "Serial_Prefix_forBongo": "VH",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3822,
+    "Product_forBongo": "TomTom GO 50 / 51",
+    "Serial_Prefix_forBongo": "VI",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3822,
+    "Product_forBongo": "TomTom GO 50 / 51",
+    "Serial_Prefix_forBongo": "VX",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3822,
+    "Product_forBongo": "TomTom GO 50 / 51",
+    "Serial_Prefix_forBongo": "VZ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3823,
+    "Product_forBongo": "TomTom GO 40",
+    "Serial_Prefix_forBongo": "VL",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3823,
+    "Product_forBongo": "TomTom GO 40",
+    "Serial_Prefix_forBongo": "VM",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3823,
+    "Product_forBongo": "TomTom GO 40",
+    "Serial_Prefix_forBongo": "VY",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2986,
+    "Product_forBongo": "TomTom GO 6000 / 6100",
+    "Serial_Prefix_forBongo": "QQ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2985,
+    "Product_forBongo": "TomTom GO 5000 / 5100",
+    "Serial_Prefix_forBongo": "QR",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2984,
+    "Product_forBongo": "TomTom GO 600 / 610",
+    "Serial_Prefix_forBongo": "QF",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2984,
+    "Product_forBongo": "TomTom GO 600 / 610",
+    "Serial_Prefix_forBongo": "QE",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2984,
+    "Product_forBongo": "TomTom GO 600 / 610",
+    "Serial_Prefix_forBongo": "QW",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2984,
+    "Product_forBongo": "TomTom GO 600 / 610",
+    "Serial_Prefix_forBongo": "QS",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2984,
+    "Product_forBongo": "TomTom GO 600 / 610",
+    "Serial_Prefix_forBongo": "QU",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2983,
+    "Product_forBongo": "TomTom GO 500 / 510",
+    "Serial_Prefix_forBongo": "QJ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2983,
+    "Product_forBongo": "TomTom GO 500 / 510",
+    "Serial_Prefix_forBongo": "QI",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2983,
+    "Product_forBongo": "TomTom GO 500 / 510",
+    "Serial_Prefix_forBongo": "QX",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2983,
+    "Product_forBongo": "TomTom GO 500 / 510",
+    "Serial_Prefix_forBongo": "QT",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2983,
+    "Product_forBongo": "TomTom GO 500 / 510",
+    "Serial_Prefix_forBongo": "QV",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2982,
+    "Product_forBongo": "TomTom GO 400",
+    "Serial_Prefix_forBongo": "QM",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2982,
+    "Product_forBongo": "TomTom GO 400",
+    "Serial_Prefix_forBongo": "QL",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2956,
+    "Product_forBongo": "TomTom Rider",
+    "Serial_Prefix_forBongo": "K4",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2836,
+    "Product_forBongo": "TomTom PRO 5150 TRUCK LIVE",
+    "Serial_Prefix_forBongo": "LV",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2792,
+    "Product_forBongo": "TomTom Via 130 / 135",
+    "Serial_Prefix_forBongo": "AV",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2792,
+    "Product_forBongo": "TomTom Via 130 / 135",
+    "Serial_Prefix_forBongo": "AQ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2792,
+    "Product_forBongo": "TomTom Via 130 / 135",
+    "Serial_Prefix_forBongo": "AW",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2792,
+    "Product_forBongo": "TomTom Via 130 / 135",
+    "Serial_Prefix_forBongo": "AX",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2792,
+    "Product_forBongo": "TomTom Via 130 / 135",
+    "Serial_Prefix_forBongo": "BO",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2792,
+    "Product_forBongo": "TomTom Via 130 / 135",
+    "Serial_Prefix_forBongo": "BP",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2792,
+    "Product_forBongo": "TomTom Via 130 / 135",
+    "Serial_Prefix_forBongo": "BS",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2792,
+    "Product_forBongo": "TomTom Via 130 / 135",
+    "Serial_Prefix_forBongo": "BT",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 182,
+    "Product_forBongo": "TomTom GO",
+    "Serial_Prefix_forBongo": "B1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 183,
+    "Product_forBongo": "TomTom ONE 1st Edition",
+    "Serial_Prefix_forBongo": "G1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 183,
+    "Product_forBongo": "TomTom ONE 1st Edition",
+    "Serial_Prefix_forBongo": "G2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 181,
+    "Product_forBongo": "TomTom GO 300",
+    "Serial_Prefix_forBongo": "M1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 180,
+    "Product_forBongo": "TomTom GO 500 (2005)",
+    "Serial_Prefix_forBongo": "M3",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 179,
+    "Product_forBongo": "TomTom GO 700",
+    "Serial_Prefix_forBongo": "M5",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 184,
+    "Product_forBongo": "TomTom RIDER (2006)",
+    "Serial_Prefix_forBongo": "K1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2793,
+    "Product_forBongo": "TomTom Start 60 / Via 620 (2012)",
+    "Serial_Prefix_forBongo": "WM",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2793,
+    "Product_forBongo": "TomTom Start 60 / Via 620 (2012)",
+    "Serial_Prefix_forBongo": "WN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2793,
+    "Product_forBongo": "TomTom Start 60 / Via 620 (2012)",
+    "Serial_Prefix_forBongo": "WO",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2746,
+    "Product_forBongo": "TomTom GO LIVE 1005 / Camper & Caravan",
+    "Serial_Prefix_forBongo": "ST",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2547,
+    "Product_forBongo": "TomTom Via 120",
+    "Serial_Prefix_forBongo": "AS",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2547,
+    "Product_forBongo": "TomTom Via 120",
+    "Serial_Prefix_forBongo": "AU",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2547,
+    "Product_forBongo": "TomTom Via 120",
+    "Serial_Prefix_forBongo": "AI",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2547,
+    "Product_forBongo": "TomTom Via 120",
+    "Serial_Prefix_forBongo": "AN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2547,
+    "Product_forBongo": "TomTom Via 120",
+    "Serial_Prefix_forBongo": "AR",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2548,
+    "Product_forBongo": "TomTom Via 125",
+    "Serial_Prefix_forBongo": "BN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2548,
+    "Product_forBongo": "TomTom Via 125",
+    "Serial_Prefix_forBongo": "BM",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2548,
+    "Product_forBongo": "TomTom Via 125",
+    "Serial_Prefix_forBongo": "BG",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2548,
+    "Product_forBongo": "TomTom Via 125",
+    "Serial_Prefix_forBongo": "BH",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2718,
+    "Product_forBongo": "TomTom GO LIVE 825",
+    "Serial_Prefix_forBongo": "FB",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2718,
+    "Product_forBongo": "TomTom GO LIVE 825",
+    "Serial_Prefix_forBongo": "FW",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2718,
+    "Product_forBongo": "TomTom GO LIVE 825",
+    "Serial_Prefix_forBongo": "FY",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2504,
+    "Product_forBongo": "TomTom GO LIVE 1005",
+    "Serial_Prefix_forBongo": "SI",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2504,
+    "Product_forBongo": "TomTom GO LIVE 1005",
+    "Serial_Prefix_forBongo": "SA",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2504,
+    "Product_forBongo": "TomTom GO LIVE 1005",
+    "Serial_Prefix_forBongo": "SB",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2504,
+    "Product_forBongo": "TomTom GO LIVE 1005",
+    "Serial_Prefix_forBongo": "ST",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2546,
+    "Product_forBongo": "TomTom Via 110",
+    "Serial_Prefix_forBongo": "AG",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2546,
+    "Product_forBongo": "TomTom Via 110",
+    "Serial_Prefix_forBongo": "AH",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2453,
+    "Product_forBongo": "TomTom XXL IQ Routes / XXL Classic",
+    "Serial_Prefix_forBongo": "GQ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2453,
+    "Product_forBongo": "TomTom XXL IQ Routes / XXL Classic",
+    "Serial_Prefix_forBongo": "GX",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2453,
+    "Product_forBongo": "TomTom XXL IQ Routes / XXL Classic",
+    "Serial_Prefix_forBongo": "GL",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2717,
+    "Product_forBongo": "TomTom GO LIVE 820",
+    "Serial_Prefix_forBongo": "FT",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2717,
+    "Product_forBongo": "TomTom GO LIVE 820",
+    "Serial_Prefix_forBongo": "FU",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2717,
+    "Product_forBongo": "TomTom GO LIVE 820",
+    "Serial_Prefix_forBongo": "FA",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2701,
+    "Product_forBongo": "TomTom Start 25",
+    "Serial_Prefix_forBongo": "BK",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2701,
+    "Product_forBongo": "TomTom Start 25",
+    "Serial_Prefix_forBongo": "BL",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2701,
+    "Product_forBongo": "TomTom Start 25",
+    "Serial_Prefix_forBongo": "BQ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2700,
+    "Product_forBongo": "TomTom Start 20",
+    "Serial_Prefix_forBongo": "AO",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2700,
+    "Product_forBongo": "TomTom Start 20",
+    "Serial_Prefix_forBongo": "AP",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2700,
+    "Product_forBongo": "TomTom Start 20",
+    "Serial_Prefix_forBongo": "AY",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2502,
+    "Product_forBongo": "TomTom GO LIVE 1000",
+    "Serial_Prefix_forBongo": "TA",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2502,
+    "Product_forBongo": "TomTom GO LIVE 1000",
+    "Serial_Prefix_forBongo": "TB",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2609,
+    "Product_forBongo": "TomTom GO 2405",
+    "Serial_Prefix_forBongo": "TC",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2495,
+    "Product_forBongo": "TomTom Rider Pro",
+    "Serial_Prefix_forBongo": "K3",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2494,
+    "Product_forBongo": "TomTom Urban Rider",
+    "Serial_Prefix_forBongo": "K3",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2481,
+    "Product_forBongo": "TomTom XL IQ Routes ² / XL Classic",
+    "Serial_Prefix_forBongo": "GG",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2481,
+    "Product_forBongo": "TomTom XL IQ Routes ² / XL Classic",
+    "Serial_Prefix_forBongo": "GI",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2481,
+    "Product_forBongo": "TomTom XL IQ Routes ² / XL Classic",
+    "Serial_Prefix_forBongo": "GH",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2481,
+    "Product_forBongo": "TomTom XL IQ Routes ² / XL Classic",
+    "Serial_Prefix_forBongo": "GJ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2481,
+    "Product_forBongo": "TomTom XL IQ Routes ² / XL Classic",
+    "Serial_Prefix_forBongo": "GP",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2481,
+    "Product_forBongo": "TomTom XL IQ Routes ² / XL Classic",
+    "Serial_Prefix_forBongo": "GV",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2479,
+    "Product_forBongo": "TomTom Start ² / Start Classic",
+    "Serial_Prefix_forBongo": "XN",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2479,
+    "Product_forBongo": "TomTom Start ² / Start Classic",
+    "Serial_Prefix_forBongo": "XM",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2479,
+    "Product_forBongo": "TomTom Start ² / Start Classic",
+    "Serial_Prefix_forBongo": "XF",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2479,
+    "Product_forBongo": "TomTom Start ² / Start Classic",
+    "Serial_Prefix_forBongo": "XH",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2479,
+    "Product_forBongo": "TomTom Start ² / Start Classic",
+    "Serial_Prefix_forBongo": "XO",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2447,
+    "Product_forBongo": "TomTom GO 950",
+    "Serial_Prefix_forBongo": "W5",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2446,
+    "Product_forBongo": "TomTom GO 950 LIVE",
+    "Serial_Prefix_forBongo": "W1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2449,
+    "Product_forBongo": "TomTom GO 750",
+    "Serial_Prefix_forBongo": "W7",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2449,
+    "Product_forBongo": "TomTom GO 750",
+    "Serial_Prefix_forBongo": "W6",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2449,
+    "Product_forBongo": "TomTom GO 750",
+    "Serial_Prefix_forBongo": "W8",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2448,
+    "Product_forBongo": "TomTom GO 750 LIVE",
+    "Serial_Prefix_forBongo": "W2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2448,
+    "Product_forBongo": "TomTom GO 750 LIVE",
+    "Serial_Prefix_forBongo": "W4",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2450,
+    "Product_forBongo": "TomTom GO 550 LIVE",
+    "Serial_Prefix_forBongo": "W3",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2445,
+    "Product_forBongo": "TomTom Start",
+    "Serial_Prefix_forBongo": "XA",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2445,
+    "Product_forBongo": "TomTom Start",
+    "Serial_Prefix_forBongo": "XB",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2445,
+    "Product_forBongo": "TomTom Start",
+    "Serial_Prefix_forBongo": "XC",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2445,
+    "Product_forBongo": "TomTom Start",
+    "Serial_Prefix_forBongo": "XD",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2343,
+    "Product_forBongo": "TomTom XL LIVE IQ Routes",
+    "Serial_Prefix_forBongo": "R1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2343,
+    "Product_forBongo": "TomTom XL LIVE IQ Routes",
+    "Serial_Prefix_forBongo": "R2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2453,
+    "Product_forBongo": "TomTom XXL IQ Routes / XXL Classic",
+    "Serial_Prefix_forBongo": "RX",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2453,
+    "Product_forBongo": "TomTom XXL IQ Routes / XXL Classic",
+    "Serial_Prefix_forBongo": "RY",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2453,
+    "Product_forBongo": "TomTom XXL IQ Routes / XXL Classic",
+    "Serial_Prefix_forBongo": "RW",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2453,
+    "Product_forBongo": "TomTom XXL IQ Routes / XXL Classic",
+    "Serial_Prefix_forBongo": "RZ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2342,
+    "Product_forBongo": "TomTom XL IQ Routes",
+    "Serial_Prefix_forBongo": "RS",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2342,
+    "Product_forBongo": "TomTom XL IQ Routes",
+    "Serial_Prefix_forBongo": "RU",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2341,
+    "Product_forBongo": "TomTom ONE IQ Routes",
+    "Serial_Prefix_forBongo": "P1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2341,
+    "Product_forBongo": "TomTom ONE IQ Routes",
+    "Serial_Prefix_forBongo": "P2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2341,
+    "Product_forBongo": "TomTom ONE IQ Routes",
+    "Serial_Prefix_forBongo": "PS",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2341,
+    "Product_forBongo": "TomTom ONE IQ Routes",
+    "Serial_Prefix_forBongo": "PU",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2075,
+    "Product_forBongo": "TomTom GO 940 LIVE",
+    "Serial_Prefix_forBongo": "WB",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2074,
+    "Product_forBongo": "TomTom GO 740 LIVE",
+    "Serial_Prefix_forBongo": "WL",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2074,
+    "Product_forBongo": "TomTom GO 740 LIVE",
+    "Serial_Prefix_forBongo": "WR",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2073,
+    "Product_forBongo": "TomTom GO 540 LIVE",
+    "Serial_Prefix_forBongo": "WT",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2029,
+    "Product_forBongo": "TomTom XL 30 Series",
+    "Serial_Prefix_forBongo": "RB",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2029,
+    "Product_forBongo": "TomTom XL 30 Series",
+    "Serial_Prefix_forBongo": "RC",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2029,
+    "Product_forBongo": "TomTom XL 30 Series",
+    "Serial_Prefix_forBongo": "RH",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2029,
+    "Product_forBongo": "TomTom XL 30 Series",
+    "Serial_Prefix_forBongo": "RI",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2029,
+    "Product_forBongo": "TomTom XL 30 Series",
+    "Serial_Prefix_forBongo": "RM",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2029,
+    "Product_forBongo": "TomTom XL 30 Series",
+    "Serial_Prefix_forBongo": "RN",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2029,
+    "Product_forBongo": "TomTom XL 30 Series",
+    "Serial_Prefix_forBongo": "RO",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2029,
+    "Product_forBongo": "TomTom XL 30 Series",
+    "Serial_Prefix_forBongo": "RV",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PA",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PV",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PB",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PE",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PC",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PF",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PH",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PK",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PI",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PL",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PN",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PO",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PP",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2060,
+    "Product_forBongo": "TomTom ONE 130",
+    "Serial_Prefix_forBongo": "PQ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2028,
+    "Product_forBongo": "TomTom GO 930",
+    "Serial_Prefix_forBongo": "J6",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2027,
+    "Product_forBongo": "TomTom GO 730",
+    "Serial_Prefix_forBongo": "J4",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2027,
+    "Product_forBongo": "TomTom GO 730",
+    "Serial_Prefix_forBongo": "J3",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2027,
+    "Product_forBongo": "TomTom GO 730",
+    "Serial_Prefix_forBongo": "J5",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2086,
+    "Product_forBongo": "TomTom GO 630",
+    "Serial_Prefix_forBongo": "JB",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2026,
+    "Product_forBongo": "TomTom GO 530",
+    "Serial_Prefix_forBongo": "J1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2026,
+    "Product_forBongo": "TomTom GO 530",
+    "Serial_Prefix_forBongo": "J2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1657,
+    "Product_forBongo": "TomTom RIDER 2nd Edition",
+    "Serial_Prefix_forBongo": "K2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1959,
+    "Product_forBongo": "TomTom GO 920",
+    "Serial_Prefix_forBongo": "M8",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1682,
+    "Product_forBongo": "TomTom GO 720",
+    "Serial_Prefix_forBongo": "M6",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1682,
+    "Product_forBongo": "TomTom GO 720",
+    "Serial_Prefix_forBongo": "M9",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1680,
+    "Product_forBongo": "TomTom GO 520",
+    "Serial_Prefix_forBongo": "M2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1680,
+    "Product_forBongo": "TomTom GO 520",
+    "Serial_Prefix_forBongo": "M4",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1658,
+    "Product_forBongo": "TomTom ONE XL",
+    "Serial_Prefix_forBongo": "L1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1658,
+    "Product_forBongo": "TomTom ONE XL",
+    "Serial_Prefix_forBongo": "L2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1658,
+    "Product_forBongo": "TomTom ONE XL",
+    "Serial_Prefix_forBongo": "L3",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1658,
+    "Product_forBongo": "TomTom ONE XL",
+    "Serial_Prefix_forBongo": "L4",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1658,
+    "Product_forBongo": "TomTom ONE XL",
+    "Serial_Prefix_forBongo": "L7",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1658,
+    "Product_forBongo": "TomTom ONE XL",
+    "Serial_Prefix_forBongo": "L9",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1953,
+    "Product_forBongo": "TomTom ONE 3rd Edition",
+    "Serial_Prefix_forBongo": "Y1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1953,
+    "Product_forBongo": "TomTom ONE 3rd Edition",
+    "Serial_Prefix_forBongo": "Y2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1953,
+    "Product_forBongo": "TomTom ONE 3rd Edition",
+    "Serial_Prefix_forBongo": "Y3",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1953,
+    "Product_forBongo": "TomTom ONE 3rd Edition",
+    "Serial_Prefix_forBongo": "Y4",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1953,
+    "Product_forBongo": "TomTom ONE 3rd Edition",
+    "Serial_Prefix_forBongo": "Y5",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1953,
+    "Product_forBongo": "TomTom ONE 3rd Edition",
+    "Serial_Prefix_forBongo": "Y7",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1953,
+    "Product_forBongo": "TomTom ONE 3rd Edition",
+    "Serial_Prefix_forBongo": "Y8",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 232,
+    "Product_forBongo": "TomTom GO 910",
+    "Serial_Prefix_forBongo": "V7",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 233,
+    "Product_forBongo": "TomTom GO 710",
+    "Serial_Prefix_forBongo": "V5",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1399,
+    "Product_forBongo": "TomTom ONE 2nd Edition",
+    "Serial_Prefix_forBongo": "Z1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1399,
+    "Product_forBongo": "TomTom ONE 2nd Edition",
+    "Serial_Prefix_forBongo": "Z2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1399,
+    "Product_forBongo": "TomTom ONE 2nd Edition",
+    "Serial_Prefix_forBongo": "Z3",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1399,
+    "Product_forBongo": "TomTom ONE 2nd Edition",
+    "Serial_Prefix_forBongo": "E1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1399,
+    "Product_forBongo": "TomTom ONE 2nd Edition",
+    "Serial_Prefix_forBongo": "E2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2817,
+    "Product_forBongo": "TomTom Lexus CT MoveOn Navi",
+    "Serial_Prefix_forBongo": "IE",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2766,
+    "Product_forBongo": "TomTom Mazda Navigation System NB1 LIVE",
+    "Serial_Prefix_forBongo": "DP",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2766,
+    "Product_forBongo": "TomTom Mazda Navigation System NB1 LIVE",
+    "Serial_Prefix_forBongo": "DK",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2767,
+    "Product_forBongo": "TomTom Mazda Navigation System NB1",
+    "Serial_Prefix_forBongo": "DR",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2767,
+    "Product_forBongo": "TomTom Mazda Navigation System NB1",
+    "Serial_Prefix_forBongo": "DS",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2767,
+    "Product_forBongo": "TomTom Mazda Navigation System NB1",
+    "Serial_Prefix_forBongo": "DQ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2747,
+    "Product_forBongo": "Carminat TomTom Z.E. LIVE",
+    "Serial_Prefix_forBongo": "IB",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2790,
+    "Product_forBongo": "TomTom Connect",
+    "Serial_Prefix_forBongo": "TK",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2726,
+    "Product_forBongo": "TomTom GO Freemont",
+    "Serial_Prefix_forBongo": "SA",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2726,
+    "Product_forBongo": "TomTom GO Freemont",
+    "Serial_Prefix_forBongo": "SE",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2702,
+    "Product_forBongo": "Blue&Me - TomTom 2 LIVE",
+    "Serial_Prefix_forBongo": "TG",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2702,
+    "Product_forBongo": "Blue&Me - TomTom 2 LIVE",
+    "Serial_Prefix_forBongo": "TM",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2702,
+    "Product_forBongo": "Blue&Me - TomTom 2 LIVE",
+    "Serial_Prefix_forBongo": "TQ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2702,
+    "Product_forBongo": "Blue&Me - TomTom 2 LIVE",
+    "Serial_Prefix_forBongo": "TS",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2698,
+    "Product_forBongo": "TomTom Toyota Aygo Connect Multimedia",
+    "Serial_Prefix_forBongo": "DA",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2696,
+    "Product_forBongo": "TomTom Mazda NVA-SD8110 EU",
+    "Serial_Prefix_forBongo": "DF",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2607,
+    "Product_forBongo": "Carminat TomTom LIVE",
+    "Serial_Prefix_forBongo": "IB",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2493,
+    "Product_forBongo": "TomTom GO I90",
+    "Serial_Prefix_forBongo": "DC",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2452,
+    "Product_forBongo": "Blue&Me - TomTom",
+    "Serial_Prefix_forBongo": "WI",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2332,
+    "Product_forBongo": "Carminat TomTom",
+    "Serial_Prefix_forBongo": "IA",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2516,
+    "Product_forBongo": "TomTom Subaru - H001SSC800",
+    "Serial_Prefix_forBongo": "DA",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2329,
+    "Product_forBongo": "TomTom ECLIPSE II (AVN4429)",
+    "Serial_Prefix_forBongo": "DA",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1957,
+    "Product_forBongo": "TomTom ECLIPSE (AVN2227p)",
+    "Serial_Prefix_forBongo": "N1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1957,
+    "Product_forBongo": "TomTom ECLIPSE (AVN2227p)",
+    "Serial_Prefix_forBongo": "N2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2600,
+    "Product_forBongo": "TomTom Via LIVE 120",
+    "Serial_Prefix_forBongo": "FN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2600,
+    "Product_forBongo": "TomTom Via LIVE 120",
+    "Serial_Prefix_forBongo": "FM",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2601,
+    "Product_forBongo": "TomTom Via LIVE 125",
+    "Serial_Prefix_forBongo": "FP",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2518,
+    "Product_forBongo": "TomTom Sony XNV-L66BT/XNV-L77BT",
+    "Serial_Prefix_forBongo": "DH",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2517,
+    "Product_forBongo": "TomTom Sony XNV-660BT/XNV-770BT",
+    "Serial_Prefix_forBongo": "DJ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 234,
+    "Product_forBongo": "TomTom GO 510",
+    "Serial_Prefix_forBongo": "V5",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 3908,
+    "Product_forBongo": "TomTom START 40",
+    "Serial_Prefix_forBongo": "VK",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3908,
+    "Product_forBongo": "TomTom START 40",
+    "Serial_Prefix_forBongo": "VN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3908,
+    "Product_forBongo": "TomTom START 40",
+    "Serial_Prefix_forBongo": "VT",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3908,
+    "Product_forBongo": "TomTom START 40",
+    "Serial_Prefix_forBongo": "VS",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3907,
+    "Product_forBongo": "TomTom START 50",
+    "Serial_Prefix_forBongo": "VG",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3907,
+    "Product_forBongo": "TomTom START 50",
+    "Serial_Prefix_forBongo": "VJ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3907,
+    "Product_forBongo": "TomTom START 50",
+    "Serial_Prefix_forBongo": "VR",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3906,
+    "Product_forBongo": "TomTom START 60",
+    "Serial_Prefix_forBongo": "VB",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3906,
+    "Product_forBongo": "TomTom START 60",
+    "Serial_Prefix_forBongo": "VE",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3906,
+    "Product_forBongo": "TomTom START 60",
+    "Serial_Prefix_forBongo": "VP",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3906,
+    "Product_forBongo": "TomTom START 60",
+    "Serial_Prefix_forBongo": "VO",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 1981,
+    "Product_forBongo": "TomTom ONE XL HD Traffic Europe",
+    "Serial_Prefix_forBongo": "F3",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2703,
+    "Product_forBongo": "Blue&Me - TomTom 2",
+    "Serial_Prefix_forBongo": "TH",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2703,
+    "Product_forBongo": "Blue&Me - TomTom 2",
+    "Serial_Prefix_forBongo": "TR",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2009,
+    "Product_forBongo": "TomTom DAIHATSU",
+    "Serial_Prefix_forBongo": "N1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2009,
+    "Product_forBongo": "TomTom DAIHATSU",
+    "Serial_Prefix_forBongo": "N2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2503,
+    "Product_forBongo": "TomTom GO 1005 / GO 2050",
+    "Serial_Prefix_forBongo": "SQ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2503,
+    "Product_forBongo": "TomTom GO 1005 / GO 2050",
+    "Serial_Prefix_forBongo": "SF",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2503,
+    "Product_forBongo": "TomTom GO 1005 / GO 2050",
+    "Serial_Prefix_forBongo": "SR",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2503,
+    "Product_forBongo": "TomTom GO 1005 / GO 2050",
+    "Serial_Prefix_forBongo": "SE",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2695,
+    "Product_forBongo": "TomTom Mazda Navigation (NVA-SD8110)(LIVE)",
+    "Serial_Prefix_forBongo": "DF",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 3184,
+    "Product_forBongo": "TomTom Uconnect 5” Radio Nav",
+    "Serial_Prefix_forBongo": "TO",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 3184,
+    "Product_forBongo": "TomTom Uconnect 5” Radio Nav",
+    "Serial_Prefix_forBongo": "TP",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 3184,
+    "Product_forBongo": "TomTom Uconnect 5” Radio Nav",
+    "Serial_Prefix_forBongo": "TU",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 3184,
+    "Product_forBongo": "TomTom Uconnect 5” Radio Nav",
+    "Serial_Prefix_forBongo": "TV",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 3184,
+    "Product_forBongo": "TomTom Uconnect 5” Radio Nav",
+    "Serial_Prefix_forBongo": "TW",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2748,
+    "Product_forBongo": "TomTom Connect LIVE",
+    "Serial_Prefix_forBongo": "TL",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2748,
+    "Product_forBongo": "TomTom Connect LIVE",
+    "Serial_Prefix_forBongo": "TZ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2454,
+    "Product_forBongo": "TomTom TOYOTA TNS410",
+    "Serial_Prefix_forBongo": "DA",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2712,
+    "Product_forBongo": "TomTom VIA 1400 / 1405",
+    "Serial_Prefix_forBongo": "AP",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2782,
+    "Product_forBongo": "TomTom START 55",
+    "Serial_Prefix_forBongo": "GU",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2782,
+    "Product_forBongo": "TomTom START 55",
+    "Serial_Prefix_forBongo": "GZ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2480,
+    "Product_forBongo": "TomTom EASE",
+    "Serial_Prefix_forBongo": "XI",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2480,
+    "Product_forBongo": "TomTom EASE",
+    "Serial_Prefix_forBongo": "XJ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2480,
+    "Product_forBongo": "TomTom EASE",
+    "Serial_Prefix_forBongo": "XK",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2480,
+    "Product_forBongo": "TomTom EASE",
+    "Serial_Prefix_forBongo": "XL",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2779,
+    "Product_forBongo": "TomTom START 40 (2012)",
+    "Serial_Prefix_forBongo": "GT",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2780,
+    "Product_forBongo": "TomTom START 45",
+    "Serial_Prefix_forBongo": "GY",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2705,
+    "Product_forBongo": "TomTom GO 2535",
+    "Serial_Prefix_forBongo": "SN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2705,
+    "Product_forBongo": "TomTom GO 2535",
+    "Serial_Prefix_forBongo": "SE",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2704,
+    "Product_forBongo": "TomTom GO LIVE 2535 M",
+    "Serial_Prefix_forBongo": "SL",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2706,
+    "Product_forBongo": "TomTom GO 2535 TM WTE",
+    "Serial_Prefix_forBongo": "SM",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2610,
+    "Product_forBongo": "TomTom GO 2505",
+    "Serial_Prefix_forBongo": "SE",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2744,
+    "Product_forBongo": "TomTom GO LIVE 1535",
+    "Serial_Prefix_forBongo": "FQ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2707,
+    "Product_forBongo": "TomTom GO 2435",
+    "Serial_Prefix_forBongo": "TJ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2007,
+    "Product_forBongo": "TomTom TOYOTA TNS400",
+    "Serial_Prefix_forBongo": "N2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2456,
+    "Product_forBongo": "TomTom XXL 540 S",
+    "Serial_Prefix_forBongo": "RX",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2455,
+    "Product_forBongo": "TomTom XXL 530 S",
+    "Serial_Prefix_forBongo": "RY",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1954,
+    "Product_forBongo": "TomTom ONE 3rd Edition - USA & Canada",
+    "Serial_Prefix_forBongo": "Y1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1954,
+    "Product_forBongo": "TomTom ONE 3rd Edition - USA & Canada",
+    "Serial_Prefix_forBongo": "Y2",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1954,
+    "Product_forBongo": "TomTom ONE 3rd Edition - USA & Canada",
+    "Serial_Prefix_forBongo": "Y5",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1954,
+    "Product_forBongo": "TomTom ONE 3rd Edition - USA & Canada",
+    "Serial_Prefix_forBongo": "Y7",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2691,
+    "Product_forBongo": "TomTom VIA 1530 / 1535",
+    "Serial_Prefix_forBongo": "BO",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2691,
+    "Product_forBongo": "TomTom VIA 1530 / 1535",
+    "Serial_Prefix_forBongo": "BN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2488,
+    "Product_forBongo": "TomTom XL 335",
+    "Serial_Prefix_forBongo": "GI",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2488,
+    "Product_forBongo": "TomTom XL 335",
+    "Serial_Prefix_forBongo": "GJ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2690,
+    "Product_forBongo": "TomTom VIA 1500 / 1505",
+    "Serial_Prefix_forBongo": "BL",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2713,
+    "Product_forBongo": "TomTom VIA 1510 / 1515 (M)",
+    "Serial_Prefix_forBongo": "BQ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2689,
+    "Product_forBongo": "TomTom VIA 1430 / 1435",
+    "Serial_Prefix_forBongo": "AR",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2689,
+    "Product_forBongo": "TomTom VIA 1430 / 1435",
+    "Serial_Prefix_forBongo": "AW",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2781,
+    "Product_forBongo": "TomTom START 50 (2012)",
+    "Serial_Prefix_forBongo": "GU",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2781,
+    "Product_forBongo": "TomTom START 50 (2012)",
+    "Serial_Prefix_forBongo": "GZ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2487,
+    "Product_forBongo": "TomTom XL 350",
+    "Serial_Prefix_forBongo": "GK",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2486,
+    "Product_forBongo": "TomTom XXL 550",
+    "Serial_Prefix_forBongo": "GL",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2331,
+    "Product_forBongo": "TomTom ECLIPSE II (AVN4430)",
+    "Serial_Prefix_forBongo": "DA",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 1678,
+    "Product_forBongo": "TomTom ECLIPSE (AVN2210p)",
+    "Serial_Prefix_forBongo": "N1",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2685,
+    "Product_forBongo": "TomTom ONE 140",
+    "Serial_Prefix_forBongo": "PU",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2685,
+    "Product_forBongo": "TomTom ONE 140",
+    "Serial_Prefix_forBongo": "PM",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2685,
+    "Product_forBongo": "TomTom ONE 140",
+    "Serial_Prefix_forBongo": "PS",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2432,
+    "Product_forBongo": "TomTom XL 325",
+    "Serial_Prefix_forBongo": "RB",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2432,
+    "Product_forBongo": "TomTom XL 325",
+    "Serial_Prefix_forBongo": "RC",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2432,
+    "Product_forBongo": "TomTom XL 325",
+    "Serial_Prefix_forBongo": "RH",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2432,
+    "Product_forBongo": "TomTom XL 325",
+    "Serial_Prefix_forBongo": "RI",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2432,
+    "Product_forBongo": "TomTom XL 325",
+    "Serial_Prefix_forBongo": "RN",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2432,
+    "Product_forBongo": "TomTom XL 325",
+    "Serial_Prefix_forBongo": "RO",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PA",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PV",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PB",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PE",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PC",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PF",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PH",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PK",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PI",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PL",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PN",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PO",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PP",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2323,
+    "Product_forBongo": "TomTom ONE 125",
+    "Serial_Prefix_forBongo": "PQ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2501,
+    "Product_forBongo": "TomTom GO 1000",
+    "Serial_Prefix_forBongo": "TC",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2501,
+    "Product_forBongo": "TomTom GO 1000",
+    "Serial_Prefix_forBongo": "TD",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PA",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PB",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PC",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PE",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PF",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PH",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PI",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PK",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PL",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PN",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PO",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PP",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PQ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2030,
+    "Product_forBongo": "TomTom ONE 30 Series",
+    "Serial_Prefix_forBongo": "PV",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2835,
+    "Product_forBongo": "TomTom Via 225 / All Blacks Edition",
+    "Serial_Prefix_forBongo": "BK",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2829,
+    "Product_forBongo": "TomTom Via 260 / 280",
+    "Serial_Prefix_forBongo": "AU",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2829,
+    "Product_forBongo": "TomTom Via 260 / 280",
+    "Serial_Prefix_forBongo": "BN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2829,
+    "Product_forBongo": "TomTom Via 260 / 280",
+    "Serial_Prefix_forBongo": "BO",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2829,
+    "Product_forBongo": "TomTom Via 260 / 280",
+    "Serial_Prefix_forBongo": "AW",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2653,
+    "Product_forBongo": "TomTom  Via 160",
+    "Serial_Prefix_forBongo": "AI",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2653,
+    "Product_forBongo": "TomTom  Via 160",
+    "Serial_Prefix_forBongo": "AN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2652,
+    "Product_forBongo": "TomTom Via LIVE 160",
+    "Serial_Prefix_forBongo": "FM",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2652,
+    "Product_forBongo": "TomTom Via LIVE 160",
+    "Serial_Prefix_forBongo": "FN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2651,
+    "Product_forBongo": "TomTom Via 180",
+    "Serial_Prefix_forBongo": "BH",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2651,
+    "Product_forBongo": "TomTom Via 180",
+    "Serial_Prefix_forBongo": "BN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2693,
+    "Product_forBongo": "TomTom GO 1050 World",
+    "Serial_Prefix_forBongo": "SJ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2682,
+    "Product_forBongo": "TomTom XXL 540",
+    "Serial_Prefix_forBongo": "RZ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2692,
+    "Product_forBongo": "TomTom GO LIVE 1050 / GO LIVE 2050",
+    "Serial_Prefix_forBongo": "SI",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2692,
+    "Product_forBongo": "TomTom GO LIVE 1050 / GO LIVE 2050",
+    "Serial_Prefix_forBongo": "SA",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2692,
+    "Product_forBongo": "TomTom GO LIVE 1050 / GO LIVE 2050",
+    "Serial_Prefix_forBongo": "SE",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2692,
+    "Product_forBongo": "TomTom GO LIVE 1050 / GO LIVE 2050",
+    "Serial_Prefix_forBongo": "SB",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2692,
+    "Product_forBongo": "TomTom GO LIVE 1050 / GO LIVE 2050",
+    "Serial_Prefix_forBongo": "SP",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2681,
+    "Product_forBongo": "TomTom GO 1050",
+    "Serial_Prefix_forBongo": "SE",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2745,
+    "Product_forBongo": "TomTom Via 220",
+    "Serial_Prefix_forBongo": "AQ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2745,
+    "Product_forBongo": "TomTom Via 220",
+    "Serial_Prefix_forBongo": "AR",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2745,
+    "Product_forBongo": "TomTom Via 220",
+    "Serial_Prefix_forBongo": "AO",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2650,
+    "Product_forBongo": "TomTom Via LIVE 180",
+    "Serial_Prefix_forBongo": "FP",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2686,
+    "Product_forBongo": "TomTom XL 250",
+    "Serial_Prefix_forBongo": "GH",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2686,
+    "Product_forBongo": "TomTom XL 250",
+    "Serial_Prefix_forBongo": "GJ",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2828,
+    "Product_forBongo": "TomTom Via 620",
+    "Serial_Prefix_forBongo": "WM",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2828,
+    "Product_forBongo": "TomTom Via 620",
+    "Serial_Prefix_forBongo": "WN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2684,
+    "Product_forBongo": "TomTom XL 340",
+    "Serial_Prefix_forBongo": "RS",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2684,
+    "Product_forBongo": "TomTom XL 340",
+    "Serial_Prefix_forBongo": "RU",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2684,
+    "Product_forBongo": "TomTom XL 340",
+    "Serial_Prefix_forBongo": "R4",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 2923,
+    "Product_forBongo": "TomTom GO LIVE 2050 World",
+    "Serial_Prefix_forBongo": "SI",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2923,
+    "Product_forBongo": "TomTom GO LIVE 2050 World",
+    "Serial_Prefix_forBongo": "ST",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3934,
+    "Product_forBongo": "TomTom Golfer",
+    "Serial_Prefix_forBongo": "HB",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 3841,
+    "Product_forBongo": "TomTom VIA 1605 / VIA 1605 M RV",
+    "Serial_Prefix_forBongo": "WN",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2653,
+    "Product_forBongo": "TomTom  Via 160",
+    "Serial_Prefix_forBongo": "AU",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2691,
+    "Product_forBongo": "TomTom VIA 1530 / 1535",
+    "Serial_Prefix_forBongo": "BM",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3967,
+    "Product_forBongo": "TomTom Rider 400",
+    "Serial_Prefix_forBongo": "KD",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3967,
+    "Product_forBongo": "TomTom Rider 400",
+    "Serial_Prefix_forBongo": "KA",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2688,
+    "Product_forBongo": "TomTom VIA 1410 / 1415",
+    "Serial_Prefix_forBongo": "AY",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 3971,
+    "Product_forBongo": "TomTom Rider 40",
+    "Serial_Prefix_forBongo": "KE",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2986,
+    "Product_forBongo": "TomTom GO 6000 / 6100",
+    "Serial_Prefix_forBongo": "QQ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2985,
+    "Product_forBongo": "TomTom GO 5000 / 5100",
+    "Serial_Prefix_forBongo": "QR",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2984,
+    "Product_forBongo": "TomTom GO 600 / 610",
+    "Serial_Prefix_forBongo": "QW",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2984,
+    "Product_forBongo": "TomTom GO 600 / 610",
+    "Serial_Prefix_forBongo": "QS",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2983,
+    "Product_forBongo": "TomTom GO 500 / 510",
+    "Serial_Prefix_forBongo": "QX",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2983,
+    "Product_forBongo": "TomTom GO 500 / 510",
+    "Serial_Prefix_forBongo": "QT",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 2983,
+    "Product_forBongo": "TomTom GO 500 / 510",
+    "Serial_Prefix_forBongo": "QY",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4039,
+    "Product_forBongo": "TomTom Trucker 6000",
+    "Serial_Prefix_forBongo": "Z4",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4060,
+    "Product_forBongo": "TomTom smart Media-System",
+    "Serial_Prefix_forBongo": "IJ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4062,
+    "Product_forBongo": "TomTom Spark",
+    "Serial_Prefix_forBongo": "HN",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4062,
+    "Product_forBongo": "TomTom Spark",
+    "Serial_Prefix_forBongo": "HN",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4062,
+    "Product_forBongo": "TomTom Spark",
+    "Serial_Prefix_forBongo": "HS",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4062,
+    "Product_forBongo": "TomTom Spark",
+    "Serial_Prefix_forBongo": "HN",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4062,
+    "Product_forBongo": "TomTom Spark",
+    "Serial_Prefix_forBongo": "HN",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4061,
+    "Product_forBongo": "TomTom Runner 2",
+    "Serial_Prefix_forBongo": "HO",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4062,
+    "Product_forBongo": "TomTom Spark",
+    "Serial_Prefix_forBongo": "HO",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4094,
+    "Product_forBongo": "TomTom Trucker 5000",
+    "Serial_Prefix_forBongo": "Z6",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4244,
+    "Product_forBongo": "TomTom Rider 410",
+    "Serial_Prefix_forBongo": "KA",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4244,
+    "Product_forBongo": "TomTom Rider 410",
+    "Serial_Prefix_forBongo": "KD",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4241,
+    "Product_forBongo": "TomTom Trucker 500",
+    "Serial_Prefix_forBongo": "Z7",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4261,
+    "Product_forBongo": "TomTom START 62",
+    "Serial_Prefix_forBongo": "EU",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4261,
+    "Product_forBongo": "TomTom START 62",
+    "Serial_Prefix_forBongo": "ET",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4242,
+    "Product_forBongo": "TomTom START 42",
+    "Serial_Prefix_forBongo": "XT",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4242,
+    "Product_forBongo": "TomTom START 42",
+    "Serial_Prefix_forBongo": "XS",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4260,
+    "Product_forBongo": "TomTom START 52",
+    "Serial_Prefix_forBongo": "XR",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4260,
+    "Product_forBongo": "TomTom START 52",
+    "Serial_Prefix_forBongo": "XQ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4233,
+    "Product_forBongo": "TomTom Golfer 2",
+    "Serial_Prefix_forBongo": "HP",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4243,
+    "Product_forBongo": "TomTom VIA 52",
+    "Serial_Prefix_forBongo": "EM",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4243,
+    "Product_forBongo": "TomTom VIA 52",
+    "Serial_Prefix_forBongo": "EL",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4243,
+    "Product_forBongo": "TomTom VIA 52",
+    "Serial_Prefix_forBongo": "ES",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4243,
+    "Product_forBongo": "TomTom VIA 52",
+    "Serial_Prefix_forBongo": "ER",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4283,
+    "Product_forBongo": "TomTom VIA 62",
+    "Serial_Prefix_forBongo": "EJ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4283,
+    "Product_forBongo": "TomTom VIA 62",
+    "Serial_Prefix_forBongo": "EI",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4283,
+    "Product_forBongo": "TomTom VIA 62",
+    "Serial_Prefix_forBongo": "EP",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4283,
+    "Product_forBongo": "TomTom VIA 62",
+    "Serial_Prefix_forBongo": "EO",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4298,
+    "Product_forBongo": "TomTom Runner 3",
+    "Serial_Prefix_forBongo": "HQ",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4298,
+    "Product_forBongo": "TomTom Runner 3",
+    "Serial_Prefix_forBongo": "HR",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4297,
+    "Product_forBongo": "TomTom Spark 3",
+    "Serial_Prefix_forBongo": "HR",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4297,
+    "Product_forBongo": "TomTom Spark 3",
+    "Serial_Prefix_forBongo": "HQ",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4296,
+    "Product_forBongo": "TomTom Adventurer",
+    "Serial_Prefix_forBongo": "HL",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4302,
+    "Product_forBongo": "TomTom GO 620 Wi-Fi",
+    "Serial_Prefix_forBongo": "ZE",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4303,
+    "Product_forBongo": "TomTom GO 5200 Wi-Fi",
+    "Serial_Prefix_forBongo": "ZB",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4303,
+    "Product_forBongo": "TomTom GO 5200 Wi-Fi",
+    "Serial_Prefix_forBongo": "ZO",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4304,
+    "Product_forBongo": "TomTom GO 6200 Wi-Fi",
+    "Serial_Prefix_forBongo": "ZA",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4301,
+    "Product_forBongo": "TomTom GO 520 Wi-Fi",
+    "Serial_Prefix_forBongo": "ZF",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4301,
+    "Product_forBongo": "TomTom GO 520 Wi-Fi",
+    "Serial_Prefix_forBongo": "ZN",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4234,
+    "Product_forBongo": "TomTom Touch Cardio + Body Composition",
+    "Serial_Prefix_forBongo": "JC",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4382,
+    "Product_forBongo": "TomTom Trucker 600",
+    "Serial_Prefix_forBongo": "Z8",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4575,
+    "Product_forBongo": "TomTom Touch Cardio",
+    "Serial_Prefix_forBongo": "JD",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4588,
+    "Product_forBongo": "TomTom VIA 1420 / 1425 M",
+    "Serial_Prefix_forBongo": "XT",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4589,
+    "Product_forBongo": "TomTom VIA 1425 TM",
+    "Serial_Prefix_forBongo": "XS",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4590,
+    "Product_forBongo": "TomTom VIA 1520 / 1525 M",
+    "Serial_Prefix_forBongo": "XR",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4591,
+    "Product_forBongo": "TomTom VIA 1525 TM",
+    "Serial_Prefix_forBongo": "XQ",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4592,
+    "Product_forBongo": "TomTom VIA 1620 / 1625 M",
+    "Serial_Prefix_forBongo": "EU",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4593,
+    "Product_forBongo": "TomTom VIA 1625 TM",
+    "Serial_Prefix_forBongo": "ET",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4604,
+    "Product_forBongo": "TomTom Rider 42",
+    "Serial_Prefix_forBongo": "KE",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4605,
+    "Product_forBongo": "TomTom Rider 420",
+    "Serial_Prefix_forBongo": "KD",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4606,
+    "Product_forBongo": "TomTom Rider 450",
+    "Serial_Prefix_forBongo": "KD",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4609,
+    "Product_forBongo": "TomTom GO PROFESSIONAL 520",
+    "Serial_Prefix_forBongo": "ZF",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4610,
+    "Product_forBongo": "TomTom GO PROFESSIONAL 620",
+    "Serial_Prefix_forBongo": "ZE",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4612,
+    "Product_forBongo": "TomTom GO PROFESSIONAL 6200",
+    "Serial_Prefix_forBongo": "ZA",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4614,
+    "Product_forBongo": "TomTom GO PROFESSIONAL 6250",
+    "Serial_Prefix_forBongo": "ZA",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4599,
+    "Product_forBongo": "TomTom Golfer 2 SE",
+    "Serial_Prefix_forBongo": "HO",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4599,
+    "Product_forBongo": "TomTom Golfer 2 SE",
+    "Serial_Prefix_forBongo": "HQ",
+    "Software_forBongo": "MySports Connect"
+  },
+  {
+    "ID_forBongo": 4617,
+    "Product_forBongo": "TomTom VIA 53",
+    "Serial_Prefix_forBongo": "ZL",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4617,
+    "Product_forBongo": "TomTom VIA 53",
+    "Serial_Prefix_forBongo": "ZP",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4617,
+    "Product_forBongo": "TomTom VIA 53",
+    "Serial_Prefix_forBongo": "ZQ",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4617,
+    "Product_forBongo": "TomTom VIA 53",
+    "Serial_Prefix_forBongo": "ZM",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4664,
+    "Product_forBongo": "TomTom VIA 1615 TM",
+    "Serial_Prefix_forBongo": "ET",
+    "Software_forBongo": "MyDrive Connect"
+  },
+  {
+    "ID_forBongo": 4670,
+    "Product_forBongo": "TomTom GO 52",
+    "Serial_Prefix_forBongo": "ZL",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4602,
+    "Product_forBongo": "TomTom CURFER",
+    "Serial_Prefix_forBongo": "LX",
+    "Software_forBongo": "N/A"
+  },
+  {
+    "ID_forBongo": 4715,
+    "Product_forBongo": "TomTom Rider 500/550",
+    "Serial_Prefix_forBongo": "KF",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4715,
+    "Product_forBongo": "TomTom Rider 500/550",
+    "Serial_Prefix_forBongo": "KG",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4722,
+    "Product_forBongo": "TomTom GO Basic",
+    "Serial_Prefix_forBongo": "X5",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4722,
+    "Product_forBongo": "TomTom GO Basic",
+    "Serial_Prefix_forBongo": "X7",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4722,
+    "Product_forBongo": "TomTom GO Basic",
+    "Serial_Prefix_forBongo": "X6",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4722,
+    "Product_forBongo": "TomTom GO Basic",
+    "Serial_Prefix_forBongo": "X8",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4723,
+    "Product_forBongo": "TomTom GO Camper",
+    "Serial_Prefix_forBongo": "ZA",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4746,
+    "Product_forBongo": "TomTom GO Essential",
+    "Serial_Prefix_forBongo": "ZN",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4746,
+    "Product_forBongo": "TomTom GO Essential",
+    "Serial_Prefix_forBongo": "ZE",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 4102,
+    "Product_forBongo": "TomTom Peugeot Boxer / Citroën Jumper Radio Nav",
+    "Serial_Prefix_forBongo": "TO",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 4102,
+    "Product_forBongo": "TomTom Peugeot Boxer / Citroën Jumper Radio Nav",
+    "Serial_Prefix_forBongo": "TU",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 4102,
+    "Product_forBongo": "TomTom Peugeot Boxer / Citroën Jumper Radio Nav",
+    "Serial_Prefix_forBongo": "TP",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 4102,
+    "Product_forBongo": "TomTom Peugeot Boxer / Citroën Jumper Radio Nav",
+    "Serial_Prefix_forBongo": "TV",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 4102,
+    "Product_forBongo": "TomTom Peugeot Boxer / Citroën Jumper Radio Nav",
+    "Serial_Prefix_forBongo": "TW",
+    "Software_forBongo": "TomTom HOME"
+  },
+  {
+    "ID_forBongo": 5007,
+    "Product_forBongo": "TomTom GO Premium",
+    "Serial_Prefix_forBongo": "ZS",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 5007,
+    "Product_forBongo": "TomTom GO Premium",
+    "Serial_Prefix_forBongo": "ZR",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 5008,
+    "Product_forBongo": "TomTom GO Premium X",
+    "Serial_Prefix_forBongo": "ZT",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 5046,
+    "Product_forBongo": "TomTom GO Supreme",
+    "Serial_Prefix_forBongo": "ZE",
+    "Software_forBongo": "Wi-Fi®"
+  },
+  {
+    "ID_forBongo": 5046,
+    "Product_forBongo": "TomTom GO Supreme",
+    "Serial_Prefix_forBongo": "ZN",
+    "Software_forBongo": "Wi-Fi®"
+  }
+]
