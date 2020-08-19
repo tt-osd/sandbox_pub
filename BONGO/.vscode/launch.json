@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations":[
+        {
+            "type":"node",
+            "request": "launch",
+            "name": "Launch Program via nodemon",
+            "skipFiles": ["<node_internals>/**"],
+            "runtimeExecutable": "nodemon",
+            "program": "--exec 'bots-node-sdk service'",
+            "restart": true,
+            "timeout": 3600000
+        }
+    ]
+    
+}
