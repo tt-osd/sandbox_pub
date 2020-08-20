@@ -1,5 +1,5 @@
-function tealium(){
-    
+function tealium(useridentifier){
+  
 
   //new function for get JSON
   function readMap(myURL){
@@ -40,7 +40,7 @@ if (the_url.indexOf("sandbox")== -1) {
    var page_type_id="";
    var page_id = ""
    var homepage = document.getElementById('home-section'); 
-   var userId=HelpCenter.user.identifier;
+   var userId=useridentifier;
   
 
 if (the_url.indexOf("/categories/")!= -1){
