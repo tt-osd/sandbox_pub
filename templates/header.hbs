@@ -19,7 +19,7 @@
  var tea; //this var will hold the utag src from Map.JSON
   var utagFC=document.createElement('script'); // create a script tag to load the custome tealium function
   utagFC.onload = function () { // when tealium function is loaded
-	 tea=tealium(HelpCenter.user.identifier);// call the function and var tea will get the utag src
+	 tea=tealium();// call the function and var tea will get the utag src
   var tealiumScript = document.createElement('script'); //create a tag to load utag   
   utag_data=tea.utag_data_slot;
   tealiumScript.src = tea.tealium_script_slot;//get the src for utag script
