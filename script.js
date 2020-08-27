@@ -1013,6 +1013,10 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
     mobile_bongo=true;
    
   }
+  function closeBongoOnMobile(){
+    document.getElementById('close_bongo').classList.add("zd_Hidden");
+  }
+  
   //bongo mobile
 
 
