@@ -1016,7 +1016,7 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
   function closeBongoOnMobile(){
     document.getElementById('close_bongo').classList.add("zd_Hidden");
   }
-  
+
   //bongo mobile
 
 
@@ -1033,7 +1033,8 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
       if( bongo_loaded==1){
          //when bongo is loaded, open chat by showing the chat window
           var bongo=document.getElementById("web-messenger-container"); 
-   				bongo.classList.remove("zd_Hidden");    
+           bongo.classList.remove("zd_Hidden");  
+           document.getElementById('close_bongo').classList.remove("zd_Hidden");  
       }else{
         if(mobile_bongo == true){
           var close_bongo=document.createElement('div');
