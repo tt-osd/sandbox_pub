@@ -1007,6 +1007,14 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
   
   
   var bongo_loaded=0;
+ //bongo mobile
+   var mobile_bongo=false;
+   if ((navigator.userAgent.indexOf('Android') != -1) || (navigator.userAgent.indexOf('iPhone') != -1)){
+    mobile_bongo=true;
+   
+  }
+  //bongo mobile
+
 
   function getLocale() {
     return window.location.href
@@ -1023,11 +1031,30 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
           var bongo=document.getElementById("web-messenger-container"); 
    				bongo.classList.remove("zd_Hidden");    
       }else{
-        //when bongo is not loaded, open chat by render the bot
-          Bots.render(document.getElementById('bongo_place'));
+        if(mobile_bongo == true){
+          var close_bongo=document.createElement('div');
+          close_bongo.id = 'close_bongo';
+          close_bongo.className="close_bongo";
+          close_bongo.addEventListener("click", closeBongoOnMobile); 
+         
+           var bongo_fullSize=document.createElement('div');
+            bongo_fullSize.id = 'bongo_fullSize';
+             bongo_fullSize.appendChild(close_bongo);
+           var BODY = document.getElementsByTagName("BODY")[0]; 
+           BODY.appendChild(bongo_fullSize);
+           
+           Bots.render(document.getElementById('bongo_fullSize')); 
           var bongo=document.getElementById("web-messenger-container"); 
-          //add the css changes to make bongo fit in sub footer 
-          bongo.classList.add("zd_Bongo");
+          bongo.classList.add("bongo_fullSize");
+         
+         
+         }else{
+             //when bongo is not loaded, open chat by render the bot
+           Bots.render(document.getElementById('bongo_place'));
+           var bongo=document.getElementById("web-messenger-container"); 
+            //add the css changes to make bongo fit in sub footer 
+           bongo.classList.add("zd_Bongo");
+          }
       } 
       
        ga_tracking("Bongo", "clicked", "bongo opened");
