@@ -31,7 +31,7 @@
     }
     
   .close_bongo{
-    content:  url($assets-close_icon-png);
+    /*content:  url($assets-close_icon-png);*/
         z-index: 9999999999;
       position: fixed;
       right: 0;

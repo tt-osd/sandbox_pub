@@ -7869,3 +7869,9 @@ box-shadow: 2px 5px 5px 0px rgba(190,190,190,1);
   margin:0.7em 0;
 }
 /*serial prefix checker*/
+
+
+
+    
+.close_bongo{
+  content:  url($assets-close_icon-png);}
