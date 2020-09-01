@@ -27,9 +27,17 @@
         "sandbox":360000358360,
         "prod":360000679560        
     },
+    "auto_renewal_refund_form_id":{
+        "sandbox":360000875500,
+        "prod":360000875740        
+    },
     "refund_form_id":{
-        "sandbox":360000673440,
-        "prod":321        
+        "sandbox":360000849779,
+        "prod":360000855559        
+    },
+    "ordernumber_field_id":{
+        "sandbox":360012478240,
+        "prod":360012584820        
     },
     "priority_field_id":{
         "sandbox":360004712120,
@@ -162,6 +170,18 @@
     "additional_notes_or_details_eur_field_id":{
         "sandbox":360009656840,
         "prod":360009363859        
+    },
+    "sap_order_number_eur_field":{
+        "sandbox":360009771640,
+        "prod":360011225100        
+    },
+    "sap_total_refund_amount_eur_field":{
+        "sandbox":360012879779,
+        "prod":360011224940        
+    },
+    "sap_currency_eur_field":{
+        "sandbox":360008935919,
+        "prod":360008494940        
     },
     "tealium":{
         "sandbox":"//tags.tiqcdn.com/utag/tomtom/support/qa/utag.js",

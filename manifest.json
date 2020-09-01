@@ -1,11 +1,7 @@
 {
-  "name": "Test Environment 1.0",
+  "name": "Live, DONOT OPEN",
   "author": "Zendesk",
-
- 
-
-  "version": "1.11.18",
-
+  "version": "1.13.09",
   "api_version": 1,
   "default_locale": "en-gb",
   "settings": [
