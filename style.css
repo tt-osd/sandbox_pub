@@ -8260,6 +8260,13 @@ box-shadow: 2px 5px 5px 0px rgba(190,190,190,1);
 }
 /*serial prefix checker*/
 
+
+
+
+    
+.close_bongo{
+  content:  url($assets-close_icon-png);}
+
 /***IE box***/
 .notification-bar-ie {
 background-color: #fdc530;
@@ -8282,3 +8289,4 @@ transition: opacity 0.3s, visibility 0.3s, transform 0.3s, max-height 0.3, paddi
 padding: 40px 0 48px;
   }
 }
+
