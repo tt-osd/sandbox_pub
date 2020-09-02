@@ -1,6 +1,32 @@
-/* PLESAE READ - There are 2 document ready functions one is below in DOMContentLoaded and there is (document).ready at the bottom if you require the whole document to load */
+/* PLEASE READ - There are 2 document ready functions one is below in DOMContentLoaded and there is (document).ready at the bottom if you require the whole document to load */
 
 document.addEventListener('DOMContentLoaded', function() { // **** Include all JS in this function
+    //chevron
+//iphone userAgent: iPhone
+if (navigator.userAgent.indexOf('Mac') != -1){
+  $(".breadcrumbs li+li").addClass("chevron_mac");
+}else if(navigator.userAgent.indexOf('Windows') != -1){
+   $(".breadcrumbs li+li").addClass("chevron_win");
+}else{
+  $(".breadcrumbs li+li").addClass("chevron_general");
+}
+
+//chevron 
+
+    
+  /******** Home page META description ***********/ // DDA-673 Amy
+
+  var homePage = document.getElementById("home-section");
+
+   if (homePage){
+  var homepage_metadescription  = document.getElementById("homepage_metadescription").textContent;  
+  var homepage_meta = document.createElement('meta');
+  homepage_meta.setAttribute('name', 'description');
+ 	homepage_meta.content = homepage_metadescription;
+  document.getElementsByTagName('head')[0].appendChild(homepage_meta);
+  }
+
+  /******** End Home page META description ***********/  // DDA-673 Amy
   
   //this is the URL value that can be used in all the functions
    var the_url= window.location.href;
@@ -36,8 +62,14 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
       var tthome_section_id="";
       var vanilla_sso_server = -1;
       var vanilla_redirect_url = -1;
-       var talk_form_id = -1;
-       var email_form_request_local_field=-1;
+      var talk_form_id = -1;
+      var email_form_request_local_field=-1;
+      var auto_renewal_refund_form_id=-1;
+  		var refund_form_id=-1;
+      var ordernumber_field_id=-1;
+      var sap_order_number_eur_field=-1;
+      var sap_total_refund_amount_eur_field=-1;
+      var sap_currency_eur_field=-1;
        //create form id with a default value -1
 
 
@@ -94,11 +126,18 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
            spts_cat_id=data.sports_category_id.sandbox;
            apps_cat_id=data.apps_category_id.sandbox;
            userManualsReleaseInfo_cat_id=data.user_manual_release_info_category_id.sandbox;
-  				 tthome_section_id=data.tthome_section_id.sandbox; 
-       		 vanilla_redirect_url=data.vanilla_redirect_url.sandbox; 
-        	 vanilla_sso_server=data.vanilla_sso_server.sandbox; 
-          talk_form_id=data.talk_form_id.sandbox;
-          email_form_request_local_field=data.email_form_request_local.sandbox;
+           tthome_section_id=data.tthome_section_id.sandbox; 
+           vanilla_redirect_url=data.vanilla_redirect_url.sandbox; 
+           vanilla_sso_server=data.vanilla_sso_server.sandbox; 
+            talk_form_id=data.talk_form_id.sandbox;
+           email_form_request_local_field=data.email_form_request_local.sandbox;
+           auto_renewal_refund_form_id=data.auto_renewal_refund_form_id.sandbox;
+           refund_form_id=data.refund_form_id.sandbox;
+           ordernumber_field_id=data.ordernumber_field_id.sandbox;
+          sap_order_number_eur_field=data.sap_order_number_eur_field.sandbox;
+          sap_total_refund_amount_eur_field=data.sap_total_refund_amount_eur_field.sandbox;
+          sap_currency_eur_field=data.sap_currency_eur_field.sandbox;
+        
         		  } else {
             
            //form id get the production id value
@@ -118,6 +157,12 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
             vanilla_sso_server=data.vanilla_sso_server.prod; 
             talk_form_id=data.talk_form_id.prod;
             email_form_request_local_field=data.email_form_request_local.prod;
+            auto_renewal_refund_form_id=data.auto_renewal_refund_form_id.prod;
+           	refund_form_id=data.refund_form_id.prod;
+            ordernumber_field_id=data.ordernumber_field_id.prod;
+            sap_order_number_eur_field=data.sap_order_number_eur_field.prod;
+            sap_total_refund_amount_eur_field=data.sap_total_refund_amount_eur_field.prod;
+            sap_currency_eur_field=data.sap_currency_eur_field.prod;
           }//end of get form/fields ID
       
      if(the_url.indexOf("ticket_form_id")!= -1){     //the current page is a form page 
@@ -263,14 +308,83 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                           $(".request_custom_fields_"+email_form_request_local_field).addClass("zd_Hidden");
                           $("#request_custom_fields_"+email_form_request_local_field).val(HelpCenter.user.locale);
                           /*** Email FORM***/
-                        } else {
+                        } else if (window.location.href.indexOf(refund_form_id) > -1) {
+                          
+                          /*** Refund Request FORM***/ 				//testing URL hc/en-gb/requests/new?ticket_form_id=360000849779
+                        		var refund_request_page_title = document.getElementById("refund_request_page_title").innerHTML; 
+                            document.title = refund_request_page_title;
+            								$('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
+                           	SubjectLine.value = refund_request_page_title + " " + refund_form_id;      
+                          
+										 //disable the submit button 
+                      var refund_button = (document.getElementsByName("commit"))[0];
+                      refund_button.disabled = true;
+                      // after the following validation is passed, this button will be enabled.
+											var order_number_feild =  document.getElementById("request_custom_fields_" + ordernumber_field_id);
+                      var order_number_feild_full =  document.getElementsByClassName("request_custom_fields_" + ordernumber_field_id)[0]; 
+                      // order number input max length is 9
+                      order_number_feild.maxLength = 9;
+                      // order number input max length is 9
+											order_number_feild.setAttribute("placeholder", "40*******"); 
+                      order_number_feild_full.classList.add("required");
+                      //order number allows letters and numbers only, no punctuation or special characters
+                      order_number_feild.setAttribute("pattern", "[A-Za-z0-9]+");
+                      //order number allows letters and numbers only, no punctuation or special characters
+
+                      //order number live validation
+                     $("#request_custom_fields_" + ordernumber_field_id).on('input',function() {
+                         var order_number_input = (document.getElementById("request_custom_fields_" + ordernumber_field_id).value).toString(); 
+
+                                    if((order_number_input.length)==9){                      
+                                       refund_button.disabled = false;                                    
+                                    			}else{
+                                       refund_button.disabled = true;
+                                    }
+                         
+                     }); // end of order number on input function 
+                          
+                        /*** Refund Request FORM***/
+                          
+                        }  else if (window.location.href.indexOf(auto_renewal_refund_form_id) > -1) {
+                          
+                          /*** Auto renewal Refund Request FORM***/ 				//testing URL hc/en-gb/requests/new?ticket_form_id=360000875500
+                           /*** Auto renewal Refund Request FORM***/ 				//testing URL hc/en-gb/requests/new?ticket_form_id=360000875500
+            								var auto_renewal_request_page_title = document.getElementById("auto_renewal_request_page_title").innerHTML; 
+                           	var renewal_refund_amount = document.getElementById("renewal_refund_amount").innerHTML; 
+                          	var renewal_refund_currency = document.getElementById("renewal_refund_currency").innerHTML; 
+            								document.title = auto_renewal_request_page_title; // document title (page title) 
+            								$('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
+            								SubjectLine.value = auto_renewal_request_page_title + " " + auto_renewal_refund_form_id;  //pre fill subject line
+                            var auto_order_number_feild =   document.getElementById("request_custom_fields_" + sap_order_number_eur_field);                     
+                            auto_order_number_feild.maxLength = 9;                  
+                            auto_order_number_feild.setAttribute("placeholder", "40*******"); 
+                          	var refund_amount_field =   document.getElementById("request_custom_fields_" + sap_total_refund_amount_eur_field);    
+                         		refund_amount_field.value = renewal_refund_amount;  //pre fill refund amount line
+                          	refund_amount_field.setAttribute("readonly", true);
+            								(AttachmentsFileDrop.parentElement).classList.add("zd_Hidden");      
+                         		var auto_renewal_currency_field =   document.getElementById("request_custom_fields_" + sap_currency_eur_field);
+                      			var auto_renewal_currency_field_full = document.getElementsByClassName("request_custom_fields_" + sap_currency_eur_field)[0];                          	
+                          	var auto_renewal_currency_field_anchor = auto_renewal_currency_field_full.getElementsByTagName('a')[0];    
+                          	auto_renewal_currency_field.value = renewal_refund_currency; 
+                            auto_renewal_currency_field_anchor.innerHTML = renewal_refund_currency;
+                           	DescriptionBox.value = auto_renewal_refund_form_id; 
+                         		$('.request_description').addClass("zd_Hidden");
+                             
+                          
+                          $('<p id="auto_renewal_form" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
+                          $("#auto_renewal_form").html($("#renewal_refund_request_intro").html());     
+
+                        /*** Auto renewal Refund Request FORM***/
+                          
+                        } 
+              					else {
                         
                           /***GOLF FORM***/
 													//testing URL hc/en-gb/requests/new?ticket_form_id=360000679879
   
                           if (window.location.href.indexOf(golf_form_ID_checker) > -1){
-                      var golf_page_title = document.getElementById("golf_page_title").innerHTML; 
-                    	document.title = golf_page_title; 
+                  							    var golf_page_title = document.getElementById("golf_page_title").innerHTML; 
+                    								document.title = golf_page_title; 
                                    $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
                            					SubjectLine.value = golf_page_title + " " + golf_form_id;
                                     $('<p id="golf_form_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
@@ -282,7 +396,46 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
 
   					   } // end the current page is a form page   
       
-         								 if((the_url.indexOf("/requests/") > -1)&&(the_url.indexOf("new?ticket_form_id") <= -1)){  
+      
+                                          
+                                    var lastPart = the_url.substr(the_url.lastIndexOf('/') + 1);
+
+                                    if ((lastPart === "requests") ||(lastPart === "requests#repairs"))  { // if the end of the url is requests                
+         								              
+      													/************ Repaire page on requests page *****************/                  
+
+                                        var requestsPage = document.getElementById("requests");
+                                        var repairsPage = document.getElementById("repairs");
+                                        repairsPage.classList.add("zd_Hidden");
+                                        var current = document.getElementsByClassName("current")[0];
+                                        var repairsHeader = document.getElementById('repairs_header');
+                                        var requestsHeader = document.getElementById('requests_header');
+
+                                      repairsHeader.onclick =  function() {
+                                            if (!repairsPage.style.display || repairsPage.style.display === "none") {
+                                                      repairsPage.classList.remove("zd_Hidden");
+                                                      requestsPage.classList.add("zd_Hidden");  
+                                                      repairsHeader.classList.add("current");  
+                                                      requestsHeader.classList.remove("current");
+                                                  } 
+                                      };   
+
+
+
+                                if(the_url.indexOf("/requests#repairs")!= -1){ 
+                                                     repairsPage.classList.remove("zd_Hidden");
+                                                      requestsPage.classList.add("zd_Hidden");  
+                                                      repairsHeader.classList.add("current");  
+                                                      requestsHeader.classList.remove("current");
+                                 }
+                                   /************ Repair page on requests page *****************/   
+                                    }
+      
+      
+      
+      if((the_url.indexOf("/requests/") > -1)&&(the_url.indexOf("new?ticket_form_id") <= -1)){                         
+  			
+                                  
                            	var request_title = document.getElementsByClassName("request-title")[0].innerText;
                         
                            /*****  Request Pages *******/  
@@ -299,6 +452,7 @@ if(window.location.href.indexOf(strap_form_ID_checker) > -1) {	// if this is the
                                 $('<div class="comment" id="golf_thank_you"></div>').prependTo('.request-main');
                                 $("#golf_thank_you").html($("#golf_thank_you_dc").html());
                               }
+                             
                          } /*****  End Request Pages *******/  
 //   if($(".request-title:contains('360000569919')").length) {
 
@@ -353,8 +507,10 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
  //User-Manuals-Release-Info category page 
   chat_tag="prd_nav";
  
-}else if((the_url.includes("/contributions"))||(the_url.includes("/following"))||(the_url.includes("/requests"))||(the_url.includes("/profiles"))){
-  
+}
+      //ie11 hates this
+      //else if((the_url.includes("/contributions"))||(the_url.includes("/following"))||(the_url.includes("/requests"))||(the_url.includes("/profiles"))){
+  else if((the_url.indexOf("/contributions")!= -1)||(the_url.indexOf("/following")!= -1)||(the_url.indexOf("/requests")!= -1)||(the_url.indexOf("/profiles")!= -1)){
    chat_tag="prd_npr";
 }else{
   chat_tag="prd_nav"; 
@@ -445,7 +601,10 @@ if((the_url.indexOf(nav_cat_id)!= -1) &&(the_url.indexOf("categories")!= -1)){
                                }, 
                                                      launcher: {
                                                       chatLabel: {"*": chatLabel},
-                                                      label:{"*": chatLabel}
+                                                      label:{"*": chatLabel},
+                                                       mobile: {
+          labelVisible: true
+        }
                },
                         chat: {
                                  departments: {
@@ -472,6 +631,7 @@ var waitForZen = setInterval(function () {
             zE('webWidget:on', 'userEvent', function(event) {
   
         //user property in if statement!!!!
+              //alert(event.action);
           if((event.action)=="Contact Form Shown"){
             		var a = document.getElementById('webWidget');
             		var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
@@ -495,7 +655,7 @@ var waitForZen = setInterval(function () {
 
                 var request_locale_label=form.querySelector('label[data-fieldid="key:'+email_form_request_local_field+'"]');
                 var request_locale_input= form.querySelector('div[name="key:'+email_form_request_local_field+'"]');
-            
+
             		  
                 if((email_input != null )&&(email_label != null)){
                   email_input.style.display = "none";
@@ -657,8 +817,7 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
           },
           error : function(request,error)
           {
-           // console.log('error : '+error);
-            //console.log("Request: "+JSON.stringify(request));
+
           }
         });
       }
@@ -1280,17 +1439,17 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
                               }
                           });
 
-                          function toggleNavigation(toggle, menu) {
-                              var isExpanded = menu.getAttribute('aria-expanded') === 'true';
-                              menu.setAttribute('aria-expanded', !isExpanded);
-                              toggle.setAttribute('aria-expanded', !isExpanded);
-                          }
+//                           function toggleNavigation(toggle, menu) {
+//                               var isExpanded = menu.getAttribute('aria-expanded') === 'true';
+//                               menu.setAttribute('aria-expanded', !isExpanded);
+//                               toggle.setAttribute('aria-expanded', !isExpanded);
+//                           }
 
-                          function closeNavigation(toggle, menu) {
-                              menu.setAttribute('aria-expanded', false);
-                              toggle.setAttribute('aria-expanded', false);
-                              toggle.focus();
-                          }
+//                           function closeNavigation(toggle, menu) {
+//                               menu.setAttribute('aria-expanded', false);
+//                               toggle.setAttribute('aria-expanded', false);
+//                               toggle.focus();
+//                           }
 
 /*not being used a block of code (below)*/
                           // var burgerMenu = document.querySelector('.header .menu-button');
@@ -1317,19 +1476,19 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
                           //Toggles expanded aria to collapsible elements
                           var collapsible = document.querySelectorAll('.collapsible-nav, .collapsible-sidebar');
 
-                          Array.prototype.forEach.call(collapsible, function(el) {
-                              var toggle = el.querySelector('.collapsible-nav-toggle, .collapsible-sidebar-toggle');
+//                           Array.prototype.forEach.call(collapsible, function(el) {
+//                               var toggle = el.querySelector('.collapsible-nav-toggle, .collapsible-sidebar-toggle');
 
-                              el.addEventListener('click', function(e) {
-                                  toggleNavigation(toggle, this);
-                              });
+//                               el.addEventListener('click', function(e) {
+//                                   toggleNavigation(toggle, this);
+//                               });
 
-                              el.addEventListener('keyup', function(e) {
-                                  if (e.keyCode === 27) { // Escape key
-                                      closeNavigation(toggle, this);
-                                  }
-                              });
-                          });
+//                               el.addEventListener('keyup', function(e) {
+//                                   if (e.keyCode === 27) { // Escape key
+//                                       closeNavigation(toggle, this);
+//                                   }
+//                               });
+//                           });
 
                           // Submit organization form in the request page
                           var requestOrganisationSelect = document.querySelector('#request-organization select');
@@ -1440,7 +1599,7 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
             }
  }
      /*** Locale setting cookie ****/ //Amy DDA-646    
-  
+
   /***** Promoted Articles  *****/ 
   	var numOfPromos = document.getElementsByClassName("mySlides");
 
@@ -1510,6 +1669,16 @@ function showSlides(n) {
 }
 }
 /***** End of Promoted Articles *****/ 
+/*** Locale Footer Scroll ***/
+  
+  
+$(".footer_btn").click(function(){
+window.scrollTo(0,document.body.scrollHeight); 
+});  
+  
+ /*** End of Locale Footer Scroll ***/ // Amy
+  
+
 }); // end of DOM js file function - put everything above this line
 
 $(document).ready(function() {  // only insert after this if you need document to be ready
@@ -1589,9 +1758,7 @@ $(document).ready(function() {  // only insert after this if you need document t
   		$('.tts-note').addClass("article-note");  
  		 	$('.article-note').removeClass("tts-note");  
       $('.note').addClass("article-note");  
- 		 	$('.article-note').removeClass("note");  
-      $('.btn').addClass("button");  
- 		 	$('.button').removeClass("btn"); 
+ 		 	$('.article-note').removeClass("note");
 /***** End Article Fixes *****/ 
 /*****  Content Pages *******/   
       $("<div class='ct-header-block'></div>").prependTo(".ct-article"); 
@@ -1782,51 +1949,44 @@ function openSoftware(evt, softwareName) {
                 $('.form-field.request_ticket_form_id').hide();
                 $('.form-field.request_organization_id').hide();
   /***** End of New request pages - product pre-select *****/ //Lorna Rickett 
-    /***** Temporary hide/show CSS *****/
-  $("#option-2").addClass('button');
-  $("#option-1").addClass('button');
-  $("#option-3").addClass('button');
 
-    /***** Temporary hide/show CSS *****/
-  
-  
 }); // end of document ready function
   /***** Temporary hide/show CSS *****/
-function showOption(e, t, n) {    for (i = t; i <= n; i++) i !== e && (document.getElementById("option-" + i).className = "tts-options tts-inactive", document.getElementById("option-" + i + "-content").style.display = "none");    document.getElementById("option-" + e).className = "tts-options tts-active", document.getElementById("option-" + e + "-content").style.display = "block"} 
+  function showOption(e, t, n) {    for (i = t; i <= n; i++) i !== e && (document.getElementById("option-" + i).className = "tts-options tts-inactive", document.getElementById("option-" + i + "-content").style.display = "none");    document.getElementById("option-" + e).className = "tts-options tts-active", document.getElementById("option-" + e + "-content").style.display = "block"} 
   
 
-function box_toggle(e) {
-    "none" == document.getElementById(e).style.display ? document.getElementById(e).style.display = "block" : document.getElementById(e).style.display = "none"
-}
-
-function box_show(a) {
+  function box_toggle(e) {
+      "none" == document.getElementById(e).style.display ? document.getElementById(e).style.display = "block" : document.getElementById(e).style.display = "none"
+  }
   
-    "none" == document.getElementById(a).style.display && (document.getElementById(a).style.display = "block")
-}
-
-function box_hide(e) {
-
-    document.getElementById(e).style.display = "none"
-}
-
-function kmt_Toggle(e, t, o) {
-    var m = document.getElementById(e);
-    t.originalInnerHTML || (t.originalInnerHTML = t.innerHTML), "none" != m.style.display ? (m.style.display = "none", t.innerHTML = t.originalInnerHTML) : "none" == m.style.display && (m.style.display = "", t.innerHTML = answer_string[o].close)
-}
-function kmt_ShowBoxPopup(e, t) {
-    var o = document.getElementById(e).innerHTML;
-    showBoxPopupWin = window.open("", e, "height=400,width=710,screenX=250,screenY=80, scrollbars=yes"), showBoxPopupWin.document.write('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd"><html><head><title>' + e + '</title><link rel="stylesheet" href="http://uk.support.tomtom.com/euf/assets/themes/standard/tomtom_site.css"><script language="JavaScript" type="text/javascript" src="http://uk.support.tomtom.com/euf/assets/js/reset.js"></script></head><body>' + o + "</body</html>"), window.focus && showBoxPopupWin.focus()
-}
-
-function kmt_ShowBox(e) {
-    if ("block" == document.getElementById(e).style.display) return document.getElementById(e).style.display = "none", !1;
-    for (levels = e.match(/_/g), allBoxes = document.getElementsByTagName("div"), i = 0; i < allBoxes.length; i++) allBoxes[i].id.match("BOX") && (document.getElementById(allBoxes[i].id).style.display = "none");
-    if (document.getElementById(e).style.display = "block", null == levels) return !1;
-    if(e) {for (levels = levels.length + 1, temp = e, i = 0; i < levels; i++) temp = temp.substring(temp, temp.length - 3), temp.length > 2 && (document.getElementById(temp).style.display = "block");}
-    return !1
-}
-
-function kmt_HideBox(e) {
-    return document.getElementById(e).style.display = "none", !1
-}
-  /***** End temporary hide/show CSS *****/
+  function box_show(a) {
+    
+      "none" == document.getElementById(a).style.display && (document.getElementById(a).style.display = "block")
+  }
+  
+  function box_hide(e) {
+  
+      document.getElementById(e).style.display = "none"
+  }
+  
+  function kmt_Toggle(e, t, o) {
+      var m = document.getElementById(e);
+      t.originalInnerHTML || (t.originalInnerHTML = t.innerHTML), "none" != m.style.display ? (m.style.display = "none", t.innerHTML = t.originalInnerHTML) : "none" == m.style.display && (m.style.display = "", t.innerHTML = answer_string[o].close)
+  }
+  function kmt_ShowBoxPopup(e, t) {
+      var o = document.getElementById(e).innerHTML;
+      showBoxPopupWin = window.open("", e, "height=400,width=710,screenX=250,screenY=80, scrollbars=yes"), showBoxPopupWin.document.write('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd"><html><head><title>' + e + '</title><link rel="stylesheet" href="http://uk.support.tomtom.com/euf/assets/themes/standard/tomtom_site.css"><script language="JavaScript" type="text/javascript" src="http://uk.support.tomtom.com/euf/assets/js/reset.js"></script></head><body>' + o + "</body</html>"), window.focus && showBoxPopupWin.focus()
+  }
+  
+  function kmt_ShowBox(e) {
+      if ("block" == document.getElementById(e).style.display) return document.getElementById(e).style.display = "none", !1;
+      for (levels = e.match(/_/g), allBoxes = document.getElementsByTagName("div"), i = 0; i < allBoxes.length; i++) allBoxes[i].id.match("BOX") && (document.getElementById(allBoxes[i].id).style.display = "none");
+      if (document.getElementById(e).style.display = "block", null == levels) return !1;
+      if(e) {for (levels = levels.length + 1, temp = e, i = 0; i < levels; i++) temp = temp.substring(temp, temp.length - 3), temp.length > 2 && (document.getElementById(temp).style.display = "block");}
+      return !1
+  }
+  
+  function kmt_HideBox(e) {
+      return document.getElementById(e).style.display = "none", !1
+  }
+    /***** End temporary hide/show CSS *****/
