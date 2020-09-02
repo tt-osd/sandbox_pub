@@ -1168,7 +1168,9 @@ if(HelpCenter.user.email != null && HelpCenter.user.role !="anonymous" && iscook
   var bongo_loaded=0;
  //bongo mobile
    var mobile_bongo=false;
-   if ((navigator.userAgent.indexOf('Android') != -1) || (navigator.userAgent.indexOf('iPhone') != -1)){
+
+   
+   if ((navigator.userAgent.indexOf('Android') != -1) || (navigator.userAgent.indexOf('iPhone') != -1)|| (navigator.userAgent.indexOf('Windows Phone') != -1)){
     mobile_bongo=true;
    
   }
