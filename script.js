@@ -682,33 +682,51 @@ var waitForZen = setInterval(function () {
                 }
             
                 if((event.properties).id == talk_form_id) { // this is to hide the other feild on the phone us (talk) webwdiget
-                  var attatchments_button= form.querySelector('button');
+             //dda 784
+                  
+             var attatchments_button= form.querySelector('button');
                  
-                 var attatchments_label= form.querySelector('label[for="dropzone-input"]');
+             var attatchments_label= form.querySelector('label[for="dropzone-input"]');
+         
+                if((attatchments_button != null )&&(attatchments_label != null)){
+               attatchments_button.style.display = "none";
+             attatchments_label.style.display = "none";
+       }
+         
+       
+          
              
-                    if((attatchments_button != null )&&(attatchments_label != null)){
-                   attatchments_button.style.display = "none";
-                 attatchments_label.style.display = "none";
-           }
+             var dropdown_button= form.querySelector('div[type="button"]');
+           
              
-             
+                  if(dropdown_button != null ){
+             dropdown_button.style.display = "none";  
+         
+       }
+         
+         
+                if((description_input != null )&&(description_label != null)){
                  
-                 var dropdown_button= form.querySelector('div[type="button"]');
-               
-             
-             
-                      if(dropdown_button != null ){
-                 dropdown_button.style.display = "none";  
-             
-           }
-             
-             
-                    if((description_input != null )&&(description_label != null)){
-description_label.style.display = "none";
-                  description_input.style.display = "none";
-           }
-             
-                 
+              description_label.style.display = "none";
+              description_input.style.display = "none";
+       }
+              
+                 if((subject_input != null )&&(subject_label != null)){
+               subject_label.style.display = "none";
+                subject_input.style.display = "none";
+               }
+              
+              
+              
+
+              var cover_layer=document.createElement('div');
+cover_layer.id = 'phoneLine_cover_layer';
+cover_layer.setAttribute("style", "position:absolute; height:100px; width:100%; background-color:#fff;bottom:0;");
+              
+              form.appendChild(cover_layer); 
+              console.log("DDA 785 hide input fields on phone line page in widget");
+               //dda 784
+                  
                //	description_hint.style.display = "none";
            }
             
