@@ -735,7 +735,7 @@ cover_layer.id = 'phoneLine_cover_layer';
 cover_layer.setAttribute("style", "position:absolute; height:100px; width:100%; background-color:#fff;bottom:0;");
               
               form.appendChild(cover_layer); 
-              console.log("DDA 785 hide input fields on phone line page in widget");
+             // console.log("DDA 785 hide input fields on phone line page in widget");
                //dda 784
                   
                //	description_hint.style.display = "none";
