@@ -703,6 +703,17 @@ var waitForZen = setInterval(function () {
              dropdown_button.style.display = "none";  
          
        }
+
+
+
+                
+       var dropdown_button___= form.querySelector('div[role="button"]');
+           if(dropdown_button___ != null ){
+            dropdown_button___.style.display = "none";  
+}
+
+
+
          
          
                 if((description_input != null )&&(description_label != null)){
