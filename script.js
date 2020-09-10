@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function () { // **** Include all 
         var auto_renewal_currency_field = document.getElementById("request_custom_fields_" + sap_currency_eur_field);
         var auto_renewal_currency_field_full = document.getElementsByClassName("request_custom_fields_" + sap_currency_eur_field)[0];
         var auto_renewal_currency_field_anchor = auto_renewal_currency_field_full.getElementsByTagName('a')[0];
-        auto_renewal_currency_field.value = renewal_refund_currency;
+        auto_renewal_currency_field.value = renewal_refund_currency + "_eur"; 
         auto_renewal_currency_field_anchor.innerHTML = renewal_refund_currency;
         DescriptionBox.value = auto_renewal_refund_form_id;
         $('.request_description').addClass("zd_Hidden");
@@ -1685,7 +1685,28 @@ document.addEventListener('DOMContentLoaded', function () { // **** Include all 
   });
 
   /*** End of Locale Footer Scroll ***/ // Amy
+   /******* Updates Banner *****/ //Amy
+if((the_url.indexOf("/articles/")== -1)&&(read_cookie("update_banner") !== "true")){ 
+  
+  console.log("not an article");
+ 
+var delayInMilliseconds = 5000;
 
+setTimeout(function() {
+var update_banner = document.getElementById('update-banner');
+update_banner.classList.remove('zd_Hidden');
+  
+}, delayInMilliseconds); 
+
+ 
+$('#update_close').click(function() {      
+
+  if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
+       set_cookie("update_banner","true",3600000 * 24 * 30);
+       }
+  });
+}
+  /******* Updates Banner *****/ //Amy   
 
 }); // end of DOM js file function - put everything above this line
 
