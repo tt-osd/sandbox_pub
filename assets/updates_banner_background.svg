@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="678px" height="201px" viewBox="0 0 678 201" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>chevrons@2x</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.949020 0 0 0 0 0.949020 0 0 0 0 0.949020 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="678" height="201"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop---Landing---Alerts-and-contact" transform="translate(-610.000000, -802.000000)">
+            <g id="chevrons" transform="translate(0.000000, 802.000000)" filter="url(#filter-1)">
+                <g transform="translate(610.000000, 0.000000)">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g mask="url(#mask-3)" id="Group" opacity="0.5">
+                        <g transform="translate(-42.000000, -63.000000)">
+                            <g id="Icons-/-Arrows-/-Right-Copy-8" fill="#FFFFFF">
+                                <polygon id="Path" points="138.328348 263.293552 81 263.25 182.326012 162 81 60.75 138.328348 60.8026983 239.525649 162"></polygon>
+                            </g>
+                            <g transform="translate(114.000000, 0.000000)" id="Icons-/-Arrows-/-Right-Copy-8" fill="#FFFFFF">
+                                <polygon id="Path" points="138.328348 263.293552 81 263.25 182.326012 162 81 60.75 138.328348 60.8026983 239.525649 162"></polygon>
+                            </g>
+                            <g transform="translate(228.000000, 0.000000)" id="Icons-/-Arrows-/-Right-Copy-8" fill="#FFFFFF">
+                                <polygon id="Path" points="138.328348 263.293552 81 263.25 182.326012 162 81 60.75 138.328348 60.8026983 239.525649 162"></polygon>
+                            </g>
+                            <g transform="translate(342.000000, 0.000000)" id="Icons-/-Arrows-/-Right-Copy-8" fill="#FFFFFF">
+                                <polygon id="Path" points="138.328348 263.293552 81 263.25 182.326012 162 81 60.75 138.328348 60.8026983 239.525649 162"></polygon>
+                            </g>
+                            <g transform="translate(456.000000, 0.000000)" id="Icons-/-Arrows-/-Right-Copy-8" fill="#FFFFFF">
+                                <polygon id="Path" points="138.328348 263.293552 81 263.25 182.326012 162 81 60.75 138.328348 60.8026983 239.525649 162"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

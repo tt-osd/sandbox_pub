@@ -191,7 +191,39 @@
     }
 }
 /*** End Bounce effect ***/
+/*** Fade In effect ***/
+.fade-in {
+animation: fadeIn ease 10s;
+-webkit-animation: fadeIn ease 10s;
+-moz-animation: fadeIn ease 10s;
+-o-animation: fadeIn ease 10s;
+-ms-animation: fadeIn ease 10s;
+}
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
 
+@-moz-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+/*** End Fade In effect ***/
 body {
   background-color: #f2f2f2;
   color: $text_color;
@@ -6125,7 +6157,7 @@ p.ct-content-block-description {
   font-family: "gotham bold";
   text-transform: uppercase;
 }
-.request_custom_fields_360008935919 a, .request_custom_fields_360008494940 a, #request_custom_fields_360012879779, #request_custom_fields_360011224940 {
+.request_custom_fields_360013986400 a, .request_custom_fields_360013956699 a, #request_custom_fields_360013960199, #request_custom_fields_360013945500 {
   pointer-events: none;
   background-color: #bebebe;
 }
@@ -8290,3 +8322,89 @@ padding: 40px 0 48px;
   }
 }
 
+/************** Updates Banner **********************/
+
+#update-banner {
+  background-color : rgb(255, 255, 255);
+  color : rgb(0, 0, 0);
+  z-index : 50;
+  position : sticky;
+  bottom : 0px;
+  padding-top : 30px;
+  padding-bottom : 30px;
+  border-top: #e5e5e5 1px solid;
+}
+@media (min-width: 1020px) {
+#update-banner {  
+  background-image: url($assets-updates_banner_background-svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 75%;
+  } 
+}
+#update-banner h1 {
+  font-size: 14px;
+  color: rgb(223, 27, 18);
+  text-transform : uppercase;
+  margin-bottom: 0px;
+}
+
+#update-banner h2 {
+    font-size: 20px;
+  	line-height: 20px;
+    margin-bottom: 0;
+
+}
+@media (min-width: 1020px) {  
+#update-banner h1 {
+  font-size: 14px;
+}
+#update-banner h2 {
+  	font-size: 36px;
+  	margin-top: 10px;
+  	line-height: 36px;   
+	  margin-bottom: 20px;
+  }
+}
+.update-link {
+  margin-right : 30px;
+  margin-top : 20px;
+  background-color : rgb(0, 0, 0);
+  display: block;
+}
+
+@media (min-width: 764px) {
+.update-link {
+
+  display: inline-block;
+}
+}
+@media (min-width: 1020px) {
+.update-link {
+  margin-right : 20px;
+
+}
+}  
+.update-link:hover {
+    background-color : #4a4c4c;
+}
+
+#update-banner button {
+  position : absolute;
+  top : 0;
+  right : 0;
+  background-color: transparent;
+  color : rgb(0, 0, 0);
+  border : none;
+  border-radius : 0px;
+  font-size: 24px;
+
+}
+@media (min-width: 1020px) {
+#update-banner button {  
+  top : 10px;
+  right : 10px;
+  }
+}
+
+/************** Updates Banner **********************/
