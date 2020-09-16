@@ -262,7 +262,7 @@ function openBongo_fromWIdget() {
 
 
     //ga_tracking("Bongo", "clicked", "bongo opened");
-    ga_tracking("Zendesk Web Widget", " ", "bongo opened");
+    ga_tracking("Zendesk Web Widget", "bongo opened", " ");
 
 
 }
@@ -287,7 +287,7 @@ function openWidgetByTomTom() {
     allInOneContainer.classList.remove("allInOneContainer");
     allInOneContainer.classList.add("zd_Hidden");
 
-    ga_tracking("Zendesk Web Widget", " ", "widget opened");
+    ga_tracking("Zendesk Web Widget", "widget opened", " ");
 }
 
 
