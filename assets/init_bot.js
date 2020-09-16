@@ -9,7 +9,7 @@ function initialize_bot() {
             isHidden: true
         }
     };
-    Bots.on('widget:opened', function () {
+    Bots.on('widget:opened', function() {
         if (Bots.getConversation().messages.length == 0) {
             Bots.sendMessage(initMessage);
         }
@@ -26,7 +26,7 @@ function initialize_bot() {
             shareLocation: false
         },
         delegate: {
-            beforeDisplay: function (message) {
+            beforeDisplay: function(message) {
                 if (message.metadata && message.metadata.isHidden) {
                     return null; //Don't show hidden messages
                 }
@@ -34,7 +34,7 @@ function initialize_bot() {
                     // if (message.text) {
                     //     message.text = message.text.replace(/&lt;/g, "<").replace(/&gt;/g, ">");  //Unescape HTML from Bot
                     // }
-                    message.avatarUrl = "https://download.tomtom.com/support/cc/help/assets/Bongo/tiny_bongo.png";  //Bot avatar
+                    message.avatarUrl = "https://download.tomtom.com/support/cc/help/assets/Bongo/tiny_bongo.png"; //Bot avatar
                 }
                 return message;
             }
@@ -45,7 +45,7 @@ function initialize_bot() {
         embedded: true,
         businessIconUrl: "https://webassets.tomtom.com/m/5d37027773b964a0/original/tomtom-brand-header-logo.svg",
         customColors: {
-            brandColor: "8DC3EB",
+            brandColor: "DF1B12",
             actionColor: "DF1B12",
             conversationColor: "FDC530"
         },
@@ -88,4 +88,3 @@ function initialize_bot() {
 
 
 initialize_bot();
-
