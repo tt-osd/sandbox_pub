@@ -1,0 +1,168 @@
+.allInOneWidgetBtnText {
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.0214286rem;
+    line-height: 1.5;
+    font-size: 1.07143rem;
+    cursor: pointer;
+}
+
+.allInOneWidgetButton {
+    position: fixed;
+    padding: 0.8rem 2.3rem;
+    text-align: center;
+    background-color: #df1b12 !important;
+    margin: 10px 20px;
+    bottom: 0px;
+    right: 0px;
+    overflow: visible;
+    opacity: 1;
+    border: 0px none;
+    z-index: 9999999;
+    border-radius: 3em;
+}
+
+.container_open_header {
+    width: 100%;
+    padding: 0.571429rem 1rem;
+    background-color: rgb(223, 27, 18);
+    border-top-left-radius: 0.571429rem;
+    border-top-right-radius: 0.571429rem;
+}
+
+.container_open_header_text {
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.0214286rem;
+    line-height: 1.5;
+    font-size: 1.07143rem;
+    cursor: pointer;
+}
+
+.container_open_minimizer {
+    position: absolute;
+    right: 1em;
+    top: -0.2em;
+}
+
+.container_open_minimizer_icon {
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.support_Options {
+    padding: 0 5%;
+}
+
+.allInOneContainer {
+    position: fixed;
+    height: 500px;
+    width: 342px;
+    text-align: center;
+    background-color: rgb(255, 255, 255) !important;
+    margin: 10px 20px;
+    bottom: 0px;
+    right: 0px;
+    overflow: visible;
+    opacity: 1;
+    border: 0px none;
+    z-index: 9999999;
+    border-radius: 0.571429rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0.428571rem 0px;
+}
+
+.customised_support_options {
+    width: 100%;
+    box-shadow: 0 0.07143rem 0.57143rem 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.28571rem;
+    text-align: center;
+    padding: 35px 0;
+    cursor: pointer;
+    margin-top: 5%;
+}
+
+.widget_bongo {
+    right: 20px !important;
+    width: 330px !important;
+    height: 500px !important;
+    margin-bottom: -10px !important;
+    border-radius: 10px !important;
+    position: fixed !important;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .15);
+    z-index: 999999 !important;
+}
+
+.bongo_minimizer_container {
+    position: absolute;
+    padding-left: 300px;
+    bottom: 476.5px;
+    z-index: 999999;
+    cursor: pointer;
+}
+
+.bongo_minimizer_icon {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.bongo_minimizer_on_widget {
+    position: fixed;
+    right: 30px;
+    bottom: 476.5px;
+    z-index: 999999;
+    cursor: pointer;
+}
+
+.bongo_minimizer_icon_on_widget {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+
+/* .bongo_minimizer_icon {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 1.5rem;
+} */
+
+@media only screen and (max-width: 600px) {
+    /* .allInOneWidgetButton {
+        position: fixed;
+        padding: 0.4rem 2rem;
+        text-align: center;
+        background-color: #df1b12 !important;
+        margin: 5px 10px;
+        bottom: 0px;
+        right: 0px;
+        overflow: visible;
+        opacity: 1;
+        border: 0px none;
+        z-index: 9999999;
+        border-radius: 3em;
+    } */
+    .allInOneContainer {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        background-color: rgb(255, 255, 255) !important;
+        margin: 0;
+        bottom: 0px;
+        right: 0px;
+        overflow: visible;
+        opacity: 1;
+        border: 0px none;
+        z-index: 9999999;
+        border-radius: 0.571429rem;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0.428571rem 0px;
+    }
+}

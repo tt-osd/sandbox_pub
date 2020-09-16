@@ -1,4 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<label class="zd_Hidden" id="subfooter__bongo_link_text">{{dc 'talk_to_bongo_from_widget'}}</label>
+<label class="zd_Hidden" id="open_widget">{{dc 'talk_to_zEWidget_from_widget'}}</label>
 <label class="zd_Hidden" id="chatLabel">{{dc 'chatlabel'}}</label>
 <label class="zd_Hidden" id="chatlabelonline">{{dc 'chatlabelonline'}}</label>
 <label class="zd_Hidden" id="chatlabeloffline">{{dc 'chatlabeloffline'}}</label>
@@ -10,6 +12,43 @@
 
 <label class="zd_Hidden" id="tealium">{{asset 'tealium.js'}}</label>
 <label class="zd_Hidden" id="map_json">{{asset 'mappublic.json'}}</label>
+
+<div class="zd_Hidden" id="one_widget_css">{{asset 'one_widget.css'}}</div>
+<label class="zd_Hidden" id="one_widget_JS">{{asset 'one_widget.js'}}</label>
+<label class="zd_Hidden" id="Google_Analytics_Tracking_FC">{{asset 'Google_Analytics_Tracking.js'}}</label>
+
+<script>
+
+ var one_widget_css_link = document.createElement('link');  
+        // set the attributes for link element 
+        one_widget_css_link.rel = 'stylesheet';  
+        one_widget_css_link.type = 'text/css'; 
+  			//get css url
+        var one_widget_Css="https:"+$("#one_widget_css").html();
+        one_widget_css_link.href = one_widget_Css;  
+        // Get HTML head element to append  
+        // link element to it  
+        document.getElementsByTagName('HEAD')[0].appendChild(one_widget_css_link);  
+
+     //load script function
+  jQuery.loadScript = function (url, callback) {
+    jQuery.ajax({
+        url: url,
+        dataType: 'script',
+        success: callback,
+        async: true
+    });
+}
+
+
+
+
+$.loadScript('https:'+document.getElementById("one_widget_JS").innerHTML);
+$.loadScript('https:'+document.getElementById("Google_Analytics_Tracking_FC").innerHTML);
+  
+  
+//load script function 
+</script>
 
 <script>
   var utag_data="";
