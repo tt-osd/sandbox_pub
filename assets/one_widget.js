@@ -261,7 +261,10 @@ function openBongo_fromWIdget() {
 
 
 
-    ga_tracking("Bongo", "clicked", "bongo opened");
+    //ga_tracking("Bongo", "clicked", "bongo opened");
+    ga_tracking("Zendesk Web Widget", " ", "bongo opened");
+
+
 }
 
 
@@ -283,6 +286,8 @@ function openWidgetByTomTom() {
     var allInOneContainer = document.getElementById("allInOneContainer_open");
     allInOneContainer.classList.remove("allInOneContainer");
     allInOneContainer.classList.add("zd_Hidden");
+
+    ga_tracking("Zendesk Web Widget", " ", "widget opened");
 }
 
 
@@ -459,11 +464,26 @@ $("#bongo_open").click(function() {
             var bongo_minimizer = document.getElementById("bongo_minimizer");
             var bongo_minimizer_icon = document.getElementById("bongo_minimizer_icon");
 
-            if (bongo_minimizer != null) {
+            if ((bongo_minimizer != null) && (bongo_minimizer_icon != null)) {
                 bongo_minimizer.classList.remove("zd_Hidden");
-            }
-            if (bongo_minimizer_icon != null) {
                 bongo_minimizer_icon.classList.remove("zd_Hidden");
+            } else {
+                //give a minimize button for bongo, on init
+                var bongo_minimizer = document.createElement('div');
+                bongo_minimizer.id = "bongo_minimizer";
+                var bongo_minimizer_icon = document.createElement('label');
+                var textNode_for_bongo_minimizer_icon = document.createTextNode("_");
+                bongo_minimizer_icon.appendChild(textNode_for_bongo_minimizer_icon);
+                bongo_minimizer.appendChild(bongo_minimizer_icon);
+                //  bongo_minimizer.setAttribute("style","position: absolute;right: 0px;bottom:476.5px;z-index: 999999;cursor: pointer;");
+                bongo_minimizer_icon.id = "bongo_minimizer_icon";
+                //bongo_minimizer_icon.addEventListener("click", function); 
+                (document.getElementById('bongo_place')).appendChild(bongo_minimizer);
+                //give a minimize button for bongo 
+                (document.getElementById('bongo_minimizer')).classList.add("bongo_minimizer_container");
+                (document.getElementById('bongo_minimizer_icon')).classList.add("bongo_minimizer_icon");
+
+                bongo_minimizer_icon.addEventListener("click", minimize_bongo_window);
             }
 
 
