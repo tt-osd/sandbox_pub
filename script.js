@@ -1683,7 +1683,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
     /******* Updates Banner *****/ //Amy
     if ((the_url.indexOf("/articles/") == -1) && (read_cookie("update_banner") !== "true")) {
 
-        console.log("not an article");
+        // console.log("not an article");
 
         var delayInMilliseconds = 5000;
 

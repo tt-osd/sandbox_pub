@@ -502,6 +502,11 @@ $("#bongo_open").click(function() {
                     bongo.classList.remove("zd_Bongo");
                 }
                 document.getElementById('close_bongo').classList.remove("zd_Hidden");
+
+
+                var allInOneLauncher = document.getElementById("all_in_one_widget");
+                allInOneLauncher.classList.remove("allInOneWidgetButton");
+                allInOneLauncher.classList.add("zd_Hidden");
             }
 
 
@@ -521,6 +526,13 @@ $("#bongo_open").click(function() {
                 Bots.render(document.getElementById('bongo_fullSize'));
                 var bongo = document.getElementById("web-messenger-container");
                 bongo.classList.add("bongo_fullSize");
+
+
+
+                var allInOneLauncher = document.getElementById("all_in_one_widget");
+                allInOneLauncher.classList.remove("allInOneWidgetButton");
+                allInOneLauncher.classList.add("zd_Hidden");
+
 
 
             } else {
