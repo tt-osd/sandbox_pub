@@ -654,8 +654,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
                         name_label.style.display = "none";
                         name_input.style.display = "none";
                     }
-
-
+               
 
                     // end of hiding
 
@@ -710,6 +709,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
                         /*******************/
                         // when releasing the strap form, check != null before hide anything!
                         /*******************/
+     
 
 
                         var serial = form.querySelector('input[name="key:' + serial_number_eur_field_id + '"]');
@@ -1272,9 +1272,9 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
         }
     });
 
-
     //Toggles expanded aria to collapsible elements
     var collapsible = document.querySelectorAll('.collapsible-nav, .collapsible-sidebar');
+
 
     // Submit organization form in the request page
     var requestOrganisationSelect = document.querySelector('#request-organization select');
@@ -1466,7 +1466,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
     /******* Updates Banner *****/ //Amy
     if ((the_url.indexOf("/articles/") == -1) && (read_cookie("update_banner") !== "true")) {
 
-        var delayInMilliseconds = 5000;
+        var delayInMilliseconds = 3000;
 
         setTimeout(function() {
             var update_banner = document.getElementById('update-banner');
@@ -1644,35 +1644,34 @@ $(document).ready(function() { // only insert after this if you need document to
         /*add on*/
         /***** Article Satisfaction end *****/
 
-        /*****  Troubleshooting Template *****/
+         /*****  Troubleshooting Template *****/
 
-        var theLabels = document.getElementsByClassName("labels");
-        if (theLabels.length > 0) {
+    var theLabels = document.getElementsByClassName("labels");
+    if (theLabels.length > 0) {
 
-            var i;
-            for (i = 0; i < theLabels.length; i++) {
-                var colorthese = theLabels[i].innerText;
+      var i;
+      for (i = 0; i < theLabels.length; i++) {
+        var colorthese = theLabels[i].innerText;
 
-                if ($('.ts-article-title').html().indexOf(colorthese) != -1) {
+        if ($('.ts-article-title').html().indexOf(colorthese) != -1) {
 
-                    $(".ts-article-title:contains(" + colorthese + ")").html(function(_, html) {
-                        return html.replace(colorthese, '<span class="ts-red">' + colorthese + '</span>');
-                    });
-                }
-            }
+          $(".ts-article-title:contains(" + colorthese + ")").html(function (_, html) {
+            return html.replace(colorthese, '<span class="ts-red">' + colorthese + '</span>');
+          });
         }
+      }
+    }
+		$('.ts-article-extra').prependTo('.ts-article-body');
+    /***** End of Troubleshooting Template *****/
+    /*****  Get Started Template *****/
 
-        /***** End of Troubleshooting Template *****/
-        /*****  Get Started Template *****/
 
-
-        $('.gs-article-header-block').click(function() {
-            $('body,html').animate({
-                scrollTop: 850
-            }, 500);
-        });
-
-        /***** End of Get Started Template *****/
+    $('.gs-article-header-block').click(function () {
+      $('body,html').animate({
+        scrollTop: 850
+      }, 500);
+    });   
+    /***** End of Get Started Template *****/
         /*****  How To Template *****/
 
         $('.ht-header-content').appendTo(".ht-article-header");
