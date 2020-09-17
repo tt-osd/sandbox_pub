@@ -551,6 +551,16 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
             }
         }
 
+
+
+        /*               if (talkLocale === 'fr' || talkLocale === 'fr-be' || talkLocale === 'fr-ca' 
+                       || talkLocale === 'fr-ch' || talkLocale === 'pl'  || talkLocale === 'pt' 
+                       || talkLocale === 'pt-br' || talkLocale === 'es'  ){
+                         talk_form_id_per_selected_local=talk_form_id;
+                       } // Include all the page you want the talk options to show up
+    
+                       */
+
         zESettings = {
             webWidget: {
                 contactOptions: {
@@ -655,7 +665,10 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
                         name_input.style.display = "none";
                     }
 
-
+                    // if((subject_input != null )&&(subject_label != null)){
+                    // subject_label.style.display = "none";
+                    // subject_input.style.display = "none";
+                    // }
 
                     // end of hiding
 
@@ -708,7 +721,11 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
 
                     if ((event.properties).id == strap_form_id) {
                         /*******************/
+                        /*******************/
+                        /*******************/
                         // when releasing the strap form, check != null before hide anything!
+                        /*******************/
+                        /*******************/
                         /*******************/
 
 
@@ -1146,6 +1163,159 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
     //give feedback to exit survey 
     // exit survey
 
+
+    //start of bongo render, open and close
+    // create a var to check if the bongo is already loaded, 0 by default means not loaded
+
+
+    // var bongo_loaded = 0;
+    // //bongo mobile
+    // var mobile_bongo = false;
+
+
+    // if ((navigator.userAgent.indexOf('Android') != -1) || (navigator.userAgent.indexOf('iPhone') != -1) || (navigator.userAgent.indexOf('Windows Phone') != -1)) {
+    //   mobile_bongo = true;
+
+    // }
+    // function closeBongoOnMobile() {
+    //   document.getElementById('close_bongo').classList.add("zd_Hidden");
+    // }
+
+    // //bongo mobile
+
+
+    // function getLocale() {
+    //   return window.location.href
+    //     .split('/hc/')[1]
+    //     .split('/')[0];
+    // }
+
+    // $("#bongo_open").click(function () {
+    //   var lo = getLocale();
+    //   if (lo.includes("en")) {// bongo only works on English locale
+    //     // to open a conversation with bongo, click talk to bongo from subfooter
+    //     if (bongo_loaded == 1) {
+    //       //when bongo is loaded, open chat by showing the chat window
+    //       var bongo = document.getElementById("web-messenger-container");
+    //       bongo.classList.remove("zd_Hidden");
+    //       document.getElementById('close_bongo').classList.remove("zd_Hidden");
+    //     } else {
+    //       if (mobile_bongo == true) {
+    //         var close_bongo = document.createElement('div');
+    //         close_bongo.id = 'close_bongo';
+    //         close_bongo.className = "close_bongo";
+    //         close_bongo.addEventListener("click", closeBongoOnMobile);
+
+    //         var bongo_fullSize = document.createElement('div');
+    //         bongo_fullSize.id = 'bongo_fullSize';
+    //         bongo_fullSize.appendChild(close_bongo);
+    //         var BODY = document.getElementsByTagName("BODY")[0];
+    //         BODY.appendChild(bongo_fullSize);
+
+    //         Bots.render(document.getElementById('bongo_fullSize'));
+    //         var bongo = document.getElementById("web-messenger-container");
+    //         bongo.classList.add("bongo_fullSize");
+
+
+    //       } else {
+    //         //when bongo is not loaded, open chat by render the bot
+    //         Bots.render(document.getElementById('bongo_place'));
+    //         var bongo = document.getElementById("web-messenger-container");
+    //         //add the css changes to make bongo fit in sub footer 
+    //         bongo.classList.add("zd_Bongo");
+    //       }
+    //     }
+
+    //     ga_tracking("Bongo", "clicked", "bongo opened");
+
+    //   } else {
+    //     var bongo_alter = $("#bongo_alter").html();
+    //     window.location.href = bongo_alter;
+    //   }
+
+    // });
+
+
+    // //to close a bongo chat window, click anywhere eles on the page but bongo to hide the window
+    // $('body').click(function (evt) {
+    //   if (evt.target.id == "bongo_place")
+    //     return;
+    //   if ($(evt.target).closest('#bongo_place').length)
+    //     return;
+    //   var bongo = document.getElementById("web-messenger-container");
+    //   if (bongo != null) {
+
+    //     bongo_loaded = 1; // when hidding the chat window, to remember that bongo is already loaded. 
+    //     if (!(bongo.classList.contains("zd_Hidden"))) {
+    //       ga_tracking("Bongo", "clicked", "bongo closed");
+    //     }
+    //     bongo.classList.add("zd_Hidden");
+
+    //   }
+    // });
+    // //end of bongo render, open and close
+
+
+
+
+
+    //serial number
+    //     function read_spa_Software(software){
+    //         var software_decode_head =software.split("€");
+    //         var software_decode=software_decode_head[0];
+
+    //         var thisURL= window.location.href;
+    //         var URL_decode=thisURL.split("/hc/")[0];
+    //         var target_URL = URL_decode;
+
+    //                     switch (software_decode) {
+    //                         case 'TomTom HOME':
+    //                             target_URL += "/hc/en-gb/sections/360003585479-TomTom-HOME";              
+    //                             break;
+    //                         case 'MyDrive Connect':
+    //                              target_URL += "/hc/en-gb/sections/360003542620-MyDrive-Connect";
+    //                             break;
+    //                         case 'Bandit Studio':
+    //                             target_URL += "/hc/en-gb/sections/360003586039-TomTom-Bandit-Action-Camera";
+    //                             break;
+    //                         case 'Wi-Fi®':
+    //                             target_URL += "/hc/en-gb/sections/360003542600-Wi-Fi";
+    //                             break;
+    //                         case 'MySports Connect':
+    //                             target_URL += "/hc/en-gb/sections/360003542980-Sports-Watch";
+    //                             break;
+    //                         case 'N/A':
+    //                            target_URL =thisURL;
+    //                     }
+    //                   window.location.href = target_URL;  
+    //         //end of function
+    //       }
+
+
+
+
+
+
+
+
+    //        $("#tt_serial_no_input").on('input',function(){   
+    //         var tt_serial_number_input = (document.getElementById("tt_serial_no_input").value).toString(); 
+    //         if((tt_serial_number_input.length)==2){
+    //            // sunshineSearch("tt_serial_number","serial_prefix",tt_serial_number_input);
+    //         }
+    //       });
+
+
+
+
+
+
+    //serial number
+
+
+
+
+
     // Below code is zendesk
     function closest(element, selector) {
         if (Element.prototype.closest) {
@@ -1272,9 +1442,56 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
         }
     });
 
+    //                           function toggleNavigation(toggle, menu) {
+    //                               var isExpanded = menu.getAttribute('aria-expanded') === 'true';
+    //                               menu.setAttribute('aria-expanded', !isExpanded);
+    //                               toggle.setAttribute('aria-expanded', !isExpanded);
+    //                           }
+
+    //                           function closeNavigation(toggle, menu) {
+    //                               menu.setAttribute('aria-expanded', false);
+    //                               toggle.setAttribute('aria-expanded', false);
+    //                               toggle.focus();
+    //                           }
+
+    /*not being used a block of code (below)*/
+    // var burgerMenu = document.querySelector('.header .menu-button');
+    // var userMenu = document.querySelector('#user-nav');
+
+    // burgerMenu.addEventListener('click', function(e) {
+    //     e.stopPropagation();
+    //     toggleNavigation(this, userMenu);
+    // });
+
+
+    // userMenu.addEventListener('keyup', function(e) {
+    //     if (e.keyCode === 27) { // Escape key
+    //         e.stopPropagation();
+    //         closeNavigation(burgerMenu, this);
+    //     }
+    // });
+
+    // if (userMenu.children.length === 0) {
+    //     burgerMenu.style.display = 'none';
+    // }
+    /*not being used a block of code (above)*/
 
     //Toggles expanded aria to collapsible elements
     var collapsible = document.querySelectorAll('.collapsible-nav, .collapsible-sidebar');
+
+    //                           Array.prototype.forEach.call(collapsible, function(el) {
+    //                               var toggle = el.querySelector('.collapsible-nav-toggle, .collapsible-sidebar-toggle');
+
+    //                               el.addEventListener('click', function(e) {
+    //                                   toggleNavigation(toggle, this);
+    //                               });
+
+    //                               el.addEventListener('keyup', function(e) {
+    //                                   if (e.keyCode === 27) { // Escape key
+    //                                       closeNavigation(toggle, this);
+    //                                   }
+    //                               });
+    //                           });
 
     // Submit organization form in the request page
     var requestOrganisationSelect = document.querySelector('#request-organization select');
@@ -1466,7 +1683,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
     /******* Updates Banner *****/ //Amy
     if ((the_url.indexOf("/articles/") == -1) && (read_cookie("update_banner") !== "true")) {
 
-        var delayInMilliseconds = 5000;
+        var delayInMilliseconds = 3000;
 
         setTimeout(function() {
             var update_banner = document.getElementById('update-banner');
@@ -1644,35 +1861,34 @@ $(document).ready(function() { // only insert after this if you need document to
         /*add on*/
         /***** Article Satisfaction end *****/
 
-        /*****  Troubleshooting Template *****/
+         /*****  Troubleshooting Template *****/
 
-        var theLabels = document.getElementsByClassName("labels");
-        if (theLabels.length > 0) {
+    var theLabels = document.getElementsByClassName("labels");
+    if (theLabels.length > 0) {
 
-            var i;
-            for (i = 0; i < theLabels.length; i++) {
-                var colorthese = theLabels[i].innerText;
+      var i;
+      for (i = 0; i < theLabels.length; i++) {
+        var colorthese = theLabels[i].innerText;
 
-                if ($('.ts-article-title').html().indexOf(colorthese) != -1) {
+        if ($('.ts-article-title').html().indexOf(colorthese) != -1) {
 
-                    $(".ts-article-title:contains(" + colorthese + ")").html(function(_, html) {
-                        return html.replace(colorthese, '<span class="ts-red">' + colorthese + '</span>');
-                    });
-                }
-            }
+          $(".ts-article-title:contains(" + colorthese + ")").html(function (_, html) {
+            return html.replace(colorthese, '<span class="ts-red">' + colorthese + '</span>');
+          });
         }
+      }
+    }
+		$('.ts-article-extra').prependTo('.ts-article-body');
+    /***** End of Troubleshooting Template *****/
+    /*****  Get Started Template *****/
 
-        /***** End of Troubleshooting Template *****/
-        /*****  Get Started Template *****/
 
-
-        $('.gs-article-header-block').click(function() {
-            $('body,html').animate({
-                scrollTop: 850
-            }, 500);
-        });
-
-        /***** End of Get Started Template *****/
+    $('.gs-article-header-block').click(function () {
+      $('body,html').animate({
+        scrollTop: 850
+      }, 500);
+    });   
+    /***** End of Get Started Template *****/
         /*****  How To Template *****/
 
         $('.ht-header-content').appendTo(".ht-article-header");
