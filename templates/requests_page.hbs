@@ -41,7 +41,7 @@
 $(document).ready(function(){ 
     //Code for BuRMA SSO cookie creation - Start 
     var server_url = 'https://10.66.244.239/zenApi/src/repairController.php';
-     if(window.location.hostname.indexOf('help') > 0) {
+     if(window.location.hostname.indexOf('help') >= 0) {
 			server_url = 'https://tccare.tomtomgroup.com/zenApi/src/repairController.php';
     }
     if (read_cookie("tt_cp_auth") === "" && HelpCenter.user.email != null){
