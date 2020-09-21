@@ -2,6 +2,11 @@ function initialize_bot() {
 
     var bot_id = document.getElementById("bongo_id").innerHTML;
     //Send a hidden hi message upon opening the chat widget without conversation history:
+    var bongo_init_headertext = document.getElementById("bongo_init_headertext").innerHTML;
+    var bongo_init_sendbuttontext = document.getElementById("bongo_init_sendbuttontext").innerHTML;
+    var bongo_init_inputplaceholder = document.getElementById("bongo_init_inputplaceholder").innerHTML;
+    var bongo_subheader = document.getElementById("bongo_subheader").innerHTML;
+
     const initMessage = {
         text: 'hi',
         type: 'text',
@@ -53,15 +58,15 @@ function initialize_bot() {
         customText: {
             headerText: "Chat with Bongo",
             inputPlaceholder: 'Ask a question',
-            sendButtonText: 'Send',
-            headerText: 'Hello! How can we help you today?',
-            introductionText: 'Bongo; the TomTom Digital Assistant',
+            sendButtonText: bongo_init_sendbuttontext,
+            headerText: bongo_init_headertext,
+            introductionText: 'Bongo; ' + bongo_subheader,
             actionPostbackError: 'An error occurred while processing your action. Please try again.',
             clickToRetry: 'Message not delivered. Click to retry.',
             conversationTimestampHeaderFormat: 'MMMM D YYYY, h:mm A',
             fetchHistory: 'Load more',
             fetchingHistory: 'Retrieving history...',
-            inputPlaceholder: 'Type a message...',
+            inputPlaceholder: bongo_init_inputplaceholder,
             invalidFileError: 'Only images are supported. Choose a file with a supported extension (jpg, jpeg, png, gif, or bmp).',
             locationNotSupported: 'Your browser does not support location services or it’s been disabled. Please type your location instead.',
             locationSecurityRestriction: 'This website cannot access your location. Please type your location instead.',
