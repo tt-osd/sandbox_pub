@@ -437,7 +437,7 @@ function closeBongoOnMobile() {
 
 $("#bongo_open").click(function() {
     var lo = getLocale();
-    if (lo.includes("en")) { // bongo only works on English locale
+    if ((lo.includes("en")) || (lo.includes("fr"))) { // bongo only works on English locale
         // to open a conversation with bongo, click talk to bongo from subfooter
         if (bongo_loaded == 1) {
             //when bongo is loaded, open chat by showing the chat window
@@ -455,9 +455,13 @@ $("#bongo_open").click(function() {
 
             //if bongo being opened from sub footer, after close the bongo at corner 
             //aslo show the widget button
-            var allInOneLauncher = document.getElementById("all_in_one_widget");
-            allInOneLauncher.classList.remove("zd_Hidden");
-            allInOneLauncher.classList.add("allInOneWidgetButton");
+
+            if (lo.includes("en")) {
+                var allInOneLauncher = document.getElementById("all_in_one_widget");
+                allInOneLauncher.classList.remove("zd_Hidden");
+                allInOneLauncher.classList.add("allInOneWidgetButton");
+            }
+
 
 
 
@@ -503,10 +507,11 @@ $("#bongo_open").click(function() {
                 }
                 document.getElementById('close_bongo').classList.remove("zd_Hidden");
 
-
-                var allInOneLauncher = document.getElementById("all_in_one_widget");
-                allInOneLauncher.classList.remove("allInOneWidgetButton");
-                allInOneLauncher.classList.add("zd_Hidden");
+                if (lo.includes("en")) {
+                    var allInOneLauncher = document.getElementById("all_in_one_widget");
+                    allInOneLauncher.classList.remove("allInOneWidgetButton");
+                    allInOneLauncher.classList.add("zd_Hidden");
+                }
             }
 
 
@@ -528,10 +533,11 @@ $("#bongo_open").click(function() {
                 bongo.classList.add("bongo_fullSize");
 
 
-
-                var allInOneLauncher = document.getElementById("all_in_one_widget");
-                allInOneLauncher.classList.remove("allInOneWidgetButton");
-                allInOneLauncher.classList.add("zd_Hidden");
+                if (lo.includes("en")) {
+                    var allInOneLauncher = document.getElementById("all_in_one_widget");
+                    allInOneLauncher.classList.remove("allInOneWidgetButton");
+                    allInOneLauncher.classList.add("zd_Hidden");
+                }
 
 
 
@@ -571,8 +577,13 @@ $("#bongo_open").click(function() {
 
 
     } else {
-        var bongo_alter = $("#bongo_alter").html();
-        window.location.href = bongo_alter;
+        if (lo.includes("fr")) {
+            // console.log("Bonjour bongo");
+        } else {
+            var bongo_alter = $("#bongo_alter").html();
+            window.location.href = bongo_alter;
+        }
+
     }
 
 });
