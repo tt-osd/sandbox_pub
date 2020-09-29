@@ -1,494 +1,494 @@
 {
-    "brand_id":{
-        "sandbox":360000739680,
-        "prod":360000210599
+    "brand_id": {
+        "sandbox": 360000739680,
+        "prod": 360000210599
 
     },
-    "golf_form_id":{
-        "sandbox":360000679879,
-        "prod":360000746480
+    "golf_form_id": {
+        "sandbox": 360000679879,
+        "prod": 360000746480
 
     },
-    "talk_form_id":{
-        "sandbox":360000794359,
-        "prod":360000796079
+    "talk_form_id": {
+        "sandbox": 360000794359,
+        "prod": 360000796079
 
     },
-    "strap_form_id":{
-        "sandbox":360000671760,
-        "prod":360000746440
+    "strap_form_id": {
+        "sandbox": 360000671760,
+        "prod": 360000746440
 
     },
-    "gdpr_form_id":{
-        "sandbox":360000569919,
-        "prod":360000697820        
+    "gdpr_form_id": {
+        "sandbox": 360000569919,
+        "prod": 360000697820
     },
-    "email_form_id":{
-        "sandbox":360000358360,
-        "prod":360000679560        
+    "email_form_id": {
+        "sandbox": 360000358360,
+        "prod": 360000679560
     },
-    "auto_renewal_refund_form_id":{
-        "sandbox":360000875500,
-        "prod":360000875740        
+    "auto_renewal_refund_form_id": {
+        "sandbox": 360000875500,
+        "prod": 360000875740
     },
-    "refund_form_id":{
-        "sandbox":360000849779,
-        "prod":360000855559        
+    "refund_form_id": {
+        "sandbox": 360000849779,
+        "prod": 360000855559
     },
-    "ordernumber_field_id":{
-        "sandbox":360012478240,
-        "prod":360012584820        
+    "ordernumber_field_id": {
+        "sandbox": 360012478240,
+        "prod": 360012584820
     },
-    "priority_field_id":{
-        "sandbox":360004712120,
-        "prod":360001060319        
+    "priority_field_id": {
+        "sandbox": 360004712120,
+        "prod": 360001060319
     },
-    "type_field_id":{
-        "sandbox":360004712100,
-        "prod":360001060299        
+    "type_field_id": {
+        "sandbox": 360004712100,
+        "prod": 360001060299
     },
-    "status_field_id":{
-        "sandbox":360004712080,
-        "prod":360001060279        
+    "status_field_id": {
+        "sandbox": 360004712080,
+        "prod": 360001060279
     },
-    "description_field_id":{
-        "sandbox":360004712060,
-        "prod":360001060259        
+    "description_field_id": {
+        "sandbox": 360004712060,
+        "prod": 360001060259
     },
-    "subject_field_id":{
-        "sandbox":360004712040,
-        "prod":360001060239        
+    "subject_field_id": {
+        "sandbox": 360004712040,
+        "prod": 360001060239
     },
-    "assignee_field_id":{
-        "sandbox":360004712160,
-        "prod":360001060359        
+    "assignee_field_id": {
+        "sandbox": 360004712160,
+        "prod": 360001060359
     },
-    "group_field_id":{
-        "sandbox":360004712140,
-        "prod":360001060339        
+    "group_field_id": {
+        "sandbox": 360004712140,
+        "prod": 360001060339
     },
-    "product_com_field_id":{
-        "sandbox":360005150940,
-        "prod":360010586680        
+    "product_com_field_id": {
+        "sandbox": 360014264220,
+        "prod": 360014228839
     },
-    "do_not_serve_field_id":{
-        "sandbox":360005292280,
-        "prod":360004702680        
+    "do_not_serve_field_id": {
+        "sandbox": 360005292280,
+        "prod": 360004702680
     },
-    "review_score_field_id":{
-        "sandbox":360005292300,
-        "prod":360004701240        
+    "review_score_field_id": {
+        "sandbox": 360005292300,
+        "prod": 360004701240
     },
-    "reason_field_id":{
-        "sandbox":360005394159,
-        "prod":360008963659        
+    "reason_field_id": {
+        "sandbox": 360005394159,
+        "prod": 360008963659
     },
-    "resolution_field_id":{
-        "sandbox":360005394179,
-        "prod":321        
+    "resolution_field_id": {
+        "sandbox": 360005394179,
+        "prod": 321
     },
-    "csat_field_id":{
-        "sandbox":360005394199,
-        "prod":321        
+    "csat_field_id": {
+        "sandbox": 360005394199,
+        "prod": 321
     },
-    "gdpr_reason_field_id":{
-        "sandbox":360007572579,
-        "prod":360009058800        
+    "gdpr_reason_field_id": {
+        "sandbox": 360007572579,
+        "prod": 360009058800
     },
-    "chat_template_field_id":{
-        "sandbox":360007740940,
-        "prod":360008963199        
+    "chat_template_field_id": {
+        "sandbox": 360007740940,
+        "prod": 360008963199
     },
-    "rnticket_field_id":{
-        "sandbox":360007847999,
-        "prod":321        
+    "rnticket_field_id": {
+        "sandbox": 360007847999,
+        "prod": 321
     },
-    "repairnumber_c_name_field_id":{
-        "sandbox":360007871780,
-        "prod":360009909019        
+    "repairnumber_c_name_field_id": {
+        "sandbox": 360007871780,
+        "prod": 360009909019
     },
-    "tomtom_id_field_id":{
-        "sandbox":360008192820,
-        "prod":321        
+    "tomtom_id_field_id": {
+        "sandbox": 360008192820,
+        "prod": 321
     },
-    "serial_number_eur_field_id":{
-        "sandbox":360008860379,
-        "prod":360009585579        
+    "serial_number_eur_field_id": {
+        "sandbox": 360008860379,
+        "prod": 360009585579
     },
-    "strap_color_eur_field_id":{
-        "sandbox":360008853480,
-        "prod":360009585539        
+    "strap_color_eur_field_id": {
+        "sandbox": 360008853480,
+        "prod": 360009585539
     },
-    "strap_size_eur_field_id":{
-        "sandbox":360008853500,
-        "prod":360009552120        
+    "strap_size_eur_field_id": {
+        "sandbox": 360008853500,
+        "prod": 360009552120
     },
-    "date_of_purchase_eur_field_id":{
-        "sandbox":360008860439,
-        "prod":360009585559        
+    "date_of_purchase_eur_field_id": {
+        "sandbox": 360008860439,
+        "prod": 360009585559
     },
-    "refund_order_number_eur_field_id":{
-        "sandbox":360009660459,
-        "prod":360009648540        
+    "refund_order_number_eur_field_id": {
+        "sandbox": 360009660459,
+        "prod": 360009648540
     },
-    "refund_quantity_to_return_eur_field_id":{
-        "sandbox":360009660979,
-        "prod":360009683179        
+    "refund_quantity_to_return_eur_field_id": {
+        "sandbox": 360009660979,
+        "prod": 360009683179
     },
-    "refund_reason_for_return_eur_field_id":{
-        "sandbox":360009628800,
-        "prod":360009683299        
+    "refund_reason_for_return_eur_field_id": {
+        "sandbox": 360009628800,
+        "prod": 360009683299
     },
-    "refund_purchase_date_eur_field_id":{
-        "sandbox":360009661619,
-        "prod":360009683319        
+    "refund_purchase_date_eur_field_id": {
+        "sandbox": 360009661619,
+        "prod": 360009683319
     },
-    "course_name_eur_field_id":{
-        "sandbox":360009656380,
-        "prod":360009363299        
+    "course_name_eur_field_id": {
+        "sandbox": 360009656380,
+        "prod": 360009363299
     },
-    "city_eur_field_id":{
-        "sandbox":360009656400,
-        "prod":360009330600        
+    "city_eur_field_id": {
+        "sandbox": 360009656400,
+        "prod": 360009330600
     },
-    "country_eur_field_id":{
-        "sandbox":360009692939,
-        "prod":360009363599        
+    "country_eur_field_id": {
+        "sandbox": 360009692939,
+        "prod": 360009363599
     },
-    "website_link_optional_eur_field_id":{
-        "sandbox":360009693099,
-        "prod":360009330760        
+    "website_link_optional_eur_field_id": {
+        "sandbox": 360009693099,
+        "prod": 360009330760
     },
-    "golf_course_issue_eur_field_id":{
-        "sandbox":360009693119,
-        "prod":360009363619        
+    "golf_course_issue_eur_field_id": {
+        "sandbox": 360009693119,
+        "prod": 360009363619
     },
-    "holes_with_issue_eur_field_id":{
-        "sandbox":360009693279,
-        "prod":360009330780        
+    "holes_with_issue_eur_field_id": {
+        "sandbox": 360009693279,
+        "prod": 360009330780
     },
-    "additional_notes_or_details_eur_field_id":{
-        "sandbox":360009656840,
-        "prod":360009363859        
+    "additional_notes_or_details_eur_field_id": {
+        "sandbox": 360009656840,
+        "prod": 360009363859
     },
-    "sap_order_number_eur_field":{
-        "sandbox":360013986420,
-        "prod":360013981420        
+    "sap_order_number_eur_field": {
+        "sandbox": 360013986420,
+        "prod": 360013981420
     },
-    "sap_total_refund_amount_eur_field":{
-        "sandbox":360013960199,
-        "prod":360013945500        
+    "sap_total_refund_amount_eur_field": {
+        "sandbox": 360013960199,
+        "prod": 360013945500
     },
-    "sap_currency_eur_field":{
-        "sandbox":360013986400,
-        "prod":360013956699        
+    "sap_currency_eur_field": {
+        "sandbox": 360013986400,
+        "prod": 360013956699
     },
-    "tealium":{
-        "sandbox":"//tags.tiqcdn.com/utag/tomtom/support/qa/utag.js",
-        "prod":"//tags.tiqcdn.com/utag/tomtom/support/prod/utag.js" 
+    "tealium": {
+        "sandbox": "//tags.tiqcdn.com/utag/tomtom/support/qa/utag.js",
+        "prod": "//tags.tiqcdn.com/utag/tomtom/support/prod/utag.js"
     },
-    "tag_manager_container":{
-        "sandbox":"GTM-5RXNHJR",
-        "prod":"GTM-5VFCJM4" 
+    "tag_manager_container": {
+        "sandbox": "GTM-5RXNHJR",
+        "prod": "GTM-5VFCJM4"
     },
-    "webwidget_src":{
+    "webwidget_src": {
         "sandbox": "https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a",
-        "prod": "https://static.zdassets.com/ekr/snippet.js?key=9ba5f34a-d620-477e-97cf-361d5d086fdc" 
+        "prod": "https://static.zdassets.com/ekr/snippet.js?key=9ba5f34a-d620-477e-97cf-361d5d086fdc"
     },
-    "webwidget_class_hide_email":{
+    "webwidget_class_hide_email": {
         "sandbox": "#Embed div.sc-iybRtq > div:nth-child(1) { display: none; } #Embed div.sc-iybRtq > div:nth-child(2) { display: none; }",
-        "prod": "#Embed div.sc-iybRtq > div:nth-child(1) { display: none; } #Embed div.sc-iybRtq > div:nth-child(2) { display: none; }" 
+        "prod": "#Embed div.sc-iybRtq > div:nth-child(1) { display: none; } #Embed div.sc-iybRtq > div:nth-child(2) { display: none; }"
     },
-    "naviagtion_category_id":{
-        "sandbox":360002347259,
-        "prod":360002542640        
+    "naviagtion_category_id": {
+        "sandbox": 360002347259,
+        "prod": 360002542640
     },
-    "apps_category_id":{
-        "sandbox":360002347279,
-        "prod":360002556499        
+    "apps_category_id": {
+        "sandbox": 360002347279,
+        "prod": 360002556499
     },
-    "sports_category_id":{
-        "sandbox":360002323840,
-        "prod":360002556519        
+    "sports_category_id": {
+        "sandbox": 360002323840,
+        "prod": 360002556519
     },
-    "accounts_orders_legal_category_id":{
-        "sandbox":360002415879,
-        "prod":360002542660        
+    "accounts_orders_legal_category_id": {
+        "sandbox": 360002415879,
+        "prod": 360002542660
     },
-    "user_manual_release_info_category_id":{
-        "sandbox":360002396000,
-        "prod":360002542680        
+    "user_manual_release_info_category_id": {
+        "sandbox": 360002396000,
+        "prod": 360002542680
     },
-    "learn_more_category_id":{
-        "sandbox":360002415859,
-        "prod":360002542700        
+    "learn_more_category_id": {
+        "sandbox": 360002415859,
+        "prod": 360002542700
     },
-    "wifi_section_id":{
-        "sandbox":360003542600,
-        "prod":360004054860        
+    "wifi_section_id": {
+        "sandbox": 360003542600,
+        "prod": 360004054860
     },
-    "mdc_section_id":{
-        "sandbox":360003542620,
-        "prod":360004095099        
+    "mdc_section_id": {
+        "sandbox": 360003542620,
+        "prod": 360004095099
     },
-    "tthome_section_id":{
-        "sandbox":360003585479,
-        "prod":360004095079        
+    "tthome_section_id": {
+        "sandbox": 360003585479,
+        "prod": 360004095079
     },
-    "amigo_section_id":{
-        "sandbox":360003589080,
-        "prod":360004054940        
+    "amigo_section_id": {
+        "sandbox": 360003589080,
+        "prod": 360004054940
     },
-    "speed_cameras_section_id":{
-        "sandbox":360003629939,
-        "prod":321        
+    "speed_cameras_section_id": {
+        "sandbox": 360003629939,
+        "prod": 321
     },
-    "in_dash_section_id":{
-        "sandbox":360003629919,
-        "prod":321        
+    "in_dash_section_id": {
+        "sandbox": 360003629919,
+        "prod": 321
     },
-    "go_navigation_section_id":{
-        "sandbox":360003629899,
-        "prod":360004054960        
+    "go_navigation_section_id": {
+        "sandbox": 360003629899,
+        "prod": 360004054960
     },
-    "go_mobile_section_id":{
-        "sandbox":360003629879,
-        "prod":360004095159        
+    "go_mobile_section_id": {
+        "sandbox": 360003629879,
+        "prod": 360004095159
     },
-    "navigation_app_section_id":{
-        "sandbox":360003589060,
-        "prod":360004054980        
+    "navigation_app_section_id": {
+        "sandbox": 360003589060,
+        "prod": 360004054980
     },
-    "curfer_app_section_id":{
-        "sandbox":360003629279,
-        "prod":360004055000        
+    "curfer_app_section_id": {
+        "sandbox": 360003629279,
+        "prod": 360004055000
     },
-    "sports_watch_section_id":{
-        "sandbox":360003542980,
-        "prod":360004095119        
+    "sports_watch_section_id": {
+        "sandbox": 360003542980,
+        "prod": 360004095119
     },
-    "golfer_section_id":{
-        "sandbox":360003857759,
-        "prod":360004054920        
+    "golfer_section_id": {
+        "sandbox": 360003857759,
+        "prod": 360004054920
     },
-    "tomtom_touch_section_id":{
-        "sandbox":360003815100,
-        "prod":360004095139        
+    "tomtom_touch_section_id": {
+        "sandbox": 360003815100,
+        "prod": 360004095139
     },
-    "bandit_section_id":{
-        "sandbox":360003586039,
-        "prod":360004054900        
+    "bandit_section_id": {
+        "sandbox": 360003586039,
+        "prod": 360004054900
     },
-    "services_section_id":{
-        "sandbox":360003699680,
-        "prod":360004055020        
+    "services_section_id": {
+        "sandbox": 360003699680,
+        "prod": 360004055020
     },
-    "legal_privacy_section_id":{
-        "sandbox":360003744039,
-        "prod":360004055040        
+    "legal_privacy_section_id": {
+        "sandbox": 360003744039,
+        "prod": 360004055040
     },
-    "accounts_section_id":{
-        "sandbox":360003699820,
-        "prod":360004095179        
+    "accounts_section_id": {
+        "sandbox": 360003699820,
+        "prod": 360004095179
     },
-    "orders_section_id":{
-        "sandbox":360003699700,
-        "prod":360004095199        
+    "orders_section_id": {
+        "sandbox": 360003699700,
+        "prod": 360004095199
     },
-    "release_notes_section_id":{
-        "sandbox":360003699760,
-        "prod":360004111039        
+    "release_notes_section_id": {
+        "sandbox": 360003699760,
+        "prod": 360004111039
     },
-    "user_manuals_section_id":{
-        "sandbox":360003744079,
-        "prod":360004069100        
+    "user_manuals_section_id": {
+        "sandbox": 360003744079,
+        "prod": 360004069100
     },
-    "using_your_device_section_id":{
-        "sandbox":360003744019,
-        "prod":360004095219        
+    "using_your_device_section_id": {
+        "sandbox": 360003744019,
+        "prod": 360004095219
     },
-    "tips_section_id":{
-        "sandbox":360003699640,
-        "prod":360004095239        
+    "tips_section_id": {
+        "sandbox": 360003699640,
+        "prod": 360004095239
     },
-    "about_section_id":{
-        "sandbox":360003743999,
-        "prod":360004095259        
+    "about_section_id": {
+        "sandbox": 360003743999,
+        "prod": 360004095259
     },
-    "announcements_section_id":{
-        "sandbox":360003869119,
-        "prod":360004078300        
-    }, 
-    "email_form_request_local":{
-        "sandbox":360011667140,
-        "prod":360011647459        
+    "announcements_section_id": {
+        "sandbox": 360003869119,
+        "prod": 360004078300
     },
-    "vanilla_redirect_url":{
-        "sandbox":"https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
-        "prod":"https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"        
+    "email_form_request_local": {
+        "sandbox": 360011667140,
+        "prod": 360011647459
     },
-    "loginFromWidget":{
-        "supportsandbox":"https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
-        "help":"https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"        
+    "vanilla_redirect_url": {
+        "sandbox": "https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
+        "prod": "https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"
     },
-    "vanilla_sso_server":{
-        "sandbox":"https://10.66.244.239/",
-        "prod":"https://tccare.tomtomgroup.com/"        
+    "loginFromWidget": {
+        "supportsandbox": "https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
+        "help": "https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"
     },
-     "en-au":[        
-        {"country_code":"en-au"},
-        {"chat_department":"AU_Chat"}
-      ],
-      "pt-br":[        
-        {"country_code":"pt-br"},
-        {"chat_department":"BR_Chat"}
-      ],
-      "cs":[        
-        {"country_code":"cs"},
-        {"chat_department":"CZ_Chat"}
-      ],
-      "de":[        
-        {"country_code":"de"},
-        {"chat_department":"DE_Chat"}
-      ],
-      "da":[        
-        {"country_code":"da"},
-        {"chat_department":"DK_Chat"}
-      ],
-      "es":[        
-        {"country_code":"es"},
-        {"chat_department":"ES_Chat"}
-      ],
-      "fi":[        
-        {"country_code":"fi"},
-        {"chat_department":"FI_Chat"}
-      ],
-      "fr":[        
-        {"country_code":"fr"},
-        {"chat_department":"FR_Chat"}
-      ],
-      "it":[        
-        {"country_code":"it"},
-        {"chat_department":"IT_Chat"}
-      ],
-      "nl":[        
-        {"country_code":"nl"},
-        {"chat_department":"NL_Chat"}
-      ],
-      "no":[        
-        {"country_code":"no"},
-        {"chat_department":"NO_Chat"}
-      ],
-      "pl":[        
-        {"country_code":"pl"},
-        {"chat_department":"PL_Chat"}
-      ],
-      "pt":[        
-        {"country_code":"pt"},
-        {"chat_department":"PT_Chat"}
-      ],
-      "sv":[        
-        {"country_code":"sv"},
-        {"chat_department":"SE_Chat"}
-      ],
-      "en-gb":[        
-        {"country_code":"en-gb"},
-        {"chat_department":"UK_Chat"}
-      ],
-      "de-at":[        
-        {"country_code":"de-at"},
-        {"chat_department":"DE-AT_Chat"}
-      ],
-      "nl-be":[        
-        {"country_code":"nl-be"},
-        {"chat_department":"NL-BE_Chat"}
-      ],
-      "fr-be":[        
-        {"country_code":"fr-be"},
-        {"chat_department":"FR-BE_Chat"}
-      ],
-      "en-ca":[        
-        {"country_code":"en-ca"},
-        {"chat_department":"EN-CA_Chat"}
-      ],
-      "en-hu":[        
-        {"country_code":"en-hu"},
-        {"chat_department":"HU_Chat"}
-      ],
-      "en-gr":[        
-        {"country_code":"en-gr"},
-        {"chat_department":"GR_Chat"}
-      ],
-      "en-ie":[        
-        {"country_code":"en-ie"},
-        {"chat_department":"EN-IE_Chat"}
-      ],
-      "fr-lu":[        
-        {"country_code":"fr-lu"},
-        {"chat_department":"FR-LU_Chat"}
-      ],
-      "fr-ch":[        
-        {"country_code":"fr-ch"},
-        {"chat_department":"FR-CH_Chat"}
-      ],
-      "de-ch":[        
-        {"country_code":"de-ch"},
-        {"chat_department":"DE-CH_Chat"}
-      ],
-      "es-ar":[        
-        {"country_code":"es-ar"},
-        {"chat_department":"ES-AR_Chat"}
-      ],
-      "fr-ca":[        
-        {"country_code":"fr-ca"},
-        {"chat_department":"FR-CA_Chat"}
-      ],
-      "es-mx":[        
-        {"country_code":"es-mx"},
-        {"chat_department":"ES-MX_Chat"}
-      ],
-      "en-za":[        
-        {"country_code":"en-za"},
-        {"chat_department":"EN-ZA_Chat"}
-      ],
-      "en-nz":[        
-        {"country_code":"en-nz"},
-        {"chat_department":"NZ_Chat"}
-      ],
-      "en-sg":[        
-        {"country_code":"en-sg"},
-        {"chat_department":"SG_Chat"}
-      ],
-      "en-us":[        
-        {"country_code":"en-us"},
-        {"chat_department":"US_Chat"}
-      ],
-      "en-in":[        
-        {"country_code":"en-in"},
-        {"chat_department":"EN-IN_Chat"}
-      ],
-      "zh-cn":[        
-        {"country_code":"zh-cn"},
-        {"chat_department":"CN_Chat"}
-      ],
-      "zh-tw":[        
-        {"country_code":"zh-tw"},
-        {"chat_department":"TW_Chat"}
-      ],
-      "tr":[        
-        {"country_code":"tr"},
-        {"chat_department":"TR_Chat"}
-      ],
-      "ja":[        
-        {"country_code":"ja"},
-        {"chat_department":"JP_Chat"}
-      ],
-      "ko":[        
-        {"country_code":"ko"},
-        {"chat_department":"KR_Chat"}
-      ],
-    "example":{
-        "sandbox":123,
-        "prod":321        
+    "vanilla_sso_server": {
+        "sandbox": "https://10.66.244.239/",
+        "prod": "https://tccare.tomtomgroup.com/"
+    },
+    "en-au": [
+        { "country_code": "en-au" },
+        { "chat_department": "AU_Chat" }
+    ],
+    "pt-br": [
+        { "country_code": "pt-br" },
+        { "chat_department": "BR_Chat" }
+    ],
+    "cs": [
+        { "country_code": "cs" },
+        { "chat_department": "CZ_Chat" }
+    ],
+    "de": [
+        { "country_code": "de" },
+        { "chat_department": "DE_Chat" }
+    ],
+    "da": [
+        { "country_code": "da" },
+        { "chat_department": "DK_Chat" }
+    ],
+    "es": [
+        { "country_code": "es" },
+        { "chat_department": "ES_Chat" }
+    ],
+    "fi": [
+        { "country_code": "fi" },
+        { "chat_department": "FI_Chat" }
+    ],
+    "fr": [
+        { "country_code": "fr" },
+        { "chat_department": "FR_Chat" }
+    ],
+    "it": [
+        { "country_code": "it" },
+        { "chat_department": "IT_Chat" }
+    ],
+    "nl": [
+        { "country_code": "nl" },
+        { "chat_department": "NL_Chat" }
+    ],
+    "no": [
+        { "country_code": "no" },
+        { "chat_department": "NO_Chat" }
+    ],
+    "pl": [
+        { "country_code": "pl" },
+        { "chat_department": "PL_Chat" }
+    ],
+    "pt": [
+        { "country_code": "pt" },
+        { "chat_department": "PT_Chat" }
+    ],
+    "sv": [
+        { "country_code": "sv" },
+        { "chat_department": "SE_Chat" }
+    ],
+    "en-gb": [
+        { "country_code": "en-gb" },
+        { "chat_department": "UK_Chat" }
+    ],
+    "de-at": [
+        { "country_code": "de-at" },
+        { "chat_department": "DE-AT_Chat" }
+    ],
+    "nl-be": [
+        { "country_code": "nl-be" },
+        { "chat_department": "NL-BE_Chat" }
+    ],
+    "fr-be": [
+        { "country_code": "fr-be" },
+        { "chat_department": "FR-BE_Chat" }
+    ],
+    "en-ca": [
+        { "country_code": "en-ca" },
+        { "chat_department": "EN-CA_Chat" }
+    ],
+    "en-hu": [
+        { "country_code": "en-hu" },
+        { "chat_department": "HU_Chat" }
+    ],
+    "en-gr": [
+        { "country_code": "en-gr" },
+        { "chat_department": "GR_Chat" }
+    ],
+    "en-ie": [
+        { "country_code": "en-ie" },
+        { "chat_department": "EN-IE_Chat" }
+    ],
+    "fr-lu": [
+        { "country_code": "fr-lu" },
+        { "chat_department": "FR-LU_Chat" }
+    ],
+    "fr-ch": [
+        { "country_code": "fr-ch" },
+        { "chat_department": "FR-CH_Chat" }
+    ],
+    "de-ch": [
+        { "country_code": "de-ch" },
+        { "chat_department": "DE-CH_Chat" }
+    ],
+    "es-ar": [
+        { "country_code": "es-ar" },
+        { "chat_department": "ES-AR_Chat" }
+    ],
+    "fr-ca": [
+        { "country_code": "fr-ca" },
+        { "chat_department": "FR-CA_Chat" }
+    ],
+    "es-mx": [
+        { "country_code": "es-mx" },
+        { "chat_department": "ES-MX_Chat" }
+    ],
+    "en-za": [
+        { "country_code": "en-za" },
+        { "chat_department": "EN-ZA_Chat" }
+    ],
+    "en-nz": [
+        { "country_code": "en-nz" },
+        { "chat_department": "NZ_Chat" }
+    ],
+    "en-sg": [
+        { "country_code": "en-sg" },
+        { "chat_department": "SG_Chat" }
+    ],
+    "en-us": [
+        { "country_code": "en-us" },
+        { "chat_department": "US_Chat" }
+    ],
+    "en-in": [
+        { "country_code": "en-in" },
+        { "chat_department": "EN-IN_Chat" }
+    ],
+    "zh-cn": [
+        { "country_code": "zh-cn" },
+        { "chat_department": "CN_Chat" }
+    ],
+    "zh-tw": [
+        { "country_code": "zh-tw" },
+        { "chat_department": "TW_Chat" }
+    ],
+    "tr": [
+        { "country_code": "tr" },
+        { "chat_department": "TR_Chat" }
+    ],
+    "ja": [
+        { "country_code": "ja" },
+        { "chat_department": "JP_Chat" }
+    ],
+    "ko": [
+        { "country_code": "ko" },
+        { "chat_department": "KR_Chat" }
+    ],
+    "example": {
+        "sandbox": 123,
+        "prod": 321
     }
 }
