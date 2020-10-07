@@ -13,7 +13,7 @@ body {
     grid-column-gap: 5%;
     grid-row-gap: 50px;
     grid-auto-rows: 320px;
-    padding-inline-start: 4.95em;
+    padding-inline-start: 0;
 }
 
 .home_categories_container ul li {
@@ -112,18 +112,19 @@ body {
 .explore label {
     cursor: pointer;
     font-family: "gotham bold";
+    color: #000;
 }
 
 .explore::after {
     /* content: url($assets-chevron_right-svg); */
     /* vertical-align: middle; */
-    margin-left: 0.2em;
+    margin-left: 14px;
     position: absolute;
     margin-top: 0.25em;
 }
 
 .explore_WINDOWS::after {
-    margin-left: 0.2em;
+    margin-left: 14px;
     position: absolute;
     margin-top: 0.19em;
 }
@@ -157,7 +158,7 @@ body {
         grid-template-columns: 90%;
         grid-column-gap: 0;
         grid-row-gap: 3em;
-        padding-inline-start: 10% !important;
+        padding-inline-start: 0;
     }
     .home_container {
         /* height:270em; */
@@ -232,7 +233,7 @@ body {
 @media only screen and (min-width: 900px) and (max-width: 1366px) {
     .home_categories_container ul {
         grid-column-gap: 6%;
-        padding-inline-start: 40px;
+        padding-inline-start: 0;
     }
     .home_categories_container ul li:nth-child(n) {
         background-color: #F2F2F2;
