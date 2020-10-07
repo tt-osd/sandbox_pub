@@ -155,7 +155,8 @@ body {
 @media only screen and (max-width: 899px) {
     .home_categories_container ul {
         display: grid !important;
-        grid-template-columns: 90%;
+        /* grid-template-columns: 90%; */
+        grid-template-columns: 100%;
         grid-column-gap: 0;
         grid-row-gap: 3em;
         padding-inline-start: 0;
