@@ -1,37 +1,82 @@
+<div class="zd_Hidden" id="HomePage_css">{{asset 'HomePage.css'}}</div>
+
 <label class='zd_Hidden' id='homepage_metadescription'>{{dc 'meta_description_homepage'}}</label>
+
+<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_manual'>{{dc 'home_category_sub_title_manual'}}</label>
+<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_nav'>{{dc 'home_category_sub_title_nav'}}</label>
+<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_apps'>{{dc 'home_category_sub_title_apps'}}</label>
+<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_account'>{{dc 'home_category_sub_title_account'}}</label>
+<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_sport'>{{dc 'home_category_sub_title_sport'}}</label>
+<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_other'>{{dc 'home_category_sub_title_other'}}</label>
+
+<label class="zd_Hidden" id="NewHomePage">{{asset 'NewHomePage.js'}}</label>
+<script>
+ var HomePage_css_link = document.createElement('link');  
+        // set the attributes for link element 
+        HomePage_css_link.rel = 'stylesheet';  
+        HomePage_css_link.type = 'text/css'; 
+  			//get css url
+        var homePage_Css="https:"+$("#HomePage_css").html();
+        HomePage_css_link.href = homePage_Css;  
+        // Get HTML head element to append  
+        // link element to it  
+        document.getElementsByTagName('HEAD')[0].appendChild(HomePage_css_link);  
+  
+  
+  $.loadScript('https:'+document.getElementById("NewHomePage").innerHTML);                   
+</script>
+
+
+
 <div class="home_container">
-<section class="section knowledge-base" id="home-section"></section>
-<!--     <h2>{{dc 'homepage_category_block_title'}}</h2> -->
-    <section class="categories blocks">
-      <div class="tile-grid">
-        <div class="tile-grid__groups">
-      <ul class="tile-grid__group">
-        <li class="blocks-item-home blocks-item tile-grid-group__tile" id="">
-                     <section class="">
-                 			 <div class="homepage-title">
+  
+<!--          <li class="blocks-item-home blocks-item tile-grid-group__tile" id=""> -->
+          
+<!--                      <section class=""> -->
+                 			 <div class="homepage_search_header">
                     			<h1>{{dc 'homepage_welcome'}}</h1>
                   	  		<p>{{dc 'homepage_tagline'}}</p>
                  	   						{{search instant=settings.instant_search class='search search-full'}}
                   				</div>
-                				</section>
-        </li>
+<!--                 				</section> -->
+            
+  
+  
+  
+  
+  
+<!--   section knowledge-base -->
+<!-- <section class="" id="home-section"></section> -->
+<!--     <h2>DC: homepage_category_block_title</h2> -->
+    <section class="home_section"> 
+<!--       categories blocks -->
+      <div class="">
+<!--         tile-grid -->
+        <div class="home_categories_container">
+<!--           tile-grid__groups -->
+      <ul class="">
+<!--    tile-grid__group       -->
+ 
         {{#each categories}}
           {{#if ../has_multiple_categories}}
-            <li class="blocks-item tile-grid-group__tile" id="blocks-item-{{id}}">
-              <a href='{{url}}' class="blocks-item-link">       
+<!--         tile-grid-group__tile -->
+            <li class=" " id="blocks-item-{{id}}">
+              <a href='{{url}}' class="blocks_item_link">       
 <!--                 <img class="category-icon" src="{{asset 'apps.png'}}">                 -->
-                <h4 class="blocks-item-title">{{name}}</h4>
+                <div class="blocks-item-title"> <h5>{{name}}</h5></div>
+                <div class="sub_title"><h4 class="home_category_sub_title"></h4></div>
  						    <p class="blocks-item-description">{{excerpt description}}</p>
-                <div class="button"></div>
-              </a>
+                 <div class="explore"><label>{{dc 'homepage_2020_category_exp'}}</label></div>
+                </a>
+            <div class="home_category_image"></div> 
+<!--               this help the location for Explore button -->
             </li>
           {{else}}
             {{#each sections}}
               <li class="blocks-item" >
                 <a href='{{url}}' class="blocks-item-link">
-                  <h4 class="blocks-item-title">
-                    {{name}}
-                  </h4>
+             <div class="blocks-item-title"> <h5>{{name}}</h5></div>
+               
                   <p class="blocks-item-description">{{excerpt description}}</p>
                   
                 </a>
@@ -42,7 +87,7 @@
       </ul>
       </div>
     </div>
-      {{pagination}}
+
     </section>
          
 
