@@ -1957,7 +1957,8 @@ ul.blocks-list {
     text-transform: none;
 }
 
-.blocks-item-description {
+
+/* .blocks-item-description {
     font-weight: 400;
     color: #000;
     margin: 0;
@@ -1967,7 +1968,7 @@ ul.blocks-list {
 
 .blocks-item-description:not(:empty) {
     margin-top: 10px;
-}
+} */
 
 :root {
     --gutter: 24px;
