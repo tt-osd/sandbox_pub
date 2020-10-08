@@ -1,0 +1,261 @@
+/*New Home page CSS will be isoliated*/
+
+
+/*New Home page CSS will be isoliated*/
+
+body {
+    background-color: unset;
+}
+
+.home_categories_container ul {
+    display: grid !important;
+    grid-template-columns: 45% 45%;
+    grid-column-gap: 5%;
+    grid-row-gap: 50px;
+    grid-auto-rows: 320px;
+    padding-inline-start: 0;
+}
+
+.home_categories_container ul li {
+    display: grid !important;
+    grid-template-columns: 45% 45%;
+    grid-column-gap: 5%;
+    grid-row-gap: 10%;
+}
+
+.home_categories_container ul li {
+    /*   background-color:#E5E5E5; */
+    /*    */
+    list-style: none;
+    padding: 2em 2em;
+}
+
+.home_categories_container ul li h5 {
+    color: #ffffff;
+}
+
+.home_categories_container ul li a {
+    position: relative;
+}
+
+.blocks-item-title {
+    margin-bottom: 0;
+    font-family: "gotham bold";
+    text-transform: none;
+    width: max-content;
+    padding: 0 0.5em 0 0.5em;
+}
+
+.home_categories_container ul li:nth-child(1) .blocks-item-title {
+    background-color: #E94743;
+}
+
+.home_categories_container ul li:nth-child(2) .blocks-item-title {
+    background-color: #61ADE0;
+}
+
+.home_categories_container ul li:nth-child(3) .blocks-item-title {
+    background-color: #008D8D;
+}
+
+.home_categories_container ul li:nth-child(4) .blocks-item-title {
+    background-color: #F9B023;
+}
+
+.home_categories_container ul li:nth-child(5) .blocks-item-title {
+    background-color: #EC619F;
+}
+
+.home_categories_container ul li:nth-child(6) .blocks-item-title {
+    background-color: #004B7F;
+}
+
+.home_categories_container ul li:nth-child(n) {
+    background-color: #F2F2F2;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.home_categories_container ul li a {
+    overflow-wrap: break-word;
+}
+
+.home_categories_container ul li .home_category_image {
+    /*  background:  url($assets-guides_desktop-png); */
+    background-size: cover;
+}
+
+.home_container {
+    /* background-color:#FFFFFF; */
+    margin: 0;
+    padding: 0;
+}
+
+.homepage_search_header {
+    background-color: #E5E5E5;
+    padding: 1em;
+}
+
+.home_section {
+    margin-bottom: 3em;
+    margin-top: 3em;
+}
+
+.explore {
+    position: absolute;
+    ;
+    cursor: pointer;
+    padding: 1em 0 0 0;
+    bottom: 0;
+}
+
+.explore label {
+    cursor: pointer;
+    font-family: "gotham bold";
+    color: #000;
+}
+
+.explore::after {
+    /* content: url($assets-chevron_right-svg); */
+    /* vertical-align: middle; */
+    margin-left: 14px;
+    position: absolute;
+    margin-top: 0.25em;
+}
+
+.explore_WINDOWS::after {
+    margin-left: 14px;
+    position: absolute;
+    margin-top: 0.19em;
+}
+
+.sub_title {
+    color: #000000;
+}
+
+.sub_title h4 {
+    color: #000000;
+    line-height: 1;
+    text-transform: none;
+}
+
+.blocks-item-description {
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+    text-transform: none;
+    color: #666;
+    /*   min-height: 170px; */
+}
+
+.blocks-item-description:not(:empty) {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 899px) {
+    .home_categories_container ul {
+        display: grid !important;
+        /* grid-template-columns: 90%; */
+        grid-template-columns: 100%;
+        grid-column-gap: 0;
+        grid-row-gap: 3em;
+        padding-inline-start: 0;
+    }
+    .home_container {
+        /* height:270em; */
+    }
+    .home_categories_container ul li:nth-child(n) {
+        background-color: #F2F2F2;
+        /*     background-size: 100%; */
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 690px) {
+    .home_categories_container ul {
+        grid-auto-rows: 490px;
+        grid-row-gap: 50px;
+    }
+    .home_categories_container ul li {
+        display: grid !important;
+        grid-template-columns: 100%;
+        overflow: hidden;
+        /*     grid-column-gap: 5%;
+      grid-row-gap: 10%; */
+    }
+    .home_categories_container ul li:nth-child(1) {
+        /* background: url($assets-guides_mobile-png); */
+        background-color: #F2F2F2;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .home_categories_container ul li:nth-child(2) {
+        /* background: url($assets-navigation_mobile-png); */
+        background-color: #F2F2F2;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .home_categories_container ul li:nth-child(3) {
+        /* background: url($assets-apps_mobile-png); */
+        background-color: #F2F2F2;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .home_categories_container ul li:nth-child(4) {
+        /* background: url($assets-orders_mobile-png); */
+        background-color: #F2F2F2;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .home_categories_container ul li:nth-child(5) {
+        /* background: url($assets-sports_mobile-png); */
+        background-color: #F2F2F2;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .home_categories_container ul li:nth-child(6) {
+        /* background: url($assets-others_mobile-png); */
+        background-color: #F2F2F2;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .explore {
+        /* bottom: -35px; */
+    }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1366px) {
+    .home_categories_container ul {
+        grid-column-gap: 6%;
+        padding-inline-start: 0;
+    }
+    .home_categories_container ul li:nth-child(n) {
+        background-color: #F2F2F2;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+    .home_categories_container ul li .blocks-item-description {
+        line-height: 1;
+    }
+    .explore {
+        bottom: -15px;
+    }
+    .sub_title h4 {
+        font-size: 18px;
+        text-transform: none;
+    }
+}
+
+
+/*New Home page CSS will be isoliated*/
+
+
+/*New Home page CSS will be isoliated*/
