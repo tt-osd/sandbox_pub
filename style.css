@@ -8807,5 +8807,8 @@ only screen and (min-resolution:2dppx) {
     }
 }
 
-
+.homepage_search_header form {
+  margin-left: 0;
+  max-width: 1370px;
+}
 /*New Home page CSS which cannot be isoliated*/
