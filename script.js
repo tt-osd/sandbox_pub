@@ -1752,5 +1752,10 @@ $(document).ready(function() { // only insert after this if you need document to
     $('.form-field.request_ticket_form_id').hide();
     $('.form-field.request_organization_id').hide();
     /***** End of New request pages - product pre-select *****/ //Lorna Rickett 
-
+    Bots.on('ready', function () {
+        var bongocontainer = document.getElementById('web-messenger-container');
+        var conversation = bongocontainer.contentWindow.document.getElementsByTagName("body")[0];
+        var firstmessage = conversation.getElementsByClassName("row-appuser-first")[0];
+        $(firstmessage).hide();
+        });  
 }); // end of document ready function

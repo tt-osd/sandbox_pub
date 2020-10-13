@@ -6,44 +6,58 @@ function initialize_bot() {
     var bongo_init_sendbuttontext = document.getElementById("bongo_init_sendbuttontext").innerHTML;
     var bongo_init_inputplaceholder = document.getElementById("bongo_init_inputplaceholder").innerHTML;
     var bongo_subheader = document.getElementById("bongo_subheader").innerHTML;
+    var bongo_locale = $('html').attr('lang').toLowerCase();
+    //console.log(bongo_locale);
 
-    const initMessage = {
-        text: 'hi',
+
+
+    //Upon opening widget send a hidden hello message if there is no conversation history
+    var messageBody = {
+        text: 'Hi',
         type: 'text',
-        metadata: {
+        metaData: {
             isHidden: true
         }
     };
-    Bots.on('widget:opened', function() {
-        if (Bots.getConversation().messages.length == 0) {
-            Bots.sendMessage(initMessage);
+
+    Bots.on('ready', function () {
+        if (Bots.getConversation().messages.length < 1) {
+            Bots.sendMessage({
+                text: 'Hi', metaData: {
+                    isHidden: true
+                }
+            });
         }
     });
 
     Bots.init({
         appId: bot_id,
-        businessName: "TomTom",
+        browserStorage: 'sessionStorage',
+        businessName: "Bongo",
         displayStyle: 'button',
-        //embedded: true,
         menuItems: {
             imageUpload: false,
             fileUpload: false,
             shareLocation: false
         },
         delegate: {
-            beforeDisplay: function(message) {
-                if (message.metadata && message.metadata.isHidden) {
-                    return null; //Don't show hidden messages
-                }
+            beforeDisplay: function (message) {
                 if (message.role == 'appMaker') {
                     // if (message.text) {
                     //     message.text = message.text.replace(/&lt;/g, "<").replace(/&gt;/g, ">");  //Unescape HTML from Bot
                     // }
                     message.avatarUrl = "https://download.tomtom.com/support/cc/help/assets/Bongo/tiny_bongo.png"; //Bot avatar
+
                 }
-                return message;
+                if (message.metaData && message.metaData.isHidden) {
+                    return null; //Don't show hidden messages
+                }
+                else
+                    return message;
             }
         },
+        locale: bongo_locale,
+        //locale: 'nl',//testing - use line above to finish ticket :)
         buttonIconUrl: 'https://download.tomtom.com/support/cc/help/assets/Bongo/small_bongo.png',
         buttonWidth: '100px',
         buttonHeight: '100',
@@ -56,22 +70,15 @@ function initialize_bot() {
         },
         soundNotificationEnabled: false, //disable sound notification for new messages
         customText: {
-            headerText: "Chat with Bongo",
-            inputPlaceholder: 'Ask a question',
             sendButtonText: bongo_init_sendbuttontext,
             headerText: bongo_init_headertext,
-            introductionText: 'Bongo; ' + bongo_subheader,
+            introductionText: bongo_subheader,
             actionPostbackError: 'An error occurred while processing your action. Please try again.',
             clickToRetry: 'Message not delivered. Click to retry.',
             conversationTimestampHeaderFormat: 'MMMM D YYYY, h:mm A',
             fetchHistory: 'Load more',
             fetchingHistory: 'Retrieving history...',
             inputPlaceholder: bongo_init_inputplaceholder,
-            invalidFileError: 'Only images are supported. Choose a file with a supported extension (jpg, jpeg, png, gif, or bmp).',
-            locationNotSupported: 'Your browser does not support location services or it’s been disabled. Please type your location instead.',
-            locationSecurityRestriction: 'This website cannot access your location. Please type your location instead.',
-            locationSendingFailed: 'Could not send location',
-            locationServicesDenied: 'This website cannot access your location. Allow access in your settings or type your location instead.',
             messageIndicatorTitlePlural: '({count}) New messages',
             messageIndicatorTitleSingular: '({count}) New message',
             messageRelativeTimeDay: '{value}d ago',
@@ -88,8 +95,6 @@ function initialize_bot() {
         }
     });
 
-
 }
-
 
 initialize_bot();
