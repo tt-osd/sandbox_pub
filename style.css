@@ -1085,27 +1085,28 @@ ul.nav-text-links {
 
 .nav-icons,
 .header-logo {
-    width: 200px;
+    min-width: 200px;
 }
 
 .nav-icons {
     height: 69px;
-    display: block;
+  	display:flex;
+  	justify-content: flex-end;
 }
-
+.nav-icons a {
+    display: inline-block;  
+}
 .nav-icon {
     fill: #666;
-    display: block;
     margin-top: 2px;
-    float: left;
     padding: 20px 0px;
-    margin-right: 15px;
-}
 
+}
 .user-info {
     padding: 20px 0px;
+  	margin-left: 30px;
+    position: relative;
 }
-
 .nav-icon svg path {
     color: #f2f2f2;
 }
@@ -1256,9 +1257,16 @@ ul.nav-text-links {
 
 .login {
     padding: 12px 22px;
-    margin: 14px 0px;
+    margin: 14px 30px;
+  	margin-left: 30px;
 }
-
+@media (min-width: 768px) {
+  .login {
+    margin: 14px 0px;
+  	margin-left: 30px;
+  }
+  
+}
 .nav-wrapper a.login {
     display: inline-block;
 }
@@ -1318,14 +1326,6 @@ ul.nav-text-links {
 img#user-avatar.user-avatar {
     display: none;
 }
-
-.user-info {
-    display: block;
-    width: 58px;
-    float: left;
-    position: relative;
-}
-
 .user-info .dropdown-toggle::after {
     display: none;
 }
