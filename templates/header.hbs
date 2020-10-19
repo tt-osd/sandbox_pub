@@ -10,22 +10,39 @@
 <label class='zd_Hidden' id='searchbar_placeholder'>{{dc 'searchbar_placeholder'}}</label>
 <!-- load Map and tealium -->
 <!--bongo multi lanague-->
-
 <label id="bongo_subheader" class="zd_Hidden">{{dc 'bongo_subheader'}}</label>
 <label id="bongo_init_inputplaceholder" class="zd_Hidden">{{dc 'bongo_init_inputplaceholder'}}</label>
 <label id="bongo_init_sendbuttontext" class="zd_Hidden">{{dc 'bongo_init_sendbuttontext'}}</label>
 <label id="bongo_init_headertext" class="zd_Hidden">{{dc 'bongo_init_headertext'}}</label>
+<label id="bongoforthislocale" class="zd_Hidden">{{dc 'bongoforthislocale'}}</label>
+<label id="bongowidgetcombo" class="zd_Hidden">{{dc 'bongowidgetcombo'}}</label>
 <!--bongo multi lanague-->
-
+<!-- bongo web sdk -->
+<label class="zd_Hidden" id="bongo_channelid">{{dc 'bongo_channelid'}}</label>
+<label class="zd_Hidden" id="bongo_uri">{{dc 'bongo_uri'}}</label>
+<label class="zd_Hidden" id="bongo_chat_icon">{{dc 'bongo_chat_icon'}}</label>
+<label class="zd_Hidden" id="init_bot_setting">{{asset 'bot_settings.js'}}</label>
+<label class="zd_Hidden" id="bongo_sdk">{{asset 'web-sdk.js'}}</label>
+<div id="css_bongo" class="zd_Hidden">{{asset 'bongo.css'}}</div>
+<!-- bongo web sdk -->
 <label class="zd_Hidden" id="tealium">{{asset 'tealium.js'}}</label>
 <label class="zd_Hidden" id="map_json">{{asset 'mappublic.json'}}</label>
-
 <div class="zd_Hidden" id="one_widget_css">{{asset 'one_widget.css'}}</div>
 <label class="zd_Hidden" id="one_widget_JS">{{asset 'one_widget.js'}}</label>
 <label class="zd_Hidden" id="Google_Analytics_Tracking_FC">{{asset 'Google_Analytics_Tracking.js'}}</label>
-
+<script> 
+        var link = document.createElement('link');  
+        // set the attributes for link element 
+        link.rel = 'stylesheet';  
+        link.type = 'text/css'; 
+  			//get css url
+        var bongoCss="https:"+$("#css_bongo").html();
+        link.href = bongoCss;  
+        // Get HTML head element to append  
+        // link element to it  
+        document.getElementsByTagName('HEAD')[0].appendChild(link);  
+</script>  
 <script>
-
  var one_widget_css_link = document.createElement('link');  
         // set the attributes for link element 
         one_widget_css_link.rel = 'stylesheet';  
@@ -46,16 +63,15 @@
         async: true
     });
 }
-
-
-
-
+//load script function 
 $.loadScript('https:'+document.getElementById("one_widget_JS").innerHTML);
 $.loadScript('https:'+document.getElementById("Google_Analytics_Tracking_FC").innerHTML);
-  
-  
-//load script function 
 </script>
+<!-- start load bongo  --> 
+<script type="text/javascript">
+  $.loadScript('https:'+document.getElementById("init_bot_setting").innerHTML);
+</script>
+<!-- end load bongo  --> 
 
 <script>
   var utag_data="";
@@ -290,14 +306,7 @@ if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Interne
 
 
 
-<!-- start load bongo  --> 
-<script>
-!function(e,t,n,r){
-   function s(){try{var e;if((e="string"==typeof this.response?JSON.parse(this.response):this.response).url){var n=t.getElementsByTagName("script")[0],r=t.createElement("script");r.async=!0,r.src=e.url,n.parentNode.insertBefore(r,n)}}catch(e){}}var o,p,a,i=[],c=[];e[n]={init:function(){o=arguments;var e={then:function(t){return c.push({type:"t",next:t}),e},catch:function(t){return c.push({type:"c",next:t}),e}};return e},on:function(){i.push(arguments)},render:function(){p=arguments},destroy:function(){a=arguments}},e.__onWebMessengerHostReady__=function(t){if(delete e.__onWebMessengerHostReady__,e[n]=t,o)for(var r=t.init.apply(t,o),s=0;s<c.length;s++){var u=c[s];r="t"===u.type?r.then(u.next):r.catch(u.next)}p&&t.render.apply(t,p),a&&t.destroy.apply(t,a);for(s=0;s<i.length;s++)t.on.apply(t,i[s])};var u=new XMLHttpRequest;u.addEventListener("load",s),u.open("GET",r+"/loader.json",!0),u.responseType="json",u.send()
-}(window,document,"Bots", "https://objectstorage.us-ashburn-1.oraclecloud.com/n/bots4saas/b/TomTom/o");
 
-</script>
-<!-- end load bongo  --> 
 
 
   

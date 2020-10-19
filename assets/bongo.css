@@ -1,33 +1,146 @@
-.zd_Bongo {
-    right: unset !important;
-    width: 330px !important;
-    height: 500px !important;
-    margin-bottom: -10px !important;
-    border-radius: 10px !important;
-    position: absolute !important;
-    box-shadow: 0 0 12px rgba(0, 0, 0, .15);
-    z-index: unset !important;
-}
-
-.bongo_open {
-    cursor: pointer;
-    text-transform: uppercase;
-}
-
-.bongo_fullSize {
-    width: 100%;
-    height: 100%;
-    position: fixed !important;
+.oda-chat-wrapper {
     z-index: 999999 !important;
-    bottom: 0 !important;
-    right: 0 !important;
 }
 
-.close_bongo {
-    /*content:  url($assets-close_icon-png);*/
-    z-index: 9999999;
-    position: fixed;
-    right: 0;
-    top: 1px;
-    width: 2.75em;
+.oda-chat-widget {
+    border-radius: 0.571429rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0.428571rem 0px;
+    bottom: -10px !important;
+}
+
+.oda-chat-card {
+    background: transparent !important;
+    /* border: none !important; */
+}
+
+.oda-chat-button {
+    display: none !important;
+}
+
+.oda-chat-card-actions .oda-chat-action-postback {
+    background: #8DC3EB !important;
+    border-color: transparent !important;
+    border-style: solid;
+    border-width: 1px;
+    color: #ffffff;
+}
+
+.oda-chat-left .oda-chat-message-bubble,
+.oda-chat-left .oda-chat-message-header,
+.oda-chat-left .oda-chat-message-footer {
+    background: transparent !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+.oda-chat-round {
+    background: #8DC3EB !important;
+}
+
+.oda-chat-left .oda-chat-message-header {
+    border-radius: 24px !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+.oda-chat-round svg {
+    fill: #f4f4f4 !important;
+}
+
+.oda-chat-card-actions .oda-chat-action-postback:hover {
+    background: #61ADE0 !important;
+}
+
+.oda-chat-round:hover {
+    background: #61ADE0 !important;
+}
+
+.oda-chat-message-actions .oda-chat-action-postback {
+    background: #8DC3EB !important;
+    border-color: transparent !important;
+}
+
+.oda-chat-message-actions .oda-chat-action-postback:hover {
+    background: #61ADE0 !important;
+}
+
+.oda-chat-right .oda-chat-message-bubble {
+    background: #CCCCCC !important;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback {
+    border-color: #8DC3EB !important;
+    color: #8DC3EB !important;
+    font-family: "noway", Noway Regular, Helvetica, Arial, sans-serif !important;
+}
+
+.oda-chat-message-global-actions .oda-chat-action-postback:hover {
+    background: #61ADE0 !important;
+    color: #fff !important;
+}
+
+.oda-chat-card-actions .oda-chat-action-postback:hover:enabled {
+    background: #61ADE0 !important;
+}
+
+.oda-chat-round:hover:enabled {
+    background: #61ADE0 !important;
+}
+
+.oda-chat-message-content a {
+    text-transform: none !important;
+    text-decoration: underline !important;
+}
+
+.oda-chat-message-content a:hover {
+    text-transform: none !important;
+    text-decoration: none !important;
+}
+
+.oda-chat-title {
+    font-family: 'Gotham bold';
+}
+
+.oda-chat-card-image {
+    height: auto !important;
+    max-width: 100% !important;
+    width: 250px !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .oda-chat-widget {
+        width: 100% !important;
+        height: 100% !important;
+        position: fixed !important;
+        /* z-index: 999999 !important; */
+        bottom: 0 !important;
+        right: 0 !important;
+        max-height: unset !important;
+        max-width: unset !important;
+    }
+}
+
+.shakeBongo {
+    animation: shake 1s cubic-bezier(.36, .07, .19, .97) both !important;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }

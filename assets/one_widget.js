@@ -1,22 +1,6 @@
-var bongo_loaded = 0;
 var chatLabel = document.getElementById("chatLabel");
-
-function getLocale() {
-    return window.location.href
-        .split('/hc/')[1]
-        .split('/')[0];
-}
-
-
-var mobile_bongo = false;
-
-
-if ((navigator.userAgent.indexOf('Android') != -1) || (navigator.userAgent.indexOf('iPhone') != -1) || (navigator.userAgent.indexOf('Windows Phone') != -1)) {
-    mobile_bongo = true;
-
-}
-
-
+var bongoforthislocale = (document.getElementById("bongoforthislocale")).innerHTML;
+var bongowidgetcombo = (document.getElementById("bongowidgetcombo")).innerHTML;
 
 
 var waitForZen = setInterval(function() {
@@ -27,9 +11,14 @@ var waitForZen = setInterval(function() {
         zE('webWidget:on', 'userEvent', function(event) {
             if (the_url.indexOf("en-") != -1) {
                 if (event.action == "Web Widget Minimised") {
-                    var allInOneLauncher = document.getElementById("all_in_one_widget");
-                    allInOneLauncher.classList.remove("zd_Hidden");
-                    allInOneLauncher.classList.add("allInOneWidgetButton");
+                    if (Bots.isChatOpened()) {
+
+                    } else { //when minimise the Zendesk widget, if bongo conversation is not opening, then the launcher should shows up
+                        var allInOneLauncher = document.getElementById("all_in_one_widget");
+                        allInOneLauncher.classList.remove("zd_Hidden");
+                        allInOneLauncher.classList.add("allInOneWidgetButton");
+                    }
+
                 }
             }
 
@@ -37,82 +26,6 @@ var waitForZen = setInterval(function() {
     })
     clearInterval(waitForZen);
 }, 100);
-
-
-function bongo_Mobile() {
-    var close_bongo = document.createElement('div');
-    close_bongo.id = 'close_bongo';
-    close_bongo.className = "close_bongo";
-    close_bongo.addEventListener("click", closeBongoOnMobile);
-
-    var bongo_fullSize = document.createElement('div');
-    bongo_fullSize.id = 'bongo_fullSize';
-    bongo_fullSize.appendChild(close_bongo);
-    var BODY = document.getElementsByTagName("BODY")[0];
-    BODY.appendChild(bongo_fullSize);
-
-    Bots.render(document.getElementById('bongo_fullSize'));
-    var bongo = document.getElementById("web-messenger-container");
-    bongo.classList.add("bongo_fullSize");
-}
-
-
-function minimize_bongo_window() {
-
-    //the var minimize_from_widget, if the minimise action is triggered from widget, need to bring back on the new launcher
-    var minimize_from_widget = false;
-    //find bongo
-    var bongo_to_be_closed = document.getElementById("web-messenger-container");
-    if (bongo_to_be_closed != null) {
-        //if found, add zd_Hidden Class and set GA tracking
-        bongo_to_be_closed.classList.add("zd_Hidden");
-        ga_tracking("Bongo", "clicked", "bongo closed");
-    }
-
-    var bongo_minimizer = document.getElementById("bongo_minimizer");
-    var bongo_minimizer_icon = document.getElementById("bongo_minimizer_icon");
-
-    if (bongo_minimizer != null) {
-        bongo_minimizer.classList.add("zd_Hidden");
-    }
-    if (bongo_minimizer_icon != null) {
-        bongo_minimizer_icon.classList.add("zd_Hidden");
-    }
-
-    var bongo_minimizer_on_widget = document.getElementById("bongo_minimizer_on_widget");
-    var bongo_minimizer_icon_on_widget = document.getElementById("bongo_minimizer_icon_on_widget");
-
-    //if this minimizer has widget style and not have a zd_Hidden class, 
-    //means the closing action is happening on widget bongo, which means, bring back the launcher
-    if ((bongo_minimizer_on_widget != null) && (bongo_minimizer_icon_on_widget != null)) {
-        if ((bongo_minimizer_on_widget.classList.contains("bongo_minimizer_on_widget")) &&
-            (bongo_minimizer_icon_on_widget.classList.contains("bongo_minimizer_icon_on_widget")) &&
-            (!(bongo_minimizer_on_widget.classList.contains("zd_Hidden"))) &&
-            (!(bongo_minimizer_icon_on_widget.classList.contains("zd_Hidden")))
-        ) {
-            minimize_from_widget = true;
-
-        }
-
-    }
-
-    if (bongo_minimizer_on_widget != null) {
-        bongo_minimizer_on_widget.classList.add("zd_Hidden");
-    }
-    if (bongo_minimizer_icon_on_widget != null) {
-        bongo_minimizer_icon_on_widget.classList.add("zd_Hidden");
-    }
-
-    if (minimize_from_widget == true) {
-        var allInOneLauncher = document.getElementById("all_in_one_widget");
-        allInOneLauncher.classList.remove("zd_Hidden");
-        allInOneLauncher.classList.add("allInOneWidgetButton");
-    }
-
-
-
-}
-
 
 
 function all_in_one_widget_open() {
@@ -128,138 +41,46 @@ function all_in_one_widget_open() {
     var allInOneContainer = document.getElementById("allInOneContainer_open");
     allInOneContainer.classList.remove("zd_Hidden");
     allInOneContainer.classList.add("allInOneContainer");
-
-
-    if (bongo_loaded == 1) {
-        var bongo = document.getElementById("web-messenger-container");
-        if (bongo.classList.contains("widget_bongo")) {
-            bongo.classList.remove("widget_bongo");
-
-        }
-
-        if (bongo.classList.contains("zd_Bongo")) {
-            bongo.classList.remove("zd_Bongo");
-        }
-
-        if (!(bongo.classList.contains("zd_Hidden"))) {
-            bongo.classList.add("zd_Hidden");
-        }
-
-
-
-        var bongo_minimizer = document.getElementById("bongo_minimizer");
-        var bongo_minimizer_icon = document.getElementById("bongo_minimizer_icon");
-
-        if (bongo_minimizer != null) {
-            bongo_minimizer.classList.add("zd_Hidden");
-        }
-        if (bongo_minimizer_icon != null) {
-            bongo_minimizer_icon.classList.add("zd_Hidden");
-        }
-    }
 }
 
 
 
 
 function openBongo_fromWIdget() {
-    if (bongo_loaded == 1) {
 
-        if (mobile_bongo == true) {
-            $("#bongo_open").click();
-
-        } else {
-            //when bongo is loaded, open chat by showing the chat window
-            var bongo = document.getElementById("web-messenger-container");
-            if (bongo.classList.contains("zd_Bongo")) {
-                bongo.classList.remove("zd_Bongo");
-            }
-            if (bongo.classList.contains("zd_Hidden")) {
-                bongo.classList.remove("zd_Hidden");
-            }
-
-            if (!(bongo.classList.contains("widget_bongo"))) {
-                bongo.classList.add("widget_bongo");
-            }
-
-
-
-            var bongo_minimizer_on_widget = document.getElementById("bongo_minimizer_on_widget");
-            var bongo_minimizer_icon_on_widget = document.getElementById("bongo_minimizer_icon_on_widget");
-
-            if ((bongo_minimizer_on_widget != null) && (bongo_minimizer_icon_on_widget != null)) {
-                bongo_minimizer_on_widget.classList.remove("zd_Hidden");
-                bongo_minimizer_icon_on_widget.classList.remove("zd_Hidden");
-            } else {
-                var bongo_minimizer = document.createElement('div');
-
-                var bongo_minimizer_icon = document.createElement('label');
-                var textNode_for_bongo_minimizer_icon = document.createTextNode("_");
-                bongo_minimizer_icon.appendChild(textNode_for_bongo_minimizer_icon);
-                bongo_minimizer.appendChild(bongo_minimizer_icon);
-                bongo_minimizer.id = "bongo_minimizer_on_widget";
-
-                bongo_minimizer_icon.id = "bongo_minimizer_icon_on_widget";
-
-                //   bongo_minimizer_icon.addEventListener("click", function); 
-                (document.getElementById('bongo_place')).appendChild(bongo_minimizer);
-                bongo_minimizer_icon.addEventListener("click", minimize_bongo_window);
-                (document.getElementById("bongo_minimizer_on_widget")).classList.add("bongo_minimizer_on_widget");
-                (document.getElementById("bongo_minimizer_icon_on_widget")).classList.add("bongo_minimizer_icon_on_widget");
-            }
-        }
-
-
-
-
-    } else {
-
-
-        if (mobile_bongo == true) {
-            $("#bongo_open").click();
-
-        } else {
-
-
-            Bots.render(document.getElementById('bongo_place'));
-            var bongo = document.getElementById("web-messenger-container");
-            //add the css changes to make bongo fit in sub footer 
-            bongo.classList.add("widget_bongo");
-            bongo_loaded = 1;
-
-
-            //give a minimize button for bongo
-            var bongo_minimizer = document.createElement('div');
-
-            var bongo_minimizer_icon = document.createElement('label');
-            var textNode_for_bongo_minimizer_icon = document.createTextNode("_");
-            bongo_minimizer_icon.appendChild(textNode_for_bongo_minimizer_icon);
-            bongo_minimizer.appendChild(bongo_minimizer_icon);
-            bongo_minimizer.id = "bongo_minimizer_on_widget";
-
-            bongo_minimizer_icon.id = "bongo_minimizer_icon_on_widget";
-
-            //   bongo_minimizer_icon.addEventListener("click", function); 
-            (document.getElementById('bongo_place')).appendChild(bongo_minimizer);
-            bongo_minimizer_icon.addEventListener("click", minimize_bongo_window);
-            (document.getElementById("bongo_minimizer_on_widget")).classList.add("bongo_minimizer_on_widget");
-            (document.getElementById("bongo_minimizer_icon_on_widget")).classList.add("bongo_minimizer_icon_on_widget");
-            //give a minimize button for bongo
-
-        }
-
-
-    }
+    Bots.openChat();
 
     var allInOneLauncher = document.getElementById("all_in_one_widget");
-    allInOneLauncher.classList.remove("allInOneWidgetButton");
-    allInOneLauncher.classList.add("zd_Hidden");
+    //find launcher of all in one widget
+    if (allInOneLauncher != null) {
+        //if found it
+        if (allInOneLauncher.classList.contains("allInOneWidgetButton")) {
+            //if it has class to show it on page
+            //remove the class
+            allInOneLauncher.classList.remove("allInOneWidgetButton");
+        }
+        if (!(allInOneLauncher.classList.contains("zd_Hidden"))) {
+            //if it not having a Hidden Class to hide it
+            //hide it
+            allInOneLauncher.classList.add("zd_Hidden");
+        }
+    }
 
     var allInOneContainer = document.getElementById("allInOneContainer_open");
-    allInOneContainer.classList.remove("allInOneContainer");
-    allInOneContainer.classList.add("zd_Hidden");
-
-
+    //find launcher of all in one widget window
+    if (allInOneContainer != null) {
+        //if found it
+        if (allInOneContainer.classList.contains("allInOneContainer")) {
+            //if it has class to show it on page
+            //remove the class
+            allInOneContainer.classList.remove("allInOneContainer");
+        }
+        if (!(allInOneContainer.classList.contains("zd_Hidden"))) {
+            //if it not having a Hidden Class to hide it
+            //hide it
+            allInOneContainer.classList.add("zd_Hidden");
+        }
+    }
 
     //ga_tracking("Bongo", "clicked", "bongo opened");
     ga_tracking("Zendesk Web Widget", "bongo opened", " ");
@@ -293,8 +114,8 @@ function openWidgetByTomTom() {
 
 
 function loadOneWidgetLauncher() {
-    var bongo_and_widget = getLocale();
-    if (bongo_and_widget.includes("en")) {
+
+    if (bongowidgetcombo == 1) {
 
         //for all EN locale, 
         //create a new launcher
@@ -392,197 +213,64 @@ function loadOneWidgetLauncher() {
         (document.getElementById("container_open_minimizer")).classList.add("container_open_minimizer");
         (document.getElementById("container_open_minimizer_icon")).classList.add("container_open_minimizer_icon");
         (document.getElementById("support_Options")).classList.add("support_Options");
-
-
-
-
-
-
-
-
-        //end og creating widget window
+        //end of creating widget window
         //closing up creating launcher
     }
 
 }
 
-
-
-//bongo mobile
-
-
-function closeBongoOnMobile() {
-    document.getElementById('close_bongo').classList.add("zd_Hidden");
-    var bongo_to_be_closed = document.getElementById("web-messenger-container");
-    if (bongo_to_be_closed != null) {
-        //if found, add zd_Hidden Class and set GA tracking
-        bongo_to_be_closed.classList.add("zd_Hidden");
-        ga_tracking("Bongo", "clicked", "bongo closed");
-    }
-    var allInOneWidgetButton = document.getElementById('all_in_one_widget');
-    if (allInOneWidgetButton != null) {
-        if (allInOneWidgetButton.classList.contains("zd_Hidden")) {
-            allInOneWidgetButton.classList.remove("zd_Hidden");
-        }
-        if (!(allInOneWidgetButton.classList.contains("allInOneWidgetButton"))) {
-            allInOneWidgetButton.classList.add("allInOneWidgetButton");
-        }
-
-    }
-
-
-}
-
-//bongo mobile
-
 $("#bongo_open").click(function() {
-    var lo = getLocale();
-    if ((lo.includes("en")) || (lo.includes("fr"))) { // bongo only works on English locale
-        // to open a conversation with bongo, click talk to bongo from subfooter
-        if (bongo_loaded == 1) {
-            //when bongo is loaded, open chat by showing the chat window
-            var bongo = document.getElementById("web-messenger-container");
-            if (bongo.classList.contains("zd_Hidden")) {
-                bongo.classList.remove("zd_Hidden");
+
+    if (bongoforthislocale == 1) {
+
+        if (Bots.isChatOpened()) {
+
+            $(".oda-chat-widget").addClass("shakeBongo");
+        }
+        //New SDK 
+        Bots.openChat();
+        //open bongo conversation
+        ga_tracking("Bongo", "clicked", "bongo opened");
+        //GA tracking
+        var allInOneLauncher = document.getElementById("all_in_one_widget");
+        //find launcher of all in one widget
+        if (allInOneLauncher != null) {
+            //if found it
+            if (allInOneLauncher.classList.contains("allInOneWidgetButton")) {
+                //if it has class to show it on page
+                //remove the class
+                allInOneLauncher.classList.remove("allInOneWidgetButton");
             }
-            if (bongo.classList.contains("widget_bongo")) {
-                bongo.classList.remove("widget_bongo");
-
+            if (!(allInOneLauncher.classList.contains("zd_Hidden"))) {
+                //if it not having a Hidden Class to hide it
+                //hide it
+                allInOneLauncher.classList.add("zd_Hidden");
             }
-            if (!(bongo.classList.contains("zd_Bongo"))) {
-                bongo.classList.add("zd_Bongo");
-            }
-
-            //if bongo being opened from sub footer, after close the bongo at corner 
-            //aslo show the widget button
-
-            if (lo.includes("en")) {
-                var allInOneLauncher = document.getElementById("all_in_one_widget");
-                allInOneLauncher.classList.remove("zd_Hidden");
-                allInOneLauncher.classList.add("allInOneWidgetButton");
-            }
-
-
-
-
-            var bongo_minimizer = document.getElementById("bongo_minimizer");
-            var bongo_minimizer_icon = document.getElementById("bongo_minimizer_icon");
-
-            if ((bongo_minimizer != null) && (bongo_minimizer_icon != null)) {
-                bongo_minimizer.classList.remove("zd_Hidden");
-                bongo_minimizer_icon.classList.remove("zd_Hidden");
-            } else {
-                //give a minimize button for bongo, on init
-                var bongo_minimizer = document.createElement('div');
-                bongo_minimizer.id = "bongo_minimizer";
-                var bongo_minimizer_icon = document.createElement('label');
-                var textNode_for_bongo_minimizer_icon = document.createTextNode("_");
-                bongo_minimizer_icon.appendChild(textNode_for_bongo_minimizer_icon);
-                bongo_minimizer.appendChild(bongo_minimizer_icon);
-                //  bongo_minimizer.setAttribute("style","position: absolute;right: 0px;bottom:476.5px;z-index: 999999;cursor: pointer;");
-                bongo_minimizer_icon.id = "bongo_minimizer_icon";
-                //bongo_minimizer_icon.addEventListener("click", function); 
-                (document.getElementById('bongo_place')).appendChild(bongo_minimizer);
-                //give a minimize button for bongo 
-                (document.getElementById('bongo_minimizer')).classList.add("bongo_minimizer_container");
-                (document.getElementById('bongo_minimizer_icon')).classList.add("bongo_minimizer_icon");
-
-                bongo_minimizer_icon.addEventListener("click", minimize_bongo_window);
-            }
-
-
-            var bongo_minimizer_on_widget = document.getElementById("bongo_minimizer_on_widget");
-            var bongo_minimizer_icon_on_widget = document.getElementById("bongo_minimizer_icon_on_widget");
-
-            if (bongo_minimizer_on_widget != null) {
-                bongo_minimizer_on_widget.classList.add("zd_Hidden");
-            }
-            if (bongo_minimizer_icon_on_widget != null) {
-                bongo_minimizer_icon_on_widget.classList.add("zd_Hidden");
-            }
-
-            if (mobile_bongo == true) {
-                if ((bongo.classList.contains("zd_Bongo"))) {
-                    bongo.classList.remove("zd_Bongo");
-                }
-                document.getElementById('close_bongo').classList.remove("zd_Hidden");
-
-                if (lo.includes("en")) {
-                    var allInOneLauncher = document.getElementById("all_in_one_widget");
-                    allInOneLauncher.classList.remove("allInOneWidgetButton");
-                    allInOneLauncher.classList.add("zd_Hidden");
-                }
-            }
-
-
-        } else {
-            if (mobile_bongo == true) {
-                var close_bongo = document.createElement('div');
-                close_bongo.id = 'close_bongo';
-                close_bongo.className = "close_bongo";
-                close_bongo.addEventListener("click", closeBongoOnMobile);
-
-                var bongo_fullSize = document.createElement('div');
-                bongo_fullSize.id = 'bongo_fullSize';
-                bongo_fullSize.appendChild(close_bongo);
-                var BODY = document.getElementsByTagName("BODY")[0];
-                BODY.appendChild(bongo_fullSize);
-
-                Bots.render(document.getElementById('bongo_fullSize'));
-                var bongo = document.getElementById("web-messenger-container");
-                bongo.classList.add("bongo_fullSize");
-
-
-                if (lo.includes("en")) {
-                    var allInOneLauncher = document.getElementById("all_in_one_widget");
-                    allInOneLauncher.classList.remove("allInOneWidgetButton");
-                    allInOneLauncher.classList.add("zd_Hidden");
-                }
-
-
-
-            } else {
-                //when bongo is not loaded, open chat by render the bot
-                Bots.render(document.getElementById('bongo_place'));
-                var bongo = document.getElementById("web-messenger-container");
-                //add the css changes to make bongo fit in sub footer 
-                bongo.classList.add("zd_Bongo");
-
-
-
-
-                //give a minimize button for bongo, on init
-                var bongo_minimizer = document.createElement('div');
-                bongo_minimizer.id = "bongo_minimizer";
-                var bongo_minimizer_icon = document.createElement('label');
-                var textNode_for_bongo_minimizer_icon = document.createTextNode("_");
-                bongo_minimizer_icon.appendChild(textNode_for_bongo_minimizer_icon);
-                bongo_minimizer.appendChild(bongo_minimizer_icon);
-                //  bongo_minimizer.setAttribute("style","position: absolute;right: 0px;bottom:476.5px;z-index: 999999;cursor: pointer;");
-                bongo_minimizer_icon.id = "bongo_minimizer_icon";
-                //bongo_minimizer_icon.addEventListener("click", function); 
-                (document.getElementById('bongo_place')).appendChild(bongo_minimizer);
-                //give a minimize button for bongo 
-                (document.getElementById('bongo_minimizer')).classList.add("bongo_minimizer_container");
-                (document.getElementById('bongo_minimizer_icon')).classList.add("bongo_minimizer_icon");
-
-                bongo_minimizer_icon.addEventListener("click", minimize_bongo_window);
-            }
-            bongo_loaded = 1;
         }
 
-        ga_tracking("Bongo", "clicked", "bongo opened");
+        var allInOneContainer = document.getElementById("allInOneContainer_open");
+        //find launcher of all in one widget window
+        if (allInOneContainer != null) {
+            //if found it
+            if (allInOneContainer.classList.contains("allInOneContainer")) {
+                //if it has class to show it on page
+                //remove the class
+                allInOneContainer.classList.remove("allInOneContainer");
+            }
+            if (!(allInOneContainer.classList.contains("zd_Hidden"))) {
+                //if it not having a Hidden Class to hide it
+                //hide it
+                allInOneContainer.classList.add("zd_Hidden");
+            }
+        }
 
         zE('webWidget', 'close');
-
+        //close the Zendesk widget
 
     } else {
-        if (lo.includes("fr")) {
-            // console.log("Bonjour bongo");
-        } else {
-            var bongo_alter = $("#bongo_alter").html();
-            window.location.href = bongo_alter;
-        }
+        var bongo_alter = $("#bongo_alter").html();
+        window.location.href = bongo_alter;
+
 
     }
 

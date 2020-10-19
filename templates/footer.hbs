@@ -1,29 +1,3 @@
-<label id="bongo_id" class="zd_Hidden">{{dc 'bongoappid'}}</label>
-<div id="css_bongo" class="zd_Hidden">{{asset 'bongo.css'}}</div>
-<script> 
-      
-   
-        var link = document.createElement('link');  
-        // set the attributes for link element 
-        link.rel = 'stylesheet';  
-        link.type = 'text/css'; 
-  			//get css url
-        var bongoCss="https:"+$("#css_bongo").html();
-        link.href = bongoCss;  
-        // Get HTML head element to append  
-        // link element to it  
-        document.getElementsByTagName('HEAD')[0].appendChild(link);  
-
-</script>  
-<label class="zd_Hidden" id="init_bot">{{asset 'init_bot.js'}}</label>
-<script type="text/javascript">
-//jQuery.loadScript = function (url, callback) is already exist in header
-  $.loadScript('https:'+document.getElementById("init_bot").innerHTML);
-
-</script>
-
-
-
 <footer class="footer">
   
    <div class="ts-sub-footer-wrapper">

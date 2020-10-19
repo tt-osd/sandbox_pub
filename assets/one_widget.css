@@ -6,6 +6,7 @@
     line-height: 1.5;
     font-size: 1.07143rem;
     cursor: pointer;
+    font-family: "gotham bold";
 }
 
 .allInOneWidgetButton {
@@ -21,6 +22,9 @@
     border: 0px none;
     z-index: 9999999;
     border-radius: 3em;
+    -webkit-animation: scale-in-br 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+    animation: scale-in-br 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+    transition: all 0.25s ease-in-out;
 }
 
 .container_open_header {
@@ -39,6 +43,7 @@
     line-height: 1.5;
     font-size: 1.07143rem;
     cursor: pointer;
+    font-family: "gotham bold";
 }
 
 .container_open_minimizer {
@@ -73,6 +78,9 @@
     z-index: 9999999;
     border-radius: 0.571429rem;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0.428571rem 0px;
+    -webkit-animation: scale-in-br 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+    animation: scale-in-br 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+    transition: all 0.25s ease-in-out;
 }
 
 .customised_support_options {
@@ -80,7 +88,7 @@
     box-shadow: 0 0.07143rem 0.57143rem 0 rgba(0, 0, 0, 0.2);
     border-radius: 0.28571rem;
     text-align: center;
-    padding: 35px 0;
+    padding: 35px 5px;
     cursor: pointer;
     margin-top: 5%;
 }
@@ -126,29 +134,7 @@
     font-size: 1.5rem;
 }
 
-
-/* .bongo_minimizer_icon {
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    font-weight: 900;
-    font-size: 1.5rem;
-} */
-
 @media only screen and (max-width: 600px) {
-    /* .allInOneWidgetButton {
-        position: fixed;
-        padding: 0.4rem 2rem;
-        text-align: center;
-        background-color: #df1b12 !important;
-        margin: 5px 10px;
-        bottom: 0px;
-        right: 0px;
-        overflow: visible;
-        opacity: 1;
-        border: 0px none;
-        z-index: 9999999;
-        border-radius: 3em;
-    } */
     .allInOneContainer {
         position: fixed;
         height: 100%;
