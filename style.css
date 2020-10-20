@@ -1090,23 +1090,26 @@ ul.nav-text-links {
 
 .nav-icons {
     height: 69px;
-  	display:flex;
-  	justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
+
 .nav-icons a {
-    display: inline-block;  
+    display: inline-block;
 }
+
 .nav-icon {
     fill: #666;
     margin-top: 2px;
     padding: 20px 0px;
-
 }
+
 .user-info {
     padding: 20px 0px;
-  	margin-left: 30px;
+    margin-left: 30px;
     position: relative;
 }
+
 .nav-icon svg path {
     color: #f2f2f2;
 }
@@ -1258,15 +1261,16 @@ ul.nav-text-links {
 .login {
     padding: 12px 22px;
     margin: 14px 30px;
-  	margin-left: 30px;
+    margin-left: 30px;
 }
+
 @media (min-width: 768px) {
-  .login {
-    margin: 14px 0px;
-  	margin-left: 30px;
-  }
-  
+    .login {
+        margin: 14px 0px;
+        margin-left: 30px;
+    }
 }
+
 .nav-wrapper a.login {
     display: inline-block;
 }
@@ -1326,6 +1330,7 @@ ul.nav-text-links {
 img#user-avatar.user-avatar {
     display: none;
 }
+
 .user-info .dropdown-toggle::after {
     display: none;
 }
@@ -8808,7 +8813,20 @@ only screen and (min-resolution:2dppx) {
 }
 
 .homepage_search_header form {
-  margin-left: 0;
-  max-width: 1370px;
+    margin-left: 0;
+    max-width: 1370px;
 }
+
+
 /*New Home page CSS which cannot be isoliated*/
+
+
+/*sub_footer*/
+
+.sub-footer-button:hover,
+.sub-footer-inner-box:hover {
+    cursor: pointer;
+}
+
+
+/*sub_footer*/
