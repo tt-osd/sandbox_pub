@@ -2,6 +2,14 @@
     z-index: 999999 !important;
 }
 
+.oda-chat-conversation {
+    background: #f2f2f2;
+}
+
+.oda-chat-footer {
+    background: #f2f2f2;
+}
+
 .oda-chat-widget {
     border-radius: 0.571429rem;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0.428571rem 0px;
@@ -9,8 +17,8 @@
 }
 
 .oda-chat-card {
-    background: transparent !important;
-    /* border: none !important; */
+    background: #fff !important;
+    border: 1px solid rgba(0, 0, 0, 0) !important;
 }
 
 .oda-chat-button {
@@ -28,8 +36,8 @@
 .oda-chat-left .oda-chat-message-bubble,
 .oda-chat-left .oda-chat-message-header,
 .oda-chat-left .oda-chat-message-footer {
-    background: transparent !important;
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    background: #fff !important;
+    border: 1px solid rgba(0, 0, 0, 0) !important;
 }
 
 .oda-chat-round {
@@ -38,7 +46,7 @@
 
 .oda-chat-left .oda-chat-message-header {
     border-radius: 24px !important;
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    border: 1px solid rgba(0, 0, 0, 0) !important;
 }
 
 .oda-chat-round svg {
