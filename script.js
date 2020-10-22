@@ -1463,26 +1463,12 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
     });
 
     /*** End of Locale Footer Scroll ***/ // Amy
-    /******* Updates Banner *****/ //Amy
-    if ((the_url.indexOf("/articles/") == -1) && (read_cookie("update_banner") !== "true")) {
-
-        var delayInMilliseconds = 3000;
-
-        setTimeout(function() {
+       /******* Updates Banner *****/ //Amy
+    if (the_url.indexOf("/articles/") == -1) {
             var update_banner = document.getElementById('update-banner');
             update_banner.classList.remove('zd_Hidden');
-
-        }, delayInMilliseconds);
-
-
-        $('#update_close').click(function() {
-
-            if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
-                set_cookie("update_banner", "true", 3600000 * 24 * 30);
-            }
-        });
     }
-    /******* Updates Banner *****/ //Amy   
+    /******* Updates Banner *****/ //Amy  
 
 }); // end of DOM js file function - put everything above this line
 
