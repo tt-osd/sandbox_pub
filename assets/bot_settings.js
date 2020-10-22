@@ -110,8 +110,6 @@ const initSdk = (name) => {
         });
 
     }, 0);
-
-    console.log("SDK V20.8.2, Oct 14, 2020 " + bongo_locale);
 };
 
 

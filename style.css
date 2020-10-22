@@ -8664,9 +8664,6 @@ only screen and (min-resolution:2dppx) {
 #update-banner {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    z-index: 50;
-    position: sticky;
-    bottom: 0px;
     padding-top: 30px;
     padding-bottom: 30px;
     border-top: #e5e5e5 1px solid;
