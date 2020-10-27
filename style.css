@@ -335,9 +335,13 @@ h6 {
 }
 
 h1 {
+    font-size: 32px;
+}
+@media (min-width: 1024px) {
+h1 {
     font-size: 45px;
 }
-
+}
 h2 {
     font-size: 30px;
 }
@@ -1082,12 +1086,12 @@ ul.nav-text-links {
     display: inline-block;
     text-align: center;
 }
-
+@media (min-width:48em) {
 .nav-icons,
 .header-logo {
     min-width: 200px;
 }
-
+}
 .nav-icons {
     height: 69px;
     display: flex;
@@ -1116,7 +1120,7 @@ ul.nav-text-links {
 
 .nav-main-hamburger {
     fill: #666;
-    padding-left: var(--gutter);
+    padding-left: 2%;
     cursor: pointer;
     width: calc(48px + var(--gutter));
     height: 48px;
@@ -1165,7 +1169,7 @@ ul.nav-text-links {
         display: none;
     }
     .nav-icons {
-        margin-left: 40px;
+        margin-left: 3%;
     }
 }
 

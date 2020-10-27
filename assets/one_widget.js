@@ -1,6 +1,8 @@
-var chatLabel = document.getElementById("chatLabel");
-var bongoforthislocale = (document.getElementById("bongoforthislocale")).innerHTML;
-var bongowidgetcombo = (document.getElementById("bongowidgetcombo")).innerHTML;
+var chatLabel = document.getElementById("chatLabel"); // message on launcher of widget by changing the DC 'bongoforthislocale'
+var bongoforthislocale = (document.getElementById("bongoforthislocale")).innerHTML; // turn bongo subfooter on and off by changing the DC 'bongoWidgetCombo'
+var bongowidgetcombo = (document.getElementById("bongowidgetcombo")).innerHTML; // turn bongo widget on and off by changing the DC 'bongoWidgetCombo'
+var WidgetText = (document.getElementById("open_widget")).innerHTML; // message that user click on the open ZD widget DC 'talk_to_zEWidget_from_widget'
+
 
 
 var waitForZen = setInterval(function() {
@@ -9,14 +11,15 @@ var waitForZen = setInterval(function() {
     }
     zE('webWidget:on', 'open', function() {
         zE('webWidget:on', 'userEvent', function(event) {
-            if (the_url.indexOf("en-") != -1) {
+            if (bongowidgetcombo == 1) {
+                // turn bongo widget on and off by changing the DC 'bongoWidgetCombo'
                 if (event.action == "Web Widget Minimised") {
                     if (Bots.isChatOpened()) {
-
-                    } else { //when minimise the Zendesk widget, if bongo conversation is not opening, then the launcher should shows up
+                    } else { 
+                        //when minimise the Zendesk widget, if bongo conversation is not opened, then the launcher should shows up
                         var allInOneLauncher = document.getElementById("all_in_one_widget");
                         allInOneLauncher.classList.remove("zd_Hidden");
-                        allInOneLauncher.classList.add("allInOneWidgetButton");
+                        allInOneLauncher.classList.add("allInOneWidgetButton");                
                     }
 
                 }
@@ -29,103 +32,84 @@ var waitForZen = setInterval(function() {
 
 
 function all_in_one_widget_open() {
-    //when click on all in one launcher
+    //function when the fake launcher is clicked
+    Bots.openChat();
+    //when user clicks on all in one launcher
     //find it
     //remove css and add zd_Hidden
     var allInOneLauncher = document.getElementById("all_in_one_widget");
     allInOneLauncher.classList.remove("allInOneWidgetButton");
     allInOneLauncher.classList.add("zd_Hidden");
     // allInOneContainer.classList.add("allInOneContainer");
-
-
-    var allInOneContainer = document.getElementById("allInOneContainer_open");
-    allInOneContainer.classList.remove("zd_Hidden");
-    allInOneContainer.classList.add("allInOneContainer");
-}
-
-
-
-
-function openBongo_fromWIdget() {
-
-    Bots.openChat();
-
-    var allInOneLauncher = document.getElementById("all_in_one_widget");
-    //find launcher of all in one widget
-    if (allInOneLauncher != null) {
-        //if found it
-        if (allInOneLauncher.classList.contains("allInOneWidgetButton")) {
-            //if it has class to show it on page
-            //remove the class
-            allInOneLauncher.classList.remove("allInOneWidgetButton");
+    if (HelpCenter.user.role !== "anonymous") {
+        //only show the 'get in touch' button if user is logged in
+    setTimeout(function(){     
+        // show the button after 5 seconds (contact deflection)
+        if (Bots.isChatOpened()) {
+    var option_Widget = document.getElementById("option_Widget");
+    option_Widget.classList.remove("zd_Hidden");
         }
-        if (!(allInOneLauncher.classList.contains("zd_Hidden"))) {
-            //if it not having a Hidden Class to hide it
-            //hide it
-            allInOneLauncher.classList.add("zd_Hidden");
-        }
+}, 5000);
     }
-
-    var allInOneContainer = document.getElementById("allInOneContainer_open");
-    //find launcher of all in one widget window
-    if (allInOneContainer != null) {
-        //if found it
-        if (allInOneContainer.classList.contains("allInOneContainer")) {
-            //if it has class to show it on page
-            //remove the class
-            allInOneContainer.classList.remove("allInOneContainer");
-        }
-        if (!(allInOneContainer.classList.contains("zd_Hidden"))) {
-            //if it not having a Hidden Class to hide it
-            //hide it
-            allInOneContainer.classList.add("zd_Hidden");
-        }
-    }
-
-    //ga_tracking("Bongo", "clicked", "bongo opened");
-    ga_tracking("Zendesk Web Widget", "bongo opened", " ");
-
-
+    ga_tracking("Zendesk Web Widget", "Bongo Opened", " ");
+    ga_tracking("Zendesk Web Widget", "Deflection Widget Opened", " ");
+    var ZendeskLauncher = document.getElementById("launcher");
+    ZendeskLauncher.classList.add("zd_Hidden");
+    // hide the ZD launger on click of fake one, so the widget doesn't do that weird pop up thing behind it
 }
-
-
-
-function minimise_widget() {
-    var allInOneContainer = document.getElementById("allInOneContainer_open");
-    allInOneContainer.classList.remove("allInOneContainer");
-    allInOneContainer.classList.add("zd_Hidden");
-
+var waitForBots = setInterval(function() {
+    //Function for closing bongo
+    if (window.Bots === undefined ) {
+        return;        
+    }
+    Bots.on('widget:closed', function() {
     var allInOneLauncher = document.getElementById("all_in_one_widget");
+    // make the fake launcher apear again
     allInOneLauncher.classList.remove("zd_Hidden");
-    allInOneLauncher.classList.add("allInOneWidgetButton");
-}
+    allInOneLauncher.classList.add("allInOneWidgetButton");    
+    var option_Widget = document.getElementById("option_Widget");
+    option_Widget.classList.add("zd_Hidden");    
+    // hide the 'get in touch' button again 
+    ga_tracking("Bongo", "clicked", "bongo closed");
+    });
 
+clearInterval(waitForBots);
+}, 100);
 
-function openWidgetByTomTom() {
-
+function openWidgetfromBongo() {
+    // function for clicking the 'get in touch' button
+    Bots.closeChat();
+    //close bongo
+    zE('webWidget', 'updateSettings', {
+        webWidget: {
+          helpCenter: {
+            suppress: true
+          }
+        }
+      }); 
+      // suppress the helpcenter, as they are already deflected by bongo
     zE('webWidget', 'open');
-    var allInOneContainer = document.getElementById("allInOneContainer_open");
-    allInOneContainer.classList.remove("allInOneContainer");
-    allInOneContainer.classList.add("zd_Hidden");
+    //open webwidget
+    var allInOneLauncher = document.getElementById("all_in_one_widget");
+    var option_Widget = document.getElementById("option_Widget");
+    allInOneLauncher.classList.remove("allInOneWidgetButton");
+    allInOneLauncher.classList.add("zd_Hidden");
+    option_Widget.classList.add("zd_Hidden");
+    // hide the fake luncher and hide the get in touch button    
+    ga_tracking("Zendesk Web Widget", "Contact Options Opened", " ");
 
-    ga_tracking("Zendesk Web Widget", "widget opened", " ");
 }
-
-
 
 function loadOneWidgetLauncher() {
-
-    if (bongowidgetcombo == 1) {
-
-        //for all EN locale, 
+// function to load the fake widget - this is turned on and off by the DC 'bongoWidgetCombo'
+    if (bongowidgetcombo == 1) { 
+        //for all locale with 1 in the DC, 
         //create a new launcher
         var granger = document.createElement('div');
         //give id: all_in_one_widget
         granger.id = 'all_in_one_widget';
-        //adding event listener click to open all in one widget
+        //add event listener click to open all in one widget
         granger.addEventListener("click", all_in_one_widget_open);
-
-
         var launcher_text_wrapper = document.createElement('div');
         launcher_text_wrapper.id = "launcher_text_wrapper";
         //button text chatLabel
@@ -136,86 +120,26 @@ function loadOneWidgetLauncher() {
         var textNode_for_allInOneWidgetBtnText = document.createTextNode(chatLabel.innerHTML);
         //text append content
         allInOneWidgetBtnText.appendChild(textNode_for_allInOneWidgetBtnText);
-
         //wrapper append text
         launcher_text_wrapper.appendChild(allInOneWidgetBtnText);
         //launcher append wraper 
         granger.appendChild(launcher_text_wrapper);
-
         //find document, add launcher and adding css
         var BODY = document.getElementsByTagName("BODY")[0];
         BODY.appendChild(granger);
         (document.getElementById("all_in_one_widget")).classList.add("allInOneWidgetButton");
-        (document.getElementById("allInOneWidgetBtnText")).classList.add("allInOneWidgetBtnText");
+        (document.getElementById("allInOneWidgetBtnText")).classList.add("allInOneWidgetBtnText");          
 
-
-
-        //after created all in one launcher
-        //create the widget window
-
-        // create opened widget windows contains bongo and zE widget two options
-        var allInOneContainer_open = document.createElement('div');
-        //give it id allInOneContainer_open
-        allInOneContainer_open.id = "allInOneContainer_open";
-
-        var container_open_header = document.createElement('div');
-        container_open_header.id = "container_open_header";
-        var container_open_header_text = document.createElement('label');
-        var textNode_for_container_open_header_text = document.createTextNode(chatLabel.innerHTML);
-        container_open_header_text.appendChild(textNode_for_container_open_header_text);
-        container_open_header_text.id = "container_open_header_text";
-        container_open_header.appendChild(container_open_header_text);
-
-
-        var container_open_minimizer = document.createElement('div');
-        var container_open_minimizer_icon = document.createElement('label');
-        var textNode_for_container_open_minimizer_icon = document.createTextNode("_");
-        container_open_minimizer_icon.appendChild(textNode_for_container_open_minimizer_icon);
-        container_open_minimizer.appendChild(container_open_minimizer_icon);
-        container_open_minimizer.id = "container_open_minimizer";
-        container_open_minimizer_icon.id = "container_open_minimizer_icon";
-        container_open_minimizer_icon.addEventListener("click", minimise_widget);
-
-        // create wrapper to hold two options
-        var support_Options = document.createElement('div');
-        support_Options.id = "support_Options";
-
-        //option bongo
-        var option_bongo = document.createElement('div');
-        option_bongo.id = "option_bongo";
-        var subfooter__bongo_link_text__ = document.getElementById("subfooter__bongo_link_text");
-        subfooter__bongo_link_text__.classList.remove("zd_Hidden");
-        option_bongo.appendChild(subfooter__bongo_link_text__);
-        option_bongo.addEventListener("click", openBongo_fromWIdget);
-        //option zE widget
-        var widget_option = document.createElement('div');
-        widget_option.id = "widget_option";
-        var open_widget = document.getElementById("open_widget");
-        open_widget.classList.remove("zd_Hidden");
-        widget_option.appendChild(open_widget);
-        //option zE widget add event listener to open the zE widget
-        widget_option.addEventListener("click", openWidgetByTomTom);
-
-
-        support_Options.appendChild(option_bongo);
-        support_Options.appendChild(widget_option);
-        allInOneContainer_open.appendChild(container_open_minimizer);
-        allInOneContainer_open.appendChild(container_open_header);
-        allInOneContainer_open.appendChild(support_Options);
-        var BODY = document.getElementsByTagName("BODY")[0];
-        BODY.appendChild(allInOneContainer_open);
-        (document.getElementById("allInOneContainer_open")).classList.add("allInOneContainer");
-        (document.getElementById("allInOneContainer_open")).classList.add("zd_Hidden");
-        (document.getElementById("option_bongo")).classList.add("customised_support_options");
-        (document.getElementById("widget_option")).classList.add("customised_support_options");
-        (document.getElementById("container_open_header")).classList.add("container_open_header");
-        (document.getElementById("container_open_header_text")).classList.add("container_open_header_text");
-        (document.getElementById("container_open_minimizer")).classList.add("container_open_minimizer");
-        (document.getElementById("container_open_minimizer_icon")).classList.add("container_open_minimizer_icon");
-        (document.getElementById("support_Options")).classList.add("support_Options");
-        //end of creating widget window
+        //option widget (get in touch button)
+        var option_Widget = document.createElement('div');
+        option_Widget.id = "option_Widget";
+        // add id to the button for the css
+        option_Widget.innerHTML = WidgetText;       
+        option_Widget.addEventListener("click", openWidgetfromBongo);  
+        BODY.appendChild(option_Widget);
+        (document.getElementById("option_Widget")).classList.add("zd_Hidden");        
         //closing up creating launcher
-    }
+        }
 
 }
 
