@@ -15,7 +15,7 @@ const initSdk = (name) => {
     var bongo_uri = document.getElementById("bongo_uri").innerHTML;
     var bongo_chat_icon = document.getElementById("bongo_chat_icon").innerHTML;
     var bongo_locale = $('html').attr('lang').toLowerCase();
-    console.log(bongo_locale);
+    // console.log(bongo_locale);
     var speak_to_bongo = document.getElementById("speak_to_bongo").innerHTML;
     var enable_speech = false;
     if (speak_to_bongo == "1") {
