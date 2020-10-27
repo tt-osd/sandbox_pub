@@ -15,6 +15,7 @@ const initSdk = (name) => {
     var bongo_uri = document.getElementById("bongo_uri").innerHTML;
     var bongo_chat_icon = document.getElementById("bongo_chat_icon").innerHTML;
     var bongo_locale = $('html').attr('lang').toLowerCase();
+    // console.log(bongo_locale);
     var speak_to_bongo = document.getElementById("speak_to_bongo").innerHTML;
     var enable_speech = false;
     if (speak_to_bongo == "1") {
@@ -31,7 +32,7 @@ const initSdk = (name) => {
          * SDK configuration settings
          */
         let chatWidgetSettings = {
-            locale: bongo_locale,
+            locale: bongo_locale, // set language for bot user profile
             URI: bongo_uri, // ODA URI, only the hostname part should be passed, without the https://
             channelId: bongo_channelid, // Channel ID, available in channel settings in ODA UI
             enableAutocomplete: true, // Enables autocomplete suggestions on user input
@@ -58,12 +59,12 @@ const initSdk = (name) => {
                     chatTitle: bongo_init_headertext, // Set title at chat header
                     //chatSubtitle: bongo_subheader, // Set subtitle in chat header
                     inputPlaceholder: bongo_init_inputplaceholder //Placeholder text that appears in user input field in keyboard mode
-                }, // for FR locale, if there no specific FR, it will fall into en as default
-                de: { // en locale, can be configured for any locale
-                    chatTitle: bongo_init_headertext, // Set title at chat header
-                    //chatSubtitle: bongo_subheader, // Set subtitle in chat header
-                    inputPlaceholder: bongo_init_inputplaceholder //Placeholder text that appears in user input field in keyboard mode
-                }, // for FR locale, if there no specific FR, it will fall into en as default
+                } // for FR locale, if there no specific FR, it will fall into en as default
+            },
+            initUserProfile: {
+                profile: {
+                    languageTag: bongo_locale //multilingual - set the language from locale
+                }
             }
         };
 
@@ -71,6 +72,7 @@ const initSdk = (name) => {
         Bots = new WebSDK(chatWidgetSettings);
 
         Bots.on(WebSDK.EVENT.WIDGET_OPENED, () => {
+
             // console.log('Widget is opened');
             if (Bots.getConversationHistory().messagesCount < 1) {
                 //  console.log("Starting the conversation");
@@ -87,7 +89,7 @@ const initSdk = (name) => {
         Bots.setFont('16px "noway", Noway Regular, Helvetica, Arial, sans-serif !important');
 
 
-        Bots.on('widget:closed', function() {
+        Bots.on('widget:closed', function () {
 
             $(".oda-chat-widget").removeClass("shakeBongo");
             var allInOneLauncher = document.getElementById("all_in_one_widget");
@@ -110,12 +112,14 @@ const initSdk = (name) => {
         });
 
     }, 0);
+
+    console.log("SDK V20.8.2, Oct 14, 2020 " + bongo_locale);
 };
 
 
 
 
-$.loadScript('https:' + document.getElementById("bongo_sdk").innerHTML, function() {
+$.loadScript('https:' + document.getElementById("bongo_sdk").innerHTML, function () {
     initSdk('Bots');
 
 });
