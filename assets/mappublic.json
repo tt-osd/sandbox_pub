@@ -14,6 +14,10 @@
         "prod": 360000796079
 
     },
+    "talkForm_ID": {
+        "supportsandbox": 360000794359,
+        "help": 360000796079
+    },
     "strap_form_id": {
         "sandbox": 360000671760,
         "prod": 360000746440
@@ -195,6 +199,10 @@
         "sandbox": "https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a",
         "prod": "https://static.zdassets.com/ekr/snippet.js?key=9ba5f34a-d620-477e-97cf-361d5d086fdc"
     },
+    "ze_webwidget_src": {
+        "supportsandbox": "https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a",
+        "help": "https://static.zdassets.com/ekr/snippet.js?key=9ba5f34a-d620-477e-97cf-361d5d086fdc"
+    },
     "webwidget_class_hide_email": {
         "sandbox": "#Embed div.sc-iybRtq > div:nth-child(1) { display: none; } #Embed div.sc-iybRtq > div:nth-child(2) { display: none; }",
         "prod": "#Embed div.sc-iybRtq > div:nth-child(1) { display: none; } #Embed div.sc-iybRtq > div:nth-child(2) { display: none; }"
@@ -203,25 +211,49 @@
         "sandbox": 360002347259,
         "prod": 360002542640
     },
+    "naviagtion_category_ID": {
+        "supportsandbox": 360002347259,
+        "help": 360002542640
+    },
     "apps_category_id": {
         "sandbox": 360002347279,
         "prod": 360002556499
+    },
+    "apps_category_ID": {
+        "supportsandbox": 360002347279,
+        "help": 360002556499
     },
     "sports_category_id": {
         "sandbox": 360002323840,
         "prod": 360002556519
     },
+    "sports_category_ID": {
+        "supportsandbox": 360002323840,
+        "help": 360002556519
+    },
     "accounts_orders_legal_category_id": {
         "sandbox": 360002415879,
         "prod": 360002542660
+    },
+    "accounts_orders_legal_category_ID": {
+        "supportsandbox": 360002415879,
+        "help": 360002542660
     },
     "user_manual_release_info_category_id": {
         "sandbox": 360002396000,
         "prod": 360002542680
     },
+    "user_manual_release_info_category_ID": {
+        "supportsandbox": 360002396000,
+        "help": 360002542680
+    },
     "learn_more_category_id": {
         "sandbox": 360002415859,
         "prod": 360002542700
+    },
+    "learn_more_category_ID": {
+        "supportsandbox": 360002415859,
+        "help": 360002542700
     },
     "wifi_section_id": {
         "sandbox": 360003542600,
