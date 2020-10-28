@@ -1,17 +1,14 @@
-/*New Home page CSS will be isoliated*/
-
-
-/*New Home page CSS will be isoliated*/
-
 body {
     background-color: unset;
 }
 
 .home_categories_container ul {
     display: grid !important;
-    grid-template-columns: 45% 45%;
-    grid-column-gap: 5%;
-    grid-row-gap: 50px;
+    /* grid-template-columns: 48% 48%; */
+    grid-template-columns: 50% 50%;
+    /* grid-column-gap: 4%; */
+    /* grid-row-gap: 50px; */
+    grid-row-gap: 80px;
     grid-auto-rows: 320px;
     padding-inline-start: 0;
 }
@@ -24,8 +21,6 @@ body {
 }
 
 .home_categories_container ul li {
-    /*   background-color:#E5E5E5; */
-    /*    */
     list-style: none;
     padding: 2em 2em;
 }
@@ -46,28 +41,8 @@ body {
     padding: 0 0.5em 0 0.5em;
 }
 
-.home_categories_container ul li:nth-child(1) .blocks-item-title {
-    background-color: #E94743;
-}
-
-.home_categories_container ul li:nth-child(2) .blocks-item-title {
-    background-color: #61ADE0;
-}
-
-.home_categories_container ul li:nth-child(3) .blocks-item-title {
-    background-color: #008D8D;
-}
-
-.home_categories_container ul li:nth-child(4) .blocks-item-title {
-    background-color: #F9B023;
-}
-
-.home_categories_container ul li:nth-child(5) .blocks-item-title {
-    background-color: #EC619F;
-}
-
-.home_categories_container ul li:nth-child(6) .blocks-item-title {
-    background-color: #004B7F;
+.blocks-item-title h5 {
+    margin-bottom: 0px !important;
 }
 
 .home_categories_container ul li:nth-child(n) {
@@ -76,17 +51,23 @@ body {
     cursor: pointer;
 }
 
+.home_categories_container ul li:nth-child(odd) {
+    margin-right: 40px;
+}
+
+.home_categories_container ul li:nth-child(even) {
+    margin-left: 40px;
+}
+
 .home_categories_container ul li a {
     overflow-wrap: break-word;
 }
 
 .home_categories_container ul li .home_category_image {
-    /*  background:  url($assets-guides_desktop-png); */
     background-size: cover;
 }
 
 .home_container {
-    /* background-color:#FFFFFF; */
     margin: 0;
     padding: 0;
 }
@@ -97,13 +78,12 @@ body {
 }
 
 .home_section {
-    margin-bottom: 3em;
-    margin-top: 3em;
+    margin-bottom: 80px;
+    margin-top: 80px;
 }
 
 .explore {
     position: absolute;
-    ;
     cursor: pointer;
     padding: 1em 0 0 0;
     bottom: 0;
@@ -116,8 +96,6 @@ body {
 }
 
 .explore::after {
-    /* content: url($assets-chevron_right-svg); */
-    /* vertical-align: middle; */
     margin-left: 14px;
     position: absolute;
     margin-top: 0.25em;
@@ -137,6 +115,8 @@ body {
     color: #000000;
     line-height: 1;
     text-transform: none;
+    margin-top: 15px !important;
+    margin-bottom: 20px !important;
 }
 
 .blocks-item-description {
@@ -145,95 +125,75 @@ body {
     margin: 0;
     text-transform: none;
     color: #666;
-    /*   min-height: 170px; */
 }
 
 .blocks-item-description:not(:empty) {
     margin-top: 10px;
 }
 
+.home_categories_container ul li {
+    background-position: right;
+}
+
+.homepage_search_header form {
+    margin-left: 0;
+    /* max-width: 1370px; */
+}
+
 @media only screen and (max-width: 899px) {
     .home_categories_container ul {
         display: grid !important;
-        /* grid-template-columns: 90%; */
         grid-template-columns: 100%;
         grid-column-gap: 0;
-        grid-row-gap: 3em;
+        grid-row-gap: 80px;
         padding-inline-start: 0;
-    }
-    .home_container {
-        /* height:270em; */
     }
     .home_categories_container ul li:nth-child(n) {
         background-color: #F2F2F2;
-        /*     background-size: 100%; */
         background-repeat: no-repeat;
         cursor: pointer;
+    }
+    .home_categories_container ul li:nth-child(odd) {
+        margin-right: unset;
+    }
+    .home_categories_container ul li:nth-child(even) {
+        margin-left: unset;
     }
 }
 
 @media only screen and (max-width: 690px) {
+    .home_page_categories .sub_title h4 {
+        margin-top: 15px !important;
+        margin-bottom: 20px !important;
+    }
+    .home_categories_container ul li {
+        list-style: none;
+        padding: 20px 20px;
+    }
+    .home_section {
+        margin-bottom: 24px;
+        margin-top: 24px;
+    }
     .home_categories_container ul {
         grid-auto-rows: 490px;
-        grid-row-gap: 50px;
+        grid-row-gap: 24px;
     }
     .home_categories_container ul li {
         display: grid !important;
         grid-template-columns: 100%;
         overflow: hidden;
-        /*     grid-column-gap: 5%;
-      grid-row-gap: 10%; */
     }
-    .home_categories_container ul li:nth-child(1) {
-        /* background: url($assets-guides_mobile-png); */
+    .home_categories_container ul li {
         background-color: #F2F2F2;
         background-position: bottom;
         background-repeat: no-repeat;
         background-size: contain;
-    }
-    .home_categories_container ul li:nth-child(2) {
-        /* background: url($assets-navigation_mobile-png); */
-        background-color: #F2F2F2;
-        background-position: bottom;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-    .home_categories_container ul li:nth-child(3) {
-        /* background: url($assets-apps_mobile-png); */
-        background-color: #F2F2F2;
-        background-position: bottom;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-    .home_categories_container ul li:nth-child(4) {
-        /* background: url($assets-orders_mobile-png); */
-        background-color: #F2F2F2;
-        background-position: bottom;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-    .home_categories_container ul li:nth-child(5) {
-        /* background: url($assets-sports_mobile-png); */
-        background-color: #F2F2F2;
-        background-position: bottom;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-    .home_categories_container ul li:nth-child(6) {
-        /* background: url($assets-others_mobile-png); */
-        background-color: #F2F2F2;
-        background-position: bottom;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-    .explore {
-        /* bottom: -35px; */
     }
 }
 
 @media only screen and (min-width: 900px) and (max-width: 1366px) {
     .home_categories_container ul {
-        grid-column-gap: 6%;
+        /* grid-column-gap: 6%; */
         padding-inline-start: 0;
     }
     .home_categories_container ul li:nth-child(n) {
@@ -251,11 +211,7 @@ body {
     .sub_title h4 {
         font-size: 18px;
         text-transform: none;
+        margin-top: 15px !important;
+        margin-bottom: 20px !important;
     }
 }
-
-
-/*New Home page CSS will be isoliated*/
-
-
-/*New Home page CSS will be isoliated*/

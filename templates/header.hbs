@@ -31,6 +31,7 @@
 <div class="zd_Hidden" id="one_widget_css">{{asset 'one_widget.css'}}</div>
 <label class="zd_Hidden" id="one_widget_JS">{{asset 'one_widget.js'}}</label>
 <label class="zd_Hidden" id="Google_Analytics_Tracking_FC">{{asset 'Google_Analytics_Tracking.js'}}</label>
+<label class="zd_Hidden" id="load_style">{{asset 'load_style.js'}}</label>
 <script> 
         var link = document.createElement('link');  
         // set the attributes for link element 
@@ -73,6 +74,19 @@ $.loadScript('https:'+document.getElementById("Google_Analytics_Tracking_FC").in
   $.loadScript('https:'+document.getElementById("init_bot_setting").innerHTML);
 </script>
 <!-- end load bongo  --> 
+<script> 
+  //Map and widget
+  
+  var mapSrc="https:"+$("#map_json").html();
+  function readMap(myURL){
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",myURL,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;          
+}
+var mapObject = JSON.parse(readMap(mapSrc));
+var searchKey=(the_url.split(".tomtom.com")[0]).split("https://")[1];
+</script>
 
 <script>
   var utag_data="";

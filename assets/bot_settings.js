@@ -89,7 +89,7 @@ const initSdk = (name) => {
         Bots.setFont('16px "noway", Noway Regular, Helvetica, Arial, sans-serif !important');
 
 
-        Bots.on('widget:closed', function () {
+        Bots.on('widget:closed', function() {
 
             $(".oda-chat-widget").removeClass("shakeBongo");
             var allInOneLauncher = document.getElementById("all_in_one_widget");
@@ -113,13 +113,12 @@ const initSdk = (name) => {
 
     }, 0);
 
-    console.log("SDK V20.8.2, Oct 14, 2020 " + bongo_locale);
 };
 
 
 
 
-$.loadScript('https:' + document.getElementById("bongo_sdk").innerHTML, function () {
+$.loadScript('https:' + document.getElementById("bongo_sdk").innerHTML, function() {
     initSdk('Bots');
 
 });

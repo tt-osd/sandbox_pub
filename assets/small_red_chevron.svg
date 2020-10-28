@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8" height="10" viewBox="0 0 8 10">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path" d="M8,5,3,10H0L5,5,0,0H3Z" transform="translate(-0.292)" fill="#df1b12"/>
+    </clipPath>
+  </defs>
+  <g id="Group_4" data-name="Group 4" transform="translate(0.292)">
+    <path id="Path-2" data-name="Path" d="M8,5,3,10H0L5,5,0,0H3Z" transform="translate(-0.292)" fill="#df1b12"/>
+  </g>
+</svg>
