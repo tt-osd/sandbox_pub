@@ -1,104 +1,110 @@
-<div class="zd_Hidden" id="HomePage_css">{{asset 'HomePage.css'}}</div>
-
 <label class='zd_Hidden' id='homepage_metadescription'>{{dc 'meta_description_homepage'}}</label>
 <!-- Homepage tealium id ---->
 <label class='zd_Hidden' id='home-section'></label>
 <!--  end of Homepage tealium id ---->
-<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_manual'>{{dc 'home_category_sub_title_manual'}}</label>
-<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_nav'>{{dc 'home_category_sub_title_nav'}}</label>
-<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_apps'>{{dc 'home_category_sub_title_apps'}}</label>
-<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_account'>{{dc 'home_category_sub_title_account'}}</label>
-<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_sport'>{{dc 'home_category_sub_title_sport'}}</label>
-<label class='zd_Hidden home_category_sub_title_dc' id='home_category_sub_title_other'>{{dc 'home_category_sub_title_other'}}</label>
-
-<label class="zd_Hidden" id="NewHomePage">{{asset 'NewHomePage.js'}}</label>
-<script>
- var HomePage_css_link = document.createElement('link');  
-        // set the attributes for link element 
-        HomePage_css_link.rel = 'stylesheet';  
-        HomePage_css_link.type = 'text/css'; 
-  			//get css url
-        var homePage_Css="https:"+$("#HomePage_css").html();
-        HomePage_css_link.href = homePage_Css;  
-        // Get HTML head element to append  
-        // link element to it  
-        document.getElementsByTagName('HEAD')[0].appendChild(HomePage_css_link);  
-  
-  
-  $.loadScript('https:'+document.getElementById("NewHomePage").innerHTML);                   
-</script>
-
-
-
 <div class="home_container">
+  <div class="homepage_search_header">
+    <div class="tile-grid">
+      <h1>{{dc 'homepage_welcome'}}</h1>
+      <p>{{dc 'homepage_tagline'}}</p>
+      {{search instant=settings.instant_search class='search tile-grid search-full'}}
+    </div>
+  </div>
 
-<!--          <li class="blocks-item-home blocks-item tile-grid-group__tile" id=""> -->
-          
-<!--                      <section class=""> -->
-                 			 <div class="homepage_search_header">
-                           <div class="tile-grid">
-                    			<h1>{{dc 'homepage_welcome'}}</h1>
-                  	  		<p>{{dc 'homepage_tagline'}}</p>
-                 	   						{{search instant=settings.instant_search class='search tile-grid search-full'}}
-                         </div>
-                  				</div>
-<!--                 				</section> -->
-            
+  <section class="home_section">
   
+    <div class="experimental_layer" id="experimental_div">
+
+      <div class="home_categories_container tile-grid">
   
-  
-  
-  
-<!--   section knowledge-base -->
-<!-- <section class="" id="home-section"></section> -->
-<!--     <h2>DC: homepage_category_block_title</h2> -->
-    <section class="home_section"> 
-<!--       categories blocks -->
-      <div class="">
-<!--         tile-grid -->
-        <div class="home_categories_container tile-grid">
-<!--           tile-grid__groups -->
-      <ul class="">
-<!--    tile-grid__group       -->
- 
-        {{#each categories}}
+        <ul class="home_page_categories">
+
+
+          {{#each categories}}
           {{#if ../has_multiple_categories}}
-<!--         tile-grid-group__tile -->
-            <li class=" " id="blocks-item-{{id}}">
-              <a href='{{url}}' class="blocks_item_link">       
-<!--                 <img class="category-icon" src="{{asset 'apps.png'}}">                 -->
-                <div class="blocks-item-title"> <h5>{{name}}</h5></div>
-                <div class="sub_title"><h4 class="home_category_sub_title"></h4></div>
- 						    <p class="blocks-item-description">{{excerpt description characters=75}}</p>
-                 <div class="explore"><label>{{dc 'homepage_2020_category_exp'}}</label></div>
-                </a>
-            <div class="home_category_image"></div> 
-<!--               this help the location for Explore button -->
-            </li>
+    
+          <li class="home_page_category" id="blocks-item-{{id}}">
+            <a href='{{url}}' class="blocks_item_link">
+           
+              <div class="blocks-item-title blocks-item-title-{{id}}" id="blocks_item_title_{{id}}">
+                <h5>{{name}}</h5>
+              </div>
+              <div class="sub_title">
+                <h4 id="sub-title-{{id}}"></h4>
+              </div>
+              <p class="blocks-item-description">{{excerpt description characters=75}}</p>
+              <div class="explore"><label>{{dc 'homepage_2020_category_exp'}}</label></div>
+            </a>
+            <div class="home_category_image"></div>
+         
+          </li>
           {{else}}
-            {{#each sections}}
-              <li class="blocks-item" >
-                <a href='{{url}}' class="blocks-item-link">
-             <div class="blocks-item-title"> <h5>{{name}}</h5></div>
-               
-                  <p class="blocks-item-description">{{excerpt description}}</p>
-                  
-                </a>
-              </li>
-            {{/each}}
+          {{#each sections}}
+          <li class="blocks-item">
+            <a href='{{url}}' class="blocks-item-link">
+              <div class="blocks-item-title">
+                <h5>{{name}}</h5>
+              </div>
+
+              <p class="blocks-item-description">{{excerpt description}}</p>
+
+            </a>
+          </li>
+          {{/each}}
           {{/if}}
-        {{/each}}
-      </ul>
+          {{/each}}
+        </ul>
       </div>
     </div>
 
-    </section>
-         
-
-<!--   </section> -->
-  
-  
-  
-  
+  </section>
 
 
+
+
+  <div class="zd_Hidden" id="HomePage_css">{{asset 'HomePage.css'}}</div>
+  <label class='zd_Hidden' id='home_category_sub_title_manual'>{{dc 'home_category_sub_title_manual'}}</label>
+  <label class='zd_Hidden' id='home_category_sub_title_nav'>{{dc 'home_category_sub_title_nav'}}</label>
+  <label class='zd_Hidden' id='home_category_sub_title_apps'>{{dc 'home_category_sub_title_apps'}}</label>
+  <label class='zd_Hidden' id='home_category_sub_title_account'>{{dc 'home_category_sub_title_account'}}</label>
+  <label class='zd_Hidden' id='home_category_sub_title_sport'>{{dc 'home_category_sub_title_sport'}}</label>
+  <label class='zd_Hidden' id='home_category_sub_title_other'>{{dc 'home_category_sub_title_other'}}</label>
+
+  <label class="zd_Hidden" id="NewHomePage">{{asset 'NewHomePage.js'}}</label>
+  <script>
+    $.loadScript('https:' + document.getElementById("load_style").innerHTML, function () {
+      var homePage_Css = $("#HomePage_css").html();
+      load_style(homePage_Css);
+    });
+
+    var assetsNavigationDesktop = "{{asset 'navigation_desktop.png'}}";
+    var assetsNavigationMobile = "{{asset 'navigation_mobile.png'}}";
+    var assetsGuidesDesktop = "{{asset 'guides_desktop.png'}}";
+    var assetsGuidesMobile = "{{asset 'guides_mobile.png'}}";
+    var assetsAppsDesktop = "{{asset 'apps_desktop.png'}}";
+    var assetsAppsMobile = "{{asset 'apps_mobile.png'}}";
+    var assetsOrdersDesktop = "{{asset 'orders_desktop.png'}}";
+    var assetsOrdersMobile = "{{asset 'orders_mobile.png'}}";
+    var assetsSportsDesktop = "{{asset 'sports_desktop.png'}}";
+    var assetsSportsMobile = "{{asset 'sports_mobile.png'}}";
+    var assetsOthersDesktop = "{{asset 'others_desktop.png'}}";
+    var assetsOthersMobile = "{{asset 'others_mobile.png'}}";
+
+    function switchImage(query) {
+      if (query.matches) { // If media query matches
+        $.loadScript('https:' + document.getElementById("NewHomePage").innerHTML, function () {
+          insertImages(assetsGuidesMobile, assetsNavigationMobile, assetsAppsMobile, assetsOrdersMobile, assetsSportsMobile, assetsOthersMobile);
+        });
+      } else {
+        $.loadScript('https:' + document.getElementById("NewHomePage").innerHTML, function () {
+          insertImages(assetsGuidesDesktop, assetsNavigationDesktop, assetsAppsDesktop, assetsOrdersDesktop, assetsSportsDesktop, assetsOthersDesktop);
+        });
+      }
+    }
+
+    var query = window.matchMedia("(max-width: 690px)");
+    switchImage(query);
+    query.addListener(switchImage);
+
+
+  </script>

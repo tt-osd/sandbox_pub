@@ -337,11 +337,13 @@ h6 {
 h1 {
     font-size: 32px;
 }
+
 @media (min-width: 1024px) {
-h1 {
-    font-size: 45px;
+    h1 {
+        font-size: 45px;
+    }
 }
-}
+
 h2 {
     font-size: 30px;
 }
@@ -1086,12 +1088,14 @@ ul.nav-text-links {
     display: inline-block;
     text-align: center;
 }
+
 @media (min-width:48em) {
-.nav-icons,
-.header-logo {
-    min-width: 200px;
+    .nav-icons,
+    .header-logo {
+        min-width: 200px;
+    }
 }
-}
+
 .nav-icons {
     height: 69px;
     display: flex;
@@ -2774,32 +2778,32 @@ ul.article-list {
 }
 
 #navigation-page-header {
-    background-color: #BCDCF5;
-    color: #000;
+    background-color: rgb(97, 173, 224);
+    color: #FFF;
 }
 
 #sports-page-header {
-    background-color: #E94743;
+    background-color: rgb(236, 97, 159);
     color: #FFF;
 }
 
 #apps-page-header {
-    background-color: #65A7A9;
+    background-color: rgb(0, 141, 141);
     color: #FFF;
 }
 
 #accounts-page-header {
-    background-color: #FFDC7A;
-    color: #000;
+    background-color: rgb(249, 176, 35);
+    color: #FFF;
 }
 
 #user-page-header {
-    background-color: #F8C9DF;
+    background-color: rgb(233, 71, 67);
     color: #FFF;
 }
 
 #learn-page-header {
-    background-color: #5D7CA8;
+    background-color: rgb(0, 75, 127);
     color: #FFF;
 }
 
@@ -8754,72 +8758,12 @@ only screen and (min-resolution:2dppx) {
 
 /*New Home page CSS which cannot be isoliated*/
 
-.home_categories_container ul li:nth-child(1) {
-    background: url($assets-guides_desktop-png);
-    background-position: right;
-}
-
-.home_categories_container ul li:nth-child(2) {
-    background: url($assets-navigation_desktop-png);
-    background-position: right;
-}
-
-.home_categories_container ul li:nth-child(3) {
-    background: url($assets-apps_desktop-png);
-    background-position: right;
-}
-
-.home_categories_container ul li:nth-child(4) {
-    background: url($assets-orders_desktop-png);
-    background-position: right;
-}
-
-.home_categories_container ul li:nth-child(5) {
-    background: url($assets-sports_desktop-png);
-    background-position: right;
-}
-
-.home_categories_container ul li:nth-child(6) {
-    background: url($assets-others_desktop-png);
-    background-position: right;
-}
-
 .explore::after {
     content: url($assets-chevron_right-svg);
 }
 
-@media only screen and (max-width: 690px) {
-    .home_categories_container ul li:nth-child(1) {
-        background: url($assets-guides_mobile-png);
-        background-color: #F2F2F2;
-        background-position: bottom;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-    .home_categories_container ul li:nth-child(2) {
-        background: url($assets-navigation_mobile-png);
-    }
-    .home_categories_container ul li:nth-child(3) {
-        background: url($assets-apps_mobile-png);
-    }
-    .home_categories_container ul li:nth-child(4) {
-        background: url($assets-orders_mobile-png);
-    }
-    .home_categories_container ul li:nth-child(5) {
-        background: url($assets-sports_mobile-png);
-    }
-    .home_categories_container ul li:nth-child(6) {
-        background: url($assets-others_mobile-png);
-    }
-}
 
-.homepage_search_header form {
-    margin-left: 0;
-    max-width: 1370px;
-}
-
-
-/*New Home page CSS which cannot be isoliated*/
+/*New Home page CSS which is not isoliated*/
 
 
 /*sub_footer*/
