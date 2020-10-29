@@ -7,11 +7,44 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
         $(".breadcrumbs li+li").addClass("chevron_mac");
     } else if (navigator.userAgent.indexOf('Windows') != -1) {
         $(".breadcrumbs li+li").addClass("chevron_win");
+        //chevron on sub footer
+        $('.sub_explore').addClass("sub_explore_WINDOWS");
     } else {
         $(".breadcrumbs li+li").addClass("chevron_general");
     }
 
     //chevron 
+
+
+    //sub footer
+    // bongo images on different locals 
+
+    var subfooter_bongo_image_mobile = document.getElementById("subfooter_bongo_image_mobile");
+    var subfooter_bongo_image = document.getElementById("subfooter_bongo_image");
+    var bong_image_placeholder = document.getElementById("bongo_open");
+
+    function adjustBongoImage(query) {
+        if (query.matches) { // If media query matches mobile 690px
+            if ((bong_image_placeholder != null) && (subfooter_bongo_image_mobile != null)) {
+                var imageURL = subfooter_bongo_image_mobile.innerHTML;
+                bong_image_placeholder.style.backgroundImage = "url('" + imageURL + "')";
+            }
+        } else {
+            if ((bong_image_placeholder != null) && (subfooter_bongo_image != null)) {
+                var imageURL = subfooter_bongo_image.innerHTML;
+                bong_image_placeholder.style.backgroundImage = "url('" + imageURL + "')";
+            }
+
+        }
+    }
+
+    var query = window.matchMedia("(max-width: 690px)");
+    adjustBongoImage(query);
+    query.addListener(adjustBongoImage);
+
+    //sub footer 
+
+
 
 
     /******** Home page META description ***********/ // DDA-673 Amy
@@ -1463,10 +1496,10 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
     });
 
     /*** End of Locale Footer Scroll ***/ // Amy
-       /******* Updates Banner *****/ //Amy
+    /******* Updates Banner *****/ //Amy
     if (the_url.indexOf("/articles/") == -1) {
-            var update_banner = document.getElementById('update-banner');
-            update_banner.classList.remove('zd_Hidden');
+        var update_banner = document.getElementById('update-banner');
+        update_banner.classList.remove('zd_Hidden');
     }
     /******* Updates Banner *****/ //Amy  
 
