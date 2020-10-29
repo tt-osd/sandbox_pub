@@ -8860,7 +8860,8 @@ only screen and (min-resolution:2dppx) {
 }
 
 #bongo_open {
-    background: url($assets-sbf_bongo_desktop-png);
+    /* background: url($assets-sbf_bongo_desktop-png); */
+    background-color: #fff;
     background-size: cover;
     background-position: right;
 }
@@ -8962,7 +8963,8 @@ only screen and (min-resolution:2dppx) {
         background-repeat: no-repeat;
     }
     #bongo_open {
-        background: url($assets-sbf_bongo_mobile-png);
+        /* background: url($assets-sbf_bongo_mobile-png); */
+        background-color: #fff;
         background-size: cover;
         background-position: bottom;
         background-repeat: no-repeat;
