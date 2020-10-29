@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
         $(".breadcrumbs li+li").addClass("chevron_mac");
     } else if (navigator.userAgent.indexOf('Windows') != -1) {
         $(".breadcrumbs li+li").addClass("chevron_win");
+        //chevron on sub footer
+        $('.sub_explore').addClass("sub_explore_WINDOWS");
     } else {
         $(".breadcrumbs li+li").addClass("chevron_general");
     }
@@ -16,11 +18,6 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
 
     //sub footer
     // bongo images on different locals 
-    // and chevron for windows
-    if (navigator.userAgent.indexOf('Windows') != -1) {
-        $('.sub_explore').addClass("sub_explore_WINDOWS");
-    }
-
 
     var subfooter_bongo_image_mobile = document.getElementById("subfooter_bongo_image_mobile");
     var subfooter_bongo_image = document.getElementById("subfooter_bongo_image");
