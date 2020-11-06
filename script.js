@@ -382,8 +382,7 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
                 /*** Auto renewal Refund Request FORM***/ //testing URL hc/en-gb/requests/new?ticket_form_id=360000875500
                 /*** Auto renewal Refund Request FORM***/ //testing URL hc/en-gb/requests/new?ticket_form_id=360000875500
                 var auto_renewal_request_page_title = document.getElementById("auto_renewal_request_page_title").innerHTML;
-                var renewal_refund_amount = document.getElementById("renewal_refund_amount").innerHTML;
-                var renewal_refund_currency = document.getElementById("renewal_refund_currency").innerHTML;
+                var renewal_refund_amount = document.getElementById("renewal_refund_amount").innerHTML;              
                 document.title = auto_renewal_request_page_title; // document title (page title) 
                 $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
                 SubjectLine.value = auto_renewal_request_page_title + " " + auto_renewal_refund_form_id; //pre fill subject line
@@ -394,15 +393,8 @@ document.addEventListener('DOMContentLoaded', function() { // **** Include all J
                 refund_amount_field.value = renewal_refund_amount; //pre fill refund amount line
                 refund_amount_field.setAttribute("readonly", true);
                 (AttachmentsFileDrop.parentElement).classList.add("zd_Hidden");
-                var auto_renewal_currency_field = document.getElementById("request_custom_fields_" + sap_currency_eur_field);
-                var auto_renewal_currency_field_full = document.getElementsByClassName("request_custom_fields_" + sap_currency_eur_field)[0];
-                var auto_renewal_currency_field_anchor = auto_renewal_currency_field_full.getElementsByTagName('a')[0];
-                auto_renewal_currency_field.value = renewal_refund_currency + "_eur";
-                auto_renewal_currency_field_anchor.innerHTML = renewal_refund_currency;
                 DescriptionBox.value = auto_renewal_refund_form_id;
                 $('.request_description').addClass("zd_Hidden");
-
-
                 $('<p id="auto_renewal_form" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
                 $("#auto_renewal_form").html($("#renewal_refund_request_intro").html());
 

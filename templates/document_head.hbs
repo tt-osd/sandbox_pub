@@ -90,35 +90,7 @@ function loginFromWidget(){
   
   
 
-  zE('webWidget:on', 'open', function() {
-
-                if (the_url.indexOf("/hc/de") === -1) {  
-                      zE('webWidget', 'updateSettings', {
-                          webWidget: {
-                              answerBot: {
-                                    suppress: true
-                                }
-                        }
-                      });
-                }
-  
-      var helpCenterSwitch=document.getElementById("helpCenterSwitch").textContent;
-  
-//  console.log("helpCenterSwitch dc "+helpCenterSwitch);
-
-  
-  if((HelpCenter.user.role!="anonymous")&&(helpCenterSwitch == "TRUE")){
-  // if user logged in and according to DC:helpCenterSwitch(nl and nl-be) has true
-  // suppress the help center
-                          zE('webWidget', 'updateSettings', {
-                                                  helpCenter: {
-                                                    'suppress': true     
-                                                  }
-                                          });
-                          }
-                          
-  
-  
+  zE('webWidget:on', 'open', function() {  
             if (HelpCenter.user.role=="anonymous")     {
 
                   zE('webWidget', 'updateSettings', {
@@ -129,17 +101,15 @@ function loginFromWidget(){
                           talk: {
                                   'suppress': true
                           }
-                  });
-  
+                  }); 
  
   
 
   
     var a = document.getElementById('webWidget');
-        var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
- 
-     var login_reminder_box=document.createElement('div');
-       login_reminder_box.id = 'login_reminder_box';
+    var frameBody =  a.contentWindow.document.getElementsByTagName("body")[0];
+ 		var login_reminder_box=document.createElement('div');
+    login_reminder_box.id = 'login_reminder_box';
  // login_reminder_box.setAttribute("style", "position:absolute; width:341px; bottom:21px; left: 18px; margin: 0 1px; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
    login_reminder_box.setAttribute("style", "position:absolute; width:341px; bottom:21px; left: 18px; margin: 0 1px; text-align:center; padding: 1.07143rem 1.42857rem;color: #df1b12;cursor:pointer;user-select: none;font-weight: bold;");
   
