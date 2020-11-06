@@ -1964,25 +1964,6 @@ ul.blocks-list {
     text-decoration: none;
 }
 
-.blocks-item-title {
-    margin-bottom: 0;
-    font-family: "gotham bold";
-    text-transform: none;
-}
-
-
-/* .blocks-item-description {
-    font-weight: 400;
-    color: #000;
-    margin: 0;
-    text-transform: none;
-    min-height: 170px;
-}
-
-.blocks-item-description:not(:empty) {
-    margin-top: 10px;
-} */
-
 :root {
     --gutter: 24px;
     --columns: 4;
@@ -2999,10 +2980,6 @@ ul.article-list {
 #default article h2 {
     margin-top: 20px;
     margin-bottom: 10px;
-}
-
-#default .article-body p:first-of-type {
-    font-size: 1.3em;
 }
 
 #default article li {
