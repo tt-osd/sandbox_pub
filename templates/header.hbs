@@ -37,6 +37,8 @@
 <label class='zd_Hidden' id='subfooter_bongo_image'>{{dc 'subfooter_-_bongo_image'}}</label>
 <!--bongo images on sub footer-->
 <script> 
+    //this is a global var: the_url
+   var the_url= window.location.href; 
         var link = document.createElement('link');  
         // set the attributes for link element 
         link.rel = 'stylesheet';  
@@ -70,7 +72,6 @@
     });
 }
 //load script function 
-$.loadScript('https:'+document.getElementById("one_widget_JS").innerHTML);
 $.loadScript('https:'+document.getElementById("Google_Analytics_Tracking_FC").innerHTML);
 </script>
 <!-- start load bongo  --> 
@@ -78,6 +79,12 @@ $.loadScript('https:'+document.getElementById("Google_Analytics_Tracking_FC").in
   $.loadScript('https:'+document.getElementById("init_bot_setting").innerHTML);
 </script>
 <!-- end load bongo  --> 
+<!--zendesk widget-->
+<label class="zd_Hidden" id="ze_widget">{{asset 'ze_widget.js'}}</label>
+<label class="zd_Hidden" id="helpCenterSwitch">{{dc 'fe_v_helpcenter_switch'}}</label>
+<label class="zd_Hidden" id="chatOffline">{{dc 'chatlabeloffline'}}</label>
+<label class="zd_Hidden" id="Homepage_Login">{{dc 'Homepage_Login'}}</label>
+<!--zendesk widget-->
 <script> 
   //Map and widget
   
@@ -90,6 +97,16 @@ $.loadScript('https:'+document.getElementById("Google_Analytics_Tracking_FC").in
 }
 var mapObject = JSON.parse(readMap(mapSrc));
 var searchKey=(the_url.split(".tomtom.com")[0]).split("https://")[1];
+//fetch zendesk widget scr from map  
+var webwidget_src=mapObject.ze_webwidget_src[searchKey];
+  //create script for zendesk widget
+   var zE_widget=document.createElement('script'); 
+   zE_widget.id = "ze-snippet";
+   zE_widget.src = webwidget_src;
+  //append the widget script to the head 
+  document.head.appendChild(zE_widget);
+  //load one widget configuration script which includes zendesk widget
+  $.loadScript('https:'+document.getElementById("one_widget_JS").innerHTML);
 </script>
 
 <script>
