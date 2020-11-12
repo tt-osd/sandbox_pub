@@ -2,6 +2,7 @@
 /*
 READ ME!
 This script file including all the functionalities for Zendesk Widget, widget & bongo combo for selected locale and most of bongo functions
+in zendesk widget, only contact form is currently enabled!
 */
 /**/
 
@@ -236,7 +237,7 @@ var waitForZen = setInterval(function() {
                         allInOneLauncher.classList.add("zd_Hidden");
                     }
                 }
-                console.log("when chat is ongoining but user goes to new pages, chat will pop up by itself, so we hide launcher");
+
             }
 
         });
@@ -522,7 +523,7 @@ var waitForZen = setInterval(function() {
         zE('webWidget', 'chat:removeTags', ['prd_npr', 'prd_nav', 'prd_apps', 'prd_spts', 'prd_auto']);
         zE('webWidget', 'chat:addTags', [chat_tag]);
 
-        console.log("chat_tag just prefilled is " + chat_tag);
+
 
         //pre fill chat user name, email and tag 
         //this was in Script js
@@ -715,4 +716,3 @@ $("#bongo_open").click(function() {
 
 
 loadOneWidgetLauncher();
-console.log("console line from one widget js which including bongo(partly), zndesk widget and combo");
