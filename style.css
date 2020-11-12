@@ -8961,4 +8961,95 @@ only screen and (min-resolution:2dppx) {
 }
 
 
-/*sub_footer*/
+/****** Subfooter - Levitt  *****/
+/****** Retail PopUp - Amy *****/
+
+#survey_title {
+    width: 100%;
+}
+
+#retail_popup_body {
+    position: relative;
+ 		top:25%;
+    background-color: rgba(255, 255, 255, 1);
+    margin: auto;
+    padding: 40px;
+    width: 450px;
+    transition: all .3s ease .1s;
+}
+
+#retail_popup_background {
+    width: 100%;
+}
+#retail_popup_button {
+  margin-bottom: 16px;
+  width: 100%;
+}
+.contain__text__link {
+  border-bottom: 1px solid #000;
+  padding-bottom: 0;
+  cursor: pointer;
+}
+.text__link {
+    font-family: Noway Regular,Helvetica,Arial,sans-serif;
+  	font-weight: 100;
+    text-decoration: none;
+    position: relative;
+    padding-top: 2px;
+    padding-bottom: 1px;
+  	text-transform: none;
+}
+
+.option_container {
+    margin: 3em 0 5em 0;
+}
+
+.pop_up_quessurvey_questiontion {
+    margin-bottom: 2em;
+    margin-top: 1em;
+}
+.tt_survey_btn {
+    border: 1px solid #DDD;
+    padding: 12px 20px;
+    border-radius: 22px;
+    background-color: #F1F1F2;
+    transition: background-color .25s ease, color .25s ease;
+}
+
+.tt_survey_btn:hover {
+    background-color: #DDD;
+}
+
+#msgspan {
+    font-weight: bold;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left: 2em;
+}
+
+.check_box_area {
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: auto;
+}
+
+#agree {
+    width: 1.5em;
+    height: 1.5em;
+    border: 1.3px solid #000;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .25s ease 0s;
+    position: absolute;
+}
+
+#agree_inner {
+    transition: all .55s ease 0s;
+}
+/****** End Retail PopUp - Amy *****/
