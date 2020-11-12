@@ -56,8 +56,7 @@ $(document).ready(function(){
       });
     }
   //Code for BuRMA SSO cookie creation - End // Asmita
-  
-  $.getJSON(id_map_data_source, function(data) {
+  $.getJSON(mapSrc , function(data) {
   	var php_api_server = -1;
   	if (the_url.indexOf("sandbox")!= -1) {
   		php_api_server=data.vanilla_sso_server.sandbox; 
@@ -218,7 +217,7 @@ $(document).ready(function(){
 
 <div class="header_search">   
 			<div class="container">
-          <h1>{{ dc 'homepage_welcome'}}</h1>
+          <h2>{{ dc 'homepage_welcome'}}</h2>
         	{{search  instant=settings.instant_search}}
       </div>
 </div>

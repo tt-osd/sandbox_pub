@@ -8663,24 +8663,24 @@ only screen and (min-resolution:2dppx) {
     }
 }
 
-#update-banner h1 {
+#update-banner h2 {
     font-size: 14px;
     color: rgb(223, 27, 18);
     text-transform: uppercase;
     margin-bottom: 0px;
 }
 
-#update-banner h2 {
+#update-banner h3 {
     font-size: 20px;
     line-height: 20px;
     margin-bottom: 0;
 }
 
 @media (min-width: 1020px) {
-    #update-banner h1 {
+    #update-banner h2 {
         font-size: 14px;
     }
-    #update-banner h2 {
+    #update-banner h3 {
         font-size: 36px;
         margin-top: 10px;
         line-height: 36px;
@@ -8882,14 +8882,17 @@ only screen and (min-resolution:2dppx) {
     content: url($assets-small_red_chevron-svg);
     vertical-align: middle;
     margin-left: 14px;
-    position: absolute;
+    position: relative;
+/*     position: absolute; */
     margin-top: 0.022em;
 }
 
 .sub_explore_WINDOWS::after {
     margin-left: 14px;
-    position: absolute;
+    position: relative;
+/*     position: absolute; */
     margin-top: 0;
+    padding-bottom: 3px;
 }
 
 @media only screen and (max-width: 899px) {
