@@ -31,6 +31,10 @@
         "sandbox": 360000358360,
         "prod": 360000679560
     },
+    "emailForm_ID": {
+        "supportsandbox": 360000358360,
+        "help": 360000679560
+    },
     "auto_renewal_refund_form_id": {
         "sandbox": 360000875500,
         "prod": 360000875740
@@ -195,6 +199,10 @@
         "sandbox": "GTM-5RXNHJR",
         "prod": "GTM-5VFCJM4"
     },
+    "TAGmanager_container": {
+        "supportsandbox": "GTM-5RXNHJR",
+        "help": "GTM-5VFCJM4"
+    },
     "webwidget_src": {
         "sandbox": "https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a",
         "prod": "https://static.zdassets.com/ekr/snippet.js?key=9ba5f34a-d620-477e-97cf-361d5d086fdc"
@@ -266,6 +274,10 @@
     "tthome_section_id": {
         "sandbox": 360003585479,
         "prod": 360004095079
+    },
+    "TT_home_section_ID": {
+        "supportsandbox": 360003585479,
+        "help": 360004095079
     },
     "amigo_section_id": {
         "sandbox": 360003589080,
@@ -354,6 +366,10 @@
     "email_form_request_local": {
         "sandbox": 360011667140,
         "prod": 360011647459
+    },
+    "email_form_request_locale": {
+        "supportsandbox": 360011667140,
+        "help": 360011647459
     },
     "vanilla_redirect_url": {
         "sandbox": "https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
