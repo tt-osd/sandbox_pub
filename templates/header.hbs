@@ -1,3 +1,102 @@
+<!--  Internet Explorer banner -->
+<div class="header">
+  <div class="notification-bar-ie" id="notification-bar-ie">
+    <div class="notification-bar__inner">
+      <div class="notification-bar__texts">
+        <div class="colored-article">
+          <div class="colored-article__content">  
+            {{dc 'warning_internet_explorer'}}  
+          </div>
+        </div>
+      </div>
+      <div class="notification-bar__close">
+        <div class="close-button" id="notif-close">
+          <div class="button button--bg-brand-red button--bg-hoverable button--icon-shape-a button--size-small button--icon-only">
+            <span tabindex="0" class="button__link"><i class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="#fff" fill-rule="evenodd" d="M 6 4.59 l 4.3 -4.3 l 1.4 1.42 L 7.42 6 l 4.3 4.3 l -1.42 1.4 L 6 7.42 l -4.3 4.3 L 0.3 10.3 L 4.58 6 L 0.29 1.7 L 1.71 0.3 L 6 4.58 Z" /></svg></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <script type="text/javascript">
+        /********* show IE warning**********/
+      var ua = window.navigator.userAgent;
+      var msie = ua.indexOf("MSIE ");
+      if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Internet Explorer, return version number
+      {
+         document.getElementById("notification-bar-ie").style.display = "block";
+       console.log(parseInt(ua.substring(msie + 5, ua.indexOf(".", msie))));
+      }
+      /********* show IE warning**********/
+        $("#notif-close").on("click",function(){
+          $(".notification-bar-ie").hide();
+      });
+        </script>
+<!--  Internet Explorer banner -->
+
+
+<!--  Header -->
+<header class="header">
+  <div class="header-inner">
+    <div id="nav-main-hamburger" class="nav-main-hamburger">
+      <svg width="16" height="15">
+      	<path d="M16 14.5H0v-2h16zm0-6H0v-2h16zm0-6H0v-2h16z">
+      </path>
+      </svg>
+    </div>
+  <div class="logo header-logo">
+    <a href="https://www.tomtom.com/navigation/">
+      <img src="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}">
+    </a>
+  </div>
+  <div id="nav-wrapper" class="nav-wrapper">
+    <div class="nav-main-items">
+      <div class="nav-main-items-inner">
+        <ul class="nav-text-links">
+          <li class="nav-text-link">
+            <div class="header-link">
+              <a class="header-link-href" href="{{dc 'header_link_1'}}">{{dc 'header_title_1'}}</a>
+            </div>
+          </li>
+          <li class="nav-text-link">
+            <div class="header-link">
+              <a class="header-link-href" href="{{dc 'header_link_2'}}">{{dc 'header_title_2'}}</a>
+            </div>
+          </li>
+          <li class="nav-text-link">
+            <div class="header-link support-header-link">
+              <a class="header-link-href" href="{{dc 'header_link_3'}}">{{dc 'header_title_3'}}</a>
+            </div>
+          </li>
+          <li class="nav-text-link">
+            <div class="header-link">
+              <a class="header-link-href" href="{{dc 'header_link_4'}}">{{dc 'header_title_4'}}</a>
+            </div>
+          </li>
+          {{!-- <li class="nav-text-link">
+            <div class="header-link">
+              <a class="header-link-href" href="{{dc 'header_link_5'}}">{{dc 'header_title_5'}}</a>
+            </div>
+        </li> --}}
+        </ul>
+      </div>
+    </div>
+  </div>
+<div class="nav-icons">
+	<a class="nav-icon" href="https://www.tomtom.com/store/basket-overview.html" title="Basket">
+		<svg width="16" height="16">
+      <path d="M6 12a2 2 0 110 4 2 2 0 010-4zm6 0a2 2 0 110 4 2 2 0 010-4zM3 0a1 1 0 01.976.783L5.802 9h6.443l1.429-5H7a1 1 0 010-2h8a1 1 0 01.96 1.275l-1.999 7A1 1 0 0113 11H5a1 1 0 01-.976-.783L2.198 2H1a1 1 0 010-2h2z" fill-rule="evenodd">
+        </path>
+    </svg>
+  </a>
+    {{user_info}}
+  </div>
+</div>
+</header>
+<!--  Header --> 
+
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <label class="zd_Hidden" id="subfooter__bongo_link_text">{{dc 'talk_to_bongo_from_widget'}}</label>
 <label class="zd_Hidden" id="open_widget">{{dc 'talk_to_zEWidget_from_widget'}}</label>
@@ -37,6 +136,8 @@
 <label class='zd_Hidden' id='subfooter_bongo_image'>{{dc 'subfooter_-_bongo_image'}}</label>
 <!--bongo images on sub footer-->
 <script> 
+    //this is a global var: the_url
+   var the_url= window.location.href; 
         var link = document.createElement('link');  
         // set the attributes for link element 
         link.rel = 'stylesheet';  
@@ -70,7 +171,6 @@
     });
 }
 //load script function 
-$.loadScript('https:'+document.getElementById("one_widget_JS").innerHTML);
 $.loadScript('https:'+document.getElementById("Google_Analytics_Tracking_FC").innerHTML);
 </script>
 <!-- start load bongo  --> 
@@ -78,6 +178,12 @@ $.loadScript('https:'+document.getElementById("Google_Analytics_Tracking_FC").in
   $.loadScript('https:'+document.getElementById("init_bot_setting").innerHTML);
 </script>
 <!-- end load bongo  --> 
+<!--zendesk widget-->
+<label class="zd_Hidden" id="ze_widget">{{asset 'ze_widget.js'}}</label>
+<label class="zd_Hidden" id="helpCenterSwitch">{{dc 'fe_v_helpcenter_switch'}}</label>
+<label class="zd_Hidden" id="chatOffline">{{dc 'chatlabeloffline'}}</label>
+<label class="zd_Hidden" id="Homepage_Login">{{dc 'Homepage_Login'}}</label>
+<!--zendesk widget-->
 <script> 
   //Map and widget
   
@@ -90,6 +196,27 @@ $.loadScript('https:'+document.getElementById("Google_Analytics_Tracking_FC").in
 }
 var mapObject = JSON.parse(readMap(mapSrc));
 var searchKey=(the_url.split(".tomtom.com")[0]).split("https://")[1];
+//fetch zendesk widget scr from map  
+var webwidget_src=mapObject.ze_webwidget_src[searchKey];
+  //create script for zendesk widget
+   var zE_widget=document.createElement('script'); 
+   zE_widget.id = "ze-snippet";
+   zE_widget.src = webwidget_src;
+  //append the widget script to the head 
+  document.head.appendChild(zE_widget);
+  //load one widget configuration script which includes zendesk widget
+  $.loadScript('https:'+document.getElementById("one_widget_JS").innerHTML);
+
+  
+    
+          <!-- Google Tag Manager -->  
+          var tag_manager_container=mapObject.TAGmanager_container[searchKey];
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer',tag_manager_container);
+          <!-- End Google Tag Manager -->  
 </script>
 
 <script>
@@ -110,141 +237,40 @@ var searchKey=(the_url.split(".tomtom.com")[0]).split("https://")[1];
   document.head.appendChild(utagFC);// append to document head 
 </script>
 
-<div class="header">
-  <div class="notification-bar-ie" id="notification-bar-ie">
-    <div class="notification-bar__inner">
-      <div class="notification-bar__texts">
-        <div class="colored-article">
-          <div class="colored-article__content">  
-            {{dc 'warning_internet_explorer'}}  
-          </div>
-        </div>
-      </div>
-      <div class="notification-bar__close">
-        <div class="close-button" id="notif-close">
-          <div class="button button--bg-brand-red button--bg-hoverable button--icon-shape-a button--size-small button--icon-only">
-            <span tabindex="0" class="button__link"><i class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="#fff" fill-rule="evenodd" d="M 6 4.59 l 4.3 -4.3 l 1.4 1.42 L 7.42 6 l 4.3 4.3 l -1.42 1.4 L 6 7.42 l -4.3 4.3 L 0.3 10.3 L 4.58 6 L 0.29 1.7 L 1.71 0.3 L 6 4.58 Z" /></svg></i>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script type="text/javascript">
-  /********* show IE warning**********/
-var ua = window.navigator.userAgent;
-var msie = ua.indexOf("MSIE ");
-if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Internet Explorer, return version number
-{
-   document.getElementById("notification-bar-ie").style.display = "block";
- console.log(parseInt(ua.substring(msie + 5, ua.indexOf(".", msie))));
-}
-/********* show IE warning**********/
-  $("#notif-close").on("click",function(){
-    $(".notification-bar-ie").hide();
-});
-  </script>
-<!-- Lorna Internet Explorer Banner -->
-
-
-
-<header class="header">
-  <div class="header-inner">
-        <div id="nav-main-hamburger" class="nav-main-hamburger"><svg width="16" height="15"><path d="M16 14.5H0v-2h16zm0-6H0v-2h16zm0-6H0v-2h16z"></path></svg></div>
-  <div class="logo header-logo">
-    <a href="https://www.tomtom.com/navigation/">
-      <img src="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}">
-    </a>
-  </div>
-  <div id="nav-wrapper" class="nav-wrapper">
-    <div class="nav-main-items">
-      <div class="nav-main-items-inner">
-        <ul class="nav-text-links">
-          <li class="nav-text-link">
-            <div class="header-link">
-              <a class="header-link-href" href="{{dc 'header_link_1'}}">{{dc 'header_title_1'}}</a>
-            </div>
-          </li>
-          <li class="nav-text-link">
-            <div class="header-link">
-              <a class="header-link-href" href="{{dc 'header_link_2'}}">{{dc 'header_title_2'}}</a>
-            </div>
-          </li>
-          <li class="nav-text-link">
-            <div class="header-link support-header-link">
-              <a class="header-link-href" href="{{dc 'header_link_3'}}">{{dc 'header_title_3'}}</a>
-            </div>
-          </li>
-          <li class="nav-text-link">
-            <div class="header-link">
-              <a class="header-link-href" href="{{dc 'header_link_4'}}">{{dc 'header_title_4'}}</a>
-            </div>
-          </li>
-          {{!-- <li class="nav-text-link">
-            <div class="header-link">
-              <a class="header-link-href" href="{{dc 'header_link_5'}}">{{dc 'header_title_5'}}</a>
-            </div>
-        </li> --}}
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="nav-icons">
-            <a class="nav-icon" href="https://www.tomtom.com/store/basket-overview.html" title="Basket">
-							<svg width="16" height="16"><path d="M6 12a2 2 0 110 4 2 2 0 010-4zm6 0a2 2 0 110 4 2 2 0 010-4zM3 0a1 1 0 01.976.783L5.802 9h6.443l1.429-5H7a1 1 0 010-2h8a1 1 0 01.96 1.275l-1.999 7A1 1 0 0113 11H5a1 1 0 01-.976-.783L2.198 2H1a1 1 0 010-2h2z" fill-rule="evenodd"></path></svg>
-  				  </a>
-<!--       <div class="nav-wrapper"> -->
-    {{user_info}}
-<!--   </div> -->
-    </div>
-    <!--<div class="header-main__close"><span class="header-main__close__icon"><svg width="12" height="12"><path d="M6 4.59l4.3-4.3 1.4 1.42L7.42 6l4.3 4.3-1.42 1.4L6 7.42l-4.3 4.3L.3 10.3 4.58 6 .29 1.7 1.71.3 6 4.58z" fill="#FFF" fill-rule="evenodd"></path></svg></span></div>-->
-  </div>
-</header>
-  
-
-
+<!--  Cookie Bar  -->
   <div class="cookie_bar zd_Hidden" id="tt_cookie_bar">
     <div class="cookie_bar_inner">
       <div class="cookie_bar_text">
-      <span id="cookie_bar_content">{{dc 'cookie_bar_content'}}</span> 
-<!--         <span id="cookie_bar_post_decline_text" class='zd_Hidden'> {{dc 'cookie_bar_post_decline_text'}}</span> -->
-       
+      	<span id="cookie_bar_content">{{dc 'cookie_bar_content'}}</span>        
       </div>
       <div class="cookie_bar_buttons_container">
-        <div class="button cookie_bar_buttons" id="cookie_bar_buttons_accept"><span class="cookie_bar_buttons_accept">{{dc 'cookie_bar_accept'}}</span></div>
-         <div class="cookie_bar_buttons" id="cookie_bar_buttons_decline"><span class="cookie_bar_buttons_decline">{{dc 'cookie_bar_decline'}}</span></div>
-<!--          <div class="cookie_bar_buttons zd_Hidden" id="cookie_bar_buttons_post_close"><span class="cookie_bar_buttons_x">{{dc 'close_icon'}}</span></div> -->
-      </div>
-    
+        <div class="button cookie_bar_buttons" id="cookie_bar_buttons_accept"><span class="cookie_bar_buttons_accept">{{dc 'cookie_bar_accept'}}</span>
+        </div>
+        <div class="cookie_bar_buttons" id="cookie_bar_buttons_decline"><span class="cookie_bar_buttons_decline">{{dc 'cookie_bar_decline'}}</span>
+        </div>
+      </div>    
     </div>
   </div>
-
+<!--  Cookie Bar  -->
+<!--  Exit Survey -->
   <div id="survey_modal" class="modal zd_Hidden">
     <span id="es_thx" class="zd_Hidden">{{dc 'exit_survey_post_response'}}</span>
-
         <div id="survey_body" class="">
-
             <div id="survey_title">
                 <img id="head" src="{{asset 'exit_survey_header.png'}}">
             </div>
-
             <div id="survey_backgound">
-
-                <div class="survey_question" style="">
+                <div class="survey_question">
                     <h3 id="greetings" class="cap"> {{dc 'exit_survey_question'}}</h3>
                 </div>
-
                 <div class="option_container">
                     <div class="op" id="option_yes">
                         <span id="options" class="tt_survey_btn cap"> {{dc 'yes'}}</span>
                     </div>
-
                     <div class="op" id="option_no">
                         <span id="options" class="tt_survey_btn cap">{{dc 'no'}}</span>
                     </div>
                 </div>
-
                 <div class="check_box_area" id="newchkbox">
                     <input type="checkbox" class="check__box zd_Hidden" id="checkboxMSG">
                     <div id="agree">
@@ -259,8 +285,8 @@ if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Interne
             </div>
         </div>
     </div>
-
- <div class="locale_overlay overlay zd_Hidden">
+<!--  Exit Survey -->
+<!--  <div class="locale_overlay overlay zd_Hidden">
      <div class="overlay_inner">
         <div class="locale_box">
             <div class="locale_content">
@@ -298,9 +324,9 @@ if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Interne
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-
+<!--  Announcements - Amy  -->
          {{#if promoted_articles}}
               <section class="articles promoted-articles-box">
                 <div class="promoted_header"><div class="close">{{dc 'close_icon'}}</div><div id="promoted-arrow" class="zd_Hidden"></div></div>
@@ -321,8 +347,26 @@ if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Interne
                   <div id="right-arrow" onclick="plusSlides(1)"></div>
               </section>
 					{{/if}}
-               
-
+<!--  Announcements - Amy  -->               
+<!--  Retail PopUp - Amy  -->
+<div id="retail_popup" class="modal zd_Hidden">
+        <div id="retail_popup_body" class="">
+          <div id="retail_popup_background">
+            <div class="survey_question" style="">
+              <h3>{{dc 'retail_pop_up_header'}}</h3>
+            </div>
+						<div class="">
+                    <div class="" id="">
+                        <a target="_blank" href="{{dc 'retail_pop_up_link'}}" id="retail_popup_button" class="button">{{dc 'retail_pop_up_button_main'}}</a>
+                    </div>
+                    <div class="contain__text__link" id="">
+                        <div class="text__link">{{dc 'retail_pop_up_button_secondary'}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--  Retail PopUp - Amy  -->
 
 
 

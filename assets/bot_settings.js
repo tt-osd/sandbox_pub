@@ -108,6 +108,14 @@ const initSdk = (name) => {
                 }
             }
 
+            var option_Widget = document.getElementById("option_Widget");
+            if (option_Widget != null) {
+                option_Widget.classList.add("zd_Hidden");
+                // hide the 'get in touch' button again 
+            }
+
+            ga_tracking("Bongo", "clicked", "bongo closed");
+
 
         });
 

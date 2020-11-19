@@ -37,10 +37,15 @@ body {
     margin-bottom: 0;
     font-family: "gotham bold";
     text-transform: none;
-    width: max-content;
+    width: 100%;
     padding: 0 0.5em 0 0.5em;
 }
+@media (min-width: 900px) {
+    .blocks-item-title {
+        width: max-content;
+    }
 
+}
 .blocks-item-title h5 {
     margin-bottom: 0px !important;
 }

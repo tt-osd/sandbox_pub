@@ -1,6 +1,6 @@
 <div class="header_search">   
 			<div class="container">
-          <h1>{{ dc 'homepage_welcome'}}</h1>
+          <h2>{{ dc 'homepage_welcome'}}</h2>
         	{{search  instant=settings.instant_search}}
       </div>
 </div>
@@ -10,13 +10,14 @@
    </div>
 </nav>
 
-<header class="page-header" id="section-page-header">
+<header id="section-page-header" class="page-header">
     <div class="section-container container">
         <h1>{{section.name}}</h1>
-        {{search submit=false class="search section-search" placeholder="Type keyword here"}}
+      <div class="section-search">
           {{#if settings.show_follow_section}}
             {{subscribe}}
           {{/if}}
+      </div>
     </div>
 </header>
 

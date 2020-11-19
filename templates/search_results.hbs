@@ -1,7 +1,7 @@
 <div class="search-results-container ">  
   <div class="header_search">   
 			<div class="container">
-          <h1>{{ dc 'homepage_welcome'}}</h1>
+          <h2>{{ dc 'homepage_welcome'}}</h2>
         	{{search  instant=settings.instant_search}}
       </div>
 </div>
@@ -11,9 +11,9 @@
     </div>
   </nav>
 
-<div class="container">
+<div class="tile-grid">
   <div class="search-results">
-    <aside class="search-results-sidebar">
+    <aside class=" zd_Hidden search-results-sidebar">
       {{#if help_center_filters}}
         <section class="filters-in-section collapsible-sidebar" aria-expanded="false">
           <button type="button" class="collapsible-sidebar-toggle" aria-expanded="false"></button>
@@ -32,7 +32,7 @@
         </section>
       {{/if}}
       {{#if help_center.community_enabled}}
-        <section class="filters-in-section collapsible-sidebar" aria-expanded="false">
+        <section class="zd_Hidden  filters-in-section collapsible-sidebar" aria-expanded="false">
           <button type="button" class="collapsible-sidebar-toggle" aria-expanded="false"></button>
           <h3 class="collapsible-sidebar-title sidenav-title">{{t 'filter_by_type'}}</h3>
           <ul class="multibrand-filter-list multibrand-filter-list--collapsed">
@@ -96,7 +96,7 @@
                 <a href="{{url}}" class="results-list-item-link">{{title}}</a>
                 <div class="search-results-description">{{text}}</div>
               </h2>
-              <div class="search-result-icons">
+              <div class="zd_Hidden search-result-icons">
                 {{#if vote_sum}}
                   <span class="search-result-votes">{{vote_sum}}</span>
                 {{/if}}
@@ -106,7 +106,7 @@
                   </span>
                 {{/if}}
               </div>
-              <article>
+              <article class="zd_Hidden">
                 <ul class="meta-group">
                   <li>
                     <ol class="breadcrumbs search-result-breadcrumbs">
