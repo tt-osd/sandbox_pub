@@ -313,13 +313,12 @@ body {
 }
 
 body>main {
-    padding-bottom: 10px;
+
 }
 
 @media (min-width: 1024px) {
     body>main {
         min-height: 65vh;
-        padding-bottom: 10px;
     }
 }
 
@@ -3183,20 +3182,21 @@ ul.article-list {
     }
 }
 
-.article-votes {
-    padding: 30px 0;
-    text-align: center;
-}
-
+/********** Article Satisfaction *************/
 .article-vote {
     background: transparent;
-    border: 1px solid $brand_color;
+    border: none;
     color: $brand_color;
-    margin: 10px 5px;
-    min-width: 90px;
+    margin-top: 5px;
+    margin-left: 10px;
+/*     min-width: 90px; */
     width: auto;
+    display: inline-block;
+    position: relative;
+  	text-decoration: none;
+  	text-align: left;
+    vertical-align: bottom;
 }
-
 .article-vote::before {
     font-size: 8px;
     margin-right: 10px;
@@ -3209,26 +3209,119 @@ ul.article-list {
 
 .article-vote::after {
     content: attr(title);
-    /* Yes/No label*/
+    color: #FFF;
+  	text-decoration: none;
 }
 
-.article-vote:focus,
-.article-vote:active {
-    background-color: transparent;
-    color: $brand_color;
+.article-vote:focus {
+    color: #e5e5e5;
 }
-
-.article-vote:hover {
-    background-color: $brand_color;
-}
-
-.article-vote:hover::before,
-.article-vote:hover::after,
 .article-vote[aria-selected="true"]::before,
 .article-vote[aria-selected="true"]::after {
     color: $brand_text_color;
 }
+#article-vote-up-select,  #article-vote-down-select {
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background-color: #fff;
+  vertical-align: middle;
+}
+@-moz-document url-prefix() {
+#article-vote-up-select, #article-vote-down-select {
+    vertical-align: sub;
+  }
+}
 
+.article-votes {
+    display: none;
+    z-index: 100;
+    position: fixed;
+    bottom: 1em;
+ 		margin: auto;
+    cursor: pointer;
+    background-color: #4A4C4C;
+    padding: 15px 15px 80px 15px;
+    border: none;
+    font-size: 16px;
+    font-family: Gotham, 'Gotham', Helvetica,Arial,sans-serif;
+		width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    color: #FFF;
+    transition: all 0.3s ease-in-out;
+    scroll-behavior: smooth;
+    right: 0px;
+    bottom: 0px;
+}
+
+@media (min-width: 600px) {
+    .article-votes {
+        width: auto;
+      	min-width: 300px;
+    		min-height: 80px;
+        right: 0px;
+    		bottom: 80px;
+        padding: 15px;
+    }
+}
+
+.article-votes:hover {
+    background-color: rgba(76, 76, 76, 1);
+  	cursor: default;
+}
+
+.article-vote:hover:after {
+    color: #e5e5e5 !important;
+    background-color: transparent;
+    border: none;
+}
+.article-votes-controls {
+    padding-top: 0px;  	
+  	margin-top: 10px;
+}
+.article-vote-seperate, .article-vote-divide {
+      display: inline-block;
+    	vertical-align: middle;
+    	cursor: pointer;
+}
+.article-vote-divide {
+      margin: 0 45px;
+}
+.article-vote-up::before,
+.article-vote-down::before {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    height: 14px;
+    width: 14px;
+    background-color: #FFF;
+    border-radius: 50%;
+}
+.article-vote-seperate::before {
+  		content: " ";
+  		display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 100%;
+      position: relative;
+      margin: 1px;
+      background-color: #4a4c4c;
+}
+.article-vote-seperate.active::before {
+      -webkit-transform: scale(0.7);
+      transform: scale(0.7);
+      -webkit-transition: -webkit-transform 150ms;
+   		transition: -webkit-transform 150ms;
+   		transition: transform 150ms;
+  	  transition: transform 150ms, -webkit-transform 150ms;  
+      background-color: #4A4C4C;
+}
+.article-vote-up:active,
+.article-vote-down:active, .article-vote[aria-selected="true"]::after {
+    color: #FFF;
+}
+/********** Article Satisfaction *************/
 .article-more-questions {
     margin: 10px 0 20px;
     text-align: center;
@@ -3844,93 +3937,6 @@ h3.tt-get-started-step-title {
 
 .ts-article-body>p:last-child {
     margin-bottom: 0;
-}
-
-.article-votes {
-    display: none;
-    z-index: 100;
-    position: fixed;
-    right: 0px;
-    bottom: 80px;
-    margin: auto;
-    cursor: pointer;
-    background-color: #4A4C4C;
-    padding: 10px 30px 20px 30px;
-    border-radius: 0px;
-    font-size: 16px;
-    font-family: "gotham book";
-    min-width: 300px;
-    min-height: 80px;
-    text-transform: uppercase;
-    text-align: center;
-    color: #FFF;
-    transition: all 0.3s ease-in-out;
-    scroll-behavior: smooth;
-}
-
-.article-votes:hover {
-    background-color: rgba(76, 76, 76, 1);
-}
-
-.article-vote {
-    color: #FFF;
-    border: none;
-    padding: 20px;
-}
-
-.article-vote:hover {
-    color: #FFF;
-    background-color: transparent;
-    border: none;
-    padding: 20px;
-}
-
-.article-vote-up:active,
-.article-vote-down:active {
-    color: #FFF;
-}
-
-.article-votes-controls {
-    padding-top: 0px;
-}
-
-.article-vote {
-    display: inline-block;
-    position: relative;
-    margin-left: 30px;
-}
-
-.article-vote-up::before,
-.article-vote-down::before {
-    position: absolute;
-    top: 25px;
-    left: 0;
-    height: 15px;
-    width: 15px;
-    background-color: #FFF;
-    border-radius: 50%;
-}
-
-.article-vote[aria-selected="true"]::after {
-    color: #FFF !important;
-}
-
-.article-vote[aria-selected="true"]::before {
-    color: #FFF !important;
-    position: absolute;
-    top: 25px;
-    left: 0;
-    height: 15px;
-    width: 15px;
-    background-color: #B1110E;
-    border-radius: 50%;
-}
-
-@media (max-width: 600px) {
-    .article-votes {
-        right: unset;
-        bottom: 1em;
-    }
 }
 
 .ts-sub-footer-wrapper {
@@ -7352,12 +7358,6 @@ ul.profile-activity-list {
     flex: 1;
 }
 
-@media (min-width: 1024px) {
-    .search-results-column {
-        flex: 0 0 75%;
-    }
-}
-
 .search-results-sidebar {
     flex: 1 0 auto;
     margin-bottom: 20px;
@@ -7435,10 +7435,11 @@ ul.profile-activity-list {
 .search-results-list {
     margin-bottom: 25px;
     color: #000;
+	  padding-left: 0px;
 }
 
 .search-results-list>li {
-    padding-top: 20px;
+    padding: 20px 0;
     list-style: none;
     border-bottom: 1px solid #ddd;
 }

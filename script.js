@@ -1058,7 +1058,55 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
           } 
       }
 /************************* End of Retailer pop-up Banner ***********************/ //Amy  
-
+/***************************** Article Satisfaction *********************/
+  if (the_url.indexOf("/articles/") != -1) { // If the page is an article
+    var articlevotebox = document.getElementsByClassName("article-votes")[0]; // Get the whole article box
+    var articleupvote = document.getElementsByClassName("article-vote-up")[0]; // Get the vote up text button
+    var articledownvote = document.getElementsByClassName("article-vote-down")[0]; // Get the vote down text button
+    var articleupbutton = document.getElementById("article-vote-up-select"); // Get the vote up radio button
+    var articledownbutton = document.getElementById("article-vote-down-select"); // Get the vote down radio button
+        $(window).scroll(function() { // The article satisfaction box is hidden, this will appear after scrolling down
+            if ($(this).scrollTop() >= 600) {
+                $(articlevotebox).fadeIn(200);
+            } else {
+                $(articlevotebox).fadeOut(200); // scroll out again if they scroll back up
+            }
+        });
+      
+        $(".article-vote").click(function() { // if they click on either vote hide the box
+             setTimeout(function(){ //set a 1 second timer so they see the lil CSS animation before hiding it
+               $(articlevotebox).addClass("zd_Hidden"); //hide the box
+                 }, 1000);
+        }); // close the click function .article-vote
+    
+        var article_event_category = "FAQs"; // make the event category for Article Satisfaction
+        var article_event_action = "clicked"; // make the event action for Article Satisfaction
+        $(articleupvote).click(function() {  // click function if customer votes 'yes'   
+        ga_tracking(article_event_category, article_event_action, "Satisfied"); //send GA tracking event
+           $(articleupbutton).addClass('active'); // add the active class so users know they have clicked
+         	 $(articledownbutton).removeClass('active'); // remove the active class from the other button if they have clicked that previously
+        });  // end click function if customer votes 'yes'  
+    
+        $(articledownvote).click(function() {  // click function if customer votes 'no'   
+        ga_tracking(article_event_category, article_event_action, "Unsatisfied");  //send GA tracking event
+            $(articledownbutton).addClass('active'); // add the active class so users know they have clicked
+            $(articleupbutton).removeClass('active'); // remove the active class from the other button if they have clicked that previously
+        }); // end click function if customer votes 'no'  
+    
+         $(articleupbutton).click(function() { //this function is purley for users who click on the radio button instead of the link, it trigers the click functions above
+           articleupvote.click();
+         });
+        $(articledownbutton).click(function() {  //this function is purley for users who click on the radio button instead of the link, it trigers the click functions above
+           articledownvote.click();
+         });                  
+    
+       if ($(articleupvote).attr("aria-selected") === "true") { // when the page loads, if they have voted in the past we will make the button active so they know their previous vote
+            $(articleupbutton).addClass('active'); // adding active to the yes button if their vote was yes
+        } else if ($(articledownvote).attr("aria-selected") === "true") {
+            $(articledownbutton).addClass('active'); // adding active to the yes button if their vote was no
+        } 
+  };  //end IF the page is an article 
+/***************************** End Article Satisfaction - Amy *****************************/
 }); 
 /************************* End of DOM js file function - put everything above this line ***********************/  
 /*************************  Only insert after this if you need document to be ready ***********************/  
@@ -1190,23 +1238,6 @@ $(document).ready(function() {
             }, 500);
         });
 /********************* End back to top *****************************/
-/***************************** Article Satisfaction *********************/
-
-        $(window).scroll(function() {
-            if ($(this).scrollTop() >= 600) {
-                $('.article-votes').fadeIn(200);
-            } else {
-                $('.article-votes').fadeOut(200);
-            }
-        });
-        /*add on*/
-        /*when Article Satisfaction has been clicked on YES/NO hide it*/
-        $(".article-vote").click(function() {
-            $(".article-votes").addClass("zd_Hidden");
-        });
-
-        /*add on*/
-/***************************** End Article Satisfaction *****************************/
 /*****************************  Troubleshooting Template *********************/
         var theLabels = document.getElementsByClassName("labels");
         if (theLabels.length > 0) {
