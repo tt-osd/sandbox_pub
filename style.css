@@ -312,9 +312,7 @@ body {
     height: 100%;
 }
 
-body>main {
-
-}
+body>main {}
 
 @media (min-width: 1024px) {
     body>main {
@@ -3182,21 +3180,24 @@ ul.article-list {
     }
 }
 
+
 /********** Article Satisfaction *************/
+
 .article-vote {
     background: transparent;
     border: none;
     color: $brand_color;
     margin-top: 5px;
     margin-left: 10px;
-/*     min-width: 90px; */
+    /*     min-width: 90px; */
     width: auto;
     display: inline-block;
     position: relative;
-  	text-decoration: none;
-  	text-align: left;
+    text-decoration: none;
+    text-align: left;
     vertical-align: bottom;
 }
+
 .article-vote::before {
     font-size: 8px;
     margin-right: 10px;
@@ -3210,27 +3211,32 @@ ul.article-list {
 .article-vote::after {
     content: attr(title);
     color: #FFF;
-  	text-decoration: none;
+    text-decoration: none;
 }
 
 .article-vote:focus {
     color: #e5e5e5;
 }
+
 .article-vote[aria-selected="true"]::before,
 .article-vote[aria-selected="true"]::after {
     color: $brand_text_color;
 }
-#article-vote-up-select,  #article-vote-down-select {
-  width: 14px;
-  height: 14px;
-  border-radius: 100%;
-  background-color: #fff;
-  vertical-align: middle;
+
+#article-vote-up-select,
+#article-vote-down-select {
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background-color: #fff;
+    vertical-align: middle;
 }
+
 @-moz-document url-prefix() {
-#article-vote-up-select, #article-vote-down-select {
-    vertical-align: sub;
-  }
+    #article-vote-up-select,
+    #article-vote-down-select {
+        vertical-align: sub;
+    }
 }
 
 .article-votes {
@@ -3238,14 +3244,14 @@ ul.article-list {
     z-index: 100;
     position: fixed;
     bottom: 1em;
- 		margin: auto;
+    margin: auto;
     cursor: pointer;
     background-color: #4A4C4C;
     padding: 15px 15px 80px 15px;
     border: none;
     font-size: 16px;
-    font-family: Gotham, 'Gotham', Helvetica,Arial,sans-serif;
-		width: 100%;
+    font-family: Gotham, 'Gotham', Helvetica, Arial, sans-serif;
+    width: 100%;
     text-transform: uppercase;
     text-align: center;
     color: #FFF;
@@ -3258,17 +3264,17 @@ ul.article-list {
 @media (min-width: 600px) {
     .article-votes {
         width: auto;
-      	min-width: 300px;
-    		min-height: 80px;
+        min-width: 300px;
+        min-height: 80px;
         right: 0px;
-    		bottom: 80px;
+        bottom: 80px;
         padding: 15px;
     }
 }
 
 .article-votes:hover {
     background-color: rgba(76, 76, 76, 1);
-  	cursor: default;
+    cursor: default;
 }
 
 .article-vote:hover:after {
@@ -3276,18 +3282,23 @@ ul.article-list {
     background-color: transparent;
     border: none;
 }
+
 .article-votes-controls {
-    padding-top: 0px;  	
-  	margin-top: 10px;
+    padding-top: 0px;
+    margin-top: 10px;
 }
-.article-vote-seperate, .article-vote-divide {
-      display: inline-block;
-    	vertical-align: middle;
-    	cursor: pointer;
-}
+
+.article-vote-seperate,
 .article-vote-divide {
-      margin: 0 45px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
 }
+
+.article-vote-divide {
+    margin: 0 45px;
+}
+
 .article-vote-up::before,
 .article-vote-down::before {
     position: absolute;
@@ -3298,30 +3309,37 @@ ul.article-list {
     background-color: #FFF;
     border-radius: 50%;
 }
+
 .article-vote-seperate::before {
-  		content: " ";
-  		display: block;
-      width: 12px;
-      height: 12px;
-      border-radius: 100%;
-      position: relative;
-      margin: 1px;
-      background-color: #4a4c4c;
+    content: " ";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    position: relative;
+    margin: 1px;
+    background-color: #4a4c4c;
 }
+
 .article-vote-seperate.active::before {
-      -webkit-transform: scale(0.7);
-      transform: scale(0.7);
-      -webkit-transition: -webkit-transform 150ms;
-   		transition: -webkit-transform 150ms;
-   		transition: transform 150ms;
-  	  transition: transform 150ms, -webkit-transform 150ms;  
-      background-color: #4A4C4C;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+    -webkit-transition: -webkit-transform 150ms;
+    transition: -webkit-transform 150ms;
+    transition: transform 150ms;
+    transition: transform 150ms, -webkit-transform 150ms;
+    background-color: #4A4C4C;
 }
+
 .article-vote-up:active,
-.article-vote-down:active, .article-vote[aria-selected="true"]::after {
+.article-vote-down:active,
+.article-vote[aria-selected="true"]::after {
     color: #FFF;
 }
+
+
 /********** Article Satisfaction *************/
+
 .article-more-questions {
     margin: 10px 0 20px;
     text-align: center;
@@ -3561,7 +3579,7 @@ ul.article-list {
     justify-content: space-between;
     margin-bottom: 70px;
     padding: 100px 0px;
-    background-image: url("$assets-getstartedheader-jpg");
+    background-image: url("$assets-getstartedheader_desktop_opt-jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -7435,7 +7453,7 @@ ul.profile-activity-list {
 .search-results-list {
     margin-bottom: 25px;
     color: #000;
-	  padding-left: 0px;
+    padding-left: 0px;
 }
 
 .search-results-list>li {
@@ -8832,7 +8850,7 @@ only screen and (min-resolution:2dppx) {
 }
 
 #subfooter_user_manual {
-    background: url($assets-sbf_manuals_desktop-png);
+    background: url($assets-sbf_manuals_desktop_opt-jpg);
     background-size: cover;
     background-position: right;
 }
@@ -8845,13 +8863,13 @@ only screen and (min-resolution:2dppx) {
 }
 
 #subfooter_video {
-    background: url($assets-sbf_videos_desktop-png);
+    background: url($assets-sbf_videos_desktop_opt-jpg);
     background-size: cover;
     background-position: right;
 }
 
 #subfooter_community {
-    background: url($assets-sbf_community_desktop-png);
+    background: url($assets-sbf_community_desktop_opt-jpg);
     background-size: cover;
     background-position: right;
 }
@@ -8884,14 +8902,14 @@ only screen and (min-resolution:2dppx) {
     vertical-align: middle;
     margin-left: 14px;
     position: relative;
-/*     position: absolute; */
+    /*     position: absolute; */
     margin-top: 0.022em;
 }
 
 .sub_explore_WINDOWS::after {
     margin-left: 14px;
     position: relative;
-/*     position: absolute; */
+    /*     position: absolute; */
     margin-top: 0;
     padding-bottom: 3px;
 }
@@ -8938,26 +8956,25 @@ only screen and (min-resolution:2dppx) {
         grid-row-gap: 24px;
     }
     #subfooter_user_manual {
-        background: url($assets-sbf_manuals_mobile-png);
+        background: url($assets-sbf_manuals_mobile_opt-jpg);
         background-size: cover;
         background-position: bottom;
         background-repeat: no-repeat;
     }
     #bongo_open {
-        /* background: url($assets-sbf_bongo_mobile-png); */
         background-color: #fff;
         background-size: cover;
         background-position: bottom;
         background-repeat: no-repeat;
     }
     #subfooter_video {
-        background: url($assets-sbf_videos_mobile-png);
+        background: url($assets-sbf_videos_mobile_opt-jpg);
         background-size: cover;
         background-position: bottom;
         background-repeat: no-repeat;
     }
     #subfooter_community {
-        background: url($assets-sbf_community_mobile-png);
+        background: url($assets-sbf_community_mobile_opt-jpg);
         background-size: cover;
         background-position: bottom;
         background-repeat: no-repeat;
@@ -8966,6 +8983,8 @@ only screen and (min-resolution:2dppx) {
 
 
 /****** Subfooter - Levitt  *****/
+
+
 /****** Retail PopUp - Amy *****/
 
 #survey_title {
@@ -8974,7 +8993,7 @@ only screen and (min-resolution:2dppx) {
 
 #retail_popup_body {
     position: relative;
- 		top:25%;
+    top: 25%;
     background-color: rgba(255, 255, 255, 1);
     margin: auto;
     padding: 40px;
@@ -8985,23 +9004,26 @@ only screen and (min-resolution:2dppx) {
 #retail_popup_background {
     width: 100%;
 }
+
 #retail_popup_button {
-  margin-bottom: 16px;
-  width: 100%;
+    margin-bottom: 16px;
+    width: 100%;
 }
+
 .contain__text__link {
-  border-bottom: 1px solid #000;
-  padding-bottom: 0;
-  cursor: pointer;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0;
+    cursor: pointer;
 }
+
 .text__link {
-    font-family: Noway Regular,Helvetica,Arial,sans-serif;
-  	font-weight: 100;
+    font-family: Noway Regular, Helvetica, Arial, sans-serif;
+    font-weight: 100;
     text-decoration: none;
     position: relative;
     padding-top: 2px;
     padding-bottom: 1px;
-  	text-transform: none;
+    text-transform: none;
 }
 
 .option_container {
@@ -9012,6 +9034,7 @@ only screen and (min-resolution:2dppx) {
     margin-bottom: 2em;
     margin-top: 1em;
 }
+
 .tt_survey_btn {
     border: 1px solid #DDD;
     padding: 12px 20px;
@@ -9056,4 +9079,6 @@ only screen and (min-resolution:2dppx) {
 #agree_inner {
     transition: all .55s ease 0s;
 }
+
+
 /****** End Retail PopUp - Amy *****/
