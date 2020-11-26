@@ -60,9 +60,7 @@ function loginFromWidget() { // if you click login from widget
 
 } //end of if you click login from widget
 
-function widget_settings() {
-
-    zE('webWidget', 'setLocale', country_code);
+function widget_settings() {    
 
     for (pl in phoneline) {
         if (phoneline[pl] == talkLocale) {
@@ -118,7 +116,7 @@ function widget_settings() {
         }
     }; // End of webwidget settings
     //this was in Script.js
-
+    zE('webWidget', 'setLocale', country_code);
 } //end of   function widget_settings(){
 
 // call the widget setting function as script is loading from HTML header
@@ -130,7 +128,7 @@ var waitForZen = setInterval(function() {
         if (window.$zopim === undefined || window.$zopim.livechat === undefined) {
             return;
         }
-
+       
         zE('webWidget:on', 'open', function() {
 
             if (HelpCenter.user.role == "anonymous") {
