@@ -7,10 +7,17 @@ in zendesk widget, only contact form is currently enabled!
 /**/
 
 /*1. zendesk widget settings and functions*/
-var chatLocale = HelpCenter.user.locale
+
+function getLocale() {  // getting locale from url instead of helpcenter.user.locale, because user only works when logged in
+    return window.location.href
+           .split('/hc/')[1]
+           .split('/')[0];
+   }
+
+var chatLocale = getLocale(); // get locale for chat and other functions
 var chat_department = "unknown";
 var country_code = "unknown";
-for (key in mapObject) {
+for (key in mapObject) { //function for matching chat dept to current locale
     if (chatLocale == key) {
         chat_department = mapObject[key][1].chat_department;
         country_code = mapObject[key][0].country_code;
@@ -46,8 +53,16 @@ var apps_cat_id = mapObject.apps_category_ID[searchKey];
 var userManualsReleaseInfo_cat_id = mapObject.user_manual_release_info_category_ID[searchKey];
 var tthome_section_id = mapObject.TT_home_section_ID[searchKey];
 
+function loginFromWidget() { // if you click login from widget
+
+    $(".login")[0].click();
+    ga_tracking("Zendesk Web Widget", "logged in", " ");
+
+} //end of if you click login from widget
 
 function widget_settings() {
+
+    zE('webWidget', 'setLocale', country_code);
 
     for (pl in phoneline) {
         if (phoneline[pl] == talkLocale) {
@@ -125,6 +140,9 @@ var waitForZen = setInterval(function() {
                     },
                     talk: {
                         'suppress': true
+                    },
+                    contactForm: {
+                        'suppress': true
                     }
                 });
 
@@ -133,72 +151,23 @@ var waitForZen = setInterval(function() {
                 var login_reminder_box = document.createElement('div');
                 login_reminder_box.id = 'login_reminder_box';
                 login_reminder_box.setAttribute("style", "position:absolute; width:341px; bottom:21px; left: 18px; margin: 0 1px; text-align:center; padding: 1.07143rem 1.42857rem;color: #df1b12;cursor:pointer;user-select: none;font-weight: bold;");
-
                 var full_size_widget = a.style.width;
                 if (full_size_widget == "100%") {
                     login_reminder_box.setAttribute("style", "position:absolute; width:100%; bottom:0; margin: 0; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
                 }
-
                 var loginMSG = document.createElement('p');
                 var textnode = document.createTextNode(Homepage_Login);
                 loginMSG.appendChild(textnode);
-
                 zE('webWidget:on', 'userEvent', function(event) {
                     if (event.action == "Help Center Search") {
                         login_reminder_box.appendChild(loginMSG);
-                        login_reminder_box.addEventListener("click", loginFromWidget);
+                        login_reminder_box.addEventListener("click", loginFromWidget); // add event listeners function to trigger logging in
                         frameBody.appendChild(login_reminder_box);
                         // this does not apply to if dutch FAQ is suppressed
                         //because it will not enter "Help Center Search" if-statement
                     }
                 });
-
-                if (helpCenterSwitch == "TRUE") {
-                    //if user not logged in and has a true value for suppress the help center, 
-                    //suppress the help center and use the contact form as a place holder
-                    zE('webWidget', 'updateSettings', {
-                        contactForm: {
-                            'suppress': false
-                        },
-                        helpCenter: {
-                            'suppress': true
-                        }
-                    });
-
-                    zE('webWidget:on', 'userEvent', function(event) {
-                        if (event.action == "Contact Form Shown") {
-
-                            var dutch_cover_layer = document.createElement('div');
-                            dutch_cover_layer.id = 'dutch_cover_layer';
-                            dutch_cover_layer.setAttribute("style", "position:absolute; height:100%; width:100%; text-align:center; background-color:#fff;padding:0;");
-
-                            var frame_embed = frameBody.querySelector("#Embed");
-                            var form = frame_embed.querySelector("form");
-                            login_reminder_box.setAttribute("style", "position:absolute; width:100%; margin: 0; text-align:center; box-shadow: rgba(0, 0, 0, 0.08) 0px -0.0714286rem 0.857143rem;padding: 1.07143rem 1.42857rem;border-top: 0.0785714rem solid rgb(233, 235, 237);background: #fff;color: #df1b12;cursor:pointer;user-select: none;");
-                            login_reminder_box.appendChild(loginMSG);
-                            login_reminder_box.addEventListener("click", loginFromWidget);
-                            dutch_cover_layer.appendChild(login_reminder_box);
-                            form.appendChild(dutch_cover_layer);
-
-
-                        }
-                    });
-
-                } else {
-                    //if user not logged in and has a false value for suppress the help center
-                    // turn off the contact form and show the help center
-                    zE('webWidget', 'updateSettings', {
-                        contactForm: {
-                            'suppress': true
-                        },
-                        helpCenter: {
-                            'suppress': false
-                        }
-                    });
-                }
-            } //closing  if (HelpCenter.user.role == "anonymous") {
-
-            zE('webWidget', 'setLocale', country_code);
+            } //closing  if (HelpCenter.user.role == "anonymous") {            
 
             zE('webWidget:on', 'userEvent', function(event) {
                 if (bongowidgetcombo == 1) {
@@ -376,6 +345,7 @@ var waitForZen = setInterval(function() {
 
         //this was in Script JS
         zE('webWidget:on', 'userEvent', function(event) {
+            
             //user property in if statement!!!!
             //alert(event.action);
             if ((event.action) == "Contact Form Shown") {
