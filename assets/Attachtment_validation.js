@@ -50,6 +50,7 @@ if ((the_url.indexOf("/requests/") > -1) && (the_url.indexOf("new?ticket_form_id
     /*************************** Request (also known as Request List) page ********************************/
     // GDPR Request Download page
     var gdpr_form_id = mapObject.gdpr_form_ID[searchKey];
+    var golf_form_id = mapObject.golf_form_ID[searchKey];
     if (request_title.indexOf(gdpr_form_id) >= 0) {
         $(".comment-form").addClass("zd_Hidden");
         $(".my-activities-nav").addClass("zd_Hidden");
