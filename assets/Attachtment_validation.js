@@ -40,3 +40,29 @@ if (comment_list != null) {
         }
     }
 }
+
+
+//the following function is written for request.hbs page
+
+if ((the_url.indexOf("/requests/") > -1) && (the_url.indexOf("new?ticket_form_id") <= -1)) { //IF page is a Request Page (and exclude ticket forms)
+    var request_title = document.getElementsByClassName("request-title")[0].innerText;
+
+    /*************************** Request (also known as Request List) page ********************************/
+    // GDPR Request Download page
+    var gdpr_form_id = mapObject.gdpr_form_ID[searchKey];
+    var golf_form_id = mapObject.golf_form_ID[searchKey];
+    if (request_title.indexOf(gdpr_form_id) >= 0) {
+        $(".comment-form").addClass("zd_Hidden");
+        $(".my-activities-nav").addClass("zd_Hidden");
+        $(".breadcrumbs").addClass("zd_Hidden");
+        $(".request-details").addClass("zd_Hidden");
+        $(".request-attachments").addClass("ts-request-attachments");
+        $(".attachments").addClass("download-button");
+    } else if (request_title.indexOf(golf_form_id) >= 0) {
+
+        $('<div class="comment" id="golf_thank_you"></div>').prependTo('.request-main');
+        $("#golf_thank_you").html($("#golf_thank_you_dc").html());
+    }
+}
+/***************************  End Request (also known as Request List) page **********************/
+console.log("hi request_page.hbs");

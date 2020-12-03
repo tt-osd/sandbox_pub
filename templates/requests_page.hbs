@@ -417,5 +417,8 @@ $(document).ready(function(){
 </div>
 </div>     
 <!--  Repairs/BuRMA HTML - End  -Asmita -->
-
+<label id="request_list" class="zd_Hidden">{{asset 'request_list.js'}}</label>
+<script>
+$.loadScript('https:'+document.getElementById("request_list").innerHTML);
+</script>
 

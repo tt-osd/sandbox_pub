@@ -4,9 +4,9 @@
 // There are 2 document ready functions one is below in DOMContentLoaded and there is (document).ready at the bottom if you require the whole document to load
 
 document.addEventListener('DOMContentLoaded', function() { // Add your new code to the relevant section
-   
-/******************************************* Breadcrumbs ************************************************/ 
-  //chevron
+
+    /******************************************* Breadcrumbs ************************************************/
+    //chevron
     //iphone userAgent: iPhone
     if (navigator.userAgent.indexOf('Mac') != -1) {
         $(".breadcrumbs li+li").addClass("chevron_mac");
@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
         $(".breadcrumbs li+li").addClass("chevron_general");
     }
     //chevron   
-/******************************************* End of Breadcrumbs ************************************************/ 
-  
-/******************************************* Subfooter ************************************************/
+    /******************************************* End of Breadcrumbs ************************************************/
+
+    /******************************************* Subfooter ************************************************/
     // bongo images on different locals 
     var subfooter_bongo_image_mobile = document.getElementById("subfooter_bongo_image_mobile");
     var subfooter_bongo_image = document.getElementById("subfooter_bongo_image");
@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     var query = window.matchMedia("(max-width: 690px)");
     adjustBongoImage(query);
     query.addListener(adjustBongoImage);
-/******************************************* End of Subfooter ************************************************/
+    /******************************************* End of Subfooter ************************************************/
 
-/******************************************* Home page META description *****************************************/ // DDA-673 Amy
+    /******************************************* Home page META description *****************************************/ // DDA-673 Amy
     var homePage = document.getElementById("home-section");
     if (homePage) {
         var homepage_metadescription = document.getElementById("homepage_metadescription").textContent;
@@ -53,374 +53,60 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
         homepage_meta.content = homepage_metadescription;
         document.getElementsByTagName('head')[0].appendChild(homepage_meta);
     }
-/******************************************* End Home page META description *****************************************/ // DDA-673 Amy
+    /******************************************* End Home page META description *****************************************/ // DDA-673 Amy
 
     //this is the URL value that can be used in all the functions
     var the_url = window.location.href;
     //this is the URL value that can be used in all the functions
-  
-/******************************************* Requests/CCD page ************************************************/
+
+    /******************************************* Requests/CCD page ************************************************/
     if (the_url.indexOf("requests/ccd") != -1) {
         var hide_CC_page_main = document.querySelector('main[role="main"]');
         hide_CC_page_main.classList.add("zd_Hidden");
         window.location.href = the_url.split("/ccd")[0];
     }
-/******************************************* End of Requests/CCD page ************************************************/
-  
-/*************************************** MAP *************************************/
+    /******************************************* End of Requests/CCD page ************************************************/
+
+    /************************* Form requests login ******************************************************/
+    if (the_url.indexOf("ticket_form_id") != -1) { //the current page is a form page 
+
+        // //form only available for logged in user
+        if (HelpCenter.user.role == "anonymous") {
+            $(".container").addClass("zd_Hidden");
+            $(".login")[0].click();
+        }
+        // //form only available for logged in user
+    }
+    /************************* Form requests login ******************************************************/
+
+    /*************************************** MAP *************************************/
     //get the id_map JSON access URL from asset
     var id_map_data_source = "https:" + $("#map_json").html();
 
     //access id_map JSON
     $.getJSON(id_map_data_source, function(data) {
-
-        //create form id with a default value -1
-        var golf_form_id = -1;
-        var strap_form_id = -1;
-        var gdpr_form_id = -1;
-        var email_form_id = -1;
-        var serial_number_eur_field_id = -1;
-        var gdpr_reason_field_id = -1;
-        var golfer_section_id = -1;
-        var nav_cat_id = "";
-        var spts_cat_id = "";
-        var apps_cat_id = "";
-        var userManualsReleaseInfo_cat_id = "";
-        var tthome_section_id = "";
         var vanilla_sso_server = -1;
         var vanilla_redirect_url = -1;
-        var talk_form_id = -1;
-        var email_form_request_local_field = -1;
-        var auto_renewal_refund_form_id = -1;
-        var refund_form_id = -1;
-        var ordernumber_field_id = -1;
-        var sap_order_number_eur_field = -1;
-        var sap_total_refund_amount_eur_field = -1;
-        var sap_currency_eur_field = -1;
-        //create form id with a default value -1     
- 
-      
+        var golfer_section_id = -1;
+
         // declare varliables inside map json
         if (the_url.indexOf("sandbox") != -1) {
-
-            //form id get the sandbox id value
-            golf_form_id = data.golf_form_id.sandbox;
-            strap_form_id = data.strap_form_id.sandbox;
-            gdpr_form_id = data.gdpr_form_id.sandbox;
-            email_form_id = data.email_form_id.sandbox;
-            serial_number_eur_field_id = data.serial_number_eur_field_id.sandbox;
-            gdpr_reason_field_id = data.gdpr_reason_field_id.sandbox;
-            golfer_section_id = data.golfer_section_id.sandbox;
-            nav_cat_id = data.naviagtion_category_id.sandbox;
-            spts_cat_id = data.sports_category_id.sandbox;
-            apps_cat_id = data.apps_category_id.sandbox;
-            userManualsReleaseInfo_cat_id = data.user_manual_release_info_category_id.sandbox;
-            tthome_section_id = data.tthome_section_id.sandbox;
             vanilla_redirect_url = data.vanilla_redirect_url.sandbox;
             vanilla_sso_server = data.vanilla_sso_server.sandbox;
-            talk_form_id = data.talk_form_id.sandbox;
-            email_form_request_local_field = data.email_form_request_local.sandbox;
-            auto_renewal_refund_form_id = data.auto_renewal_refund_form_id.sandbox;
-            refund_form_id = data.refund_form_id.sandbox;
-            ordernumber_field_id = data.ordernumber_field_id.sandbox;
-            sap_order_number_eur_field = data.sap_order_number_eur_field.sandbox;
-            sap_total_refund_amount_eur_field = data.sap_total_refund_amount_eur_field.sandbox;
-            sap_currency_eur_field = data.sap_currency_eur_field.sandbox;
-
+            golfer_section_id = data.golfer_section_id.sandbox;
         } else {
-
-            //form id get the production id value
-            golf_form_id = data.golf_form_id.prod;
-            strap_form_id = data.strap_form_id.prod;
-            gdpr_form_id = data.gdpr_form_id.prod;
-            email_form_id = data.email_form_id.prod;
-            serial_number_eur_field_id = data.serial_number_eur_field_id.prod;
-            gdpr_reason_field_id = data.gdpr_reason_field_id.prod;
-            golfer_section_id = data.golfer_section_id.prod;
-            nav_cat_id = data.naviagtion_category_id.prod;
-            spts_cat_id = data.sports_category_id.prod;
-            apps_cat_id = data.apps_category_id.prod;
-            userManualsReleaseInfo_cat_id = data.user_manual_release_info_category_id.prod;
-            tthome_section_id = data.tthome_section_id.prod;
             vanilla_redirect_url = data.vanilla_redirect_url.prod;
             vanilla_sso_server = data.vanilla_sso_server.prod;
-            talk_form_id = data.talk_form_id.prod;
-            email_form_request_local_field = data.email_form_request_local.prod;
-            auto_renewal_refund_form_id = data.auto_renewal_refund_form_id.prod;
-            refund_form_id = data.refund_form_id.prod;
-            ordernumber_field_id = data.ordernumber_field_id.prod;
-            sap_order_number_eur_field = data.sap_order_number_eur_field.prod;
-            sap_total_refund_amount_eur_field = data.sap_total_refund_amount_eur_field.prod;
-            sap_currency_eur_field = data.sap_currency_eur_field.prod;
+            golfer_section_id = data.golfer_section_id.prod;
         } //end of get form/fields ID
-            
-/********************************************* Function for Serial Number validation ************************************/
-        //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
-        function checkNums(serial_number_input, submit_button, validSerialNumber) {
-        //a forloop run 10 times check the 3rd to 12th characher, besides 7th, the rest should be number
-            for (var i = 2; i <= 11; i++) {
-                if (i != 6) {
-                    var currentNum = parseInt(serial_number_input.charAt(i));
-                    if (!(isNaN(currentNum))) {
-                        submit_button.disabled = false;
-                        validSerialNumber = 1;
-                    } else {
-                        validSerialNumber = 0;
-                        submit_button.disabled = true;
-                        break;
-                    }
-                }
-            }
-            // when the function exected, turn the "validSerialNumber" into 1, which means the serial number is valid 
-            if (validSerialNumber == 1) {
-                submit_button.disabled = false;
-            } else {
-                submit_button.disabled = true;
-            }
-        };
-        //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
- /************************************ End of Function for Serial Number validation ************************************/         
-      
-/****************************************** Ticket Forms ********************************/ // Documentation: https://confluence.tomtomgroup.com/display/CCWEBDEV/Ticket+Forms 
-        if (the_url.indexOf("ticket_form_id") != -1) { //the current page is a form page 
-            
-          	//form only available for logged in user
-            if (HelpCenter.user.role == "anonymous") {
-                $(".container").addClass("zd_Hidden");
-                $(".login")[0].click();
-            }
-            //form only available for logged in user
-          
-            //create general variables of form elements, easy to manage 
-            var SubjectLine = document.getElementById("request_subject");
-            var DescriptionBox = document.getElementById("request_description");
-            var AttachmentsFileDrop = document.getElementById("upload-dropzone");
-            var title = document.getElementsByTagName("h1")[0];
-            /*hard coded ID*/
-            var GDPROption = document.getElementsByClassName("request_custom_fields_" + gdpr_reason_field_id);
-            /*hard coded ID*/
-            function isLetter(str) { return str.length === 1 && str.match(/[a-z]/i); }
 
-            //orgainse the form IDs 
-            //Golf form
-            var golf_form_ID_checker = "form_id=" + golf_form_id;
-            //GDPR form
-            var gdpr_form_ID_checker = "form_id=" + gdpr_form_id;
-            //strap form
-            var strap_form_ID_checker = "form_id=" + strap_form_id;
-
-/****************************** STRAP REQUEST FORM *************************************/
-            //testing URL hc/en-gb/requests/new?ticket_form_id=360000671760 
-
-            if (window.location.href.indexOf(strap_form_ID_checker) > -1) { // if this is the strap form
-                var strap_page_title = document.getElementById("strap_page_title").innerHTML;
-                document.title = strap_page_title;
-
-                $("#new_request .form-field").addClass("required"); //add required class to attachments
-                $(".datepicker").attr('required', 'true'); // make date picker required
-
-                // This is to prefill and hide the fields on the Strap Request Form //  
-                $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
-                $('.request_description').addClass("zd_Hidden"); // Hide description
-                $('.request_ticket_form_id').addClass("zd_Hidden"); // Hide the Form drop down
-                document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("placeholder", "AB1234C56789"); //Giving example of serial number for customer 
-
-                $('<p id="strap_form_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
-                $("#strap_form_tips_p").html($("#strap_form_tips").html());
-
-                SubjectLine.value = strap_page_title + " " + strap_form_id; //Insert Strap form subject line	
-                DescriptionBox.value = strap_page_title; // Add value to description as it's 'required'
-
-                //create a live validation form
-                //disable the submit button 
-                var button = (document.getElementsByName("commit"))[0];
-                button.disabled = true;
-                // after the following validation is passed, this button will be enabled.
-
-                // serial number input max length is 12
-                document.getElementById("request_custom_fields_" + serial_number_eur_field_id).maxLength = 12;
-                // serial number input max length is 12
-
-                //serial number allows letters and numbers only, no punctuation or special characters
-                document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("pattern", "[A-Za-z0-9]+");
-                //serial number allows letters and numbers only, no punctuation or special characters
-
-                //serial number live validation
-                //set a variable for serial number validation with 0 default which means not valid yet
-                var validSerialNumber = 0;
-                //set a variable for serial number validation with 0 default which means not valid yet
-
-                $("#request_custom_fields_" + serial_number_eur_field_id).on('input', function() {
-                    var serial_number_input = (document.getElementById("request_custom_fields_" + serial_number_eur_field_id).value).toString();
-                    if ((serial_number_input.length) >= 2) { // check if input is greater than 2
-                        var first_digit = parseInt(serial_number_input.charAt(0));
-                        //var second_digit = parseInt(serial_number_input.charAt(1));
-                      
-                        if (isNaN(first_digit)) {
-                            //when the first of serial number input is not number
-                            if ((serial_number_input.length) >= 7) {
-                                //when its hit the 7th character, check if its letter
-                                var seventh_digit = parseInt(serial_number_input.charAt(6));
-                                if ((isNaN(seventh_digit))) {
-                                    //when the 7th of serial number input is not number
-                                    if ((serial_number_input.length) == 12) {
-                                        //here call the function to check the number part
-                                        // to be implemented
-                                        checkNums(serial_number_input, button, validSerialNumber);
-                                        } else {
-                                            button.disabled = true;
-                                        }
-                                	}
-                            	} // end when its hit the 7th character, check if its letter
-                        	} //closing if both first two serial number input is not integer number
-                    	} // close check if input is greater than 2
-                }); // end of serial number oninput function 
-            } // the end of if-at strap form page
-
-/******************************** END STRAP REQUEST FORM ********************************/
-/********************************* GDPR FORM  **************************************/
-          
-            else if (window.location.href.indexOf(gdpr_form_ID_checker) > -1) {
-                var GDPR_page_title = document.getElementById("GDPR_page_title").innerHTML; 
-                document.title = GDPR_page_title; //page title from Dynamic Content 
-                //testing URL hc/en-gb/requests/new?ticket_form_id=360000569919
-                // title.innerHTML = "{{dc 'gdpr_request_form'}}" ;
-                $(".form-field").addClass("zd_Hidden");
-                $(".request_custom_fields_" + gdpr_reason_field_id).removeClass("zd_Hidden");
-                //update
-                SubjectLine.value = GDPR_page_title + " " + gdpr_form_id;
-                DescriptionBox.value = GDPR_page_title;
-                (AttachmentsFileDrop.parentElement).classList.add("zd_Hidden");
-/**************************** End ofGDPR FORM **********************************/
-/********************************* Email FORM ******************************/             
-            } else if (window.location.href.indexOf(email_form_id) > -1) {
-
-                var email_page_title = document.getElementById("email_page_title").innerHTML;
-                document.title = email_page_title;
-                $(".request_custom_fields_" + email_form_request_local_field).addClass("zd_Hidden");
-                $("#request_custom_fields_" + email_form_request_local_field).val(HelpCenter.user.locale);
-/****************************** End of Email FORM *****************************/
-/********************************* Refund request FORM ******************************/ //testing URL hc/en-gb/requests/new?ticket_form_id=360000849779     
-            } else if (window.location.href.indexOf(refund_form_id) > -1) {
-              	var refund_request_page_title = document.getElementById("refund_request_page_title").innerHTML;
-                document.title = refund_request_page_title;
-                $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
-                SubjectLine.value = refund_request_page_title + " " + refund_form_id;
-
-                //disable the submit button 
-                var refund_button = (document.getElementsByName("commit"))[0];
-                refund_button.disabled = true;
-                // after the following validation is passed, this button will be enabled.
-                var order_number_feild = document.getElementById("request_custom_fields_" + ordernumber_field_id);
-                var order_number_feild_full = document.getElementsByClassName("request_custom_fields_" + ordernumber_field_id)[0];
-                // order number input max length is 9
-                order_number_feild.maxLength = 9;
-                // order number input max length is 9
-                order_number_feild.setAttribute("placeholder", "40*******");
-                order_number_feild_full.classList.add("required");
-                //order number allows letters and numbers only, no punctuation or special characters
-                order_number_feild.setAttribute("pattern", "[A-Za-z0-9]+");
-                //order number allows letters and numbers only, no punctuation or special characters
-
-                //order number live validation
-                $("#request_custom_fields_" + ordernumber_field_id).on('input', function() {
-                    var order_number_input = (document.getElementById("request_custom_fields_" + ordernumber_field_id).value).toString();
-
-                    if ((order_number_input.length) == 9) {
-                        refund_button.disabled = false;
-                    } else {
-                        refund_button.disabled = true;
-                    }
-                }); // end of order number on input function 
-/********************************* End of Refund request FORM ******************************/
-/********************************* Auto renewal Refund Request FORM *********************************/ //testing URL hc/en-gb/requests/new?ticket_form_id=360000875500
-            } else if (window.location.href.indexOf(auto_renewal_refund_form_id) > -1) {
-                var auto_renewal_request_page_title = document.getElementById("auto_renewal_request_page_title").innerHTML;
-                var renewal_refund_amount = document.getElementById("renewal_refund_amount").innerHTML;
-                document.title = auto_renewal_request_page_title; // document title (page title) 
-                $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
-                SubjectLine.value = auto_renewal_request_page_title + " " + auto_renewal_refund_form_id; //pre fill subject line
-                var auto_order_number_feild = document.getElementById("request_custom_fields_" + sap_order_number_eur_field);
-                auto_order_number_feild.maxLength = 9;
-                auto_order_number_feild.setAttribute("placeholder", "40*******");
-                var refund_amount_field = document.getElementById("request_custom_fields_" + sap_total_refund_amount_eur_field);
-                refund_amount_field.value = renewal_refund_amount; //pre fill refund amount line
-                refund_amount_field.setAttribute("readonly", true);
-                (AttachmentsFileDrop.parentElement).classList.add("zd_Hidden");
-                DescriptionBox.value = auto_renewal_refund_form_id;
-                $('.request_description').addClass("zd_Hidden");
-                $('<p id="auto_renewal_form" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
-                $("#auto_renewal_form").html($("#renewal_refund_request_intro").html());
-
-/****************** End Auto renewal Refund Request FORM ******************/
-/****************** Golf feedback FORM ******************/ //testing URL hc/en-gb/requests/new?ticket_form_id=360000679879
-            } else {                
-                if (window.location.href.indexOf(golf_form_ID_checker) > -1) {
-                    var golf_page_title = document.getElementById("golf_page_title").innerHTML;
-                    document.title = golf_page_title;
-                    $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it                
-                    SubjectLine.value = golf_page_title + " " + golf_form_id;
-                    $('<p id="golf_form_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
-                    $("#golf_form_tips_p").html($("#golf_form_tips").html());
-                } // end of if golf form 
-/****************** End of Golf feedback FORM ******************/
-            } //end of if-else-if statement for all the forms}
-        } // end the current page is a form page  
-/*************************** End of Ticket Forms ********************************/
-      
-/*************************** Repair page or requests page ********************************/
-        var lastPart = the_url.substr(the_url.lastIndexOf('/') + 1);
-        if ((lastPart === "requests") || (lastPart === "requests#repairs")) { // if the end of the url is requests             
-
-          	var requestsPage = document.getElementById("requests");
-            var repairsPage = document.getElementById("repairs");
-            repairsPage.classList.add("zd_Hidden");
-            var current = document.getElementsByClassName("current")[0];
-            var repairsHeader = document.getElementById('repairs_header');
-            var requestsHeader = document.getElementById('requests_header');
-
-            repairsHeader.onclick = function() {
-                if (!repairsPage.style.display || repairsPage.style.display === "none") {
-                    repairsPage.classList.remove("zd_Hidden");
-                    requestsPage.classList.add("zd_Hidden");
-                    repairsHeader.classList.add("current");
-                    requestsHeader.classList.remove("current");
-                }
-            };
-            if (the_url.indexOf("/requests#repairs") != -1) {
-                repairsPage.classList.remove("zd_Hidden");
-                requestsPage.classList.add("zd_Hidden");
-                repairsHeader.classList.add("current");
-                requestsHeader.classList.remove("current");
-            }
-/*************************** End Repair page or requests page ********************************/
-        } // end if the end of the url is requests     
-      
-        if ((the_url.indexOf("/requests/") > -1) && (the_url.indexOf("new?ticket_form_id") <= -1)) { //IF page is a Request Page (and exclude ticket forms)
-        var request_title = document.getElementsByClassName("request-title")[0].innerText;
-          
-/*************************** Request (also known as Request List) page ********************************/
-// GDPR Request Download page
-            if (request_title.indexOf(gdpr_form_id) >= 0) {
-                $(".comment-form").addClass("zd_Hidden");
-                $(".my-activities-nav").addClass("zd_Hidden");
-                $(".breadcrumbs").addClass("zd_Hidden");
-                $(".request-details").addClass("zd_Hidden");
-                $(".request-attachments").addClass("ts-request-attachments");
-                $(".attachments").addClass("download-button");
-            } else if (request_title.indexOf(golf_form_id) >= 0) {
-
-                $('<div class="comment" id="golf_thank_you"></div>').prependTo('.request-main');
-                $("#golf_thank_you").html($("#golf_thank_you_dc").html());
-            }
-        } 
-/***************************  End Request (also known as Request List) page **********************/
-/**************************  Section Pages **********************/
+        /**************************  Section Pages **********************/
+        // test this due to DDA720
         if (window.location.href.indexOf(golfer_section_id) > -1) {
             document.getElementById("golf_form_block").style.display = "flex";
         }
-/***************************  End Section Pages **********************/
-/***************************  Vanilla SSO Start - Mrunal **********************/
+        /***************************  End Section Pages **********************/
+        /***************************  Vanilla SSO Start - Mrunal **********************/
         var vsso = window.location.search;
         if (vsso != '') {
             var search = vsso.includes("vanillaSSO=signin");
@@ -438,13 +124,13 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
             removeCookie("vanillaSession");
             window.location.href = vanilla_sso_server + "zenApi/src/vanillaSSO.php?param=" + window.btoa(HelpCenter.user.email);
         }
-/*************************** End Vanilla SSO - Mrunal *************************************/
-      
-}); // end access id_map JSON
-    
-/***************************  Cookies Functions ***************************/
-//general cookie functions
-	function read_cookie(cname) {
+        /*************************** End Vanilla SSO - Mrunal *************************************/
+
+    }); // end access id_map JSON
+
+    /***************************  Cookies Functions ***************************/
+    //general cookie functions
+    function read_cookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
@@ -471,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
             document.cookie = name + '=' + value + ';domain=.tomtom.com; path=/; expires=' + CookieDate.toGMTString() + ';';
         }
     };
-  
+
     ////SSO cookie 
     //this function is creating a function cookie called "sso" to remember user current URL
     // read_cookie() and set_cookie() function is pre created. 
@@ -518,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     }
     //SSO cookie end
     //DDA386 SSO login redirect 
-  
+
     function ga_tracking(event_category, event_action, event_label) {
         utag.link({
             'event_category': event_category,
@@ -530,8 +216,8 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     var cookie_name = " ";
     var cookie_value = " ";
     var cookie_time = 0;
-/***************************  End Cookies Functions ***************************/
-/***************************  Cookie Bar ***************************/
+    /***************************  End Cookies Functions ***************************/
+    /***************************  Cookie Bar ***************************/
     function post_decline_tt_settings() {
         $("#tt_cookie_bar").addClass("zd_Hidden");
     }
@@ -554,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
         }
         return tt_value;
     }
-  
+
     //check TT setting cookie 
     var isTTSettingscookieSet = read_cookie('tt_settings');
     var decode_isTTSettingscookieSet = decodeURIComponent(isTTSettingscookieSet);
@@ -602,9 +288,9 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
             $(".cookie_bar").hide();
         }
     });
-/***************************  End Cookie Bar ***************************/
+    /***************************  End Cookie Bar ***************************/
 
-/***************************  End Exit Survey ***************************/
+    /***************************  End Exit Survey ***************************/
 
     // initialize variables
     var survey_trigger = 5; //5px in the top of document
@@ -634,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     //mobile version
     var h = window.screen.height;
     var indexx = h * 0.70;
-  
+
     function survey_on_mobile() {
         if (document.body.scrollTop > indexx || document.documentElement.scrollTop > indexx) {
             if (read_cookie("exit_survey") === "") {
@@ -650,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     };
 
     //mobile version
-  
+
     //initial exit survey
     //click on the check box of exit survey 
     $("#agree").click(function() {
@@ -725,9 +411,9 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
         set_cookie(cookie_name, cookie_value, cookie_time);
     });
     //give feedback to exit survey 
-/***************************  End Exit Survey ***************************/
+    /***************************  End Exit Survey ***************************/
 
-/****************************  Zendesk code ************/
+    /****************************  Zendesk code ************/
     function closest(element, selector) {
         if (Element.prototype.closest) {
             return element.closest(selector);
@@ -895,19 +581,19 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
             })
         }
     });
-/****************************  Zendesk code ************/
+    /****************************  Zendesk code ************/
 
-/************* Redirecting untranslated articles to an existing language **************/
+    /************* Redirecting untranslated articles to an existing language **************/
 
     var notDefaultLanguage = window.location.href.indexOf('/en-gb/') == -1;
-  	var isArticle = window.location.href.indexOf('/articles/') > -1;
+    var isArticle = window.location.href.indexOf('/articles/') > -1;
     var isErrorPage = $(".error-page").length > 0;
     if (isArticle && notDefaultLanguage && isErrorPage) {
         var newURL = window.location.href.replace(/(.*\/hc\/)([\w-]+)(\/.*)/, "$1en-gb$3");
         window.location.href = newURL;
     }
-/************* End Redirecting untranslated articles to an existing language **************/
-/****************** 'No results found' tracking *******************/
+    /************* End Redirecting untranslated articles to an existing language **************/
+    /****************** 'No results found' tracking *******************/
     var results_event_category = "";
     var results_event_action = "";
     var results_event_label = "";
@@ -927,17 +613,17 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
             clearInterval(waitForUtag);
         }, 1000);
     }
-/****************** End 'No results found' tracking *******************/ //Amy DDA-512
-  
-/******************* Search bar placeholder ****************/ //Amy DDA-578
+    /****************** End 'No results found' tracking *******************/ //Amy DDA-512
+
+    /******************* Search bar placeholder ****************/ //Amy DDA-578
     var searchbar_placeholder = (document.getElementById("searchbar_placeholder").textContent);
     if (searchbar_placeholder != null) {
         document.getElementById("query").placeholder = searchbar_placeholder;
     }
 
-/****************************** End Search bar placeholder **********************/ //Amy DDA-578
-  
-/****************************** Locale setting cookie *******************************/ //Amy DDA-646  
+    /****************************** End Search bar placeholder **********************/ //Amy DDA-578
+
+    /****************************** Locale setting cookie *******************************/ //Amy DDA-646  
     if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
         if (read_cookie("tomtomlocale ") === "") {
             var zendesklocale = window.location.pathname.replace('/', '').replace('?', '/').split('/')[1];
@@ -955,9 +641,9 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
             };
         }
     }
-/****************************** End Locale setting cookie *******************************/ //Amy DDA-646    
+    /****************************** End Locale setting cookie *******************************/ //Amy DDA-646    
 
-/******************************** Promoted Articles  ********************************/
+    /******************************** Promoted Articles  ********************************/
     var numOfPromos = document.getElementsByClassName("mySlides");
 
     if (numOfPromos.length === 1) {
@@ -1006,6 +692,7 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
         window.plusSlides = function(n) {
             showSlides(slideIndex += n);
         }
+
         function showSlides(n) {
             var i;
             var slides = document.getElementsByClassName("mySlides");
@@ -1017,54 +704,54 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
             slides[slideIndex - 1].style.display = "block";
         }
     }
-/******************************** End of Promoted Articles ********************************/
+    /******************************** End of Promoted Articles ********************************/
 
-/********************* Locale Footer Scroll ******************************/
+    /********************* Locale Footer Scroll ******************************/
     $(".footer_btn").click(function() {
         window.scrollTo(0, document.body.scrollHeight);
     });
 
-/****************************** End of Locale Footer Scroll ******************************/ // Amy
-  
-/********************************** Updates Banner ********************************/ //Amy
+    /****************************** End of Locale Footer Scroll ******************************/ // Amy
+
+    /********************************** Updates Banner ********************************/ //Amy
     if (the_url.indexOf("/articles/") == -1) {
         var update_banner = document.getElementById('update-banner');
         update_banner.classList.remove('zd_Hidden');
     }
-/********************************** End ofUpdates Banner ********************************/ //Amy
-  
-/************************* Retailer pop-up Banner ***********************/ //Amy  
-        for (var c in HelpCenter.user.organizations) {
-          if (HelpCenter.user.organizations[c].name === "TomTom Retailers"){
-          var retailPopUp = document.getElementById("retail_popup");
-            var TimeOutRetail = setTimeout(function() {            
-                          if (read_cookie("RetailPopupClosed") === "") {                        
-                                  $('#retail_popup').removeClass("zd_Hidden");   
-                          }                  
-              },
-              5000);
-          retailPopUp.onclick = function(){
-            var cookieName = 'RetailPopupClosed';
-            var numDaysClosed = 30;
-            // set closed cookie
-            if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
-            var today = new Date();
-            var expire = new Date();
-            expire.setTime(today.getTime() + 3600000 * 24 * numDaysClosed);
-            document.cookie = cookieName + "=1;expires=" + expire.toGMTString();
-          }
-          retailPopUp.classList.add('zd_Hidden');    
-          };
-          } 
-      }
-/************************* End of Retailer pop-up Banner ***********************/ //Amy  
-/***************************** Article Satisfaction *********************/
-  if (the_url.indexOf("/articles/") != -1) { // If the page is an article
-    var articlevotebox = document.getElementsByClassName("article-votes")[0]; // Get the whole article box
-    var articleupvote = document.getElementsByClassName("article-vote-up")[0]; // Get the vote up text button
-    var articledownvote = document.getElementsByClassName("article-vote-down")[0]; // Get the vote down text button
-    var articleupbutton = document.getElementById("article-vote-up-select"); // Get the vote up radio button
-    var articledownbutton = document.getElementById("article-vote-down-select"); // Get the vote down radio button
+    /********************************** End ofUpdates Banner ********************************/ //Amy
+
+    /************************* Retailer pop-up Banner ***********************/ //Amy  
+    for (var c in HelpCenter.user.organizations) {
+        if (HelpCenter.user.organizations[c].name === "TomTom Retailers") {
+            var retailPopUp = document.getElementById("retail_popup");
+            var TimeOutRetail = setTimeout(function() {
+                    if (read_cookie("RetailPopupClosed") === "") {
+                        $('#retail_popup').removeClass("zd_Hidden");
+                    }
+                },
+                5000);
+            retailPopUp.onclick = function() {
+                var cookieName = 'RetailPopupClosed';
+                var numDaysClosed = 30;
+                // set closed cookie
+                if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
+                    var today = new Date();
+                    var expire = new Date();
+                    expire.setTime(today.getTime() + 3600000 * 24 * numDaysClosed);
+                    document.cookie = cookieName + "=1;expires=" + expire.toGMTString();
+                }
+                retailPopUp.classList.add('zd_Hidden');
+            };
+        }
+    }
+    /************************* End of Retailer pop-up Banner ***********************/ //Amy  
+    /***************************** Article Satisfaction *********************/
+    if (the_url.indexOf("/articles/") != -1) { // If the page is an article
+        var articlevotebox = document.getElementsByClassName("article-votes")[0]; // Get the whole article box
+        var articleupvote = document.getElementsByClassName("article-vote-up")[0]; // Get the vote up text button
+        var articledownvote = document.getElementsByClassName("article-vote-down")[0]; // Get the vote down text button
+        var articleupbutton = document.getElementById("article-vote-up-select"); // Get the vote up radio button
+        var articledownbutton = document.getElementById("article-vote-down-select"); // Get the vote down radio button
         $(window).scroll(function() { // The article satisfaction box is hidden, this will appear after scrolling down
             if ($(this).scrollTop() >= 600) {
                 $(articlevotebox).fadeIn(200);
@@ -1072,52 +759,52 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
                 $(articlevotebox).fadeOut(200); // scroll out again if they scroll back up
             }
         });
-      
+
         $(".article-vote").click(function() { // if they click on either vote hide the box
-             setTimeout(function(){ //set a 1 second timer so they see the lil CSS animation before hiding it
-               $(articlevotebox).addClass("zd_Hidden"); //hide the box
-                 }, 1000);
+            setTimeout(function() { //set a 1 second timer so they see the lil CSS animation before hiding it
+                $(articlevotebox).addClass("zd_Hidden"); //hide the box
+            }, 1000);
         }); // close the click function .article-vote
-    
+
         var article_event_category = "FAQs"; // make the event category for Article Satisfaction
         var article_event_action = "clicked"; // make the event action for Article Satisfaction
-        $(articleupvote).click(function() {  // click function if customer votes 'yes'   
-        ga_tracking(article_event_category, article_event_action, "Satisfied"); //send GA tracking event
-           $(articleupbutton).addClass('active'); // add the active class so users know they have clicked
-         	 $(articledownbutton).removeClass('active'); // remove the active class from the other button if they have clicked that previously
-        });  // end click function if customer votes 'yes'  
-    
-        $(articledownvote).click(function() {  // click function if customer votes 'no'   
-        ga_tracking(article_event_category, article_event_action, "Unsatisfied");  //send GA tracking event
+        $(articleupvote).click(function() { // click function if customer votes 'yes'   
+            ga_tracking(article_event_category, article_event_action, "Satisfied"); //send GA tracking event
+            $(articleupbutton).addClass('active'); // add the active class so users know they have clicked
+            $(articledownbutton).removeClass('active'); // remove the active class from the other button if they have clicked that previously
+        }); // end click function if customer votes 'yes'  
+
+        $(articledownvote).click(function() { // click function if customer votes 'no'   
+            ga_tracking(article_event_category, article_event_action, "Unsatisfied"); //send GA tracking event
             $(articledownbutton).addClass('active'); // add the active class so users know they have clicked
             $(articleupbutton).removeClass('active'); // remove the active class from the other button if they have clicked that previously
         }); // end click function if customer votes 'no'  
-    
-         $(articleupbutton).click(function() { //this function is purley for users who click on the radio button instead of the link, it trigers the click functions above
-           articleupvote.click();
-         });
-        $(articledownbutton).click(function() {  //this function is purley for users who click on the radio button instead of the link, it trigers the click functions above
-           articledownvote.click();
-         });                  
-    
-       if ($(articleupvote).attr("aria-selected") === "true") { // when the page loads, if they have voted in the past we will make the button active so they know their previous vote
+
+        $(articleupbutton).click(function() { //this function is purley for users who click on the radio button instead of the link, it trigers the click functions above
+            articleupvote.click();
+        });
+        $(articledownbutton).click(function() { //this function is purley for users who click on the radio button instead of the link, it trigers the click functions above
+            articledownvote.click();
+        });
+
+        if ($(articleupvote).attr("aria-selected") === "true") { // when the page loads, if they have voted in the past we will make the button active so they know their previous vote
             $(articleupbutton).addClass('active'); // adding active to the yes button if their vote was yes
         } else if ($(articledownvote).attr("aria-selected") === "true") {
             $(articledownbutton).addClass('active'); // adding active to the yes button if their vote was no
-        } 
-  };  //end IF the page is an article 
-/***************************** End Article Satisfaction - Amy *****************************/
-}); 
-/************************* End of DOM js file function - put everything above this line ***********************/  
-/*************************  Only insert after this if you need document to be ready ***********************/  
-$(document).ready(function() { 
-  var on__this_url = window.location.href; // Var in this function for the current URL
-  
-/*********************************** Articles ******************************/
-  
+        }
+    }; //end IF the page is an article 
+    /***************************** End Article Satisfaction - Amy *****************************/
+});
+/************************* End of DOM js file function - put everything above this line ***********************/
+/*************************  Only insert after this if you need document to be ready ***********************/
+$(document).ready(function() {
+    var on__this_url = window.location.href; // Var in this function for the current URL
+
+    /*********************************** Articles ******************************/
+
     if (on__this_url.indexOf("/articles/") != -1) {
 
-/**************************** Scroll tracking ***********************************/
+        /**************************** Scroll tracking ***********************************/
         // Default time delay before checking location
         var callBackTime = 100;
         // # px before tracking a reader
@@ -1172,9 +859,9 @@ $(document).ready(function() {
             timer = setTimeout(trackLocation, callBackTime);
         });
         //  });
-/************************ End ofScroll tracking ***********************************/
+        /************************ End ofScroll tracking ***********************************/
 
-/************************ Responsive Videos ***********************************/
+        /************************ Responsive Videos ***********************************/
         $('.video-container').removeClass("video-container");
         $('.video-block').removeClass("video-block");
         $('iframe[src*="youtube"]').wrap("<div class='video-container'></div>");
@@ -1182,14 +869,14 @@ $(document).ready(function() {
         $('.video-block').prependTo(".ts-article-video");
         $('.ts-article-video-header').prependTo(".ts-article-video");
         $('.article-links').appendTo('.ts-article-video');
-/************************ End Responsive Videos ***********************************/
-/************************ Article Fixes ***********************************/
+        /************************ End Responsive Videos ***********************************/
+        /************************ Article Fixes ***********************************/
         $('.tts-note').addClass("article-note");
         $('.article-note').removeClass("tts-note");
         $('.note').addClass("article-note");
         $('.article-note').removeClass("note");
-/************************ End Article Fixes ***********************************/
-/*****************************  Content Pages *******************************/
+        /************************ End Article Fixes ***********************************/
+        /*****************************  Content Pages *******************************/
         $("<div class='ct-header-block'></div>").prependTo(".ct-article");
         $(".ct-article-header").prependTo(".ct-header-block");
         $(".ct-article-sub-header").appendTo(".ct-header-block");
@@ -1222,8 +909,8 @@ $(document).ready(function() {
             openSoftware(evt, software);
         })
         $("#option-1").click();
-/*****************************  End Content Pages *******************************/
-/***************************** Back to top function *****************************/
+        /*****************************  End Content Pages *******************************/
+        /***************************** Back to top function *****************************/
         $(window).scroll(function() {
             if ($(this).scrollTop() >= 2000) {
 
@@ -1237,8 +924,8 @@ $(document).ready(function() {
                 scrollTop: 0
             }, 500);
         });
-/********************* End back to top *****************************/
-/*****************************  Troubleshooting Template *********************/
+        /********************* End back to top *****************************/
+        /*****************************  Troubleshooting Template *********************/
         var theLabels = document.getElementsByClassName("labels");
         if (theLabels.length > 0) {
             var i;
@@ -1252,25 +939,25 @@ $(document).ready(function() {
             }
         }
         $('.ts-article-extra').prependTo('.ts-article-body');
-/********************* End of Troubleshooting Template *********************/
-/*****************************  Get Started Template *********************/
+        /********************* End of Troubleshooting Template *********************/
+        /*****************************  Get Started Template *********************/
         $('.gs-article-header-block').click(function() {
             $('body,html').animate({
                 scrollTop: 850
             }, 500);
         });
-/***************************** End of Get Started Template *********************/
-/*****************************  How To Template *****************************/
+        /***************************** End of Get Started Template *********************/
+        /*****************************  How To Template *****************************/
 
         $('.ht-header-content').appendTo(".ht-article-header");
         $('.ht-article-body strong').contents().unwrap();
 
-/***************************** End of  How To Template *****************************/
-      
-    } //end of 'if this is on an article'     
- /************************************* End of  Article Templates *****************************/
+        /***************************** End of  How To Template *****************************/
 
-/********************* FORMS *****************************/
+    } //end of 'if this is on an article'     
+    /************************************* End of  Article Templates *****************************/
+
+    /********************* FORMS *****************************/
     //This code is to ensure only Signed in users see the request form if we add class="request"
     (function(_w, _d, $) {
 
@@ -1290,8 +977,8 @@ $(document).ready(function() {
             }
         });
     }(window, document, jQuery));
-/***************************** END FORMS *****************************/
-/***************************** Temporary Header *****************************/
+    /***************************** END FORMS *****************************/
+    /***************************** Temporary Header *****************************/
 
     //toggle the hamburger menu
     var button = document.getElementById('nav-main-hamburger');
@@ -1308,9 +995,9 @@ $(document).ready(function() {
     //Add the profile icon to the header
     $('<svg width="16" height="16" class="profile-icon"><path d="M2 14h12v-.012c0-.056-.11-.22-.602-.544-.62-.418-1.495-.778-2.613-1.058-1.034-.251-1.963-.374-2.785-.374-.822 0-1.75.123-2.772.371-1.131.283-2.006.643-2.64 1.07-.478.316-.588.48-.588.535V14zm6-3.988c.99 0 2.076.144 3.257.431 1.342.335 2.428.783 3.258 1.341.99.655 1.485 1.39 1.485 2.204V16H0v-2.012c0-.814.495-1.549 1.485-2.204.83-.558 1.916-1.006 3.258-1.34 1.181-.288 2.267-.432 3.257-.432zM8 6c.362 0 .672-.084.969-.26.318-.188.56-.43.747-.747a1.83 1.83 0 00.26-.969 1.96 1.96 0 00-.271-1.013 2.01 2.01 0 00-.736-.751A1.833 1.833 0 008 2a1.83 1.83 0 00-.969.26 2.01 2.01 0 00-.736.751 1.96 1.96 0 00-.271 1.013c0 .362.084.672.26.969.188.318.43.56.747.747.297.176.607.26.969.26zm0 2c-.719 0-1.381-.18-1.988-.539a4.065 4.065 0 01-1.45-1.449 3.832 3.832 0 01-.538-1.988c0-.719.18-1.39.539-2.012A4.008 4.008 0 016.012.539 3.832 3.832 0 018 0c.719 0 1.381.18 1.988.539.607.36 1.09.85 1.45 1.473a3.97 3.97 0 01.538 2.012c0 .719-.18 1.381-.539 1.988a4.065 4.065 0 01-1.449 1.45A3.845 3.845 0 018 8z" fill-rule="evenodd"></path></svg>').prependTo('.user-info > [role="button"]');
 
-/***************************** End Temporary Header *****************************/
+    /***************************** End Temporary Header *****************************/
 
-/********************  New request pages - product pre-select ********************/
+    /********************  New request pages - product pre-select ********************/
     function getQueryParams(queryString) {
         queryString = queryString.split('+').join(' ');
 
@@ -1331,6 +1018,6 @@ $(document).ready(function() {
     //hide org & form option
     $('.form-field.request_ticket_form_id').hide();
     $('.form-field.request_organization_id').hide();
-/******************** End of New request pages - product pre-select ********************/ //Lorna Rickett 
+    /******************** End of New request pages - product pre-select ********************/ //Lorna Rickett 
 
 }); // end of document ready function

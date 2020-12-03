@@ -24,3 +24,10 @@
 <label class="zd_Hidden" id="renewal_refund_request_intro">{{dc 'auto-renewal_refund_request_intro'}}</label>
 <label class="zd_Hidden" id="renewal_refund_amount">{{dc 'auto-renewal_refund_amount_speedcameras'}}</label>
 <label class="zd_Hidden" id="renewal_refund_currency">{{dc 'currency'}}</label>
+<label class="zd_Hidden" id="request_forms">{{asset 'forms.js'}}</label>
+<label class="zd_Hidden" id="strap_form_tips">{{dc 'strap_form_notification'}}</label>
+<label class="zd_Hidden" id="golf_form_tips">{{dc 'golf_form_notification'}}</label>
+
+<script>
+  $.loadScript('https:'+document.getElementById("request_forms").innerHTML);
+</script>
