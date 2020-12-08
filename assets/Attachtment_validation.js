@@ -65,4 +65,3 @@ if ((the_url.indexOf("/requests/") > -1) && (the_url.indexOf("new?ticket_form_id
     }
 }
 /***************************  End Request (also known as Request List) page **********************/
-console.log("hi request_page.hbs");
