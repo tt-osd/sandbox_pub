@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     });
     /***************************  End Cookie Bar ***************************/
 
-    /***************************  End Exit Survey ***************************/
+    /***************************  Exit Survey ***************************/
 
     // initialize variables
     var survey_trigger = 5; //5px in the top of document
@@ -399,14 +399,8 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
 
         $('#greetings').text($('#es_thx').text());
         $(".option_container,.check_box_area").hide();
+        $('#survey_modal').addClass("zd_Hidden");
 
-        $(document).mousemove(function(event) {
-            $('#survey_modal').addClass("zd_Hidden");
-        });
-        $(document).scroll(function(event) {
-
-            $('#survey_modal').addClass("zd_Hidden");
-        });
         ga_tracking(ga_tracking_category, ga_tracking_action, ga_tracking_label);
         set_cookie(cookie_name, cookie_value, cookie_time);
     });
@@ -615,13 +609,17 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     }
     /****************** End 'No results found' tracking *******************/ //Amy DDA-512
 
-    /******************* Search bar placeholder ****************/ //Amy DDA-578
+  /******************* Search bar placeholder ****************/ //Amy DDA-578
     var searchbar_placeholder = (document.getElementById("searchbar_placeholder").textContent);
-    if (searchbar_placeholder != null) {
-        document.getElementById("query").placeholder = searchbar_placeholder;
+    var searchbar_input = (document.getElementById("searchbar_input").textContent);
+    if (searchbar_input != null) {
+        document.getElementById("query").placeholder = searchbar_input;
     }
-
-    /****************************** End Search bar placeholder **********************/ //Amy DDA-578
+ $('<svg class="search_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M11.75 10.33l3.96 3.96a1 1 0 01-1.42 1.42l-3.96-3.96a6.5 6.5 0 111.41-1.41zM6.5 11a4.5 4.5 0 100-9 4.5 4.5 0 000 9z" fill-rule="evenodd"></path></svg>').prependTo('.header_search form');
+    $('<svg class="search_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M11.75 10.33l3.96 3.96a1 1 0 01-1.42 1.42l-3.96-3.96a6.5 6.5 0 111.41-1.41zM6.5 11a4.5 4.5 0 100-9 4.5 4.5 0 000 9z" fill-rule="evenodd"></path></svg>').prependTo('.homepage_search_header form');
+  $("<div class='title'>"+searchbar_placeholder+"</div>").prependTo('.homepage_search_header form');
+$("<div class='title'>"+searchbar_placeholder+"</div>").prependTo('.header_search form');
+/****************************** End Search bar placeholder **********************/ //Amy DDA-578
 
     /****************************** Locale setting cookie *******************************/ //Amy DDA-646  
     if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {

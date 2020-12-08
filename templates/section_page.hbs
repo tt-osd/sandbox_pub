@@ -1,7 +1,7 @@
-<div class="header_search">   
-			<div class="container">
+<div class="header_search" id="default-page-header">   
+			<div class="tile-grid">
           <h2>{{ dc 'homepage_welcome'}}</h2>
-        	{{search  instant=settings.instant_search}}
+        	{{search submit=false instant=settings.instant_search}}
       </div>
 </div>
 <nav class="sub-nav">
@@ -10,7 +10,7 @@
    </div>
 </nav>
 
-<header id="section-page-header" class="page-header">
+<header class="page-header">
     <div class="section-container container">
         <h1>{{section.name}}</h1>
       <div class="section-search">

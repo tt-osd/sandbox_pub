@@ -1,9 +1,10 @@
 <div id="default">
-         <div class="header_search">   
-			<div class="container">
+    <div class="header_search">   
+			<div class="tile-grid">
           <h2>{{ dc 'homepage_welcome'}}</h2>
-        	{{search  instant=settings.instant_search}}
+        	{{search submit=false instant=settings.instant_search}}
       </div>
+		</div>
 </div>
 <nav class="sub-nav">
     <div class="container">
@@ -18,7 +19,6 @@
           {{article.title}}
         </h1>
       </header>
-
       <section class="article-info">
         <div class="article-content">
           <div class="article-body">{{article.body}}</div>        

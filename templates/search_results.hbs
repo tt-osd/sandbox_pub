@@ -1,10 +1,10 @@
-<div class="search-results-container ">  
-  <div class="header_search">   
-			<div class="container">
-          <h2>{{ dc 'homepage_welcome'}}</h2>
-        	{{search  instant=settings.instant_search}}
-      </div>
-</div>
+<div class="search-results-container">  
+  <div class="search_header_search header_search">
+    <div class="tile-grid">
+      <h1>{{dc 'homepage_welcome'}}</h1>
+      {{search instant=settings.instant_search submit=false class='search search-full'}}
+    </div>
+  </div>
 <nav class="sub-nav">
     <div class="container search-result-breadcrumbs-nav">
       {{breadcrumbs}}

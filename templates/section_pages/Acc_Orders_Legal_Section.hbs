@@ -1,10 +1,9 @@
 <div class="header_search" id="accounts-page-header">   
-			<div class="container">
+			<div class="tile-grid">
           <h2>{{ dc 'homepage_welcome'}}</h2>
-        	{{search  instant=settings.instant_search}}
+        	{{search submit=false instant=settings.instant_search}}
       </div>
 </div>
-
 <nav class="sub-nav">
    <div class="container">
     {{breadcrumbs}}
