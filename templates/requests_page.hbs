@@ -141,6 +141,35 @@ $(document).ready(function(){
         apiendpoint = "rma/details/"+rma_id+"/";
         getAPIresponse(apiendpoint, current_user, 'getrmadetails');
     });  
+   $(document.body).on('click', '#print-shipping-label' ,function(){
+        apiendpoint = $(this).attr("attr-data");
+        burma_url = server_url;
+      	requesttype = 'getshippinglabel';
+        $.ajax({
+            url : burma_url, 
+            type : 'POST',
+            dataType:'image/gif',
+            data : { e_valid: current_user, r_type: requesttype, e_point: apiendpoint},
+            success : successCallBack,
+            error : function(request,error)
+            {
+              console.log('error : '+request);
+              // convert to Base64
+              //var b64Response = btoa(request.responseText);
+              var b64Response = request.responseText; 
+
+              // create an image
+              var outputImg = document.createElement('img');
+              outputImg.src = 'data:image/gif;base64,'+b64Response;
+
+              // append it to your page
+              $("#shipping_label").empty();
+              $("#shipping_label").append(outputImg);
+              //$("#shipping_label img").css({'transform': 'rotate(+90deg)'});
+            }
+        });
+        //getAPIresponse(apiendpoint, current_user, 'getshippinglabel');
+    });
   
   	function getRequestStatus(requestStatus) {
   		var rstatus = ''; 
@@ -354,7 +383,7 @@ $(document).ready(function(){
   <label class="zd_Hidden" id="repairs_request_status_20">{{dc 'repairs_request_status_20'}}</label>
   <label class="zd_Hidden" id="repairs_request_status_21">{{dc 'repairs_request_status_21'}}</label>
 
-  <div id="repairs" class="repairs">
+ <div id="repairs" class="repairs">
   <div class="repairs_list_container container">
   <header class="my-activities-header">
     <h1>{{dc 'repairs_title'}}</h1>
@@ -384,8 +413,9 @@ $(document).ready(function(){
    <div class="container">
   <div id="cs_MyRepair_Details" class="table requests-table tt-divider-table my-activities-table">
       <div class="repairs_details__inner_container">
-    <h3 id="request_name"></h3>
-    <table>
+    <h3 id="request_name"></h3>    
+    <div class="repairs_details_box">
+    <table class="repairs_details_box_inner">
       <tr>
         <td>{{dc 'repairs_-_date_created'}}</td>
         <td id="date_created"></td>
@@ -403,19 +433,28 @@ $(document).ready(function(){
         <td id="customer"></td>
       </tr>
       <tr>
+        <td>{{dc 'repairs_-_outbound_shipments'}}</td>
+        <td id="outbound_shipments"> - </td>
+      </tr>
+      <tr>
         <td>{{dc 'repairs_-_address'}}</td>
         <td id="ship_address"></td>
       </tr>
       <tr>
         <td>{{dc 'repairs_-_phone_number'}}</td>
-        <td id="phone_number"></td>
+        <td id="phone_number"> - </td>
       </tr>
     </table>
-     </div>
+    <div class="repairs_details_box_inner" >
+    	<button id="print-shipping-label" class="button-white button" target="_blank">{{dc 'repairs_details_header_shippinglabel_tooltip'}}</button>
+    	<div id="shipping_label" class=""></div>
+    </div> 
+        </div>
+    </div>
   </div>
 </div>
 </div>
-</div>     
+</div>        
 <!--  Repairs/BuRMA HTML - End  -Asmita -->
 <label id="request_list" class="zd_Hidden">{{asset 'request_list.js'}}</label>
 <script>

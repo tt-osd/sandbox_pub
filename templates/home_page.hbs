@@ -2,20 +2,15 @@
   <div class="homepage_search_header">
     <div class="tile-grid">
       <h1>{{dc 'homepage_welcome'}}</h1>
+      {{search instant=settings.instant_search submit=false class='search search-full'}}
       <p>{{dc 'homepage_tagline'}}</p>
-      {{search instant=settings.instant_search class='search tile-grid search-full'}}
     </div>
   </div>
 
-  <section class="home_section">
-  
+  <section class="home_section">  
     <div class="experimental_layer" id="experimental_div">
-
-      <div class="home_categories_container tile-grid">
-  
+      <div class="home_categories_container tile-grid">  
         <ul class="home_page_categories">
-
-
           {{#each categories}}
           {{#if ../has_multiple_categories}}
     

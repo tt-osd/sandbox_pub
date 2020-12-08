@@ -602,14 +602,13 @@ ul {
     text-transform: uppercase;
 }
 
-.button-white {
-    color: #000;
-    fill: #000;
-    --coloredFontColor: #666;
-    background-color: #e5e5e5;
-    width: 100% !important;
+.button-white, .button-white:focus {
+    color: #000 !important;
+    fill: #000 !important;
+    --coloredFontColor: #666 !important;
+    background-color: #e5e5e5 !important;
+    width: auto !important;
 }
-
 .button-red {
     color: #ffffff;
     fill: #000;
@@ -1316,7 +1315,6 @@ ul.nav-text-links {
 .header_search {
     padding: 30px 0px;
     background-color: #BCDCF5;
-    color: #FFF;
 }
 
 .header_search h1 {
@@ -1755,7 +1753,76 @@ img#user-avatar.user-avatar {
     border: 1px solid #fff;
 }
 
-
+.header_search {
+    padding: 40px 0px 20px 0px;
+    background-color: #bcdcf5;
+}
+.search_header_search {
+  background-color: #f2f2f2;
+}
+.header_search h1 {
+    font-size: 24px;  
+}
+.header_search h1, .header_search form{
+    margin-bottom: 24px;
+}
+@media (min-width: 899px) {
+.header_search h2, .header_search form{
+    margin-top: 0px;
+    margin-bottom: 32px;
+}
+.header_search h1 {
+    font-size: 30px;
+}
+}
+.header_search form {
+    margin-left: 0;
+}
+.header_search .search input[type="search"] {
+    height: 80px;
+    padding: 28px 80px 14px 64px;
+    font-size: 24px;
+    color: #000;
+}
+.header_search .search input[type="search"]::placeholder {
+    color: #000; 
+}
+.header_search .search input[type="search"]::placeholder {
+    color: #000 !important; 
+    opacity: 1;
+}
+.header_search .search input[type="search"]::-moz-placeholder  {
+    color: #000 !important; 
+    opacity: 1;
+}
+.header_search .search input[type="search"]:-moz-placeholder {
+    color: #000 !important; 
+    opacity: 1;
+}
+.header_search .search input[type="search"]::-webkit-input-placeholder {
+    color: #000 !important; 
+    opacity: 1;
+}
+.header_search form .title {
+    font-family: Gotham Bold,Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    content: attr(data-value);
+    color: #bebebe;
+    position: absolute;
+    left: 66px;
+    top: 16px;
+}
+.search_icon {
+    position: absolute;
+    top: 50%;
+    padding: 0;
+    background: none;
+    border: 0;
+    outline: 0;
+  	left:24px;
+  	margin-top:-7px;
+}
 /***** Hero component *****/
 
 .hero {
@@ -6226,6 +6293,12 @@ p.ct-content-block-description {
 
 
 /************** Repairs Details Table **************/
+#cs_BURMA_Frame, #no_BURMA_user, #repair_user, #cs_MyRepair_Details, #cs_MyRepair_List {
+	display: none;
+}
+#shipping_label img {
+  width: 100%;
+}
 
 .repairs_details_container {
     background-color: #fff;
@@ -6243,8 +6316,29 @@ p.ct-content-block-description {
     font-family: gotham, "gotham";
     text-transform: uppercase;
 }
+#print-shipping-label {
+  margin: 20px 0;
+  outline: none;
+}
+@media (min-width: 768px) {
+#shipping_label img {
+  height : 500px;
+}
+table.repairs_details_box_inner {
+  max-width: 800px;
+  margin-right: 50px;
+}
+}
+@media (min-width: 1024px) {
 
-
+.repairs_details_box_inner {
+  display: inline-block;
+  vertical-align: top;
+}
+  #print-shipping-label { 
+  	margin: 0 0 20px 0;
+  }  
+}
 /************** End of Repairs Details Table **************/
 
 
@@ -9082,3 +9176,17 @@ only screen and (min-resolution:2dppx) {
 
 
 /****** End Retail PopUp - Amy *****/
+/***** Search bar auto complete ********/
+zd-autocomplete {
+	border-radius: 0px;  
+}
+zd-autocomplete-multibrand zd-autocomplete-title-multibrand { 
+  color: #000;
+  font-family: gotham, "gotham", Gotham Bold,Helvetica,Arial,sans-serif;
+}
+zd-autocomplete-breadcrumbs-multibrand {
+  color: #4A4C4C;
+  -webkit-text-fill-color: #4A4C4C;
+  font-family: noway, "noway", Noway Regular,Helvetica,Arial,sans-serif;
+}
+/***** Search bar auto complete ********/
