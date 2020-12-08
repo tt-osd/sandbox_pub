@@ -2822,37 +2822,6 @@ ul.article-list {
     font-size: 18px;
 }
 
-#navigation-page-header {
-    background-color: rgb(97, 173, 224);
-    color: #FFF;
-}
-
-#sports-page-header {
-    background-color: rgb(236, 97, 159);
-    color: #FFF;
-}
-
-#apps-page-header {
-    background-color: rgb(0, 141, 141);
-    color: #FFF;
-}
-
-#accounts-page-header {
-    background-color: rgb(249, 176, 35);
-    color: #FFF;
-}
-
-#user-page-header {
-    background-color: rgb(233, 71, 67);
-    color: #FFF;
-}
-
-#learn-page-header {
-    background-color: rgb(0, 75, 127);
-    color: #FFF;
-}
-
-
 /***** End Category pages *****/
 
 
