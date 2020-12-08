@@ -31,5 +31,3 @@
 
        /*************************** End Repair page or requests page ********************************/
    } // end if the end of the url is requests  
-
-   console.log("hello requests_page.hbs");
