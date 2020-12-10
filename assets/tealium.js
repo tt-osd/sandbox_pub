@@ -40,7 +40,7 @@ if (the_url.indexOf("sandbox")== -1) {
     var page_type_id="";
     var page_id = ""
     var homepage = document.getElementById('home-section'); 
-    var userId= "";
+    var user_id= "";
     if (the_url.indexOf("/categories/")!= -1){
         page_category = "Category";
     
@@ -146,9 +146,9 @@ if (language.match(/^(en-ca|en-us|fr-ca|pt-br|es-ar|es-mx)$/)) {
     }
 
 if (HelpCenter.user.role !== "anonymous") {
-    userId = HelpCenter.user.identifier;
+    user_id = HelpCenter.user.identifier;
 } else {
-    userId = "Logged_out";
+    user_id = "Logged_out";
 }
 
 var sitespect = "";
@@ -166,7 +166,7 @@ var sitespect_id = "";
         page_id: page_id,
         sitespect:sitespect,
         sitespect_id:sitespect_id,
-        userId:userId
+        user_id:user_id
     };
 
 window.support = {};
