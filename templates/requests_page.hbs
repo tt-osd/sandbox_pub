@@ -74,7 +74,6 @@ $(document).ready(function(){
   	** take RMA from URL and call following function
   	******** */
   	if (the_url.indexOf("?")!= -1) {
-  		console.log('call details');
       all_variables = the_url.split('?');
       rma_id = all_variables['1'];
       apiendpoint = "rma/details/"+rma_id+"/";
