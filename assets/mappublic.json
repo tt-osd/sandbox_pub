@@ -323,9 +323,17 @@
         "sandbox": 360003542600,
         "prod": 360004054860
     },
+    "wifi_section_ID": {
+        "supportsandbox": 360003542600,
+        "help": 360004054860
+    },
     "mdc_section_id": {
         "sandbox": 360003542620,
         "prod": 360004095099
+    },
+    "mdc_section_ID": {
+        "supportsandbox": 360003542620,
+        "help": 360004095099
     },
     "tthome_section_id": {
         "sandbox": 360003585479,
@@ -339,33 +347,49 @@
         "sandbox": 360003589080,
         "prod": 360004054940
     },
-    "speed_cameras_section_id": {
-        "sandbox": 360003629939,
-        "prod": 321
-    },
-    "in_dash_section_id": {
-        "sandbox": 360003629919,
-        "prod": 321
+    "amigo_section_ID": {
+        "supportsandbox": 360003589080,
+        "help": 360004054940
     },
     "go_navigation_section_id": {
         "sandbox": 360003629899,
         "prod": 360004054960
     },
+    "go_navigation_section_ID": {
+        "supportsandbox": 360003629899,
+        "help": 360004054960
+    },
     "go_mobile_section_id": {
         "sandbox": 360003629879,
         "prod": 360004095159
+    },
+    "go_mobile_section_ID": {
+        "supportsandbox": 360003629879,
+        "help": 360004095159
     },
     "navigation_app_section_id": {
         "sandbox": 360003589060,
         "prod": 360004054980
     },
+    "navigation_app_section_ID": {
+        "supportsandbox": 360003589060,
+        "help": 360004054980
+    },
     "curfer_app_section_id": {
         "sandbox": 360003629279,
         "prod": 360004055000
     },
+    "curfer_app_section_ID": {
+        "supportsandbox": 360003629279,
+        "help": 360004055000
+    },
     "sports_watch_section_id": {
         "sandbox": 360003542980,
         "prod": 360004095119
+    },
+    "sports_watch_section_ID": {
+        "supportsandbox": 360003542980,
+        "help": 360004095119
     },
     "golfer_section_id": {
         "sandbox": 360003857759,
@@ -379,49 +403,97 @@
         "sandbox": 360003815100,
         "prod": 360004095139
     },
+    "tomtom_touch_section_ID": {
+        "supportsandbox": 360003815100,
+        "help": 360004095139
+    },
     "bandit_section_id": {
         "sandbox": 360003586039,
         "prod": 360004054900
+    },
+    "bandit_section_ID": {
+        "supportsandbox": 360003586039,
+        "help": 360004054900
     },
     "services_section_id": {
         "sandbox": 360003699680,
         "prod": 360004055020
     },
+    "services_section_ID": {
+        "supportsandbox": 360003699680,
+        "help": 360004055020
+    },
     "legal_privacy_section_id": {
         "sandbox": 360003744039,
         "prod": 360004055040
+    },
+    "legal_privacy_section_ID": {
+        "supportsandbox": 360003744039,
+        "help": 360004055040
     },
     "accounts_section_id": {
         "sandbox": 360003699820,
         "prod": 360004095179
     },
+    "accounts_section_ID": {
+        "supportsandbox": 360003699820,
+        "help": 360004095179
+    },
     "orders_section_id": {
         "sandbox": 360003699700,
         "prod": 360004095199
+    },
+    "orders_section_ID": {
+        "supportsandbox": 360003699700,
+        "help": 360004095199
     },
     "release_notes_section_id": {
         "sandbox": 360003699760,
         "prod": 360004111039
     },
+    "release_notes_section_ID": {
+        "supportsandbox": 360003699760,
+        "help": 360004111039
+    },
     "user_manuals_section_id": {
         "sandbox": 360003744079,
         "prod": 360004069100
+    },
+    "user_manuals_section_ID": {
+        "supportsandbox": 360003744079,
+        "help": 360004069100
     },
     "using_your_device_section_id": {
         "sandbox": 360003744019,
         "prod": 360004095219
     },
+    "using_your_device_section_ID": {
+        "supportsandbox": 360003744019,
+        "help": 360004095219
+    },
     "tips_section_id": {
         "sandbox": 360003699640,
         "prod": 360004095239
+    },
+    "tips_section_ID": {
+        "supportsandbox": 360003699640,
+        "help": 360004095239
     },
     "about_section_id": {
         "sandbox": 360003743999,
         "prod": 360004095259
     },
+    "about_section_ID": {
+        "supportsandbox": 360003743999,
+        "help": 360004095259
+    },
     "announcements_section_id": {
         "sandbox": 360003869119,
         "prod": 360004078300
+    },
+    "announcements_section_ID": {
+        "supportsandbox": 360003869119,
+        "help": 360004078300
     },
     "email_form_request_local": {
         "sandbox": 360011667140,

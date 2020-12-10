@@ -1497,8 +1497,13 @@ img#user-avatar.user-avatar {
 .footer-link-group__item {
     text-transform: none;
     list-style: none;
+		padding: 10px 0;
 }
-
+@media (min-width: 900px) {
+  .footer-link-group__item {
+ 		padding: 0; 
+  }
+}
 .footer-link-group__items {
     padding-left: 0;
 }
@@ -1631,7 +1636,7 @@ img#user-avatar.user-avatar {
 }
 
 .social_image>img {
-    width: 18px;
+    height: 18px;
 }
 
 
