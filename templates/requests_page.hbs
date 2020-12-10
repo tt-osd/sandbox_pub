@@ -68,6 +68,18 @@ $(document).ready(function(){
     ////get current user 
     var current_user = HelpCenter.user.email;
 		var server_url = php_api_server+'zenApi/src/repairController.php';
+    
+  /* ********
+  	** if seller clicks on RMA number in iframe - will redirect to same page with RMA number in URL
+  	** take RMA from URL and call following function
+  	******** */
+  	if (the_url.indexOf("?")!= -1) {
+  		console.log('call details');
+      all_variables = the_url.split('?');
+      rma_id = all_variables['1'];
+      apiendpoint = "rma/details/"+rma_id+"/";
+      getAPIresponse(apiendpoint, current_user, 'getrmadetails');
+  	}
   
     apiendpoint = "contact/type/";
   	///// call api for getting user type ///// 
@@ -130,6 +142,14 @@ $(document).ready(function(){
         $("#customer").html(requestDetails.customer);
         $("#ship_address").html(requestDetails.address);
         $("#phone_number").html(requestDetails.phonenumber);
+    			if(typeof requestDetails.inbound_shipments != "undefined") {
+  				$("#print-shipping-label").attr('attr-data', requestDetails.inbound_shipments);
+  				$("#print-shipping-label").show();
+  			} else {
+  				$("#print-shipping-label").hide();
+  			}
+  			if(typeof requestDetails.outbound_shipments != "undefined")
+        	$("#outbound_shipments").html(requestDetails.outbound_shipments);
 		    $('html,body').animate({
         scrollTop: $(".repairs_details_container").offset().top},
         'slow');                            

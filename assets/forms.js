@@ -1,3 +1,15 @@
+/************************* Form requests login ******************************************************/
+    if (the_url.indexOf("ticket_form_id") != -1) { //the current page is a form page 
+
+        // //form only available for logged in user
+        if (HelpCenter.user.role == "anonymous") {
+            $(".container").addClass("zd_Hidden");
+            $(".login")[0].click();
+        }
+        // //form only available for logged in user
+    }
+/************************* End Form requests login ******************************************************/
+
 // prepare all the form IDs and get value from map
 var golf_form_id = mapObject.golf_form_ID[searchKey];
 var strap_form_id = mapObject.strap_form_ID[searchKey];
@@ -245,3 +257,19 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
 } else {
 
 } //end of validation for all forms
+
+/****************** GA tracking if customer submits forms *********************/
+    var ticket_form = document.getElementById("new_request");
+    var submit_form_footer = ticket_form.getElementsByTagName("footer")[0];
+    var submit_form_button = submit_form_footer.getElementsByTagName("input")[0];
+    var submit_form_button_category = "Form"; 
+    var submit_form_button_action = document.title;
+    var submit_form_button_event = "validation success";
+  $(submit_form_button).click(function() {
+      ga_tracking(submit_form_button_category, submit_form_button_action, submit_form_button_event);
+  });             
+/****************** End GA tracking if customer submits forms *********************/  
+/****************** Form Title Reflects the form you are on *********************/  
+var form_title = document.getElementById("form_title");
+form_title = form_title.innerHTML = document.title;
+/****************** Form Title Reflects the form you are on *********************/  

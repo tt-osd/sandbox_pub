@@ -48,7 +48,7 @@
     </div>
   <div class="logo header-logo">
     <a href="https://www.tomtom.com/navigation/">
-      <img src="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}">
+      <img width="150px" height="22px" src="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}">
     </a>
   </div>
   <div id="nav-wrapper" class="nav-wrapper">
@@ -96,8 +96,6 @@
 </div>
 </header>
 <!--  Header --> 
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <label class="zd_Hidden" id="subfooter__bongo_link_text">{{dc 'talk_to_bongo_from_widget'}}</label>
 <label class="zd_Hidden" id="open_widget">{{dc 'talk_to_zEWidget_from_widget'}}</label>
 <label class="zd_Hidden" id="chatLabel">{{dc 'chatlabel'}}</label>
@@ -199,25 +197,14 @@ var mapObject = JSON.parse(readMap(mapSrc));
 var searchKey=(the_url.split(".tomtom.com")[0]).split("https://")[1];
 //fetch zendesk widget scr from map  
 var webwidget_src=mapObject.ze_webwidget_src[searchKey];
-  //create script for zendesk widget
+
    var zE_widget=document.createElement('script'); 
    zE_widget.id = "ze-snippet";
    zE_widget.src = webwidget_src;
   //append the widget script to the head 
   document.head.appendChild(zE_widget);
   //load one widget configuration script which includes zendesk widget
-  $.loadScript('https:'+document.getElementById("one_widget_JS").innerHTML);
-
-  
-    
-          <!-- Google Tag Manager -->  
-          var tag_manager_container=mapObject.TAGmanager_container[searchKey];
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer',tag_manager_container);
-          <!-- End Google Tag Manager -->  
+  $.loadScript('https:'+document.getElementById("one_widget_JS").innerHTML);  
 </script>
 
 <script>
@@ -225,13 +212,13 @@ var webwidget_src=mapObject.ze_webwidget_src[searchKey];
 </script>
 
 <script type="text/javascript" >  
- var tea; //this var will hold the utag src from Map.JSON
+ 	var tea; //this var will hold the utag src from Map.JSON
   var utagFC=document.createElement('script'); // create a script tag to load the custome tealium function
   utagFC.onload = function () { // when tealium function is loaded
-	 tea=tealium();// call the function and var tea will get the utag src
+	 		tea=tealium();// call the function and var tea will get the utag src
   var tealiumScript = document.createElement('script'); //create a tag to load utag   
-  utag_data=tea.utag_data_slot;
-  tealiumScript.src = tea.tealium_script_slot;//get the src for utag script
+  		utag_data=tea.utag_data_slot;
+ 					tealiumScript.src = tea.tealium_script_slot;//get the src for utag script
   document.head.appendChild(tealiumScript); //append to document head 
  };
   utagFC.src='https:'+document.getElementById("tealium").innerHTML; //get the tealium function access url from map tealium.js from asset
@@ -348,7 +335,7 @@ var webwidget_src=mapObject.ze_webwidget_src[searchKey];
               </section>
 					{{/if}}
 <!--  Announcements - Amy  -->               
-<!--  Retail PopUp - Amy  -->
+<!--  retail_link PopUp - Amy  -->
 <div id="retail_popup" class="modal zd_Hidden">
         <div id="retail_popup_body" class="">
           <div id="retail_popup_background">
@@ -357,9 +344,9 @@ var webwidget_src=mapObject.ze_webwidget_src[searchKey];
             </div>
 						<div class="">
                     <div class="" id="">
-                        <a target="_blank" href="{{dc 'retail_pop_up_link'}}" id="retail_popup_button" class="button">{{dc 'retail_pop_up_button_main'}}</a>
+                        <a target="_blank" rel="noopener" href="{{dc 'retail_pop_up_link'}}" id="retail_popup_button" class="button retail_link">{{dc 'retail_pop_up_button_main'}}</a>
                     </div>
-                    <div class="contain__text__link" id="">
+                    <div class="retail_link contain__text__link" id="">
                         <div class="text__link">{{dc 'retail_pop_up_button_secondary'}}</div>
                     </div>
                 </div>
@@ -367,9 +354,12 @@ var webwidget_src=mapObject.ze_webwidget_src[searchKey];
         </div>
     </div>
 <!--  Retail PopUp - Amy  -->
-
-
-
-
-
-  
+<label class="zd_Hidden" id="category_script">{{asset 'categories.js'}}</label>
+<label class="zd_Hidden" id="section_script">{{asset 'sections.js'}}</label>
+<script type="text/javascript">
+  if (the_url.indexOf('/categories/')  != -1 ) {
+  $.loadScript('https:'+document.getElementById("category_script").innerHTML);
+  } else if (the_url.indexOf('/sections/') != -1 ) {
+    $.loadScript('https:'+document.getElementById("section_script").innerHTML);
+  }
+</script>

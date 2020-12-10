@@ -19,7 +19,15 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     }
     //chevron   
     /******************************************* End of Breadcrumbs ************************************************/
-
+/******************************************* Function for GA tracking ************************************************/ 
+      function ga_tracking(event_category, event_action, event_label) {
+        utag.link({
+            'event_category': event_category,
+            'event_action': event_action,
+            'event_label': event_label
+        });
+    };
+/******************************************* End Function for GA tracking ************************************************/  
     /******************************************* Subfooter ************************************************/
     // bongo images on different locals 
     var subfooter_bongo_image_mobile = document.getElementById("subfooter_bongo_image_mobile");
@@ -43,7 +51,19 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     adjustBongoImage(query);
     query.addListener(adjustBongoImage);
     /******************************************* End of Subfooter ************************************************/
-
+/******************************************* Social footer ************************************************/
+  var socialFooter = document.getElementById("footer-social");  // Get the Social footer
+     if (socialFooter) { // If you have the social Footer then do this
+       				var socialFooterLink = document.getElementsByClassName('footer-social-items__item'); // grab each of the buttons on the social footer
+              var socialFooter_category = "Footer"; // create var for the GA event category
+              var socialFooter_action = "click";// create var for the GA event action
+              var socialFooter_event = ""; // create var for the GA event label
+                $(socialFooterLink).click(function() { // Click function if you click on one of the social footers
+                   	socialFooter_event = this.getAttribute('title'); 
+                    ga_tracking(socialFooter_category, socialFooter_action, socialFooter_event);                  
+                });                      
+     	}
+/******************************************* End of Social footer ************************************************/
     /******************************************* Home page META description *****************************************/ // DDA-673 Amy
     var homePage = document.getElementById("home-section");
     if (homePage) {
@@ -66,19 +86,6 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
         window.location.href = the_url.split("/ccd")[0];
     }
     /******************************************* End of Requests/CCD page ************************************************/
-
-    /************************* Form requests login ******************************************************/
-    if (the_url.indexOf("ticket_form_id") != -1) { //the current page is a form page 
-
-        // //form only available for logged in user
-        if (HelpCenter.user.role == "anonymous") {
-            $(".container").addClass("zd_Hidden");
-            $(".login")[0].click();
-        }
-        // //form only available for logged in user
-    }
-    /************************* Form requests login ******************************************************/
-
     /*************************************** MAP *************************************/
     //get the id_map JSON access URL from asset
     var id_map_data_source = "https:" + $("#map_json").html();
@@ -87,25 +94,16 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     $.getJSON(id_map_data_source, function(data) {
         var vanilla_sso_server = -1;
         var vanilla_redirect_url = -1;
-        var golfer_section_id = -1;
 
         // declare varliables inside map json
         if (the_url.indexOf("sandbox") != -1) {
             vanilla_redirect_url = data.vanilla_redirect_url.sandbox;
             vanilla_sso_server = data.vanilla_sso_server.sandbox;
-            golfer_section_id = data.golfer_section_id.sandbox;
         } else {
             vanilla_redirect_url = data.vanilla_redirect_url.prod;
             vanilla_sso_server = data.vanilla_sso_server.prod;
-            golfer_section_id = data.golfer_section_id.prod;
         } //end of get form/fields ID
-
-        /**************************  Section Pages **********************/
-        // test this due to DDA720
-        if (window.location.href.indexOf(golfer_section_id) > -1) {
-            document.getElementById("golf_form_block").style.display = "flex";
-        }
-        /***************************  End Section Pages **********************/
+      
         /***************************  Vanilla SSO Start - Mrunal **********************/
         var vsso = window.location.search;
         if (vsso != '') {
@@ -204,15 +202,6 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     }
     //SSO cookie end
     //DDA386 SSO login redirect 
-
-    function ga_tracking(event_category, event_action, event_label) {
-        utag.link({
-            'event_category': event_category,
-            'event_action': event_action,
-            'event_label': event_label
-        });
-    };
-
     var cookie_name = " ";
     var cookie_value = " ";
     var cookie_time = 0;
@@ -262,31 +251,37 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
         var initial_tt_setting_array = '';
         var encode_tt_setting = '';
         var tt_setting_url = document.location;
+        var cookie_event_category = "consent_bar";
+      	var cookie_event_action = "click";
+      	var cookie_event_label = "";
 
-        if ((this.id) == 'cookie_bar_buttons_accept') {
-
-            $(".cookie_bar").hide();
+  if ((this.id) == 'cookie_bar_buttons_accept') {
+    				ga_tracking(cookie_event_category, cookie_event_action, cookie_event_label);
             tt_setting_bol_value = "true";
             cookie_name = "tt_settings";
             initial_tt_setting_array = '{"url":"' + tt_setting_url + '","accepted":true,"version":"2.0","all":' + tt_setting_bol_value + ',"options":{}}';
             cookie_value = encodeURIComponent(initial_tt_setting_array);
             cookie_time = 3600000 * 24 * 365;
             set_cookie(cookie_name, cookie_value, cookie_time);
+          	cookie_event_label = "Allow";          	
+          	$(".cookie_bar").hide();
 
         } else if ((this.id) == 'cookie_bar_buttons_decline') {
 
+            ga_tracking(cookie_event_category, cookie_event_action, cookie_event_label);
             post_decline_tt_settings();
-            $(".cookie_bar").hide();
             tt_setting_bol_value = "false";
             cookie_name = "tt_settings";
             initial_tt_setting_array = '{"url":"' + tt_setting_url + '","accepted":true,"version":"2.0","all":' + tt_setting_bol_value + ',"options":{}}';
             cookie_value = encodeURIComponent(initial_tt_setting_array);
             cookie_time = 3600000 * 24 * 365;
             set_cookie(cookie_name, cookie_value, cookie_time);
-
+          	cookie_event_label = "Decline";
+           	$(".cookie_bar").hide();
         } else {
             $(".cookie_bar").hide();
         }
+      
     });
     /***************************  End Cookie Bar ***************************/
 
@@ -593,15 +588,10 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     var results_event_label = "";
     var resultslist = document.getElementsByClassName('search-results-list');
     if (window.location.href.indexOf("/search?utf8") > -1 && (resultslist.length === 0)) {
-        var resultsheader = document.getElementsByClassName('search-results-subheading');
-        var resultsheaderstring = resultsheader[0].innerHTML;
-        var customersearch = resultsheaderstring.substring(
-            resultsheaderstring.indexOf('"') + 1,
-            resultsheaderstring.lastIndexOf('"')
-        );
+           var customersearch =  document.getElementById('customer_query');
         results_event_category = "Search Results";
         results_event_action = "No Results found";
-        results_event_label = customersearch;
+        results_event_label = customersearch.innerHTML;
         var waitForUtag = setInterval(function() {
             ga_tracking(results_event_category, results_event_action, results_event_label);
             clearInterval(waitForUtag);
@@ -702,6 +692,22 @@ $("<div class='title'>"+searchbar_placeholder+"</div>").prependTo('.header_searc
             slides[slideIndex - 1].style.display = "block";
         }
     }
+  var announcement_article = document.getElementsByClassName("mySlides");
+      /******************************** GA tracking for Announcment Article ********************************/
+		var announcement_article_link = "";  
+
+     if (announcement_article) { //if the announcement article exists     
+              var announcement_article_category = "Announcement"; 
+              var announcement_article_action = "From: " + location.pathname;    				
+              var announcement_article_event = "";
+                $('.mySlides:visible').click(function() { //This click function clicking on the announcement (tracking)   
+                  announcement_article_link = this.getElementsByTagName("a")[0];
+                  announcement_article_link = announcement_article_link.pathname;
+                  announcement_article_event = "To: " + announcement_article_link;
+                    ga_tracking(announcement_article_category, announcement_article_action, announcement_article_event);
+                });                      
+     }
+        /******************************** End GA tracking for Announcment Article ********************************/
     /******************************** End of Promoted Articles ********************************/
 
     /********************* Locale Footer Scroll ******************************/
@@ -710,39 +716,70 @@ $("<div class='title'>"+searchbar_placeholder+"</div>").prependTo('.header_searc
     });
 
     /****************************** End of Locale Footer Scroll ******************************/ // Amy
+/****************************** GA Tracking for when you change country from the footer ******************************/
+            var locale_change_category = "Locale Change"; 
+            var locale_change_action = "click";
+            $('.locale_change').click(function() {
+                  var locale_change_id = this.id;
+                  ga_tracking(locale_change_category, locale_change_action, locale_change_id);
+            });
 
+/****************************** Ens GA Tracking for when you change country from the footer ******************************/ // Amy
     /********************************** Updates Banner ********************************/ //Amy
     if (the_url.indexOf("/articles/") == -1) {
         var update_banner = document.getElementById('update-banner');
         update_banner.classList.remove('zd_Hidden');
+      	if (update_banner) { //Ga tracking if you click on the updates banner
+       				var updateBannerLink = document.getElementsByClassName('update-link');
+              var updateBanner_category = "UpdatingBanner"; 
+              var updateBanner_action = "click";
+              var updateBanner_event = "";
+                $(updateBannerLink).click(function() {
+                   updateBanner_event = this.id;
+                  	ga_tracking(updateBanner_category, updateBanner_action, updateBanner_event);
+                });                      
+     }
     }
     /********************************** End ofUpdates Banner ********************************/ //Amy
 
-    /************************* Retailer pop-up Banner ***********************/ //Amy  
-    for (var c in HelpCenter.user.organizations) {
-        if (HelpCenter.user.organizations[c].name === "TomTom Retailers") {
-            var retailPopUp = document.getElementById("retail_popup");
-            var TimeOutRetail = setTimeout(function() {
-                    if (read_cookie("RetailPopupClosed") === "") {
-                        $('#retail_popup').removeClass("zd_Hidden");
-                    }
-                },
-                5000);
-            retailPopUp.onclick = function() {
-                var cookieName = 'RetailPopupClosed';
-                var numDaysClosed = 30;
-                // set closed cookie
-                if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
-                    var today = new Date();
-                    var expire = new Date();
-                    expire.setTime(today.getTime() + 3600000 * 24 * numDaysClosed);
-                    document.cookie = cookieName + "=1;expires=" + expire.toGMTString();
-                }
-                retailPopUp.classList.add('zd_Hidden');
-            };
-        }
-    }
-    /************************* End of Retailer pop-up Banner ***********************/ //Amy  
+/************************* Retailer pop-up Banner ***********************/ //Amy  
+        for (var c in HelpCenter.user.organizations) {
+          if (HelpCenter.user.organizations[c].name === "TomTom Retailers"){
+          var retailPopUp = document.getElementById("retail_popup");
+            var TimeOutRetail = setTimeout(function() {            
+                          if (read_cookie("RetailPopupClosed") === "") {                        
+                                  $('#retail_popup').removeClass("zd_Hidden");   
+                          }                  
+              },
+              5000);
+          retailPopUp.onclick = function(){
+            var cookieName = 'RetailPopupClosed';
+            var numDaysClosed = 30;
+            // set closed cookie
+            if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
+            var today = new Date();
+            var expire = new Date();
+            expire.setTime(today.getTime() + 3600000 * 24 * numDaysClosed);
+            document.cookie = cookieName + "=1;expires=" + expire.toGMTString();
+          }
+          retailPopUp.classList.add('zd_Hidden');   
+          };
+            var retailPopUp_link = document.getElementsByClassName('retail_link');
+            var retailPopUp_category = "Retail Portal Popup"; 
+            var retailPopUp_action = "clicked";
+            var retailPopUp_event = "";
+            $(retailPopUp_link).click(function() {
+									var getRetailId = this.id;
+                   if (getRetailId === "retail_popup_button") {
+                     retailPopUp_event = "Retail Portal"
+                   } else {
+                    retailPopUp_event = "Continue Consumer"
+                   }
+                    ga_tracking(retailPopUp_category, retailPopUp_action, retailPopUp_event); // Ga tracking for the retail pop up
+            });
+          } 
+      }
+/************************* End of Retailer pop-up Banner ***********************/ //Amy  
     /***************************** Article Satisfaction *********************/
     if (the_url.indexOf("/articles/") != -1) { // If the page is an article
         var articlevotebox = document.getElementsByClassName("article-votes")[0]; // Get the whole article box
@@ -797,12 +834,20 @@ $("<div class='title'>"+searchbar_placeholder+"</div>").prependTo('.header_searc
 /*************************  Only insert after this if you need document to be ready ***********************/
 $(document).ready(function() {
     var on__this_url = window.location.href; // Var in this function for the current URL
-
+/*********************************** GA tracking function  ******************************/ 
+        function ga_tracking_send(event_category, event_action, event_label) {
+        utag.link({
+            'event_category': event_category,
+            'event_action': event_action,
+            'event_label': event_label
+        });
+    };
+  /*********************************** End GA tracking function  ******************************/ 
     /*********************************** Articles ******************************/
 
     if (on__this_url.indexOf("/articles/") != -1) {
 
-        /**************************** Scroll tracking ***********************************/
+ /**************************** Scroll tracking ***********************************/
         // Default time delay before checking location
         var callBackTime = 100;
         // # px before tracking a reader
@@ -818,6 +863,8 @@ $(document).ready(function() {
         var startTime = new Date();
         var beginning = startTime.getTime();
         var totalTime = 0;
+        var scroll_category = 'faq_engage'; 
+      	var scroll_action = 'scroll';
 
         // Get some information about the current page
         var pageTitle = document.title;
@@ -832,8 +879,8 @@ $(document).ready(function() {
                 currentTime = new Date();
                 scrollStart = currentTime.getTime();
                 timeToScroll = Math.round((scrollStart - beginning) / 1000);
-                utag.link({ 'event_category': 'faq_engage', 'event_action': 'scroll', 'event_label': 'FAQ reading' });
-                //                        ga('send', 'event', 'Reading', 'StartReading', pageTitle, timeToScroll, {'metric1': timeToScroll});
+              // utag.link({ 'event_category': 'faq_engage', 'event_action': 'scroll', 'event_label': 'FAQ reading' });
+               ga_tracking_send(scroll_category, scroll_action, 'FAQ reading');
             }
 
             scroller = true;
@@ -843,8 +890,8 @@ $(document).ready(function() {
                 currentTime = new Date();
                 end = currentTime.getTime();
                 totalTime = Math.round((end - scrollStart) / 1000);
-                utag.link({ 'event_category': 'faq_engage', 'event_action': 'scroll', 'event_label': 'FAQ ended' });
-                // ga('send', 'event', 'Reading', 'PageBottom', pageTitle, totalTime, {'metric3': totalTime});
+               	ga_tracking_send(scroll_category, scroll_action, 'FAQ ended');
+               // utag.link({ 'event_category': 'faq_engage', 'event_action': 'scroll', 'event_label': 'FAQ ended' });                
                 didComplete = true;
             }
         }
@@ -857,7 +904,7 @@ $(document).ready(function() {
             timer = setTimeout(trackLocation, callBackTime);
         });
         //  });
-        /************************ End ofScroll tracking ***********************************/
+/************************ End ofScroll tracking ***********************************/
 
         /************************ Responsive Videos ***********************************/
         $('.video-container').removeClass("video-container");
@@ -992,7 +1039,7 @@ $(document).ready(function() {
 
     //Add the profile icon to the header
     $('<svg width="16" height="16" class="profile-icon"><path d="M2 14h12v-.012c0-.056-.11-.22-.602-.544-.62-.418-1.495-.778-2.613-1.058-1.034-.251-1.963-.374-2.785-.374-.822 0-1.75.123-2.772.371-1.131.283-2.006.643-2.64 1.07-.478.316-.588.48-.588.535V14zm6-3.988c.99 0 2.076.144 3.257.431 1.342.335 2.428.783 3.258 1.341.99.655 1.485 1.39 1.485 2.204V16H0v-2.012c0-.814.495-1.549 1.485-2.204.83-.558 1.916-1.006 3.258-1.34 1.181-.288 2.267-.432 3.257-.432zM8 6c.362 0 .672-.084.969-.26.318-.188.56-.43.747-.747a1.83 1.83 0 00.26-.969 1.96 1.96 0 00-.271-1.013 2.01 2.01 0 00-.736-.751A1.833 1.833 0 008 2a1.83 1.83 0 00-.969.26 2.01 2.01 0 00-.736.751 1.96 1.96 0 00-.271 1.013c0 .362.084.672.26.969.188.318.43.56.747.747.297.176.607.26.969.26zm0 2c-.719 0-1.381-.18-1.988-.539a4.065 4.065 0 01-1.45-1.449 3.832 3.832 0 01-.538-1.988c0-.719.18-1.39.539-2.012A4.008 4.008 0 016.012.539 3.832 3.832 0 018 0c.719 0 1.381.18 1.988.539.607.36 1.09.85 1.45 1.473a3.97 3.97 0 01.538 2.012c0 .719-.18 1.381-.539 1.988a4.065 4.065 0 01-1.449 1.45A3.845 3.845 0 018 8z" fill-rule="evenodd"></path></svg>').prependTo('.user-info > [role="button"]');
-
+  $('.user-info > [role="button"]').attr('aria-label', 'User Profile');
     /***************************** End Temporary Header *****************************/
 
     /********************  New request pages - product pre-select ********************/

@@ -5,10 +5,10 @@
     <h3>{{dc 'updates_banner_-_subtitle'}}
     </h3>
     <div>
-      <a href=" {{dc'updates_banner_-_link_1'}}" class="button update-link");>{{dc 'updates_banner_-_button_1'}}
+      <a href=" {{dc'updates_banner_-_link_1'}}"  id="MyDrive_Connect" class="button update-link");>{{dc 'updates_banner_-_button_1'}}
       </a>
-      <a href="{{dc 'updates_banner_-_link_2'}}"class="button update-link");>{{dc 'updates_banner_-_button_2'}}</a>
-      <a href="{{dc 'updates_banner_-_link_3'}}"class="button update-link">{{dc 'updates_banner_-_button_3'}}</a>
+      <a href="{{dc 'updates_banner_-_link_2'}}" id="TomTom_Home" class="button update-link");>{{dc 'updates_banner_-_button_2'}}</a>
+      <a href="{{dc 'updates_banner_-_link_3'}}"  id="Wi-Fi"  class="button update-link">{{dc 'updates_banner_-_button_3'}}</a>
     </div>
   </div>
 </div>
@@ -96,31 +96,31 @@
   	<a class="footer-social-items__item" href="https://www.facebook.com/TomTom/" title="Facebook" target="blank">
       <div class="social_image">
         <title>Facebook</title>
-        <img src="{{asset 'Facebook_icon.png'}}">
+        <img width="18" height="18" alt="Facebook" src="{{asset 'Facebook_icon.png'}}">
       </div>
     </a>
     <a class="footer-social-items__item" href="https://twitter.com/tomtom" title="Twitter" target="blank">
       <div class="social_image">
         <title>Twitter</title>
-        <img src="{{asset 'Twitter_icon.png'}}">    
+        <img width="21" height="18" alt="Twitter" src="{{asset 'Twitter_icon.png'}}">    
       </div>
     </a>
     <a class="footer-social-items__item" href="https://www.youtube.com/user/TomTomOfficial" title="YouTube" target="blank">
       <div class="social_image">
       	<title>YouTube</title>
-        <img src="{{asset 'YouTube_icon.png'}}">
+        <img width="25" height="18" alt="Youtube" src="{{asset 'YouTube_icon.png'}}">
       </div>
     </a>
     <a class="footer-social-items__item" href="https://www.linkedin.com/company/tomtom/" title="LinkedIn" target="blank">
       <div class="social_image">
         <title>LinkedIn</title>
-        <img src="{{asset 'LinkedIn_icon.png'}}">
+        <img width="21" height="18" alt="LinkedIn" src="{{asset 'LinkedIn_icon.png'}}">
       </div>
     </a>
     <a class="footer-social-items__item" href="https://www.instagram.com/tomtomglobal/" title="Instagram" target="blank">
       <div class="social_image">
         <title>Instagram</title>
-        <img src="{{asset 'Instagram_icon.png'}}">
+        <img width="18" height="18" alt="Instagram" src="{{asset 'Instagram_icon.png'}}">
       </div>
     </a>    
   </div>
@@ -186,9 +186,9 @@
 					<li class="footer-link-group__item">
 						{{dc 'footer_link_2_5'}}
 					</li>
-  					<li class="footer-link-group__item">
+<!--   					<li class="footer-link-group__item">
 						{{dc 'footer_link_2_6'}}
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>
@@ -303,7 +303,7 @@
   <div class="footer_copyright">Copyright © 2020 TomTom International BV. All rights reserved.
   </div>
   <!-- End of Copyright footer -->   
-  <!-- Language footer -->  
+   <!-- Language footer -->  
 <div class="footer-inner">
 	<div class="footer-language-selector">
 		{{#if alternative_locales}}
@@ -315,105 +315,106 @@
 					<div class="footer_container">
 						<div class="footer_column">
 							<label class="footer_continent">{{dc 'local_continent_europe'}}</label>
-								<div id='europe' >
-                  <a href="/hc/change_language/de-at?return_to=%2Fhc%2Fde-at" dir="ltr" rel="nofollow" role="menuitem">
-                    <span class="tt-flag-image austria"></span>{{dc 'local_country_austria'}} | {{dc 'local_language_de'}}
-                  </a>                 
-            			<a href="/hc/change_language/nl-be?return_to=%2Fhc%2Fnl-be" dir="ltr" rel="nofollow" role="menuitem">
+								<div id='europe' >             
+            			<a class="locale_change" id="nl-be" href="/hc/change_language/nl-be?return_to=%2Fhc%2Fnl-be" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image belgium"></span>{{dc 'local_country_belgium'}} | {{dc 'local_language_nl'}}
                   </a>                  
-                  <a href="/hc/change_language/fr-be?return_to=%2Fhc%2Ffr-be" dir="ltr" rel="nofollow" role="menuitem">
+                  <a class="locale_change" id="fr-be" href="/hc/change_language/fr-be?return_to=%2Fhc%2Ffr-be" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image belgium"></span>{{dc 'local_country_belgium_fr'}} | {{dc 'local_language_fr'}}
                   </a>
-                  <a href="/hc/change_language/cs?return_to=%2Fhc%2Fcs" dir="ltr" rel="nofollow" role="menuitem">
+                  <a class="locale_change" id="cs" href="/hc/change_language/cs?return_to=%2Fhc%2Fcs" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image czech_republic"></span>{{dc 'local_country_czech_republic'}} | {{dc 'local_language_cs'}}
                   </a>
-                  <a href="/hc/change_language/da?return_to=%2Fhc%2Fda" dir="ltr" rel="nofollow" role="menuitem">
+                  <a class="locale_change" id="da" href="/hc/change_language/da?return_to=%2Fhc%2Fda" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image denmark"></span>{{dc 'local_country_denmark'}} | {{dc 'local_language_da'}}
                   </a>
-              		<a href="/hc/change_language/fi?return_to=%2Fhc%2Ffi" dir="ltr" rel="nofollow" role="menuitem">
-                    <span class="tt-flag-image finland"></span>{{dc 'local_country_finland'}} | {{dc 'local_language_fi'}}
+                  <a class="locale_change" id="de" href="/hc/change_language/de?return_to=%2Fhc%2Fde" dir="ltr" rel="nofollow" role="menuitem">
+                    <span class="tt-flag-image germany"></span>{{dc 'local_country_germany'}} | {{dc 'local_language_de'}}
                   </a>
-                  <a href="/hc/change_language/fr?return_to=%2Fhc%2Ffr" dir="ltr" rel="nofollow" role="menuitem">
-                    <span class="tt-flag-image france"></span>{{dc 'local_country_france'}} | {{dc 'local_language_fr'}}
-                  </a>
-                  <a href="/hc/change_language/de?return_to=%2Fhc%2Fde" dir="ltr" rel="nofollow" role="menuitem">
-                    <span class="tt-flag-image germany"></span>{{dc 'local_country_germany'}} | {{dc 'local_language_de'}}</a>
-                  <a href="/hc/change_language/en-gr?return_to=%2Fhc%2Fen-gr" dir="ltr" rel="nofollow" role="menuitem">
+                  <a class="locale_change" id="es-es" href="/hc/change_language/es?return_to=%2Fhc%2Fes" dir="ltr" rel="nofollow" role="menuitem">
+                		<span class="tt-flag-image spain"></span>{{dc 'local_country_spain'}} | {{dc 'local_language_es'}}
+            			</a>    
+                  <a class="locale_change" id="en-gr" href="/hc/change_language/en-gr?return_to=%2Fhc%2Fen-gr" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image greece"></span>{{dc 'local_country_greece'}} | {{dc 'local_language_en'}}
                   </a>
-                  <a href="/hc/change_language/en-hu?return_to=%2Fhc%2Fen-hu" dir="ltr" rel="nofollow" role="menuitem">
-                    <span class="tt-flag-image hungary"></span>{{dc 'local_country_hungary'}} | {{dc 'local_language_en'}}
+                  <a class="locale_change" id="fr" href="/hc/change_language/fr?return_to=%2Fhc%2Ffr" dir="ltr" rel="nofollow" role="menuitem">
+                    <span class="tt-flag-image france"></span>{{dc 'local_country_france'}} | {{dc 'local_language_fr'}}
                   </a>
-                  <a href="/hc/change_language/en-ie?return_to=%2Fhc%2Fen-ie" dir="ltr" rel="nofollow" role="menuitem">
+                  <a class="locale_change" id="en-ie" href="/hc/change_language/en-ie?return_to=%2Fhc%2Fen-ie" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image ireland"></span>{{dc 'local_country_ireland'}} | {{dc 'local_language_en'}}
                   </a>
-                  <a href="/hc/change_language/it?return_to=%2Fhc%2Fit" dir="ltr" rel="nofollow" role="menuitem">
+                  <a class="locale_change" id="it" href="/hc/change_language/it?return_to=%2Fhc%2Fit" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image italy"></span>{{dc 'local_country_italy'}} | {{dc 'local_language_it'}}
                   </a>
+                  <a class="locale_change" id="fr-lu" href="/hc/change_language/fr-lu?return_to=%2Fhc%2Ffr-lu" dir="ltr" rel="nofollow" role="menuitem">
+                 		<span class="tt-flag-image luxembourg"></span>{{dc 'local_country_luxembourg'}} | {{dc 'local_language_fr'}}
+             			</a>
+                  <a class="locale_change" id="en-hu" href="/hc/change_language/en-hu?return_to=%2Fhc%2Fen-hu" dir="ltr" rel="nofollow" role="menuitem">
+                    <span class="tt-flag-image hungary"></span>{{dc 'local_country_hungary'}} | {{dc 'local_language_en'}}
+             			</a>
               </div>
             </div>             
           <div class="footer_column ">
             <label class="footer_continent"></label>
-              <a href="/hc/change_language/fr-lu?return_to=%2Fhc%2Ffr-lu" dir="ltr" rel="nofollow" role="menuitem">
-                 <span class="tt-flag-image luxembourg"></span>{{dc 'local_country_luxembourg'}} | {{dc 'local_language_fr'}}
-             	</a>
-              <a href="/hc/change_language/no?return_to=%2Fhc%2Fno" dir="ltr" rel="nofollow" role="menuitem">
-                  <span class="tt-flag-image norway"></span>{{dc 'local_country_norway'}} | {{dc 'local_language_no'}}
-              </a>
-              <a href="/hc/change_language/pl?return_to=%2Fhc%2Fpl" dir="ltr" rel="nofollow" role="menuitem">
+              <a class="locale_change" id="nl" href="/hc/change_language/nl?return_to=%2Fhc%2Fnl" dir="ltr" rel="nofollow" role="menuitem">
+                	<span class="tt-flag-image netherlands"></span>{{dc 'local_country_netherlands'}} | {{dc 'local_language_nl'}}
+            	</a>
+              <a class="locale_change" id="no-no" href="/hc/change_language/no?return_to=%2Fhc%2Fno" dir="ltr" rel="nofollow" role="menuitem">
+                 	 <span class="tt-flag-image norway"></span>{{dc 'local_country_norway'}} | {{dc 'local_language_no'}}
+             	</a> 
+              <a class="locale_change" id="de-at" href="/hc/change_language/de-at?return_to=%2Fhc%2Fde-at" dir="ltr" rel="nofollow" role="menuitem">
+                  <span class="tt-flag-image austria"></span>{{dc 'local_country_austria'}} | {{dc 'local_language_de'}}
+              </a>   
+              <a class="locale_change" id="pl" href="/hc/change_language/pl?return_to=%2Fhc%2Fpl" dir="ltr" rel="nofollow" role="menuitem">
                 <span class="tt-flag-image poland"></span>{{dc 'local_country_poland'}} | {{dc 'local_language_pl'}}
             	</a>                
-              <a href="/hc/change_language/pt?return_to=%2Fhc%2Fpt" dir="ltr" rel="nofollow" role="menuitem">
+              <a class="locale_change" id="pt" href="/hc/change_language/pt?return_to=%2Fhc%2Fpt" dir="ltr" rel="nofollow" role="menuitem">
                 <span class="tt-flag-image portugal"></span>{{dc 'local_country_portugal'}} | {{dc 'local_language_pt'}}
-            	</a>
-              <a href="/hc/change_language/es?return_to=%2Fhc%2Fes" dir="ltr" rel="nofollow" role="menuitem">
-                <span class="tt-flag-image spain"></span>{{dc 'local_country_spain'}} | {{dc 'local_language_es'}}
-            	</a>               
-              <a href="/hc/change_language/sv?return_to=%2Fhc%2Fsv" dir="ltr" rel="nofollow" role="menuitem">
+            	</a>           
+              <a class="locale_change" id="sv" href="/hc/change_language/sv?return_to=%2Fhc%2Fsv" dir="ltr" rel="nofollow" role="menuitem">
                 <span class="tt-flag-image sweden"></span>{{dc 'local_country_sweden'}} | {{dc 'local_language_sv'}}
             	</a>
-              <a href="/hc/change_language/fr-ch?return_to=%2Fhc%2Ffr-ch" dir="ltr" rel="nofollow" role="menuitem">
+              <a class="locale_change" id="fr-ch" href="/hc/change_language/fr-ch?return_to=%2Fhc%2Ffr-ch" dir="ltr" rel="nofollow" role="menuitem">
                 <span class="tt-flag-image switzerland"></span>{{dc 'local_country_switzerland_fr'}} | {{dc 'local_language_fr'}}
             	</a>             
-              <a href="/hc/change_language/de-ch?return_to=%2Fhc%2Fde-ch" dir="ltr" rel="nofollow" role="menuitem">
+              <a class="locale_change" id="de-ch" href="/hc/change_language/de-ch?return_to=%2Fhc%2Fde-ch" dir="ltr" rel="nofollow" role="menuitem">
                 <span class="tt-flag-image switzerland"></span>{{dc 'local_country_switzerland'}} | {{dc 'local_language_de'}}
             	</a>
-              <a href="/hc/change_language/nl?return_to=%2Fhc%2Fnl" dir="ltr" rel="nofollow" role="menuitem">
-                <span class="tt-flag-image netherlands"></span>{{dc 'local_country_netherlands'}} | {{dc 'local_language_nl'}}
-            	</a>
-              <a href="/hc/change_language/tr?return_to=%2Fhc%2Ftr" dir="ltr" rel="nofollow" role="menuitem">
+              <a class="locale_change" id="fi" href="/hc/change_language/fi?return_to=%2Fhc%2Ffi" dir="ltr" rel="nofollow" role="menuitem">
+                    <span class="tt-flag-image finland"></span>{{dc 'local_country_finland'}} | {{dc 'local_language_fi'}}
+              </a>
+              <a class="locale_change" id="tr" href="/hc/change_language/tr?return_to=%2Fhc%2Ftr" dir="ltr" rel="nofollow" role="menuitem">
                 <span class="tt-flag-image turkey"></span>{{dc 'local_country_turkey'}} | {{dc 'local_language_tr'}}
             	</a>
-        			<a href="/hc/change_language/en-gb?return_to=%2Fhc%2Fen-gb" dir="ltr" rel="nofollow" role="menuitem">
+        			<a class="locale_change" id="en-gb" href="/hc/change_language/en-gb?return_to=%2Fhc%2Fen-gb" dir="ltr" rel="nofollow" role="menuitem">
                 <span class="tt-flag-image united_kingdom"></span>{{dc 'local_country_uk'}} | {{dc 'local_language_en'}}
             	</a>
             </div>
             <div class="footer_column">
             	<label class="footer_continent">{{dc 'local_continent_americas'}}</label>
              		<div id='americans'>
-              		<a href="/hc/change_language/es-ar?return_to=%2Fhc%2Fes-ar" dir="ltr" rel="nofollow" role="menuitem">
+              		<a class="locale_change" id="es-ar" href="/hc/change_language/es-ar?return_to=%2Fhc%2Fes-ar" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image argentina"></span>{{dc 'local_country_argentina'}} | {{dc 'local_language_es'}}
                   </a>                 
-                  <a href="/hc/change_language/pt-br?return_to=%2Fhc%2Fpt-br" dir="ltr" rel="nofollow" role="menuitem">
+                  <a class="locale_change" id="pt-br" href="/hc/change_language/pt-br?return_to=%2Fhc%2Fpt-br" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image brasil"></span>{{dc 'local_country_brasil'}} | {{dc 'local_language_pt'}}
                   </a>
-                	<a href="/hc/change_language/en-ca?return_to=%2Fhc%2Fen-ca" dir="ltr" rel="nofollow" role="menuitem">
+                	<a class="locale_change" id="en-ca" href="/hc/change_language/en-ca?return_to=%2Fhc%2Fen-ca" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image canada"></span>{{dc 'local_country_canada'}} | {{dc 'local_language_en'}}
                   </a>
-                  <a href="/hc/change_language/fr-ca?return_to=%2Fhc%2Ffr-ca" dir="ltr" rel="nofollow" role="menuitem">
+                  <a class="locale_change" id="fr-ca" href="/hc/change_language/fr-ca?return_to=%2Fhc%2Ffr-ca" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image canada"></span>{{dc 'local_country_canada'}}  | {{dc 'local_language_fr'}}
                   </a>
-                  <a href="/hc/change_language/es-mx?return_to=%2Fhc%2Fes-mx" dir="ltr" rel="nofollow" role="menuitem">
+                  <a class="locale_change" id="es-mx" href="/hc/change_language/es-mx?return_to=%2Fhc%2Fes-mx" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image mexico"></span>{{dc 'local_country_mexico'}} | {{dc 'local_language_es'}}
                   </a>                  
-                  <a href="/hc/change_language/en-us?return_to=%2Fhc%2Fen-us" dir="ltr" rel="nofollow" role="menuitem">
+                  <a class="locale_change" id="en-us" href="/hc/change_language/en-us?return_to=%2Fhc%2Fen-us" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image usa"></span>{{dc 'local_country_usa'}} | {{dc 'local_language_en'}}
                   </a>
               </div>
               <label class="footer_continent">{{dc 'local_continent_africa'}}</label>
                 <div id='africa' >
-                  <a href="/hc/change_language/en-za?return_to=%2Fhc%2Fen-za" dir="ltr" rel="nofollow" role="menuitem">
+                  <a class="locale_change" id="en-za" href="/hc/change_language/en-za?return_to=%2Fhc%2Fen-za" dir="ltr" rel="nofollow" role="menuitem">
                     <span class="tt-flag-image south_africa"></span>{{dc 'local_country_south_africa'}} | {{dc 'local_language_en'}}
                   </a>
                 </div>                
@@ -421,25 +422,25 @@
               <div class="footer_column">
                 <label class="footer_continent">{{dc 'local_continent_asia_pacific'}}</label>
                 	<div id='asia'>
-                  	<a href="/hc/change_language/en-au?return_to=%2Fhc%2Fen-au" dir="ltr" rel="nofollow" role="menuitem">
+                  	<a class="locale_change" id="en-au" href="/hc/change_language/en-au?return_to=%2Fhc%2Fen-au" dir="ltr" rel="nofollow" role="menuitem">
       								<span class="tt-flag-image australia"></span>{{dc 'local_country_australia'}} | {{dc 'local_language_en'}}
-                    </a>                 
-                  	<a href="/hc/change_language/zh-cn?return_to=%2Fhc%2Fzh-cn" dir="ltr" rel="nofollow" role="menuitem">
-                      <span class="tt-flag-image china"></span>{{dc 'local_country_china'}} | {{dc 'local_language_zh'}}
-                    </a>                  
-                  	<a href="/hc/change_language/ja?return_to=%2Fhc%2Fja" dir="ltr" rel="nofollow" role="menuitem">
-      								<span class="tt-flag-image japan"></span>{{dc 'local_country_japan'}} | {{dc 'local_language_ja'}}
-                    </a>               
-                  	<a href="/hc/change_language/en-nz?return_to=%2Fhc%2Fen-nz" dir="ltr" rel="nofollow" role="menuitem">
+                    </a>  
+                    <a class="locale_change" id="en-nz" href="/hc/change_language/en-nz?return_to=%2Fhc%2Fen-nz" dir="ltr" rel="nofollow" role="menuitem">
       								<span class="tt-flag-image new_sealand"></span>{{dc 'local_country_new_sealand'}} | {{dc 'local_language_en'}}
                     </a>
-                    <a href="/hc/change_language/en-sg?return_to=%2Fhc%2Fen-sg" dir="ltr" rel="nofollow" role="menuitem">
+                    <a class="locale_change" id="en-sg" href="/hc/change_language/en-sg?return_to=%2Fhc%2Fen-sg" dir="ltr" rel="nofollow" role="menuitem">
      									<span class="tt-flag-image singapore"></span>{{dc 'local_country_singapore'}} | {{dc 'local_language_en'}}
                     </a>  
- 										<a href="/hc/change_language/ko?return_to=%2Fhc%2Fko" dir="ltr" rel="nofollow" role="menuitem">
+                  	<a class="locale_change" id="zh-cn" href="/hc/change_language/zh-cn?return_to=%2Fhc%2Fzh-cn" dir="ltr" rel="nofollow" role="menuitem">
+                      <span class="tt-flag-image china"></span>{{dc 'local_country_china'}} | {{dc 'local_language_zh'}}
+                    </a>                  
+                  	<a class="locale_change" id="ja" href="/hc/change_language/ja?return_to=%2Fhc%2Fja" dir="ltr" rel="nofollow" role="menuitem">
+      								<span class="tt-flag-image japan"></span>{{dc 'local_country_japan'}} | {{dc 'local_language_ja'}}
+                    </a>            
+ 										<a class="locale_change" id="ko" href="/hc/change_language/ko?return_to=%2Fhc%2Fko" dir="ltr" rel="nofollow" role="menuitem">
       								<span class="tt-flag-image korea"></span>{{dc 'local_country_korea'}} | {{dc 'local_language_ko'}}
                     </a>  
- 										<a href="/hc/change_language/zh-tw?return_to=%2Fhc%2Fzh-tw" dir="ltr" rel="nofollow" role="menuitem">
+ 										<a class="locale_change" id="zh-tw" href="/hc/change_language/zh-tw?return_to=%2Fhc%2Fzh-tw" dir="ltr" rel="nofollow" role="menuitem">
       								<span class="tt-flag-image taiwan"></span>{{dc 'local_country_taiwan'}} | {{dc 'local_language_zh'}}
                     </a>
                 </div>

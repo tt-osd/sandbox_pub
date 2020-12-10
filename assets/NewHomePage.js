@@ -123,3 +123,42 @@
  if (navigator.userAgent.indexOf('Windows') != -1) {
      $('.explore').addClass("explore_WINDOWS");
  }
+  /****************** GA tracking if customer clicks on category ********************/
+  var homepage_category = document.getElementsByClassName("home_page_category");
+  var homepage_category_category = "Home Page"; 
+  var homepage_category_action = "Category";
+ 
+  var user_manual_category = document.getElementById("blocks-item-" + user_manual_release_info_ID);
+  var user_manual_category_ids = user_manual_category.id;
+  var navigation_category = document.getElementById("blocks-item-" + naviagtion_ID);
+  var naviagtion_category_ids = navigation_category.id;
+  var apps_category = document.getElementById("blocks-item-" + apps_ID);
+  var apps_category_ids = apps_category.id;
+  var sports_category = document.getElementById("blocks-item-" + sports_ID);
+  var sports_category_ids = sports_category.id;
+  var accounts_category = document.getElementById("blocks-item-" + accounts_orders_legal_ID);
+  var accounts_category_ids = accounts_category.id;
+  var learnMore_category = document.getElementById("blocks-item-" + learn_more_ID);
+  var learnMore_category_ids = learnMore_category.id;
+ 
+  var homepage_category_event = "";
+    $(homepage_category).click(function() {
+     var category_link = this.id;
+     if (category_link == user_manual_category_ids) {
+         homepage_category_event = "User Manual";       
+     }  else if (category_link == naviagtion_category_ids) {
+         homepage_category_event = "Navigation";   
+     } else if (category_link == apps_category_ids) {
+         homepage_category_event = "Apps";   
+     } else if (category_link == sports_category_ids) {
+         homepage_category_event = "Sports"; 
+     } else if (category_link == accounts_category_ids) {
+         homepage_category_event = "Accounts"; 
+     }else if (category_link == learnMore_category_ids) {
+         homepage_category_event = "Learn More"; 
+     } else {
+         homepage_category_event = "Other"; 
+     }  
+     ga_tracking(homepage_category_category, homepage_category_action, homepage_category_event);
+    });             
+ /****************** End GA tracking if customer clicks on category *********************/  
