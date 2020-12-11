@@ -50,6 +50,30 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     var query = window.matchMedia("(max-width: 690px)");
     adjustBongoImage(query);
     query.addListener(adjustBongoImage);
+    /******************************************* GA tracking for subfooter ************************************************/
+  var subFooter = document.getElementById("sub_footer");  // Get the Social footer
+  if (subFooter) { // If you have the social Footer then do this
+            var subFooterLink = document.getElementsByClassName('sub_footer_item'); // grab each of the buttons on the social footer
+            var subFooter_category = "subfooter"; // create var for the GA event category
+            var subFooter_action = "click";// create var for the GA event action
+            var subFooter_event = ""; // create var for the GA event label
+             $(subFooterLink).click(function() { // Click function if you click on one of the social footers
+                  var subfooterID = this.id; 
+                    if (subfooterID  === 'subfooter_user_manual') {
+                        subFooter_event = 'user manuals';
+                    } else if (subfooterID  === 'bongo_open') { 
+                        subFooter_event = 'bongo';
+                    } else if (subfooterID  === 'subfooter_video') { 
+                        subFooter_event = 'support videos'; 
+                    } else if (subfooterID  === 'subfooter_community') {
+                        subFooter_event = 'community'; 
+                    } else {
+                        subFooter_event = 'other'; 
+                    }
+                 ga_tracking(subFooter_category, subFooter_action, subFooter_event);                  
+             });                      
+      }
+/******************************************* End of GA tracking for subfooter ************************************************/
     /******************************************* End of Subfooter ************************************************/
 /******************************************* Social footer ************************************************/
   var socialFooter = document.getElementById("footer-social");  // Get the Social footer
