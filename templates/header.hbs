@@ -149,7 +149,7 @@
         document.getElementsByTagName('HEAD')[0].appendChild(link);  
 </script>  
 <script>
- var one_widget_css_link = document.createElement('link');  
+ 	var one_widget_css_link = document.createElement('link');  
         // set the attributes for link element 
         one_widget_css_link.rel = 'stylesheet';  
         one_widget_css_link.type = 'text/css'; 
@@ -212,17 +212,17 @@ var webwidget_src=mapObject.ze_webwidget_src[searchKey];
 </script>
 
 <script type="text/javascript" >  
- 	var tea; //this var will hold the utag src from Map.JSON
-  var utagFC=document.createElement('script'); // create a script tag to load the custome tealium function
-  utagFC.onload = function () { // when tealium function is loaded
-	 		tea=tealium();// call the function and var tea will get the utag src
-  var tealiumScript = document.createElement('script'); //create a tag to load utag   
-  		utag_data=tea.utag_data_slot;
- 					tealiumScript.src = tea.tealium_script_slot;//get the src for utag script
-  document.head.appendChild(tealiumScript); //append to document head 
- };
-  utagFC.src='https:'+document.getElementById("tealium").innerHTML; //get the tealium function access url from map tealium.js from asset
-  document.head.appendChild(utagFC);// append to document head 
+		 	var tea; //this var will hold the utag src from Map.JSON
+ 			var utagFC=document.createElement('script'); // create a script tag to load the custome tealium function
+		 		utagFC.onload = function () { // when tealium function is loaded
+	 				tea=tealium();// call the function and var tea will get the utag src
+ 						var tealiumScript = document.createElement('script'); //create a tag to load utag   
+  						utag_data=tea.utag_data_slot;
+ 							tealiumScript.src = tea.tealium_script_slot; //get the src for utag script
+  						document.head.appendChild(tealiumScript); //append to document head 
+ 				};
+  utagFC.src='https:'+document.getElementById("tealium").innerHTML; // get the tealium function access url from map tealium.js from asset
+  document.head.appendChild(utagFC); 	// append to document head 
 </script>
 
 <!--  Cookie Bar  -->
