@@ -144,13 +144,15 @@ if (language.match(/^(en-ca|en-us|fr-ca|pt-br|es-ar|es-mx)$/)) {
     region = "unknown";
 
     }
-
-if (HelpCenter.user.role !== "anonymous") {
-    user_id = HelpCenter.user.identifier;
-} else {
-    user_id = "Logged_out";
-}
-
+if (typeof HelpCenter != "undefined") { // helpCenter only loads after document has loaded, so this IF eliminates the script breaking if the object hasn't loaded yet
+        if (HelpCenter.user.role !== "anonymous") { // then IF the customer is NOT anonymous then get their user ID
+            user_id = HelpCenter.user.identifier; // User ID
+        } else {
+            user_id = "Logged_out"; // No User ID 
+        }
+        } else { // Else (if the helpcenter object wasn't defined) then show undefined, this is more for reporting purposes
+            user_id = "Undefined";
+        }
 var sitespect = "";
 var sitespect_id = "";
 
