@@ -1010,11 +1010,22 @@ $(document).ready(function() {
         $('.ts-article-extra').prependTo('.ts-article-body');
         /********************* End of Troubleshooting Template *********************/
         /*****************************  Get Started Template *********************/
-        $('.gs-article-header-block').click(function() {
-            $('body,html').animate({
-                scrollTop: 850
-            }, 500);
-        });
+        var getStartedTemplate = document.getElementById('Get_started'); // Check if on Get Started page
+        if (getStartedTemplate) { // If on GS page do this
+        $('.gs-article-header-block').click(function() { // If you click on the arrow, you scroll down
+              $('body,html').animate({
+                  scrollTop: 850
+              }, 500);
+          });  
+          var getStartedIntro = document.getElementById('tt-get-started-intro'); // Check if CCWEB have inserted a intro with id tt-get-started-intro
+          if (getStartedIntro) { // if they have
+          $(getStartedIntro).appendTo('#gs-article-intro'); // put the intro in the header
+              var getStartedTitle = document.getElementsByClassName("gs-article-title")[0];
+              getStartedTitle.classList.add("gs-article-titles");    // add this class to make sure the width doesn't go over the edge  
+
+          }
+        }
+        //
         /***************************** End of Get Started Template *********************/
         /*****************************  How To Template *****************************/
 
