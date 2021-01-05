@@ -15,16 +15,20 @@
   <div class="article-container" id="article-container">
     <article class="gs-article parallax">
       <header class="gs-article-header parallax__layer parallax__layer--back">
-        <div class="container gs-article-header-block">
-          <h2 class="gs-article-sub-title">{{dc 'get_started_title'}}</h2>
+        <div class="gs-article-header-block ">
+          <div class="tile-grid">
+          <div class="gs-article-titles" id="gs-article-intro">
+          	<h2 class="gs-article-sub-title">{{dc 'get_started_title'}}</h2>
+          </div>
           <h1 title="{{article.title}}" class="gs-article-title">
             {{article.title}}
             {{#if article.internal}}
             <span class="icon-lock" title="{{t 'internal'}}"></span>
           {{/if}}
         </h1>
-          <a  class="button-secondary not-your-product" href="/home">{{dc "not_your_product"}}</a>
+<!--           <div id="moveG" href="/home"></div> -->
        </div>
+          </div>
       </header>
   <section class="article-info parallax__layer parallax__layer--base">
     <div class="container">
