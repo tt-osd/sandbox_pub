@@ -133,7 +133,7 @@ const initSdk = (name) => {
             //console.log('the user received a message', message);
             bot_init_message = 1;
         });
-        ``
+
 
 
 
