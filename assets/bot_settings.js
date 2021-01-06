@@ -81,7 +81,7 @@ const initSdk = (name) => {
                 //  console.log("Starting the conversation");
                 Bots.sendMessage('Hi', { hidden: true });
                 hidden_itit_message = 1;
-                ga_tracking("Bongo", "bongo init message", bongo_locale);
+                //  ga_tracking("Bongo", "bongo init message", bongo_locale);
 
             }
         });
