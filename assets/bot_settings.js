@@ -25,6 +25,9 @@ const initSdk = (name) => {
     if (!name) {
         name = 'Bots'; // Set default reference name to 'Bots'
     }
+    var user_init_message = 0;
+    var hidden_itit_message = 0;
+    var bot_init_message = 0;
     let Bots;
 
     setTimeout(() => {
@@ -77,6 +80,9 @@ const initSdk = (name) => {
             if (Bots.getConversationHistory().messagesCount < 1) {
                 //  console.log("Starting the conversation");
                 Bots.sendMessage('Hi', { hidden: true });
+                hidden_itit_message = 1;
+                //  ga_tracking("Bongo", "bongo init message", bongo_locale);
+
             }
         });
 
@@ -116,6 +122,28 @@ const initSdk = (name) => {
 
             ga_tracking("Bongo", "clicked", "bongo closed");
 
+
+        });
+
+
+
+        //This event is triggered when the user receives a message.
+        //the message that bongo initiated
+        Bots.on('message:received', function(message) {
+            //console.log('the user received a message', message);
+            bot_init_message = 1;
+        });
+
+
+
+
+        //This event is triggered when the user sends a message.
+        Bots.on('message:sent', function(message) {
+            if ((user_init_message == 0) && (bot_init_message == 1) && (hidden_itit_message == 1)) {
+                //this condition check when the hidden message was send and bongo initiated the conversation, then user started conversation
+                ga_tracking("Bongo", "Conversation", "User starts conversation");
+                user_init_message = 1;
+            }
 
         });
 
