@@ -242,28 +242,25 @@ var webwidget_src=mapObject.ze_webwidget_src[searchKey];
 <!--  Cookie Bar  -->
 <!--  Exit Survey -->
   <div id="survey_modal" class="modal zd_Hidden">
-        <div id="survey_body" class="">
-            <div id="survey_title">
-                <img id="head" src="{{asset 'exit_survey_header.png'}}">
-            </div>
+        <div id="survey_body" class="survey_body">
             <div id="survey_backgound">
                 <div class="survey_question">
-                    <h3 id="greetings" class="cap"> {{dc 'exit_survey_question'}}</h3>
+                    <h3 id="greetings" class="">{{dc 'exit_survey_question'}}</h3>
                 </div>
                 <div class="option_container">
                     <div class="op" id="option_yes">
-                        <span id="options" class="tt_survey_btn cap"> {{dc 'yes'}}</span>
+                        <span id="options" class="button button-blue cap">{{dc 'good'}}</span>
                     </div>
                     <div class="op" id="option_no">
-                        <span id="options" class="tt_survey_btn cap">{{dc 'no'}}</span>
+                        <span id="options" class="button button-grey cap">{{dc 'bad'}}</span>
                     </div>
                 </div>
                 <div class="check_box_area" id="newchkbox">
                     <input type="checkbox" class="check__box zd_Hidden" id="checkboxMSG">
                     <div id="agree">
                         <div id="agree_inner" class="zd_Hidden">
-                            <svg width="13" height="10" viewBox="0 0 13 10" xmlns="http://www.w3.org/2000/svg" style="width: 13px; height: 10px;">
-                                <path d="M4.32 7.4L1.3 4.36 0 5.67 4.32 10 13 1.3 11.7 0z" fill-rule="evenodd" fill="#BDD731"></path>
+                            <svg width="25px" height="10" viewBox="0 0 13 10" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.32 7.4L1.3 4.36 0 5.67 4.32 10 13 1.3 11.7 0z" fill-rule="evenodd" fill="#FFF"></path>
                             </svg>
                         </div>
                     </div>
