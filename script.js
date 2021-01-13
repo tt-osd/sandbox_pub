@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     });
     /***************************  End Cookie Bar ***************************/
 
-    /***************************  Exit Survey ***************************/
+        /***************************  Exit Survey ***************************/
 
     // initialize variables
     var survey_trigger = 5; //5px in the top of document
@@ -320,17 +320,70 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     var ga_tracking_action = " ";
     //define default variable for google analytics event action
     var ga_tracking_category = " ";
+   // var active_user = false;
+  
 
+      // Exit Survey condition. We want our exit survey to only b answered by customers who have already have some sorted of service. Effectively excluding the 'bounced' customers. 
+  		// Below the is a function called 'active user which will give you a cookie called 'activeUser', once you have this cookie you are then enigible for the exit survey. This will be removed at the end of the session
+  		// you will be an active user if you: Click on an anchor link or button, read an article or use Bongo and/or the web widget
+      function activeUser() { 																				// function to set users cookie as an active User
+          set_cookie("active_user", "true", 0); 											// Set cookie to active_user
+      }  
+      var a_clicks = document.getElementsByTagName('a'); 								// Get the anhor links on page
+      for (var i = 0; i < a_clicks.length; i++) { 											// for every anchor link on page
+          a_clicks[i].addEventListener("click", function() { 						// add a click event
+              if (read_cookie("active_user") === "") {  								// if the user doesn't already have the cookie
+        					activeUser(); 																				// call function
+          		}       
+      });
+      }
+      var button_clicks = document.getElementsByTagName('button');			// get the buttons on page
+      for (var i = 0; i < button_clicks.length; i++) {									// for every button on the page
+          button_clicks[i].addEventListener("click", function() {				// add a click event
+              if (read_cookie("active_user") === "") {  								// if the user doesn't already have the cookie
+        					activeUser(); 																				// call the function
+          		}       
+      });
+      }
+
+      var checkWidgetExists = setInterval(function() {											// as the widget is loaded in seperate js, first add a setInterval to wait until widget exists on page
+       if ($('#all_in_one_widget').length) {																// if the widget exists
+        var widget_clicks = document.getElementById('all_in_one_widget');		// get the web widget
+         widget_clicks.addEventListener("click", function() {								// add a click event to the widget
+          if (read_cookie("active_user") === "") {  												// if the user doesn't already have the cookie
+            activeUser(); 																									// call the function
+          }
+         });
+          clearInterval(checkWidgetExists);																	// Clear interval if widget doesn't exist yet
+       }	
+    	}, 100); 																															// check every 100ms
+  
+  		var bongo_clicks = document.getElementById('bongo_open');							// Bongo in subfooter isn't a button or anchor, so have to find him seperately
+          bongo_clicks.addEventListener("click", function() {								// add click event 
+              if (read_cookie("active_user") === "") {  										// if the user doesn't already have the cookie 
+        					activeUser(); 																						// call the function
+          		}       
+      });  
+      if (the_url.indexOf("/articles/") != -1) { 														// If the page is an article, don't want to call this on every page for load time
+      document.onscroll = function () { 																		// on scroll of the page
+          if ((read_cookie("active_user") === "") && (read_cookie("faq_engage") === "FAQ_reading")) { // if the user doesn't already have the cookie AND has the cookie for reading article
+        			activeUser(); 																								//call the function
+          } 	
+      };
+      }
+  
     //initial exit survey 
-    var TimeOutId = setTimeout(function() {
-            $("body").on('mousemove', function(event) {
-                altitude = event.clientY;
-                if (altitude <= survey_trigger) {
-                    if (read_cookie("exit_survey") === "") {
-                        if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
-                            $('#survey_modal').removeClass("zd_Hidden");
+    var TimeOutId = setTimeout(function() {																	// wait until user has been on site for 20 seconds
+            $("body").on('mousemove', function(event) {											// read if user is moving mouse
+                altitude = event.clientY;																		// check the height of mouse comapred to the top of the screen
+                if (altitude <= survey_trigger) {														// if they are in the top 5px
+                  if (read_cookie("active_user") === "true") {							// if the user is an active user
+                    if (read_cookie("exit_survey") === "") {								// if they haven't already got an exit survey cookie
+                        if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) { // if the user has accepted cookies
+                            $('#survey_modal').removeClass("zd_Hidden");		// show the survey
                         }
                     }
+                  }
                 }
             });
         },
@@ -340,18 +393,20 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
     var h = window.screen.height;
     var indexx = h * 0.70;
 
-    function survey_on_mobile() {
-        if (document.body.scrollTop > indexx || document.documentElement.scrollTop > indexx) {
-            if (read_cookie("exit_survey") === "") {
-                if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) {
-                    $('#survey_modal').removeClass("zd_Hidden");
+    function survey_on_mobile() { // function to trigger exit survey
+        if (document.body.scrollTop > indexx || document.documentElement.scrollTop > indexx) { 
+          if (read_cookie("active_user") === "true") { 							// if user is an active user
+            if (read_cookie("exit_survey") === "") {								// if user hasn't already got an exit survey cookie
+                if (((read_tt_setting_value(array_tt_settings)[0]) == '"accepted":true') && ((read_tt_setting_value(array_tt_settings)[1]) == '"all":true')) { // if user has accepted all cookies
+                    $('#survey_modal').removeClass("zd_Hidden");		// show the exit survey
                 }
             }
+          }
         }
     };
 
-    window.ontouchmove = function() {
-        survey_on_mobile();
+    window.ontouchmove = function() { // on mobile check for touch move
+        survey_on_mobile(); 					// trigger above function
     };
 
     //mobile version
@@ -370,7 +425,9 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
 
     });
     //click on the check box of exit survey 
-
+    $("#newchkbox").click(function() { 
+         document.getElementById("agree").click();
+    });
     //click on the exit survey blank area to close the survey.
     $("#survey_modal").click(function(e) {
         if (e.target != this) {
@@ -416,8 +473,8 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
             cookie_time = 3600000 * 24 * 7;
         }
 
-        $('#greetings').text($('#es_thx').text());
-        $(".option_container,.check_box_area").hide();
+       // $('#greetings').text($('#es_thx').text());
+       // $(".option_container,.check_box_area").hide();
         $('#survey_modal').addClass("zd_Hidden");
 
         ga_tracking(ga_tracking_category, ga_tracking_action, ga_tracking_label);
@@ -851,6 +908,66 @@ $("<div class='title'>"+searchbar_placeholder+"</div>").prependTo('.header_searc
         } else if ($(articledownvote).attr("aria-selected") === "true") {
             $(articledownbutton).addClass('active'); // adding active to the yes button if their vote was no
         }
+           /**************************** Scroll tracking ***********************************/
+                // Default time delay before checking location
+                var callBackTime = 100;
+                // # px before tracking a reader
+                var readerLocation = 150;
+
+                // Set some flags for tracking & execution
+                var timer = 0;
+                var scroller = false;
+                var endContent = false;
+                var didComplete = false;
+
+                // Set some time variables to calculate reading time
+                var startTime = new Date();
+                var beginning = startTime.getTime();
+                var totalTime = 0;
+                var scroll_category = 'faq_engage'; 
+                var scroll_action = 'scroll';
+
+                // Get some information about the current page
+                var pageTitle = document.title;
+
+                // Check the location and track user
+                function trackLocation() {
+                    bottom = $(window).height() + $(window).scrollTop();
+                    height = $(document).height();
+                    heightNoFooter = height - 1000;
+                    // If user starts to scroll send an event
+                    if (bottom > readerLocation && !scroller) {
+                        currentTime = new Date();
+                        scrollStart = currentTime.getTime();
+                        timeToScroll = Math.round((scrollStart - beginning) / 1000);
+                      // utag.link({ 'event_category': 'faq_engage', 'event_action': 'scroll', 'event_label': 'FAQ reading' });
+                       ga_tracking(scroll_category, scroll_action, 'FAQ reading');
+                       set_cookie(scroll_category, "FAQ_reading", 0);
+
+                    }
+
+                    scroller = true;
+
+                    // If user has hit the bottom of the content send an event
+                    if (bottom >= heightNoFooter && !didComplete) {
+                        currentTime = new Date();
+                        end = currentTime.getTime();
+                        totalTime = Math.round((end - scrollStart) / 1000);
+                        ga_tracking(scroll_category, scroll_action, 'FAQ ended');
+                       // utag.link({ 'event_category': 'faq_engage', 'event_action': 'scroll', 'event_label': 'FAQ ended' });                
+                        didComplete = true;
+                    }
+                }
+                // Track the scrolling and track location
+                $(window).scroll(function() {
+                    if (timer) {
+                        clearTimeout(timer);
+                    }
+                    // Use a buffer so we don't call trackLocation too often.
+                    timer = setTimeout(trackLocation, callBackTime);
+                });
+                //  });
+        /************************ End ofScroll tracking ***********************************/
     }; //end IF the page is an article 
     /***************************** End Article Satisfaction - Amy *****************************/
 });
@@ -870,65 +987,6 @@ $(document).ready(function() {
     /*********************************** Articles ******************************/
 
     if (on__this_url.indexOf("/articles/") != -1) {
-
- /**************************** Scroll tracking ***********************************/
-        // Default time delay before checking location
-        var callBackTime = 100;
-        // # px before tracking a reader
-        var readerLocation = 150;
-
-        // Set some flags for tracking & execution
-        var timer = 0;
-        var scroller = false;
-        var endContent = false;
-        var didComplete = false;
-
-        // Set some time variables to calculate reading time
-        var startTime = new Date();
-        var beginning = startTime.getTime();
-        var totalTime = 0;
-        var scroll_category = 'faq_engage'; 
-      	var scroll_action = 'scroll';
-
-        // Get some information about the current page
-        var pageTitle = document.title;
-
-        // Check the location and track user
-        function trackLocation() {
-            bottom = $(window).height() + $(window).scrollTop();
-            height = $(document).height();
-            heightNoFooter = height - 1000;
-            // If user starts to scroll send an event
-            if (bottom > readerLocation && !scroller) {
-                currentTime = new Date();
-                scrollStart = currentTime.getTime();
-                timeToScroll = Math.round((scrollStart - beginning) / 1000);
-              // utag.link({ 'event_category': 'faq_engage', 'event_action': 'scroll', 'event_label': 'FAQ reading' });
-               ga_tracking_send(scroll_category, scroll_action, 'FAQ reading');
-            }
-
-            scroller = true;
-
-            // If user has hit the bottom of the content send an event
-            if (bottom >= heightNoFooter && !didComplete) {
-                currentTime = new Date();
-                end = currentTime.getTime();
-                totalTime = Math.round((end - scrollStart) / 1000);
-               	ga_tracking_send(scroll_category, scroll_action, 'FAQ ended');
-               // utag.link({ 'event_category': 'faq_engage', 'event_action': 'scroll', 'event_label': 'FAQ ended' });                
-                didComplete = true;
-            }
-        }
-        // Track the scrolling and track location
-        $(window).scroll(function() {
-            if (timer) {
-                clearTimeout(timer);
-            }
-            // Use a buffer so we don't call trackLocation too often.
-            timer = setTimeout(trackLocation, callBackTime);
-        });
-        //  });
-/************************ End ofScroll tracking ***********************************/
 
         /************************ Responsive Videos ***********************************/
         $('.video-container').removeClass("video-container");

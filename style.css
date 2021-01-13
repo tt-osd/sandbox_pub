@@ -363,7 +363,7 @@ a {
 article a {
     color: #004b7f;
     text-decoration: underline;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 #Manuals article a {
@@ -581,10 +581,10 @@ ul {
 /***** Buttons *****/
 
 .button,
-[role="button"] {
+[role="button"], .button:visited {
     border: none;
     border-radius: 0px !important;
-    color: #ffffff;
+    color: #ffffff !important;
     background-color: #df1b12;
     font-family: "gotham bold";
     cursor: pointer;
@@ -592,6 +592,7 @@ ul {
     font-size: 14px;
     line-height: 16px;
     margin: 0;
+  	margin-bottom: 10px;
     padding: 16px 24px;
     text-align: center;
     transition: background-color .12s ease-in-out, border-color .12s ease-in-out, color .15s ease-in-out;
@@ -599,7 +600,8 @@ ul {
     white-space: nowrap;
     /*   width: 100%; */
     -webkit-touch-callout: none;
-    text-transform: uppercase;
+    text-transform: uppercase !important;
+  	text-decoration: none !important;
 }
 
 .button-white, .button-white:focus {
@@ -623,6 +625,26 @@ ul {
 
 .button-red:hover {
     background-color: #b1110E !important;
+}
+.button-blue {
+    color: #ffffff;
+    background-color: #8DC3EB;
+    --coloredFontColor: #666;
+    width: 100% !important;
+}
+
+.button-blue:hover {
+    background-color: #61ADE0 !important;
+}
+.button-grey {
+    color: #ffffff;
+    background-color: #4a4c4c;
+    --coloredFontColor: #666;
+    width: 100% !important;
+}
+
+.button-grey:hover {
+    background-color: #7A7E80 !important;
 }
 
 .download-button {
@@ -658,6 +680,7 @@ ul {
     .button,
     [role="button"] {
         width: auto;
+        margin-bottom: 10px;
     }
 }
 
@@ -7844,7 +7867,7 @@ html[lang|="zh"] .search-results-description em {
 .modal {
     position: fixed;
     z-index: 99;
-    padding-top: 100px;
+/*     padding-top: 100px; */
     left: 0;
     top: 0;
     width: 100%;
@@ -7853,27 +7876,25 @@ html[lang|="zh"] .search-results-description em {
     background-color: rgba(0, 0, 0, 0.7);
     transition: all .3s ease .1s;
 }
-
-#survey_title {
-    width: 100%;
-}
-
 #survey_body {
     position: relative;
+  	top: 30%;
     background-color: rgba(255, 255, 255, 1);
-    margin: auto;
+    margin: 0 auto;
     padding: 0;
-    width: 400px;
-    height: 320px;
+    width: 90%;
+    height: max-content;
     transition: all .3s ease .1s;
+	}
+@media (min-width: 764px) {
+    #survey_body {
+        width: max-content;
+        height: max-content;
+    }
 }
-
 #survey_backgound {
-    width: 100%;
-    height: 280px;
-    background-image: url($assets-exit_survey_body_background_-png);
-    padding-top: 1.5em;
-    text-align: center;
+    background-color: #fff;
+    padding: 40px;
 }
 
 #greetings {
@@ -7884,31 +7905,22 @@ html[lang|="zh"] .search-results-description em {
 
 #options {
     display: inline;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-right: 20px;
     font-weight: bold;
 }
 
-.option_container {
-    margin: 3em 0 5em 0;
-}
-
-.pop_up_quessurvey_questiontion {
-    margin-bottom: 2em;
-    margin-top: 1em;
+.option_container, .survey_question {
+	margin-bottom: 40px;
 }
 
 .op {
-    padding: 0 1em 0 1em;
-    border-radius: 5px;
-    display: inline;
+    display: inline-block;
     cursor: pointer;
 }
 
 .tt_survey_btn {
     border: 1px solid #DDD;
     padding: 12px 20px;
-    border-radius: 22px;
     background-color: #F1F1F2;
     transition: background-color .25s ease, color .25s ease;
 }
@@ -7918,36 +7930,30 @@ html[lang|="zh"] .search-results-description em {
 }
 
 #msgspan {
-    font-weight: bold;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    margin-left: 2em;
+		margin-left: 39px;
+  	color: #7a7e80;
 }
-
-.check_box_area {
-    position: relative;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: auto;
-}
-
 #agree {
-    width: 1.5em;
-    height: 1.5em;
-    border: 1.3px solid #000;
-    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    border: 1.3px solid #bebebe;
     display: inline-block;
     cursor: pointer;
     transition: all .25s ease 0s;
     position: absolute;
+  	margin-right: 14px;
+}
+#newchkbox {
+    cursor: pointer;
 }
 
 #agree_inner {
-    transition: all .55s ease 0s;
+    width: 25px;
+    height: 25px;
+  	background-color: #df1B12;
+    position: absolute;
+    top: -1px;
+    left: -1px;
 }
 
 
@@ -9103,11 +9109,7 @@ only screen and (min-resolution:2dppx) {
     text-transform: none;
 }
 
-.option_container {
-    margin: 3em 0 5em 0;
-}
-
-.pop_up_quessurvey_questiontion {
+.pop_up_question {
     margin-bottom: 2em;
     margin-top: 1em;
 }
@@ -9123,40 +9125,6 @@ only screen and (min-resolution:2dppx) {
 .tt_survey_btn:hover {
     background-color: #DDD;
 }
-
-#msgspan {
-    font-weight: bold;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    margin-left: 2em;
-}
-
-.check_box_area {
-    position: relative;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: auto;
-}
-
-#agree {
-    width: 1.5em;
-    height: 1.5em;
-    border: 1.3px solid #000;
-    border-radius: 5px;
-    display: inline-block;
-    cursor: pointer;
-    transition: all .25s ease 0s;
-    position: absolute;
-}
-
-#agree_inner {
-    transition: all .55s ease 0s;
-}
-
 
 /****** End Retail PopUp - Amy *****/
 /***** Search bar auto complete ********/
