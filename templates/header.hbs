@@ -353,7 +353,7 @@ var webwidget_src=mapObject.ze_webwidget_src[searchKey];
 <!--  Retail PopUp - Amy  -->
 <label class="zd_Hidden" id="category_script">{{asset 'categories.js'}}</label>
 <label class="zd_Hidden" id="section_script">{{asset 'sections.js'}}</label>
-  <label class="zd_Hidden" id="snow">{{asset 'snow.js'}}</label>
+  {{!-- <label class="zd_Hidden" id="snow">{{asset 'snow.js'}}</label> --}}
 <script type="text/javascript">
   if (the_url.indexOf('/categories/')  != -1 ) {
   $.loadScript('https:'+document.getElementById("category_script").innerHTML);
@@ -361,8 +361,8 @@ var webwidget_src=mapObject.ze_webwidget_src[searchKey];
     $.loadScript('https:'+document.getElementById("section_script").innerHTML);
   }
 
-   $.loadScript('https:' + document.getElementById("snow").innerHTML);
+   {{!-- $.loadScript('https:' + document.getElementById("snow").innerHTML); --}}
 </script>
 
 
-<canvas id="sky" style="position: absolute"></canvas>
+{{!-- <canvas id="sky" style="position: absolute"></canvas> --}}
