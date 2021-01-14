@@ -70,6 +70,10 @@ In one_widget.js files, it clearifies the useage and advantages of new way of us
 
 After this release, the confluence documentation for zendesk widget will be update. 
 
+2020 
+1. Thursday, 14 Jan
+disable snowing JS, commented out asset injection, loading Script function and <div> place holder on header.hbs (at the end of file), keep snow.js in assets directory, in case for future reuse. 
+
 
 
 
