@@ -26,6 +26,36 @@ var sports_category_ID = mapObject.sports_category_ID[searchKey];
 var accounts_orders_legal_category_ID = mapObject.accounts_orders_legal_category_ID[searchKey];
 var user_manual_release_info_category_ID = mapObject.user_manual_release_info_category_ID[searchKey];
 var learn_more_category_ID = mapObject.learn_more_category_ID[searchKey];
+
+/******************* Change subfooter links if in specific category ************************/
+var communityLink = document.getElementById('subfooter_link_community'); // Get the subfooter community link
+var communityLink_navigation = document.getElementById('subfooter_link_community_navigation').innerHTML; // Get all the hidden HTML DC hidden in 'footer.hbs'
+var communityLink_apps = document.getElementById('subfooter_link_community_apps').innerHTML;
+var communityLink_sports = document.getElementById('subfooter_link_community_sports').innerHTML;
+var communityLink_accounts = document.getElementById('subfooter_link_community_accounts').innerHTML;
+var communityLink_usermanuals = document.getElementById('subfooter_link_community_usermanuals').innerHTML;
+var communityLink_learn_more = document.getElementById('subfooter_link_community_learn_more').innerHTML;
+if (communityLink) { // If the community link exists then,
+	if (the_url.indexOf(naviagtion_category_ID) !== -1) { // if url contains the navigation ID
+		communityLink.href = communityLink_navigation; //change HREF to the DC 'subfooter_link_community_navigation'
+	} 
+	else if (the_url.indexOf(apps_category_ID) !== -1) { // if url contains the apps ID
+		communityLink.href = communityLink_apps; //change HREF to the DC 'subfooter_link_community_apps'
+	} 
+	else if (the_url.indexOf(sports_category_ID) !== -1) { // if url contains the sports ID
+		communityLink.href = communityLink_sports; //change HREF to the DC 'subfooter_link_community_sports'
+	} 
+	else if (the_url.indexOf(accounts_orders_legal_category_ID) !== -1) { // if url contains the accounts ID
+		communityLink.href = communityLink_accounts; //change HREF to the DC 'subfooter_link_community_accounts'
+	}
+	else if (the_url.indexOf(user_manual_release_info_category_ID) !== -1) { // if url contains the user manauls ID
+		communityLink.href = communityLink_usermanuals; //change HREF to the DC 'subfooter_link_community_usermanuals'
+	}
+	else if (the_url.indexOf(learn_more_category_ID) !== -1) { // if url contains the learn more ID
+		communityLink.href = communityLink_learn_more; //change HREF to the DC 'subfooter_link_community_learn_more'
+	} else {}
+}
+/******************* End of Change subfooter links if in specific category ************************/
  /******************  Category Pages GA tracking if customer clicks Section in category *********************/
    	        var category_category = "Category"; 
    	        var category_action = "";
