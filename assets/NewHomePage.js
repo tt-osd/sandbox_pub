@@ -8,45 +8,65 @@
 
  function insertSubTitle() {
 
-     //for new home page 
+    //for new home page 
 
-     var user_manual_subTitle = document.getElementById("sub-title-" + user_manual_release_info_ID);
-     var navigation_subTitle = document.getElementById("sub-title-" + naviagtion_ID);
-     var apps_subTitle = document.getElementById("sub-title-" + apps_ID);
-     var sports_subTitle = document.getElementById("sub-title-" + sports_ID);
-     var accounts_subTitle = document.getElementById("sub-title-" + accounts_orders_legal_ID);
-     var learnMore_subTitle = document.getElementById("sub-title-" + learn_more_ID);
+    var user_manual_subTitle = document.getElementById("sub-title-" + user_manual_release_info_ID);
+    var navigation_subTitle = document.getElementById("sub-title-" + naviagtion_ID);
+    var apps_subTitle = document.getElementById("sub-title-" + apps_ID);
+    var sports_subTitle = document.getElementById("sub-title-" + sports_ID);
+    var accounts_subTitle = document.getElementById("sub-title-" + accounts_orders_legal_ID);
+    var learnMore_subTitle = document.getElementById("sub-title-" + learn_more_ID);
 
 
-     var user_manual_Text = document.getElementById("home_category_sub_title_manual");
-     var navigation_Text = document.getElementById("home_category_sub_title_nav");
-     var apps_Text = document.getElementById("home_category_sub_title_apps");
-     var sports_Text = document.getElementById("home_category_sub_title_sport");
-     var accounts_Text = document.getElementById("home_category_sub_title_account");
-     var learnMore_Text = document.getElementById("home_category_sub_title_other");
+    var user_manual_Text = document.getElementById("home_category_sub_title_manual");
+    var navigation_Text = document.getElementById("home_category_sub_title_nav");
+    var apps_Text = document.getElementById("home_category_sub_title_apps");
+    var sports_Text = document.getElementById("home_category_sub_title_sport");
+    var accounts_Text = document.getElementById("home_category_sub_title_account");
+    var learnMore_Text = document.getElementById("home_category_sub_title_other");
 
-     if ((user_manual_subTitle != null) && (user_manual_Text != null)) {
-         user_manual_subTitle.innerHTML = user_manual_Text.innerHTML;
-     }
-     if ((navigation_subTitle != null) && (navigation_Text != null)) {
-         navigation_subTitle.innerHTML = navigation_Text.innerHTML;
-     }
-     if ((apps_subTitle != null) && (apps_Text != null)) {
-         apps_subTitle.innerHTML = apps_Text.innerHTML;
-     }
-     if ((sports_subTitle != null) && (sports_Text != null)) {
-         sports_subTitle.innerHTML = sports_Text.innerHTML;
-     }
-     if ((accounts_subTitle != null) && (accounts_Text != null)) {
-         accounts_subTitle.innerHTML = accounts_Text.innerHTML;
-     }
-     if ((learnMore_subTitle != null) && (learnMore_Text != null)) {
-         learnMore_subTitle.innerHTML = learnMore_Text.innerHTML;
-     }
-     //for new home page 
- }
+    var user_manual_cta = document.getElementById("explore_" + user_manual_release_info_ID); // Get CTA for the category
+    var navigation_cta = document.getElementById("explore_" + naviagtion_ID); // Get CTA for the category
+    var apps_cta = document.getElementById("explore_" + apps_ID); // Get CTA for the category
+    var sports_cta = document.getElementById("explore_" + sports_ID); // Get CTA for the category
+    var accounts_cta = document.getElementById("explore_" + accounts_orders_legal_ID); // Get CTA for the category
+    var learnMore_cta = document.getElementById("explore_" + learn_more_ID); // Get CTA for the category
 
- insertSubTitle();
+    var user_manual_cta_text = document.getElementById("home_category_cta_manual"); // Get text from DC for the CTA
+    var navigation_cta_text = document.getElementById("home_category_cta_nav"); // Get text from DC for the CTA
+    var apps_cta_text = document.getElementById("home_category_cta_apps"); // Get text from DC for the CTA
+    var sports_cta_text = document.getElementById("home_category_cta_sports"); // Get text from DC for the CTA
+    var accounts_cta_text = document.getElementById("home_category_cta_account"); // Get text from DC for the CTA
+    var learnMore_cta_text = document.getElementById("home_category_cta_other"); // Get text from DC for the CTA
+
+    if ((user_manual_subTitle != null) && (user_manual_Text != null)) {
+        user_manual_subTitle.innerHTML = user_manual_Text.innerHTML;
+        user_manual_cta.innerHTML = user_manual_cta_text.innerHTML;  // Put text from DC for the into CTA
+    }
+    if ((navigation_subTitle != null) && (navigation_Text != null)) {
+        navigation_subTitle.innerHTML = navigation_Text.innerHTML;
+        navigation_cta.innerHTML = navigation_cta_text.innerHTML; // Put text from DC for the into CTA
+    }
+    if ((apps_subTitle != null) && (apps_Text != null)) {
+        apps_subTitle.innerHTML = apps_Text.innerHTML;
+        apps_cta.innerHTML = apps_cta_text.innerHTML; // Put text from DC for the into CTA
+    }
+    if ((sports_subTitle != null) && (sports_Text != null)) {
+        sports_subTitle.innerHTML = sports_Text.innerHTML;
+        sports_cta.innerHTML = sports_cta_text.innerHTML; // Put text from DC for the into CTA
+    }
+    if ((accounts_subTitle != null) && (accounts_Text != null)) {
+        accounts_subTitle.innerHTML = accounts_Text.innerHTML;
+        accounts_cta.innerHTML = accounts_cta_text.innerHTML; // Put text from DC for the into CTA
+    }
+    if ((learnMore_subTitle != null) && (learnMore_Text != null)) {
+        learnMore_subTitle.innerHTML = learnMore_Text.innerHTML;
+        learnMore_cta.innerHTML = learnMore_cta_text.innerHTML; // Put text from DC for the into CTA
+    }
+    //for new home page 
+}
+
+insertSubTitle();
 
 
 

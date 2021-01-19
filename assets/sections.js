@@ -26,6 +26,58 @@ var sports_category_ID = mapObject.sports_category_ID[searchKey];
 var accounts_orders_legal_category_ID = mapObject.accounts_orders_legal_category_ID[searchKey];
 var user_manual_release_info_category_ID = mapObject.user_manual_release_info_category_ID[searchKey];
 var learn_more_category_ID = mapObject.learn_more_category_ID[searchKey];
+/******************* Change subfooter links if in specific category ************************/
+var communityLink = document.getElementById('subfooter_link_community'); // Get the subfooter community link
+var communityLink_sports = document.getElementById('subfooter_link_community_sports').innerHTML; // Get all the hidden HTML DC hidden in 'footer.hbs'
+var communityLink_myDriveConnect = document.getElementById('subfooter_link_community_myDiveConnect').innerHTML;
+var communityLink_ttHome = document.getElementById('subfooter_link_community_TT_Home').innerHTML;
+var communityLink_wifi = document.getElementById('subfooter_link_community_wifi').innerHTML;
+var communityLink_aimgo = document.getElementById('subfooter_link_community_amigo').innerHTML;
+var communityLink_go_nav = document.getElementById('subfooter_link_community_go_nav').innerHTML;
+var communityLink_go_mobile = document.getElementById('subfooter_link_community_go_mobile').innerHTML;
+var communityLink_navigation_app = document.getElementById('subfooter_link_community_navigation_app').innerHTML;
+var communityLink_curfer = document.getElementById('subfooter_link_community_curfer').innerHTML;
+var communityLink_golfer = document.getElementById('subfooter_link_community_golfer').innerHTML;
+var communityLink_touch = document.getElementById('subfooter_link_community_touch').innerHTML;
+var communityLink_bandit = document.getElementById('subfooter_link_community_bandit').innerHTML;
+var communityLink_using_device = document.getElementById('subfooter_link_community_using_device').innerHTML;
+var communityLink_services = document.getElementById('subfooter_link_community_services').innerHTML;
+
+if (communityLink) { // if the community link on the subfooter exists 
+	if (the_url.indexOf(wifi_section_id) !== -1) { // and the ID matches the URL id 
+        communityLink.href = communityLink_wifi; // change href to the DC matching the ID in the footer.hbs file
+       } else if (the_url.indexOf(mdc_section_id) !== -1) {
+        communityLink.href = communityLink_myDriveConnect;
+       } else if (the_url.indexOf(tthome_section_id) !== -1) {
+        communityLink.href = communityLink_ttHome;
+       } else if (the_url.indexOf(amigo_section_id) !== -1) {
+        communityLink.href = communityLink_aimgo;                                                 
+       } else if(the_url.indexOf(go_navigation_section_id) !== -1) {
+        communityLink.href = communityLink_go_nav;  
+       } else if (the_url.indexOf(go_mobile_section_id) !== -1) { 
+        communityLink.href = communityLink_go_mobile; 
+       } else if (the_url.indexOf(navigation_app_section_id) !== -1) { 
+        communityLink.href = communityLink_navigation_app; 
+       } else if (the_url.indexOf(curfer_app_section_id) !== -1) { 
+        communityLink.href = communityLink_curfer; 
+       } else if (the_url.indexOf(sports_watch_section_id) !== -1) { 
+        communityLink.href = communityLink_sports; 
+       } else if (the_url.indexOf(golfer_section_id) !== -1) { 
+        communityLink.href = communityLink_golfer; 
+       } else if (the_url.indexOf(tomtom_touch_section_id) !== -1) { 
+        communityLink.href = communityLink_touch; 
+       } else if (the_url.indexOf(bandit_section_id) !== -1) { 
+        communityLink.href = communityLink_bandit; 
+       } else if (the_url.indexOf(using_your_device_section_id) !== -1) { 
+        communityLink.href = communityLink_using_device; 
+       } else if (the_url.indexOf(tips_section_id) !== -1) { 
+        communityLink.href = communityLink_using_device; 
+       } else if (the_url.indexOf(tips_section_id) !== -1) { 
+        communityLink.href = communityLink_services; 
+       } else {
+        }
+}
+/******************* End of Change subfooter links if in specific category ************************/
 /******************  Section Pages GA tracking if customer clicks Section in category *********************/
         var section_category = "Section"; 
         var section_action = "";
@@ -85,6 +137,9 @@ var learn_more_category_ID = mapObject.learn_more_category_ID[searchKey];
 /****************** End GA tracking if customer clicks Section in category ********************/     
 /****************** Show the golf form if on the golf page ********************/         
 if (window.location.href.indexOf(golfer_section_id) > -1) {
-    document.getElementById("golf_form_block").style.display = "flex";  
+   var golf_form_block = document.getElementById("golf_form_block");
+   if (golf_form_block != null) {
+    golf_form_block.style.display = "flex"; 
+   } 
 }
 /****************** Show the golf form if on the golf page ********************/     
