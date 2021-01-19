@@ -60,9 +60,11 @@ to see more examples, here is a documentation of bongo SDK, https://confluence.t
 
 asset can not be used in separated JS, css, zendesk does not support this usage, and we do not have a requirement on this yet, so no solutions of course. 
 
-  # Release Note
-1. 12th November Thursday 2020. release of improved zendesk widget
-In this release, zendesk widget configuration is being written in one_widget.JS and the script is loaded on header after all the dynamic content for bongo and zendesk widget, and in the same <sctipt> tag after the creating of "ze-snippet", the code can be found on header, around line 88,89
+# Release Notes
+### 2020
+## 1. 12th November Thursday 2020. 
+Release of improved zendesk widget
+I  n this release, zendesk widget configuration is being written in one_widget.JS and the script is loaded on header after all the dynamic content for bongo and zendesk widget, and in the same <sctipt> tag after the creating of "ze-snippet", the code can be found on header, around line 88,89
 
 This release organised all the zendesk widget configuration in one file, in order, works together with the interactiong of bongo and bongo+ widget combo. 
 
@@ -70,9 +72,17 @@ In one_widget.js files, it clearifies the useage and advantages of new way of us
 
 After this release, the confluence documentation for zendesk widget will be update. 
 
-2020 
-1. Thursday, 14 Jan
+### 2021 
+## 1. Thursday, 14 Jan
 disable snowing JS, commented out asset injection, loading Script function and <div> place holder on header.hbs (at the end of file), keep snow.js in assets directory, in case for future reuse. 
+## 2. 19/01/2021
+- Added DC for copyright to make it editable without release | *footer.hbs*
+- Added seperate DC for the community link in Sub-footer (inline documented) | *footer.hbs, categories.js, sections.js*
+- Added sepeerate DC for the CTA in home page (inline documented) | *homepage.hbs, NewHomePage,js*
+
+
+    
+ 
 
 
 
