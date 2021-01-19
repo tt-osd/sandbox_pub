@@ -24,7 +24,7 @@
                 <h4 id="sub-title-{{id}}"></h4>
               </div>
               <p class="blocks-item-description">{{excerpt description characters=75}}</p>
-              <div class="explore"><label>{{dc 'homepage_2020_category_exp'}}</label></div>
+                 <div class="explore"><label id="explore_{{id}}">{{dc 'homepage_2020_category_exp'}}</label></div>
             </a>
             <div class="home_category_image"></div>
          
@@ -63,6 +63,12 @@
   <label class='zd_Hidden' id='home_category_sub_title_account'>{{dc 'home_category_sub_title_account'}}</label>
   <label class='zd_Hidden' id='home_category_sub_title_sport'>{{dc 'home_category_sub_title_sport'}}</label>
   <label class='zd_Hidden' id='home_category_sub_title_other'>{{dc 'home_category_sub_title_other'}}</label>
+    <label class='zd_Hidden' id='home_category_cta_manual'>{{dc 'home_category_cta_manual'}}</label> <!-- Label for User Manaul click to action -->
+	<label class='zd_Hidden' id='home_category_cta_nav'>{{dc 'home_category_cta_nav'}}</label> <!-- Label for Navigation click to action -->
+ 	<label class='zd_Hidden' id='home_category_cta_apps'>{{dc 'home_category_cta_apps'}}</label> <!-- Label for Apps click to action -->
+ 	<label class='zd_Hidden' id='home_category_cta_account'>{{dc 'home_category_cta_account'}}</label> <!-- Label for Accounts click to action -->
+ 	<label class='zd_Hidden' id='home_category_cta_sports'>{{dc 'home_category_cta_sports'}}</label> <!-- Label for Sports click to action -->
+ 	<label class='zd_Hidden' id='home_category_cta_other'>{{dc 'home_category_cta_other'}}</label> <!-- Label for Other click to action -->
 
   <label class="zd_Hidden" id="NewHomePage">{{asset 'NewHomePage.js'}}</label>
   <script>
