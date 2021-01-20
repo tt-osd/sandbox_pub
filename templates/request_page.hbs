@@ -24,6 +24,20 @@
 
   <div class="request-container">
     <section class="request-main">
+       <!--------- PAS request block --------->
+      <div id="oow_serial" class="zd_Hidden">
+        <div class="" id="ask_for_pas">
+          <p>{{ dc 'strap_form_pas_ask_for_purchase_replacement'}}</p>
+          <div class="op_inline" id="pas_yes">
+              <label class="status_label_Y status-label-open">{{ dc 'yes' }}</label>
+          </div>
+          <div class="op_inline" id="pas_no" onclick="location.href = 'https://www.tomtom.com/';">
+              <label class="status_label_N">{{ dc 'no' }}</label>
+          </div>
+        </div>
+        <h4 class="zd_Hidden" id="pas_confirmation">{{ dc 'strap_form_pas_created_success_alert'}}</h4>
+      </div>
+    <!-------------------------------------->
       {{satisfaction}}
       <ul class="comment-list" id="comment_list">
         {{#each comments}}
@@ -239,6 +253,8 @@
 </div>
 
 <label id="Attachtment_validation_and_gdpr_golf_request" class="zd_Hidden">{{asset 'Attachtment_validation.js'}}</label>
+<label id="strap_form" class="zd_Hidden">{{asset 'strap_form.js'}}</label>
 <script>
 $.loadScript('https:'+document.getElementById("Attachtment_validation_and_gdpr_golf_request").innerHTML);
+$.loadScript('https:'+document.getElementById("strap_form").innerHTML);
 </script>
