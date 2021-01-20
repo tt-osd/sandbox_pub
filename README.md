@@ -78,7 +78,7 @@ After this release, the confluence documentation for zendesk widget will be upda
 ## 2. 19/01/2021
     - Added DC for copyright to make it editable without release | *footer.hbs*
     - Added seperate DC for the community link in Sub-footer (inline documented) | *footer.hbs, categories.js, sections.js*
-    - Added sepeerate DC for the CTA in home page (inline documented) | *homepage.hbs, NewHomePage,js*
+    - Added seperate DC for the CTA in home page (inline documented) | *homepage.hbs, NewHomePage,js*
 ## 3. 20/01/2021
     Released the updated Exit Survey Question and answers
  
