@@ -12,7 +12,18 @@
   </h1>  
   <div class="form">
     {{request_form}}
+    
+     <!-- Strap page - article dropdown -->
+    <div id="manual_added" class="zd_Hidden">
+      <label id="article_no_label" class="required manual_fields_select">{{ dc 'strap_replace_select_option'}}</label>
+      <select id="article_no" class="required manual_fields">
+        <option id="select_article" value="0"></option>
+      </select> 
+      <div id="address_details" class=""> {{dc 'strap_page_check_user_address'}} </div> 
+    </div>
+    <!-- End : Strap page - article dropdown -->
   </div>
+  
 </div>
 <label class="zd_Hidden" id="GDPR_page_title">{{dc 'form_title_-_gdpr'}}</label>
 <label class="zd_Hidden" id="golf_page_title">{{dc 'form_title_-_golf_form'}}</label>

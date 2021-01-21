@@ -9141,3 +9141,105 @@ zd-autocomplete-breadcrumbs-multibrand {
   font-family: noway, "noway", Noway Regular,Helvetica,Arial,sans-serif;
 }
 /***** Search bar auto complete ********/
+
+/* Repairs block */
+ #cs_BURMA_Frame, #no_BURMA_user, #repair_user, #cs_MyRepair_Details, #cs_MyRepair_List {
+	display: none;
+}
+
+/*dda 914*/
+.op_inline {
+/*     padding: 0 1em 0 1em;
+    border-radius: 5px; */
+    display: inline;
+    cursor: pointer;
+}
+
+.status_label_Y{
+  border: none;
+    border-radius: 0px !important;
+    color: #ffffff !important;
+    background-color: #df1b12;
+    font-family: "gotham bold";
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 16px 24px;
+    text-align: center;
+    transition: background-color .12s ease-in-out, border-color .12s ease-in-out, color .15s ease-in-out;
+    user-select: none;
+    white-space: nowrap;
+    /* width: 100%; */
+    -webkit-touch-callout: none;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    margin-right:20px;
+}
+
+.status_label_N{
+  border: none;
+    border-radius: 0px !important;
+    color: #ffffff !important;
+    background-color: #8DC3EB;
+    font-family: "gotham bold";
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 16px 24px;
+    text-align: center;
+    transition: background-color .12s ease-in-out, border-color .12s ease-in-out, color .15s ease-in-out;
+    user-select: none;
+    white-space: nowrap;
+    /* width: 100%; */
+    -webkit-touch-callout: none;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+  margin-right:20px;
+}
+
+.status_label_Y:hover{
+   background-color: #b1110e;
+}
+
+.status_label_N:hover{
+   background-color: #61ade0;
+}
+
+/*dda 914*/
+
+/*DDA1022*/
+.manual_fields{
+  width:100% !important;
+  height:60px !important;
+  padding-top: 10px;
+}
+
+#manual_added{
+  margin-top:16px;
+}
+
+#address_details{
+  margin-top: 10px;
+}
+#address_details a{
+    color: #004b7f;
+    text-decoration: underline;
+    text-transform: none;
+}
+
+.manual_fields_select{
+    font-family: "gotham bold";
+    position: relative;
+    top: 30px;
+    left: 10px;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+    z-index: 10;
+}
