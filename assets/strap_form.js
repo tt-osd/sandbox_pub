@@ -4,13 +4,23 @@ var api_server_url = mapObject.proxy_api_server[searchKey];
 ////strap page create RMA and update ticket  - Asmita////
     function successCallBack(data){
       console.log(data);
+		////for RMA callback
   		if(data.status == "oow") {
   			$("#oow_serial").removeClass("zd_Hidden");
-  		}
+			$("#rma_error").hide();
+  		} else if (data.status == "no_rma") {
+			$("#rma_error").removeClass("zd_Hidden");
+			$("#oow_serial").hide();
+		}
+		
+		////for PAS callback
   		if(data.status == "success") {
   			$("#ask_for_pas").hide();
   			$("#pas_confirmation").removeClass("zd_Hidden");
-  		}
+  		} else if(data.status == "failed") {
+			("#oow_serial").hide();
+			$("#rma_error").removeClass("zd_Hidden");
+		}
     }
 
     /* Function for all API calls */

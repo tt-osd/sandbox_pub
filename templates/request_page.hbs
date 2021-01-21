@@ -24,7 +24,8 @@
 
   <div class="request-container">
     <section class="request-main">
-       <!--------- PAS request block --------->
+	<!--------- PAS request and RMA error alert block --------->
+      <br/>
       <div id="oow_serial" class="zd_Hidden">
         <div class="" id="ask_for_pas">
           <p>{{ dc 'strap_form_pas_ask_for_purchase_replacement'}}</p>
@@ -37,6 +38,7 @@
         </div>
         <h4 class="zd_Hidden" id="pas_confirmation">{{ dc 'strap_form_pas_created_success_alert'}}</h4>
       </div>
+      <div id="rma_error" class="zd_Hidden"><h4> {{dc 'strap_form_rma_failuer_alert'}} </h4></div>
     <!-------------------------------------->
       {{satisfaction}}
       <ul class="comment-list" id="comment_list">
