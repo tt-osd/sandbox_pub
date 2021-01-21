@@ -81,7 +81,16 @@ disable snowing JS, commented out asset injection, loading Script function and <
 - Added sepeerate DC for the CTA in home page (inline documented) | *homepage.hbs, NewHomePage,js*
 
 
-    
+## Thursday, 21 Jan
+Release strap form
+ - Automated form for EMEA
+   - Create DEL for IW
+   - Ask for PAS for OOW
+     - Yes : create PAS 
+	 - NO : Do nothing
+   - If PAS or DEL fails with validation : notifty user with DC message
+ - Normal form for other locales
+
  
 
 
