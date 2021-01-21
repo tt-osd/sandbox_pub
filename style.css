@@ -9159,7 +9159,7 @@ zd-autocomplete-breadcrumbs-multibrand {
   border: none;
     border-radius: 0px !important;
     color: #ffffff !important;
-    background-color: #df1b12;
+    background-color: #000000;
     font-family: "gotham bold";
     cursor: pointer;
     display: inline-block;
@@ -9183,7 +9183,7 @@ zd-autocomplete-breadcrumbs-multibrand {
   border: none;
     border-radius: 0px !important;
     color: #ffffff !important;
-    background-color: #8DC3EB;
+    background-color: #000000;
     font-family: "gotham bold";
     cursor: pointer;
     display: inline-block;
@@ -9204,12 +9204,12 @@ zd-autocomplete-breadcrumbs-multibrand {
 }
 
 .status_label_Y:hover{
-   background-color: #b1110e;
-}
-
-.status_label_N:hover{
-   background-color: #61ade0;
-}
+    background-color: #4a4c4c;
+ }
+ 
+ .status_label_N:hover{
+    background-color: #4a4c4c;
+ }
 
 /*dda 914*/
 
