@@ -68,12 +68,10 @@ function checkNums(serial_number_input, submit_button, validSerialNumber) {
 /************************************ Call API to get straps dropdown values (article no dropdown) - Asmita **********************/
 // this is a callback function for ajax
 function successCallBack(data) {
-    //console.log(data);
     if (data.requesttype == "getCUDSdata") {
         var currlocale = HelpCenter.user.locale;
-        //alert(data.country);
         if (!currlocale.includes((data.country).toLowerCase())) {
-            //alert('force redirect');
+            //add force redirect according to locale
         }
     }
     if (data.requesttype == "getSunshineStrapList") {
@@ -93,7 +91,6 @@ function successCallBack(data) {
 function submitStrapRequest(requesttype, strapData = '')
 {
     var curruseremail = HelpCenter.user.email;
-    //server_url = 'https://10.66.244.239/zenApi/src/strapController.php';
     server_url = api_server_url + 'zenApi/src/strapController.php';
     $.ajax({
         url: server_url,
@@ -151,7 +148,8 @@ console.log(rma_number_field_id);
 
 /****************************** STRAP REQUEST FORM *************************************/
 if ((purchase_date != null) && (serial_no_user_input != null)) {
-    //testing URL hc/en-gb/requests/new?ticket_form_id=360001159659 
+    //Sandbox : 360001159659 
+	//Live : 360000746440
     //// get user country to cross check wth currecnt locale, else re-direct user to respective interface/locale ////
     var current_user = HelpCenter.user.email;
     submitStrapRequest("getCUDSdata");
@@ -177,10 +175,10 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
     $('.request_custom_fields_' + automated_strap_flag_field_id).addClass("zd_Hidden"); //Hide strap automated flag field for end-user
     document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("placeholder", "AB1234C56789"); //Giving example of serial number for customer 
 
+	//---------------------------------------------------------------------//
     if (automated_strap_input != null) {// if this is the automated strap form
-        //---------------------------------------------------------------------//
-        //testing URL hc/en-gb/requests/new?ticket_form_id=360000671760 
-        // Automated
+        //Sandbox : 360000671760 
+		//Live : 360001159679
         // This is to prefill and hide the fields on the Strap Request Form //  
         $('.request_custom_fields_' + oow_check_field_id).addClass("zd_Hidden"); // Hide OOW check
         $('.request_custom_fields_' + rma_number_field_id).addClass("zd_Hidden"); //Hide RMA created flag
@@ -199,7 +197,6 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
     //create a live validation form
     //disable the submit button 
     var button = (document.getElementsByName("commit"))[0];
-    //var button = (document.getElementsByName("commit"))[1];
     button.id = "submit_strap_request1";
     button.disabled = true;
     // after the following validation is passed, this button will be enabled.
@@ -266,8 +263,6 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
             return false;
         }
     });
-    // the end of if-at strap form page
-
     // the end of if-at strap form page
 
     /******************************** END STRAP REQUEST FORM ********************************/

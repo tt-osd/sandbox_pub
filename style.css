@@ -581,7 +581,8 @@ ul {
 /***** Buttons *****/
 
 .button,
-[role="button"], .button:visited {
+[role="button"],
+.button:visited {
     border: none;
     border-radius: 0px !important;
     color: #ffffff !important;
@@ -592,7 +593,7 @@ ul {
     font-size: 14px;
     line-height: 16px;
     margin: 0;
-  	margin-bottom: 10px;
+    margin-bottom: 10px;
     padding: 16px 24px;
     text-align: center;
     transition: background-color .12s ease-in-out, border-color .12s ease-in-out, color .15s ease-in-out;
@@ -601,16 +602,18 @@ ul {
     /*   width: 100%; */
     -webkit-touch-callout: none;
     text-transform: uppercase !important;
-  	text-decoration: none !important;
+    text-decoration: none !important;
 }
 
-.button-white, .button-white:focus {
+.button-white,
+.button-white:focus {
     color: #000 !important;
     fill: #000 !important;
     --coloredFontColor: #666 !important;
     background-color: #e5e5e5 !important;
     width: auto !important;
 }
+
 .button-red {
     color: #ffffff;
     fill: #000;
@@ -626,6 +629,7 @@ ul {
 .button-red:hover {
     background-color: #b1110E !important;
 }
+
 .button-blue {
     color: #ffffff;
     background-color: #8DC3EB;
@@ -636,6 +640,7 @@ ul {
 .button-blue:hover {
     background-color: #61ADE0 !important;
 }
+
 .button-grey {
     color: #ffffff;
     background-color: #4a4c4c;
@@ -1520,13 +1525,15 @@ img#user-avatar.user-avatar {
 .footer-link-group__item {
     text-transform: none;
     list-style: none;
-		padding: 10px 0;
+    padding: 10px 0;
 }
+
 @media (min-width: 900px) {
-  .footer-link-group__item {
- 		padding: 0; 
-  }
+    .footer-link-group__item {
+        padding: 0;
+    }
 }
+
 .footer-link-group__items {
     padding-left: 0;
 }
@@ -1785,54 +1792,68 @@ img#user-avatar.user-avatar {
     padding: 40px 0px 20px 0px;
     background-color: #bcdcf5;
 }
+
 .search_header_search {
-  background-color: #f2f2f2;
+    background-color: #f2f2f2;
 }
+
 .header_search h1 {
-    font-size: 24px;  
+    font-size: 24px;
 }
-.header_search h1, .header_search form{
+
+.header_search h1,
+.header_search form {
     margin-bottom: 24px;
 }
+
 @media (min-width: 899px) {
-.header_search h2, .header_search form{
-    margin-top: 0px;
-    margin-bottom: 32px;
+    .header_search h2,
+    .header_search form {
+        margin-top: 0px;
+        margin-bottom: 32px;
+    }
+    .header_search h1 {
+        font-size: 30px;
+    }
 }
-.header_search h1 {
-    font-size: 30px;
-}
-}
+
 .header_search form {
     margin-left: 0;
 }
+
 .header_search .search input[type="search"] {
     height: 80px;
     padding: 28px 80px 14px 64px;
     font-size: 24px;
     color: #000;
 }
+
 .header_search .search input[type="search"]::placeholder {
-    color: #000; 
+    color: #000;
 }
+
 .header_search .search input[type="search"]::placeholder {
-    color: #000 !important; 
+    color: #000 !important;
     opacity: 1;
 }
-.header_search .search input[type="search"]::-moz-placeholder  {
-    color: #000 !important; 
+
+.header_search .search input[type="search"]::-moz-placeholder {
+    color: #000 !important;
     opacity: 1;
 }
+
 .header_search .search input[type="search"]:-moz-placeholder {
-    color: #000 !important; 
+    color: #000 !important;
     opacity: 1;
 }
+
 .header_search .search input[type="search"]::-webkit-input-placeholder {
-    color: #000 !important; 
+    color: #000 !important;
     opacity: 1;
 }
+
 .header_search form .title {
-    font-family: Gotham Bold,Helvetica,Arial,sans-serif;
+    font-family: Gotham Bold, Helvetica, Arial, sans-serif;
     font-size: 12px;
     line-height: 16px;
     content: attr(data-value);
@@ -1841,6 +1862,7 @@ img#user-avatar.user-avatar {
     left: 66px;
     top: 16px;
 }
+
 .search_icon {
     position: absolute;
     top: 50%;
@@ -1848,9 +1870,11 @@ img#user-avatar.user-avatar {
     background: none;
     border: 0;
     outline: 0;
-  	left:24px;
-  	margin-top:-7px;
+    left: 24px;
+    margin-top: -7px;
 }
+
+
 /***** Hero component *****/
 
 .hero {
@@ -2850,6 +2874,7 @@ ul.article-list {
     font-size: 18px;
 }
 
+
 /***** End Category pages *****/
 
 
@@ -3605,18 +3630,22 @@ ul.article-list {
     left: -5px;
     vertical-align: baseline;
 }
+
 .gs-article-titles {
-  display: inline-block;
-  vertical-align: top;
+    display: inline-block;
+    vertical-align: top;
 }
+
 #gs-article-intro {
-  max-width: 35%;
-  min-width: 25%;
-  margin-right: 50px;
+    max-width: 35%;
+    min-width: 25%;
+    margin-right: 50px;
 }
-#tt-get-started-intro{
-  color: #4a4c4c;
+
+#tt-get-started-intro {
+    color: #4a4c4c;
 }
+
 .gs-article {
     /*
   * The article grid is defined this way to optimize readability:
@@ -3692,10 +3721,9 @@ ul.article-list {
 
 @media (min-width: 1250px) {
     .gs-article-header-block {
-      	background: linear-gradient(90deg, #FFF 75%, transparent 25%);
+        background: linear-gradient(90deg, #FFF 75%, transparent 25%);
         min-height: 50%;
     }
-
     .gs-article-header-block:after {
         color: #FFF;
         width: 50px;
@@ -6299,11 +6327,17 @@ p.ct-content-block-description {
 
 
 /************** Repairs Details Table **************/
-#cs_BURMA_Frame, #no_BURMA_user, #repair_user, #cs_MyRepair_Details, #cs_MyRepair_List {
-	display: none;
+
+#cs_BURMA_Frame,
+#no_BURMA_user,
+#repair_user,
+#cs_MyRepair_Details,
+#cs_MyRepair_List {
+    display: none;
 }
+
 #shipping_label img {
-  width: 100%;
+    width: 100%;
 }
 
 .repairs_details_container {
@@ -6322,29 +6356,33 @@ p.ct-content-block-description {
     font-family: gotham, "gotham";
     text-transform: uppercase;
 }
-#print-shipping-label {
-  margin: 20px 0;
-  outline: none;
-}
-@media (min-width: 768px) {
-#shipping_label img {
-  height : 500px;
-}
-table.repairs_details_box_inner {
-  max-width: 800px;
-  margin-right: 50px;
-}
-}
-@media (min-width: 1024px) {
 
-.repairs_details_box_inner {
-  display: inline-block;
-  vertical-align: top;
+#print-shipping-label {
+    margin: 20px 0;
+    outline: none;
 }
-  #print-shipping-label { 
-  	margin: 0 0 20px 0;
-  }  
+
+@media (min-width: 768px) {
+    #shipping_label img {
+        height: 500px;
+    }
+    table.repairs_details_box_inner {
+        max-width: 800px;
+        margin-right: 50px;
+    }
 }
+
+@media (min-width: 1024px) {
+    .repairs_details_box_inner {
+        display: inline-block;
+        vertical-align: top;
+    }
+    #print-shipping-label {
+        margin: 0 0 20px 0;
+    }
+}
+
+
 /************** End of Repairs Details Table **************/
 
 
@@ -7867,7 +7905,7 @@ html[lang|="zh"] .search-results-description em {
 .modal {
     position: fixed;
     z-index: 99;
-/*     padding-top: 100px; */
+    /*     padding-top: 100px; */
     left: 0;
     top: 0;
     width: 100%;
@@ -7876,22 +7914,25 @@ html[lang|="zh"] .search-results-description em {
     background-color: rgba(0, 0, 0, 0.7);
     transition: all .3s ease .1s;
 }
+
 #survey_body {
     position: relative;
-  	top: 30%;
+    top: 30%;
     background-color: rgba(255, 255, 255, 1);
     margin: 0 auto;
     padding: 0;
     width: 90%;
     height: max-content;
     transition: all .3s ease .1s;
-	}
+}
+
 @media (min-width: 764px) {
     #survey_body {
         width: max-content;
         height: max-content;
     }
 }
+
 #survey_backgound {
     background-color: #fff;
     padding: 40px;
@@ -7909,8 +7950,9 @@ html[lang|="zh"] .search-results-description em {
     font-weight: bold;
 }
 
-.option_container, .survey_question {
-	margin-bottom: 40px;
+.option_container,
+.survey_question {
+    margin-bottom: 40px;
 }
 
 .op {
@@ -7930,9 +7972,10 @@ html[lang|="zh"] .search-results-description em {
 }
 
 #msgspan {
-		margin-left: 39px;
-  	color: #7a7e80;
+    margin-left: 39px;
+    color: #7a7e80;
 }
+
 #agree {
     width: 25px;
     height: 25px;
@@ -7941,8 +7984,9 @@ html[lang|="zh"] .search-results-description em {
     cursor: pointer;
     transition: all .25s ease 0s;
     position: absolute;
-  	margin-right: 14px;
+    margin-right: 14px;
 }
+
 #newchkbox {
     cursor: pointer;
 }
@@ -7950,7 +7994,7 @@ html[lang|="zh"] .search-results-description em {
 #agree_inner {
     width: 25px;
     height: 25px;
-  	background-color: #df1B12;
+    background-color: #df1B12;
     position: absolute;
     top: -1px;
     left: -1px;
@@ -9126,37 +9170,53 @@ only screen and (min-resolution:2dppx) {
     background-color: #DDD;
 }
 
+
 /****** End Retail PopUp - Amy *****/
+
+
 /***** Search bar auto complete ********/
+
 zd-autocomplete {
-	border-radius: 0px;  
+    border-radius: 0px;
 }
-zd-autocomplete-multibrand zd-autocomplete-title-multibrand { 
-  color: #000;
-  font-family: gotham, "gotham", Gotham Bold,Helvetica,Arial,sans-serif;
+
+zd-autocomplete-multibrand zd-autocomplete-title-multibrand {
+    color: #000;
+    font-family: gotham, "gotham", Gotham Bold, Helvetica, Arial, sans-serif;
 }
+
 zd-autocomplete-breadcrumbs-multibrand {
-  color: #4A4C4C;
-  -webkit-text-fill-color: #4A4C4C;
-  font-family: noway, "noway", Noway Regular,Helvetica,Arial,sans-serif;
+    color: #4A4C4C;
+    -webkit-text-fill-color: #4A4C4C;
+    font-family: noway, "noway", Noway Regular, Helvetica, Arial, sans-serif;
 }
+
+
 /***** Search bar auto complete ********/
+
 
 /* Repairs block */
- #cs_BURMA_Frame, #no_BURMA_user, #repair_user, #cs_MyRepair_Details, #cs_MyRepair_List {
-	display: none;
+
+#cs_BURMA_Frame,
+#no_BURMA_user,
+#repair_user,
+#cs_MyRepair_Details,
+#cs_MyRepair_List {
+    display: none;
 }
 
+
 /*dda 914*/
+
 .op_inline {
-/*     padding: 0 1em 0 1em;
-    border-radius: 5px; */
+    /*     padding: 0 1em 0 1em;
+        border-radius: 5px; */
     display: inline;
     cursor: pointer;
 }
 
-.status_label_Y{
-  border: none;
+.status_label_Y {
+    border: none;
     border-radius: 0px !important;
     color: #ffffff !important;
     background-color: #000000;
@@ -9176,11 +9236,11 @@ zd-autocomplete-breadcrumbs-multibrand {
     -webkit-touch-callout: none;
     text-transform: uppercase !important;
     text-decoration: none !important;
-    margin-right:20px;
+    margin-right: 20px;
 }
 
-.status_label_N{
-  border: none;
+.status_label_N {
+    border: none;
     border-radius: 0px !important;
     color: #ffffff !important;
     background-color: #000000;
@@ -9200,40 +9260,46 @@ zd-autocomplete-breadcrumbs-multibrand {
     -webkit-touch-callout: none;
     text-transform: uppercase !important;
     text-decoration: none !important;
-  margin-right:20px;
+    margin-right: 20px;
 }
 
-.status_label_Y:hover{
+
+.status_label_Y:hover {
     background-color: #4a4c4c;
- }
- 
- .status_label_N:hover{
+}
+
+.status_label_N:hover {
     background-color: #4a4c4c;
- }
+}
+
+
 
 /*dda 914*/
 
+
 /*DDA1022*/
-.manual_fields{
-  width:100% !important;
-  height:60px !important;
-  padding-top: 10px;
+
+.manual_fields {
+    width: 100% !important;
+    height: 60px !important;
+    padding-top: 10px;
 }
 
-#manual_added{
-  margin-top:16px;
+#manual_added {
+    margin-top: 16px;
 }
 
-#address_details{
-  margin-top: 10px;
+#address_details {
+    margin-top: 10px;
 }
-#address_details a{
+
+#address_details a {
     color: #004b7f;
     text-decoration: underline;
     text-transform: none;
 }
 
-.manual_fields_select{
+.manual_fields_select {
     font-family: "gotham bold";
     position: relative;
     top: 30px;
