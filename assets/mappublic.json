@@ -144,16 +144,16 @@
         "prod": 321
     },
     "repairnumber_c_name_field_id": {
-        "sandbox": 360007871780,
-        "prod": 360009909019
+        "supportsandbox": 360007871780,
+        "help": 360009909019
     },
     "tomtom_id_field_id": {
         "sandbox": 360008192820,
         "prod": 321
     },
     "serial_number_eur_field_id": {
-        "sandbox": 360008860379,
-        "prod": 360009585579
+        "supportsandbox": 360008860379,
+        "help": 360009585579
     },
     "serial_number_EURO_field_ID": {
         "supportsandbox": 360008860379,
@@ -180,8 +180,8 @@
         "prod": 360009552120
     },
     "date_of_purchase_eur_field_id": {
-        "sandbox": 360008860439,
-        "prod": 360009585559
+        "supportsandbox": 360008860439,
+        "help": 360009585559
     },
     "date_of_purchase_EURO_field_id": {
         "supportsandbox": 360008860439,
