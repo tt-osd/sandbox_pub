@@ -1,12 +1,12 @@
 {
     "brand_id": {
-        "supportsandbox": 360000739680,
-        "help": 360000210599
+        "sandbox": 360000739680,
+        "prod": 360000210599
 
     },
     "golf_form_id": {
-        "supportsandbox": 360000679879,
-        "help": 360000746480
+        "sandbox": 360000679879,
+        "prod": 360000746480
 
     },
     "golf_form_ID": {
@@ -15,8 +15,8 @@
 
     },
     "talk_form_id": {
-        "supportsandbox": 360000794359,
-        "help": 360000796079
+        "sandbox": 360000794359,
+        "prod": 360000796079
 
     },
     "talkForm_ID": {
@@ -24,8 +24,8 @@
         "help": 360000796079
     },
     "strap_form_id": {
-        "supportsandbox": 360000671760,
-        "help": 360000746440
+        "sandbox": 360000671760,
+        "prod": 360000746440
     },
     "strap_form_ID": {
         "supportsandbox": 360000671760,
@@ -36,16 +36,16 @@
         "help": 360010586680
     },
     "gdpr_form_id": {
-        "supportsandbox": 360000569919,
-        "help": 360000697820
+        "sandbox": 360000569919,
+        "prod": 360000697820
     },
     "gdpr_form_ID": {
         "supportsandbox": 360000569919,
         "help": 360000697820
     },
     "email_form_id": {
-        "supportsandbox": 360000358360,
-        "help": 360000679560
+        "sandbox": 360000358360,
+        "prod": 360000679560
     },
     "emailForm_ID": {
         "supportsandbox": 360000358360,
@@ -56,104 +56,104 @@
         "prhelpod": 360000875740
     },
     "auto_renewal_refund_form_id": {
-        "supportsandbox": 360000875500,
-        "help": 360000875740
+        "sandbox": 360000875500,
+        "prod": 360000875740
     },
     "refund_form_id": {
-        "supportsandbox": 360000849779,
-        "help": 360000855559
+        "sandbox": 360000849779,
+        "prod": 360000855559
     },
     "refund_form_ID": {
         "supportsandbox": 360000849779,
         "help": 360000855559
     },
     "ordernumber_field_id": {
-        "supportsandbox": 360012478240,
-        "help": 360012584820
+        "sandbox": 360012478240,
+        "prod": 360012584820
     },
     "ordernumber_field_ID": {
         "supportsandbox": 360012478240,
         "help": 360012584820
     },
     "priority_field_id": {
-        "supportsandbox": 360004712120,
-        "help": 360001060319
+        "sandbox": 360004712120,
+        "prod": 360001060319
     },
     "type_field_id": {
-        "supportsandbox": 360004712100,
-        "help": 360001060299
+        "sandbox": 360004712100,
+        "prod": 360001060299
     },
     "status_field_id": {
-        "supportsandbox": 360004712080,
-        "help": 360001060279
+        "sandbox": 360004712080,
+        "prod": 360001060279
     },
     "description_field_id": {
-        "supportsandbox": 360004712060,
-        "help": 360001060259
+        "sandbox": 360004712060,
+        "prod": 360001060259
     },
     "subject_field_id": {
-        "supportsandbox": 360004712040,
-        "help": 360001060239
+        "sandbox": 360004712040,
+        "prod": 360001060239
     },
     "assignee_field_id": {
-        "supportsandbox": 360004712160,
-        "help": 360001060359
+        "sandbox": 360004712160,
+        "prod": 360001060359
     },
     "group_field_id": {
-        "supportsandbox": 360004712140,
-        "help": 360001060339
+        "sandbox": 360004712140,
+        "prod": 360001060339
     },
     "product_com_field_id": {
-        "supportsandbox": 360014264220,
-        "help": 360014228839
+        "sandbox": 360014264220,
+        "prod": 360014228839
     },
     "do_not_serve_field_id": {
-        "supportsandbox": 360005292280,
-        "help": 360004702680
+        "sandbox": 360005292280,
+        "prod": 360004702680
     },
     "review_score_field_id": {
-        "supportsandbox": 360005292300,
-        "help": 360004701240
+        "sandbox": 360005292300,
+        "prod": 360004701240
     },
     "reason_field_id": {
-        "supportsandbox": 360005394159,
-        "help": 360008963659
+        "sandbox": 360005394159,
+        "prod": 360008963659
     },
     "resolution_field_id": {
-        "supportsandbox": 360005394179,
-        "help": 321
+        "sandbox": 360005394179,
+        "prod": 321
     },
     "csat_field_id": {
-        "supportsandbox": 360005394199,
-        "help": 321
+        "sandbox": 360005394199,
+        "prod": 321
     },
     "gdpr_reason_field_id": {
-        "supportsandbox": 360007572579,
-        "help": 360009058800
+        "sandbox": 360007572579,
+        "prod": 360009058800
     },
     "gdpr_reason_field_ID": {
         "supportsandbox": 360007572579,
         "help": 360009058800
     },
     "chat_template_field_id": {
-        "supportsandbox": 360007740940,
-        "help": 360008963199
+        "sandbox": 360007740940,
+        "prod": 360008963199
     },
     "rnticket_field_id": {
-        "supportsandbox": 360007847999,
-        "help": 321
+        "sandbox": 360007847999,
+        "prod": 321
     },
     "repairnumber_c_name_field_id": {
-        "supportsandbox": 360007871780,
-        "help": 360009909019
+        "sandbox": 360007871780,
+        "prod": 360009909019
     },
     "tomtom_id_field_id": {
-        "supportsandbox": 360008192820,
-        "help": 321
+        "sandbox": 360008192820,
+        "prod": 321
     },
     "serial_number_eur_field_id": {
-        "supportsandbox": 360008860379,
-        "help": 360009585579
+        "sandbox": 360008860379,
+        "prod": 360009585579
     },
     "serial_number_EURO_field_ID": {
         "supportsandbox": 360008860379,
@@ -172,360 +172,360 @@
         "help": 360016069859
     },
     "strap_color_eur_field_id": {
-        "supportsandbox": 360008853480,
-        "help": 360009585539
+        "sandbox": 360008853480,
+        "prod": 360009585539
     },
-    "automated_strap_flag_field_ID": {
-        "supportsandbox": 360018299719,
-        "help": 360018199300
+    "strap_size_eur_field_id": {
+        "sandbox": 360008853500,
+        "prod": 360009552120
     },
     "date_of_purchase_eur_field_id": {
-        "supportsandbox": 360008860439,
-        "help": 360009585559
+        "sandbox": 360008860439,
+        "prod": 360009585559
     },
     "date_of_purchase_EURO_field_id": {
         "supportsandbox": 360008860439,
         "help": 360009585559
     },
     "refund_order_number_eur_field_id": {
-        "supportsandbox": 360009660459,
-        "help": 360009648540
+        "sandbox": 360009660459,
+        "prod": 360009648540
     },
     "refund_quantity_to_return_eur_field_id": {
-        "supportsandbox": 360009660979,
-        "help": 360009683179
+        "sandbox": 360009660979,
+        "prod": 360009683179
     },
     "refund_reason_for_return_eur_field_id": {
-        "supportsandbox": 360009628800,
-        "help": 360009683299
+        "sandbox": 360009628800,
+        "prod": 360009683299
     },
     "refund_purchase_date_eur_field_id": {
-        "supportsandbox": 360009661619,
-        "help": 360009683319
+        "sandbox": 360009661619,
+        "prod": 360009683319
     },
     "course_name_eur_field_id": {
-        "supportsandbox": 360009656380,
-        "help": 360009363299
+        "sandbox": 360009656380,
+        "prod": 360009363299
     },
     "course_name_EURO_field_id": {
         "supportsandbox": 360009656380,
         "help": 360009363299
     },
     "city_eur_field_id": {
-        "supportsandbox": 360009656400,
-        "help": 360009330600
+        "sandbox": 360009656400,
+        "prod": 360009330600
     },
     "country_eur_field_id": {
-        "supportsandbox": 360009692939,
-        "help": 360009363599
+        "sandbox": 360009692939,
+        "prod": 360009363599
     },
     "website_link_optional_eur_field_id": {
-        "supportsandbox": 360009693099,
-        "help": 360009330760
+        "sandbox": 360009693099,
+        "prod": 360009330760
     },
     "golf_course_issue_eur_field_id": {
-        "supportsandbox": 360009693119,
-        "help": 360009363619
+        "sandbox": 360009693119,
+        "prod": 360009363619
     },
     "holes_with_issue_eur_field_id": {
-        "supportsandbox": 360009693279,
-        "help": 360009330780
+        "sandbox": 360009693279,
+        "prod": 360009330780
     },
     "additional_notes_or_details_eur_field_id": {
-        "supportsandbox": 360009656840,
-        "help": 360009363859
+        "sandbox": 360009656840,
+        "prod": 360009363859
     },
     "sap_order_number_eur_field": {
-        "supportsandbox": 360013986420,
-        "help": 360013981420
+        "sandbox": 360013986420,
+        "prod": 360013981420
     },
     "sap_order_number_EURO_field": {
         "supportsandbox": 360013986420,
         "help": 360013981420
     },
     "sap_total_refund_amount_eur_field": {
-        "supportsandbox": 360013960199,
-        "help": 360013945500
+        "sandbox": 360013960199,
+        "prod": 360013945500
     },
     "sap_total_refund_amount_EURO_field": {
         "supportsandbox": 360013960199,
         "help": 360013945500
     },
     "sap_currency_eur_field": {
-        "supportsandbox": 360013986400,
-        "help": 360013956699
+        "sandbox": 360013986400,
+        "prod": 360013956699
     },
     "sap_currency_EURO_field": {
         "supportsandbox": 360013986400,
         "help": 360013956699
     },
     "tealium": {
-        "supportsandbox": "//tags.tiqcdn.com/utag/tomtom/support/qa/utag.js",
-        "help": "//tags.tiqcdn.com/utag/tomtom/support/prod/utag.js"
+        "sandbox": "//tags.tiqcdn.com/utag/tomtom/support/qa/utag.js",
+        "prod": "//tags.tiqcdn.com/utag/tomtom/support/prod/utag.js"
     },
     "tag_manager_container": {
-        "supportsandbox": "GTM-5RXNHJR",
-        "help": "GTM-5VFCJM4"
+        "sandbox": "GTM-5RXNHJR",
+        "prod": "GTM-5VFCJM4"
     },
     "TAGmanager_container": {
         "supportsandbox": "GTM-5RXNHJR",
         "help": "GTM-5VFCJM4"
     },
     "webwidget_src": {
-        "supportsandbox": "https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a",
-        "help": "https://static.zdassets.com/ekr/snippet.js?key=9ba5f34a-d620-477e-97cf-361d5d086fdc"
+        "sandbox": "https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a",
+        "prod": "https://static.zdassets.com/ekr/snippet.js?key=9ba5f34a-d620-477e-97cf-361d5d086fdc"
     },
     "ze_webwidget_src": {
         "supportsandbox": "https://static.zdassets.com/ekr/snippet.js?key=e99a4148-b9f9-4cf1-bb8e-9ed3aefc014a",
         "help": "https://static.zdassets.com/ekr/snippet.js?key=9ba5f34a-d620-477e-97cf-361d5d086fdc"
     },
     "webwidget_class_hide_email": {
-        "supportsandbox": "#Embed div.sc-iybRtq > div:nth-child(1) { display: none; } #Embed div.sc-iybRtq > div:nth-child(2) { display: none; }",
-        "help": "#Embed div.sc-iybRtq > div:nth-child(1) { display: none; } #Embed div.sc-iybRtq > div:nth-child(2) { display: none; }"
+        "sandbox": "#Embed div.sc-iybRtq > div:nth-child(1) { display: none; } #Embed div.sc-iybRtq > div:nth-child(2) { display: none; }",
+        "prod": "#Embed div.sc-iybRtq > div:nth-child(1) { display: none; } #Embed div.sc-iybRtq > div:nth-child(2) { display: none; }"
     },
     "naviagtion_category_id": {
-        "supportsandbox": 360002347259,
-        "help": 360002542640
+        "sandbox": 360002347259,
+        "prod": 360002542640
     },
     "naviagtion_category_ID": {
         "supportsandbox": 360002347259,
         "help": 360002542640
     },
     "apps_category_id": {
-        "supportsandbox": 360002347279,
-        "help": 360002556499
+        "sandbox": 360002347279,
+        "prod": 360002556499
     },
     "apps_category_ID": {
         "supportsandbox": 360002347279,
         "help": 360002556499
     },
     "sports_category_id": {
-        "supportsandbox": 360002323840,
-        "help": 360002556519
+        "sandbox": 360002323840,
+        "prod": 360002556519
     },
     "sports_category_ID": {
         "supportsandbox": 360002323840,
         "help": 360002556519
     },
     "accounts_orders_legal_category_id": {
-        "supportsandbox": 360002415879,
-        "help": 360002542660
+        "sandbox": 360002415879,
+        "prod": 360002542660
     },
     "accounts_orders_legal_category_ID": {
         "supportsandbox": 360002415879,
         "help": 360002542660
     },
     "user_manual_release_info_category_id": {
-        "supportsandbox": 360002396000,
-        "help": 360002542680
+        "sandbox": 360002396000,
+        "prod": 360002542680
     },
     "user_manual_release_info_category_ID": {
         "supportsandbox": 360002396000,
         "help": 360002542680
     },
     "learn_more_category_id": {
-        "supportsandbox": 360002415859,
-        "help": 360002542700
+        "sandbox": 360002415859,
+        "prod": 360002542700
     },
     "learn_more_category_ID": {
         "supportsandbox": 360002415859,
         "help": 360002542700
     },
     "wifi_section_id": {
-        "supportsandbox": 360003542600,
-        "help": 360004054860
+        "sandbox": 360003542600,
+        "prod": 360004054860
     },
     "wifi_section_ID": {
         "supportsandbox": 360003542600,
         "help": 360004054860
     },
     "mdc_section_id": {
-        "supportsandbox": 360003542620,
-        "help": 360004095099
+        "sandbox": 360003542620,
+        "prod": 360004095099
     },
     "mdc_section_ID": {
         "supportsandbox": 360003542620,
         "help": 360004095099
     },
     "tthome_section_id": {
-        "supportsandbox": 360003585479,
-        "help": 360004095079
+        "sandbox": 360003585479,
+        "prod": 360004095079
     },
     "TT_home_section_ID": {
         "supportsandbox": 360003585479,
         "help": 360004095079
     },
     "amigo_section_id": {
-        "supportsandbox": 360003589080,
-        "help": 360004054940
+        "sandbox": 360003589080,
+        "prod": 360004054940
     },
     "amigo_section_ID": {
         "supportsandbox": 360003589080,
         "help": 360004054940
     },
     "go_navigation_section_id": {
-        "supportsandbox": 360003629899,
-        "help": 360004054960
+        "sandbox": 360003629899,
+        "prod": 360004054960
     },
     "go_navigation_section_ID": {
         "supportsandbox": 360003629899,
         "help": 360004054960
     },
     "go_mobile_section_id": {
-        "supportsandbox": 360003629879,
-        "help": 360004095159
+        "sandbox": 360003629879,
+        "prod": 360004095159
     },
     "go_mobile_section_ID": {
         "supportsandbox": 360003629879,
         "help": 360004095159
     },
     "navigation_app_section_id": {
-        "supportsandbox": 360003589060,
-        "help": 360004054980
+        "sandbox": 360003589060,
+        "prod": 360004054980
     },
     "navigation_app_section_ID": {
         "supportsandbox": 360003589060,
         "help": 360004054980
     },
     "curfer_app_section_id": {
-        "supportsandbox": 360003629279,
-        "help": 360004055000
+        "sandbox": 360003629279,
+        "prod": 360004055000
     },
     "curfer_app_section_ID": {
         "supportsandbox": 360003629279,
         "help": 360004055000
     },
     "sports_watch_section_id": {
-        "supportsandbox": 360003542980,
-        "help": 360004095119
+        "sandbox": 360003542980,
+        "prod": 360004095119
     },
     "sports_watch_section_ID": {
         "supportsandbox": 360003542980,
         "help": 360004095119
     },
     "golfer_section_id": {
-        "supportsandbox": 360003857759,
-        "help": 360004054920
+        "sandbox": 360003857759,
+        "prod": 360004054920
     },
     "golfer_section_ID": {
         "supportsandbox": 360003857759,
         "help": 360004054920
     },
     "tomtom_touch_section_id": {
-        "supportsandbox": 360003815100,
-        "help": 360004095139
+        "sandbox": 360003815100,
+        "prod": 360004095139
     },
     "tomtom_touch_section_ID": {
         "supportsandbox": 360003815100,
         "help": 360004095139
     },
     "bandit_section_id": {
-        "supportsandbox": 360003586039,
-        "help": 360004054900
+        "sandbox": 360003586039,
+        "prod": 360004054900
     },
     "bandit_section_ID": {
         "supportsandbox": 360003586039,
         "help": 360004054900
     },
     "services_section_id": {
-        "supportsandbox": 360003699680,
-        "help": 360004055020
+        "sandbox": 360003699680,
+        "prod": 360004055020
     },
     "services_section_ID": {
         "supportsandbox": 360003699680,
         "help": 360004055020
     },
     "legal_privacy_section_id": {
-        "supportsandbox": 360003744039,
-        "help": 360004055040
+        "sandbox": 360003744039,
+        "prod": 360004055040
     },
     "legal_privacy_section_ID": {
         "supportsandbox": 360003744039,
         "help": 360004055040
     },
     "accounts_section_id": {
-        "supportsandbox": 360003699820,
-        "help": 360004095179
+        "sandbox": 360003699820,
+        "prod": 360004095179
     },
     "accounts_section_ID": {
         "supportsandbox": 360003699820,
         "help": 360004095179
     },
     "orders_section_id": {
-        "supportsandbox": 360003699700,
-        "help": 360004095199
+        "sandbox": 360003699700,
+        "prod": 360004095199
     },
     "orders_section_ID": {
         "supportsandbox": 360003699700,
         "help": 360004095199
     },
     "release_notes_section_id": {
-        "supportsandbox": 360003699760,
-        "help": 360004111039
+        "sandbox": 360003699760,
+        "prod": 360004111039
     },
     "release_notes_section_ID": {
         "supportsandbox": 360003699760,
         "help": 360004111039
     },
     "user_manuals_section_id": {
-        "supportsandbox": 360003744079,
-        "help": 360004069100
+        "sandbox": 360003744079,
+        "prod": 360004069100
     },
     "user_manuals_section_ID": {
         "supportsandbox": 360003744079,
         "help": 360004069100
     },
     "using_your_device_section_id": {
-        "supportsandbox": 360003744019,
-        "help": 360004095219
+        "sandbox": 360003744019,
+        "prod": 360004095219
     },
     "using_your_device_section_ID": {
         "supportsandbox": 360003744019,
         "help": 360004095219
     },
     "tips_section_id": {
-        "supportsandbox": 360003699640,
-        "help": 360004095239
+        "sandbox": 360003699640,
+        "prod": 360004095239
     },
     "tips_section_ID": {
         "supportsandbox": 360003699640,
         "help": 360004095239
     },
     "about_section_id": {
-        "supportsandbox": 360003743999,
-        "help": 360004095259
+        "sandbox": 360003743999,
+        "prod": 360004095259
     },
     "about_section_ID": {
         "supportsandbox": 360003743999,
         "help": 360004095259
     },
     "announcements_section_id": {
-        "supportsandbox": 360003869119,
-        "help": 360004078300
+        "sandbox": 360003869119,
+        "prod": 360004078300
     },
     "announcements_section_ID": {
         "supportsandbox": 360003869119,
         "help": 360004078300
     },
     "email_form_request_local": {
-        "supportsandbox": 360011667140,
-        "help": 360011647459
+        "sandbox": 360011667140,
+        "prod": 360011647459
     },
     "email_form_request_locale": {
         "supportsandbox": 360011667140,
         "help": 360011647459
     },
     "vanilla_redirect_url": {
-        "supportsandbox": "https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
-        "help": "https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"
+        "sandbox": "https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
+        "prod": "https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"
     },
     "loginFromWidget": {
         "supportsandbox": "https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
         "help": "https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"
     },
-    "proxy_api_server": {
-        "supportsandbox": "https://10.66.244.239/",
-        "help": "https://tccare.tomtomgroup.com/"
+    "vanilla_sso_server": {
+        "sandbox": "https://10.66.244.239/",
+        "prod": "https://tccare.tomtomgroup.com/"
     },
     "en-au": [
         { "country_code": "en-au" },
@@ -680,7 +680,7 @@
         { "chat_department": "KR_Chat" }
     ],
     "example": {
-        "supportsandbox": 123,
-        "help": 321
+        "sandbox": 123,
+        "prod": 321
     }
 }
