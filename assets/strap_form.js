@@ -28,7 +28,7 @@ var api_server_url = mapObject.proxy_api_server[searchKey];
     /* Function for all API calls */
     function submitStrapRequest(curruseremail, requesttype, strapData = '')
     {  	
-      server_url = vanilla_sso_server+'zenApi/src/strapController.php';
+      server_url = api_server_url+'zenApi/src/strapController.php';
       $.ajax({
         url : server_url, 
         type : 'POST',

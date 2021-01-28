@@ -144,16 +144,16 @@
         "prod": 321
     },
     "repairnumber_c_name_field_id": {
-        "supportsandbox": 360007871780,
-        "help": 360009909019
+        "sandbox": 360007871780,
+        "prod": 360009909019
     },
     "tomtom_id_field_id": {
         "sandbox": 360008192820,
         "prod": 321
     },
     "serial_number_eur_field_id": {
-        "supportsandbox": 360008860379,
-        "help": 360009585579
+        "sandbox": 360008860379,
+        "prod": 360009585579
     },
     "serial_number_EURO_field_ID": {
         "supportsandbox": 360008860379,
@@ -180,8 +180,8 @@
         "prod": 360009552120
     },
     "date_of_purchase_eur_field_id": {
-        "supportsandbox": 360008860439,
-        "help": 360009585559
+        "sandbox": 360008860439,
+        "prod": 360009585559
     },
     "date_of_purchase_EURO_field_id": {
         "supportsandbox": 360008860439,
@@ -523,9 +523,13 @@
         "supportsandbox": "https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
         "help": "https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"
     },
-    "vanilla_sso_server": {
+	"vanilla_sso_server": {
         "sandbox": "https://10.66.244.239/",
         "prod": "https://tccare.tomtomgroup.com/"
+    },
+    "proxy_api_server": {
+        "supportsandbox": "https://10.66.244.239/",
+        "help": "https://tccare.tomtomgroup.com/"
     },
     "en-au": [
         { "country_code": "en-au" },
