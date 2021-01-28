@@ -17,6 +17,10 @@ var gdpr_form_id = mapObject.gdpr_form_ID[searchKey];
 var email_form_id = mapObject.emailForm_ID[searchKey];
 var email_form_product_input = mapObject.email_form_product_input[searchKey];
 var serial_number_eur_field_id = mapObject.serial_number_EURO_field_ID[searchKey];
+var rma_number_field_id = mapObject.rma_number_field_ID[searchKey];
+var article_number_field_id = mapObject.article_number_field_ID[searchKey];
+var oow_check_field_id = mapObject.oow_check_field_ID[searchKey];
+var automated_strap_flag_field_id = mapObject.automated_strap_flag_field_ID[searchKey];
 var gdpr_reason_field_id = mapObject.gdpr_reason_field_ID[searchKey];
 var golfer_section_id = mapObject.golfer_section_ID[searchKey];
 var tthome_section_id = mapObject.TT_home_section_ID[searchKey];
@@ -30,6 +34,8 @@ var sap_total_refund_amount_eur_field = mapObject.sap_total_refund_amount_EURO_f
 var sap_currency_eur_field = mapObject.sap_currency_EURO_field[searchKey];
 var strap_form_purchase_date = mapObject.date_of_purchase_EURO_field_id[searchKey];
 var gold_course_input = mapObject.course_name_EURO_field_id[searchKey];
+var api_server_url = mapObject.proxy_api_server[searchKey];
+
 var user_locale = $('html').attr('lang').toLowerCase();
 
 /********************************************* Function for Serial Number validation ************************************/
@@ -59,6 +65,47 @@ function checkNums(serial_number_input, submit_button, validSerialNumber) {
 //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
 /************************************ End of Function for Serial Number validation ************************************/
 
+/************************************ Call API to get straps dropdown values (article no dropdown) - Asmita **********************/
+// this is a callback function for ajax
+function successCallBack(data) {
+    if (data.requesttype == "getCUDSdata") {
+        var currlocale = HelpCenter.user.locale;
+        if (!currlocale.includes((data.country).toLowerCase())) {
+            //add force redirect according to locale
+        }
+    }
+    if (data.requesttype == "getSunshineStrapList") {
+        var defaultoption = $('#select_article').text();
+        $('#article_no').empty();
+        $('#article_no').append("<option id='select_article' value='0'>" + defaultoption + "</option>");
+        $.each(data.articlenumbers, function (art_no, art_name) {
+            $('#article_no').append("<option value='" + art_no + "'>" + art_name + "</option>");
+        });
+    }
+}
+
+// Function for all strap related API calls
+/** strapData - Sending serial number and getting respected article numbers (straps) OR locale to redirect user if needed
+ *** requesttype - type of request so we can identify which request needs to return in PHP controller
+ **/
+function submitStrapRequest(requesttype, strapData = '')
+{
+    var curruseremail = HelpCenter.user.email;
+    server_url = api_server_url + 'zenApi/src/strapController.php';
+    $.ajax({
+        url: server_url,
+        type: 'POST',
+        dataType: 'JSON',
+        data: {e_valid: curruseremail, r_type: requesttype, zd_qr: strapData},
+        success: successCallBack,
+        error: function (request, error)
+        {
+            console.log('error : ' + error);
+            console.log("Request: " + JSON.stringify(request));
+        }
+    });
+}
+/************************************ End - straps dropdown (article no dropdown) **********************/
 
 /****************************************** Ticket Forms ********************************/
 //Documentation: https://confluence.tomtomgroup.com/display/CCWEBDEV/Ticket+Forms 
@@ -83,6 +130,9 @@ var strap_form_ID_checker = "form_id=" + strap_form_id;
 //if the serial number input and purchase date input both, found => strap form
 var purchase_date = document.getElementById("request_custom_fields_" + strap_form_purchase_date)
 var serial_no_user_input = document.getElementById("request_custom_fields_" + serial_number_eur_field_id);
+var rma_number_input = document.getElementById("request_custom_fields_" + rma_number_field_id);
+var automated_strap_input = document.getElementById("request_custom_fields_" + automated_strap_flag_field_id);
+var article_number_input = document.getElementById("request_custom_fields_" + article_number_field_id);
 //this element is the GPRD reason input, which dedicates that its only shows up on GDPR form
 var gdpr = document.getElementById("request_custom_fields_" + gdpr_reason_field_id);
 //if product field is found => email form request_custom_fields_360005150940, email_form_product_input
@@ -94,9 +144,16 @@ var auto_order_number_feild = document.getElementById("request_custom_fields_" +
 //for Gold feedback form
 var course_name = document.getElementById("request_custom_fields_" + gold_course_input);
 
+console.log(rma_number_field_id);
+
+/****************************** STRAP REQUEST FORM *************************************/
 if ((purchase_date != null) && (serial_no_user_input != null)) {
-    /****************************** STRAP REQUEST FORM *************************************/
-    //testing URL hc/en-gb/requests/new?ticket_form_id=360000671760 
+    //Sandbox : 360001159659 
+	//Live : 360000746440
+    //// get user country to cross check wth currecnt locale, else re-direct user to respective interface/locale ////
+    var current_user = HelpCenter.user.email;
+    submitStrapRequest("getCUDSdata");
+
     var strap_page_title = document.getElementById("strap_page_title").innerHTML;
     if (strap_page_title != null) {
         document.title = strap_page_title;
@@ -105,41 +162,64 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
     }
     $("#new_request .form-field").addClass("required"); //add required class to attachments
     $(".datepicker").attr('required', 'true'); // make date picker required
+
+    //dda1022
+    $("#manual_added").insertAfter(".request_custom_fields_" + serial_number_eur_field_id);
+    $("#manual_added").removeClass("zd_Hidden");
+
     // This is to prefill and hide the fields on the Strap Request Form //  
     $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
     $('.request_description').addClass("zd_Hidden"); // Hide description
     $('.request_ticket_form_id').addClass("zd_Hidden"); // Hide the Form drop down
+    $('.request_custom_fields_' + article_number_field_id).addClass("zd_Hidden"); //Hide article number field for end-user
+    $('.request_custom_fields_' + automated_strap_flag_field_id).addClass("zd_Hidden"); //Hide strap automated flag field for end-user
     document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("placeholder", "AB1234C56789"); //Giving example of serial number for customer 
+
+	//---------------------------------------------------------------------//
+    if (automated_strap_input != null) {// if this is the automated strap form
+        //Sandbox : 360000671760 
+		//Live : 360001159679
+        // This is to prefill and hide the fields on the Strap Request Form //  
+        $('.request_custom_fields_' + oow_check_field_id).addClass("zd_Hidden"); // Hide OOW check
+        $('.request_custom_fields_' + rma_number_field_id).addClass("zd_Hidden"); //Hide RMA created flag
+
+        ////Set automated form flag to true (1) ////
+        $('#request_custom_fields_' + automated_strap_flag_field_id).text("1");
+        $('#request_custom_fields_' + automated_strap_flag_field_id).val("1");
+    }
+    //-------------------------------------------------------------------------//
     $('<p id="strap_form_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
     $("#strap_form_tips_p").html($("#strap_form_tips").html());
+
+    SubjectLine.value = strap_page_title + " " + strap_form_id; //Insert Strap form subject line	
+    DescriptionBox.value = strap_page_title; // Add value to description as it's 'required'
+
     //create a live validation form
     //disable the submit button 
-    //first select form then disable the commit button in it
-    var submit_btn_form = document.getElementById("new_request");
-    var button = (submit_btn_form.querySelector("input[name = 'commit']"));
+    var button = (document.getElementsByName("commit"))[0];
+    button.id = "submit_strap_request1";
+    button.disabled = true;
+    // after the following validation is passed, this button will be enabled.
 
-    if (serial_no_user_input != null) { //if there is a serial number input field on form, means this is strap form //to be double checked when all forms are ready
-        if ((submit_btn_form != null) && (button != null) && (serial_no_user_input.value == "")) {
-            // in this if-statement, if there is no value in serial number input box, disable button
-            button.setAttribute("disabled", "");
-        }
-        // after the following validation is passed, this button will be enabled.
-        // serial number input max length is 12
-        document.getElementById("request_custom_fields_" + serial_number_eur_field_id).maxLength = 12;
-        // serial number input max length is 12
-        //serial number allows letters and numbers only, no punctuation or special characters
-        document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("pattern", "[A-Za-z0-9]+");
-        //serial number allows letters and numbers only, no punctuation or special characters
-    }
+    // serial number input max length is 12
+    document.getElementById("request_custom_fields_" + serial_number_eur_field_id).maxLength = 12;
+    // serial number input max length is 12
+
+    //serial number allows letters and numbers only, no punctuation or special characters
+    document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("pattern", "[A-Za-z0-9]+");
+    //serial number allows letters and numbers only, no punctuation or special characters
+
     //serial number live validation
     //set a variable for serial number validation with 0 default which means not valid yet
     var validSerialNumber = 0;
     //set a variable for serial number validation with 0 default which means not valid yet
-    $("#request_custom_fields_" + serial_number_eur_field_id).on('input', function() {
+
+    $("#request_custom_fields_" + serial_number_eur_field_id).on('input', function () {
         var serial_number_input = (document.getElementById("request_custom_fields_" + serial_number_eur_field_id).value).toString();
         if ((serial_number_input.length) >= 2) { // check if input is greater than 2
             var first_digit = parseInt(serial_number_input.charAt(0));
             //var second_digit = parseInt(serial_number_input.charAt(1));
+            var serial_prefix = serial_number_input.substring(0, 2);	//we need serial prefix to send to API
             if (isNaN(first_digit)) {
                 //when the first of serial number input is not number
                 if ((serial_number_input.length) >= 7) {
@@ -151,6 +231,13 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
                             //here call the function to check the number part
                             // to be implemented
                             checkNums(serial_number_input, button, validSerialNumber);
+
+                            /////Get Sunshine and RMA articles
+                            var current_user = HelpCenter.user.email;
+                            var serialkey = serial_number_input.substring(0, 2);
+                            //==========================Pending=========================//
+                            //change request type - need only default straps
+                            submitStrapRequest("getSunshineStrapList", serialkey);
                         } else {
                             button.disabled = true;
                         }
@@ -159,7 +246,26 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
             } //closing if both first two serial number input is not integer number
         } // close check if input is greater than 2
     }); // end of serial number oninput function 
-    /****************************** STRAP REQUEST FORM *************************************/
+
+    var articleno = '';
+    $('#article_no').on('change', function () {
+        articleno = $('#article_no :selected').attr('value');
+        $('#request_custom_fields_' + article_number_field_id).text(articleno);
+        $('#request_custom_fields_' + article_number_field_id).val(articleno);
+    });
+
+    //Add validations for all feilds
+    $('#submit_strap_request1').on('click', function () {
+        articleno = $('#article_no :selected').attr('value');
+        if (articleno == 0) {
+			$("#article_no").css("border","solid 1px red");
+            //alert("Select strap");
+            return false;
+        }
+    });
+    // the end of if-at strap form page
+
+    /******************************** END STRAP REQUEST FORM ********************************/
 } else if (gdpr != null) {
     /********************************* GDPR FORM  **************************************/
     //testing URL hc/en-gb/requests/new?ticket_form_id=360000569919
@@ -214,7 +320,7 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
     //order number allows letters and numbers only, no punctuation or special characters
 
     //order number live validation
-    $("#request_custom_fields_" + ordernumber_field_id).on('input', function() {
+    $("#request_custom_fields_" + ordernumber_field_id).on('input', function () {
         var order_number_input = (document.getElementById("request_custom_fields_" + ordernumber_field_id).value).toString();
 
         if ((order_number_input.length) == 9) {

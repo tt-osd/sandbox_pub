@@ -74,18 +74,30 @@ After this release, the confluence documentation for zendesk widget will be upda
 
 ### 2021 
 ## 1. Thursday, 14 Jan
-disable snowing JS, commented out asset injection, loading Script function and <div> place holder on header.hbs (at the end of file), keep snow.js in assets directory, in case for future reuse. 
+    disable snowing JS, commented out asset injection, loading Script function and <div> place holder on header.hbs (at the end of file), keep snow.js in assets directory, in  case for future reuse. 
 ## 2. 19/01/2021
+<strap_release
 - Added DC for copyright to make it editable without release | *footer.hbs*
 - Added seperate DC for the community link in Sub-footer (inline documented) | *footer.hbs, categories.js, sections.js*
 - Added sepeerate DC for the CTA in home page (inline documented) | *homepage.hbs, NewHomePage,js*
 
 
-    
+## Thursday, 21 Jan
+Release strap form
+ - Automated form for EMEA
+   - Create DEL for IW
+   - Ask for PAS for OOW
+     - Yes : create PAS 
+	 - NO : Do nothing
+   - If PAS or DEL fails with validation : notifty user with DC message
+ - Normal form for other locales
+
+    - Added DC for copyright to make it editable without release | *footer.hbs*
+    - Added seperate DC for the community link in Sub-footer (inline documented) | *footer.hbs, categories.js, sections.js*
+    - Added seperate DC for the CTA in home page (inline documented) | *homepage.hbs, NewHomePage,js*
+## 3. 20/01/2021
+    Released the updated Exit Survey Question and answers
  
-
-
-
 
 
 

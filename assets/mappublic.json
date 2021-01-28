@@ -159,6 +159,22 @@
         "supportsandbox": 360008860379,
         "help": 360009585579
     },
+	"rma_number_field_ID": {
+        "supportsandbox": 360015085120,
+        "help": 360009909019
+    },
+	"oow_check_field_ID": {
+        "supportsandbox": 360015194279,
+        "help": 360015197279
+    },
+	"automated_strap_flag_field_ID": {
+	    "supportsandbox": 360018299719,
+        "help": 360018199300
+	},
+	"article_number_field_ID": {
+        "supportsandbox": 360016059600,
+        "help": 360016069859
+    },
     "strap_color_eur_field_id": {
         "sandbox": 360008853480,
         "prod": 360009585539
@@ -511,9 +527,13 @@
         "supportsandbox": "https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
         "help": "https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"
     },
-    "vanilla_sso_server": {
+	"vanilla_sso_server": {
         "sandbox": "https://10.66.244.239/",
         "prod": "https://tccare.tomtomgroup.com/"
+    },
+    "proxy_api_server": {
+        "supportsandbox": "https://10.66.244.239/",
+        "help": "https://tccare.tomtomgroup.com/"
     },
     "en-au": [
         { "country_code": "en-au" },
