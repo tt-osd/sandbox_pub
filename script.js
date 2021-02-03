@@ -122,10 +122,10 @@ document.addEventListener('DOMContentLoaded', function() { // Add your new code 
         // declare varliables inside map json
         if (the_url.indexOf("sandbox") != -1) {
             vanilla_redirect_url = data.vanilla_redirect_url.sandbox;
-			vanilla_sso_server = data.proxy_api_server.sandbox;
+			vanilla_sso_server = data.vanilla_sso_server.sandbox;
         } else {
             vanilla_redirect_url = data.vanilla_redirect_url.prod;
-            vanilla_sso_server = data.proxy_api_server.prod;
+            vanilla_sso_server = data.vanilla_sso_server.prod;
         } //end of get form/fields ID
       
         /***************************  Vanilla SSO Start - Mrunal **********************/
