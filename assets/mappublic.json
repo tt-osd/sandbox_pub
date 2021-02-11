@@ -511,6 +511,10 @@
         "supportsandbox": 360003869119,
         "help": 360004078300
     },
+    "accounts_form_ID": {
+        "supportsandbox": 360001234199,
+        "help": 360001234219
+    },
     "email_form_request_local": {
         "sandbox": 360011667140,
         "prod": 360011647459
@@ -547,16 +551,32 @@
         { "country_code": "cs" },
         { "chat_department": "CZ_Chat" }
     ],
+    "cs-cz": [
+        { "country_code": "cs-cz" },
+        { "chat_department": "CZ_Chat" }
+    ],
     "de": [
         { "country_code": "de" },
+        { "chat_department": "DE_Chat" }
+    ],
+    "de-de": [
+        { "country_code": "de-de" },
         { "chat_department": "DE_Chat" }
     ],
     "da": [
         { "country_code": "da" },
         { "chat_department": "DK_Chat" }
     ],
+    "da-dk": [
+        { "country_code": "da-dk" },
+        { "chat_department": "DK_Chat" }
+    ],
     "es": [
         { "country_code": "es" },
+        { "chat_department": "ES_Chat" }
+    ],
+    "es-es": [
+        { "country_code": "es-es" },
         { "chat_department": "ES_Chat" }
     ],
     "fi": [
@@ -567,12 +587,24 @@
         { "country_code": "fr" },
         { "chat_department": "FR_Chat" }
     ],
+    "fr-fr": [
+        { "country_code": "fr-fr" },
+        { "chat_department": "FR_Chat" }
+    ],
     "it": [
         { "country_code": "it" },
         { "chat_department": "IT_Chat" }
     ],
+    "it-it": [
+        { "country_code": "it-it" },
+        { "chat_department": "IT_Chat" }
+    ],
     "nl": [
         { "country_code": "nl" },
+        { "chat_department": "NL_Chat" }
+    ],
+    "nl-nl": [
+        { "country_code": "nl-nl" },
         { "chat_department": "NL_Chat" }
     ],
     "no": [
@@ -583,11 +615,23 @@
         { "country_code": "pl" },
         { "chat_department": "PL_Chat" }
     ],
+    "pl-pl": [
+        { "country_code": "pl-pl" },
+        { "chat_department": "PL_Chat" }
+    ],
     "pt": [
         { "country_code": "pt" },
         { "chat_department": "PT_Chat" }
     ],
+    "pt-pt": [
+        { "country_code": "pt-pt" },
+        { "chat_department": "PT_Chat" }
+    ],
     "sv": [
+        { "country_code": "sv-se" },
+        { "chat_department": "SE_Chat" }
+    ],
+    "sv-se": [
         { "country_code": "sv" },
         { "chat_department": "SE_Chat" }
     ],
@@ -685,6 +729,10 @@
     ],
     "ko": [
         { "country_code": "ko" },
+        { "chat_department": "KR_Chat" }
+    ],
+    "ko-kr": [
+        { "country_code": "ko-kr" },
         { "chat_department": "KR_Chat" }
     ],
     "example": {

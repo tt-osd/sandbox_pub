@@ -1,15 +1,3 @@
-/************************* Form requests login ******************************************************/
-    if (the_url.indexOf("ticket_form_id") != -1) { //the current page is a form page 
-
-        // //form only available for logged in user
-        if (HelpCenter.user.role == "anonymous") {
-            $(".container").addClass("zd_Hidden");
-            $(".login")[0].click();
-        }
-        // //form only available for logged in user
-    }
-/************************* End Form requests login ******************************************************/
-
 // prepare all the form IDs and get value from map
 var golf_form_id = mapObject.golf_form_ID[searchKey];
 var strap_form_id = mapObject.strap_form_ID[searchKey];
@@ -35,7 +23,7 @@ var sap_currency_eur_field = mapObject.sap_currency_EURO_field[searchKey];
 var strap_form_purchase_date = mapObject.date_of_purchase_EURO_field_id[searchKey];
 var gold_course_input = mapObject.course_name_EURO_field_id[searchKey];
 var api_server_url = mapObject.proxy_api_server[searchKey];
-
+var accounts_form_ID = mapObject.accounts_form_ID[searchKey];
 var user_locale = $('html').attr('lang').toLowerCase();
 
 /********************************************* Function for Serial Number validation ************************************/
@@ -144,7 +132,7 @@ var auto_order_number_feild = document.getElementById("request_custom_fields_" +
 //for Gold feedback form
 var course_name = document.getElementById("request_custom_fields_" + gold_course_input);
 
-console.log(rma_number_field_id);
+// console.log(rma_number_field_id);
 
 /****************************** STRAP REQUEST FORM *************************************/
 if ((purchase_date != null) && (serial_no_user_input != null)) {
@@ -360,6 +348,29 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
     $('<p id="golf_form_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
     $("#golf_form_tips_p").html($("#golf_form_tips").html());
     /****************** End of Golf feedback FORM ******************/
+} else if ( userSelected == accounts_form_ID) {
+    /****************** Account issues FORM ******************/
+    // sandbox testing URL /hc/en-gb/requests/new?ticket_form_id=360001234199
+    // sandbox testing URL /hc/en-gb/requests/new?ticket_form_id=360001234219
+    var accounts_page_title = document.getElementById("form_title_account_issues").innerHTML;
+    document.title = accounts_page_title;    
+    SubjectLine.value = accounts_page_title;
+    SubjectLine.setAttribute("readonly", true);  
+    var form_anon_message = document.getElementById('form_anon_message');
+    if (form_anon_message != null) {           
+        form_anon_message.classList.add("zd_Hidden");
+        var form_anon_hidden = document.getElementById('form_anon_hidden');
+        form_anon_hidden.classList.remove("zd_Hidden");
+    } else {
+        var submit_button_form = document.getElementById("new_request");
+        var submit_button = (submit_button_form.querySelector("input[name = 'commit']"));
+        submit_button.disabled = true;
+    }
+    var attachments_field = document.getElementById('request-attachments').parentNode.parentNode;
+    attachments_field.classList.add("zd_Hidden");
+    $('<p id="account_issues_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display a message to the customers that it's a the account issues form 
+    $("#account_issues_tips_p").html($("#account_issues_tips").html());
+    /****************** End of Account issues FORM ******************/
 } else {
 
 } //end of validation for all forms

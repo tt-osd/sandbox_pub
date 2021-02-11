@@ -409,7 +409,7 @@ input[disabled] {
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: url($assets-dropdown-arrow-svg) no-repeat #fff;
+/*     background: url($assets-dropdown-arrow-svg) no-repeat #fff; */
     background-position: right 10px center;
     width: 100%;
     font-family: 'Gotham Book', Helvetica, Arial, sans-serif;

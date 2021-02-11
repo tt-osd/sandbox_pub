@@ -6,10 +6,11 @@
 		</div>
 
 
-<div class="container">
+<div class="tile-grid">
     <h1 id="form_title">
     {{t 'submit_a_request'}}
   </h1>  
+{{#if signed_in}}
   <div class="form">
     {{request_form}}
     
@@ -23,9 +24,20 @@
     </div>
     <!-- End : Strap page - article dropdown -->
   </div>
-  
+  {{else}}
+  <div class="form_anon">
+  	<div id="form_anon_message">
+ 			<p>{{dc 'form_message_not_logged_in'}}</p>
+  	 		<a class="" data-auth-action="signin" role="button" rel="nofollow" title="Opens a dialogue" href="/hc/en-gb&amp;locale=en-gb">{{dc 'homepage_login'}}</a>
+    </div>
+    <div id="form_anon_hidden" class="form zd_Hidden">
+      {{request_form}}
+    </div>
+  {{/if}}
 </div>
 <label class="zd_Hidden" id="GDPR_page_title">{{dc 'form_title_-_gdpr'}}</label>
+<label class="zd_Hidden" id="form_title_account_issues">{{dc 'form_title_account_issues'}}</label>
+<label class="zd_Hidden" id="account_issues_tips">{{dc 'account_issues_notification'}}</label>
 <label class="zd_Hidden" id="golf_page_title">{{dc 'form_title_-_golf_form'}}</label>
 <label class="zd_Hidden" id="strap_page_title">{{dc 'form_title_-_strap_request'}}</label>
 <label class="zd_Hidden" id="email_page_title">{{dc 'form_title_-_contact_us'}}</label>
