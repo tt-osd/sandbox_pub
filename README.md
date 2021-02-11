@@ -64,7 +64,7 @@ asset can not be used in separated JS, css, zendesk does not support this usage,
 ### 2020
 ## 1. 12th November Thursday 2020. 
 Release of improved zendesk widget
-I  n this release, zendesk widget configuration is being written in one_widget.JS and the script is loaded on header after all the dynamic content for bongo and zendesk widget, and in the same <sctipt> tag after the creating of "ze-snippet", the code can be found on header, around line 88,89
+In this release, zendesk widget configuration is being written in one_widget.JS and the script is loaded on header after all the dynamic content for bongo and zendesk widget, and in the same <sctipt> tag after the creating of "ze-snippet", the code can be found on header, around line 88,89
 
 This release organised all the zendesk widget configuration in one file, in order, works together with the interactiong of bongo and bongo+ widget combo. 
 
@@ -73,16 +73,13 @@ In one_widget.js files, it clearifies the useage and advantages of new way of us
 After this release, the confluence documentation for zendesk widget will be update. 
 
 ### 2021 
-## 1. Thursday, 14 Jan
+## 1. 14/01/2021
     disable snowing JS, commented out asset injection, loading Script function and <div> place holder on header.hbs (at the end of file), keep snow.js in assets directory, in  case for future reuse. 
 ## 2. 19/01/2021
-<strap_release
 - Added DC for copyright to make it editable without release | *footer.hbs*
 - Added seperate DC for the community link in Sub-footer (inline documented) | *footer.hbs, categories.js, sections.js*
-- Added sepeerate DC for the CTA in home page (inline documented) | *homepage.hbs, NewHomePage,js*
-
-
-## Thursday, 21 Jan
+- Added seperate DC for the CTA in home page (inline documented) | *homepage.hbs, NewHomePage,js*
+## 3. 21/01/2021
 Release strap form
  - Automated form for EMEA
    - Create DEL for IW
@@ -91,13 +88,16 @@ Release strap form
 	 - NO : Do nothing
    - If PAS or DEL fails with validation : notifty user with DC message
  - Normal form for other locales
-
-    - Added DC for copyright to make it editable without release | *footer.hbs*
-    - Added seperate DC for the community link in Sub-footer (inline documented) | *footer.hbs, categories.js, sections.js*
-    - Added seperate DC for the CTA in home page (inline documented) | *homepage.hbs, NewHomePage,js*
-## 3. 20/01/2021
-    Released the updated Exit Survey Question and answers
- 
+## 4. 20/01/2021
+Released the updated Exit Survey Question and answers
+## 5. 04/02/2021
+Changed in script.js
+	- variable for vanilla SSO from map file to get correct value
+## 6. 11/02/2021
+Accounts Form, not redirecting on ticket forms if cust is not logged in and remapping for the new lang-log structure and chat routing
+- Added an 'else' part to ticket forms to display information if the customer is not logged in | *new_request_page.hbs*
+- Added an 'if else' to the bottom of forms.js to include if the customer has selected the accounts form | *forms.js*
+- Added the new lnag-locs and the account forms IDs in the mapping file | *mappublic.json*
 
 
 
