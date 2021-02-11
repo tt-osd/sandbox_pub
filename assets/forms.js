@@ -133,6 +133,8 @@ var auto_order_number_feild = document.getElementById("request_custom_fields_" +
 var course_name = document.getElementById("request_custom_fields_" + gold_course_input);
 
 // console.log(rma_number_field_id);
+var form_selection_field = document.getElementById("request_issue_type_select"); // Select the field that contains the form currently selected
+var userSelected = form_selection_field.value;  // Get the value that is currently selected 
 
 /****************************** STRAP REQUEST FORM *************************************/
 if ((purchase_date != null) && (serial_no_user_input != null)) {
@@ -348,28 +350,28 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
     $('<p id="golf_form_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
     $("#golf_form_tips_p").html($("#golf_form_tips").html());
     /****************** End of Golf feedback FORM ******************/
-} else if ( userSelected == accounts_form_ID) {
+} else if ( userSelected == accounts_form_ID) { //if the form selection field selected is accounts form ID 
     /****************** Account issues FORM ******************/
     // sandbox testing URL /hc/en-gb/requests/new?ticket_form_id=360001234199
-    // sandbox testing URL /hc/en-gb/requests/new?ticket_form_id=360001234219
-    var accounts_page_title = document.getElementById("form_title_account_issues").innerHTML;
-    document.title = accounts_page_title;    
-    SubjectLine.value = accounts_page_title;
-    SubjectLine.setAttribute("readonly", true);  
-    var form_anon_message = document.getElementById('form_anon_message');
-    if (form_anon_message != null) {           
-        form_anon_message.classList.add("zd_Hidden");
-        var form_anon_hidden = document.getElementById('form_anon_hidden');
-        form_anon_hidden.classList.remove("zd_Hidden");
-    } else {
-        var submit_button_form = document.getElementById("new_request");
-        var submit_button = (submit_button_form.querySelector("input[name = 'commit']"));
-        submit_button.disabled = true;
+    // prod testing URL /hc/en-gb/requests/new?ticket_form_id=360001234219 
+    var accounts_page_title = document.getElementById("form_title_account_issues").innerHTML; // get the dc (in new_request_page.hbs) 
+    document.title = accounts_page_title;                                           // put the content from the DC into the page title
+    SubjectLine.value = accounts_page_title;                                        // put the content into the subject line 
+    SubjectLine.setAttribute("readonly", true);                                     // make the subject line read only
+    var form_anon_message = document.getElementById('form_anon_message');           // get the elements form anon messsage (this message only appear on the request page if the customer is not logged in)
+    if (form_anon_message != null) {                                                // so if this element exists, the user must not be logged in
+        form_anon_message.classList.add("zd_Hidden");                               // hide the message telling the customer to log in
+        var form_anon_hidden = document.getElementById('form_anon_hidden');         // get the message about accounts
+        form_anon_hidden.classList.remove("zd_Hidden");                             // show this message
+    } else {                                                                        // if customer is logged in
+        var submit_button_form = document.getElementById("new_request");            // get the form
+        var submit_button = (submit_button_form.querySelector("input[name = 'commit']"));// get the submit button
+        submit_button.disabled = true;                                              // disable the submit button (if the are logged in they don't have account issues)
     }
     var attachments_field = document.getElementById('request-attachments').parentNode.parentNode;
-    attachments_field.classList.add("zd_Hidden");
-    $('<p id="account_issues_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display a message to the customers that it's a the account issues form 
-    $("#account_issues_tips_p").html($("#account_issues_tips").html());
+    attachments_field.classList.add("zd_Hidden");                                   // hide attachments 
+    $('<p id="account_issues_tips_p" class="form_sub_title"></p>').insertBefore('.form'); // This is to display a message to the customers that it's a the account issues form 
+    $("#account_issues_tips_p").html($("#account_issues_tips").html());             // same as above
     /****************** End of Account issues FORM ******************/
 } else {
 
