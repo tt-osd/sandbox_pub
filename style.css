@@ -9309,3 +9309,7 @@ zd-autocomplete-breadcrumbs-multibrand {
     margin-bottom: 5px;
     z-index: 10;
 }
+
+#eol_prefix_alert {
+  color: rgb(223, 27, 18);
+}

@@ -99,6 +99,12 @@ Accounts Form, not redirecting on ticket forms if cust is not logged in and rema
 - Added an 'if else' to the bottom of forms.js to include if the customer has selected the accounts form | *forms.js*
 - Added the new lnag-locs and the account forms IDs in the mapping file | *mappublic.json*
 
+## 7. 16/02/2021
+Improvements for Strap release
+
+ - Added new DC strap_page_eol_prefix_alert  : notify user if serial prefix is EOL
+ - Updated DC strap_form_rma_failuer_alert 
+
 
 
 
