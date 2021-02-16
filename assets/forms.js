@@ -132,7 +132,6 @@ var auto_order_number_feild = document.getElementById("request_custom_fields_" +
 //for Gold feedback form
 var course_name = document.getElementById("request_custom_fields_" + gold_course_input);
 
-// console.log(rma_number_field_id);
 var form_selection_field = document.getElementById("request_issue_type_select"); // Select the field that contains the form currently selected
 var userSelected = form_selection_field.value;  // Get the value that is currently selected 
 
@@ -202,14 +201,14 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
     //serial number live validation
     //set a variable for serial number validation with 0 default which means not valid yet
     var validSerialNumber = 0;
-    //set a variable for serial number validation with 0 default which means not valid yet
-
+	var	serial_prefix = "";
+		
     $("#request_custom_fields_" + serial_number_eur_field_id).on('input', function () {
         var serial_number_input = (document.getElementById("request_custom_fields_" + serial_number_eur_field_id).value).toString();
         if ((serial_number_input.length) >= 2) { // check if input is greater than 2
             var first_digit = parseInt(serial_number_input.charAt(0));
             //var second_digit = parseInt(serial_number_input.charAt(1));
-            var serial_prefix = serial_number_input.substring(0, 2);	//we need serial prefix to send to API
+            serial_prefix = serial_number_input.substring(0, 2);	//we need serial prefix to send to API
             if (isNaN(first_digit)) {
                 //when the first of serial number input is not number
                 if ((serial_number_input.length) >= 7) {
@@ -246,6 +245,16 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
 
     //Add validations for all feilds
     $('#submit_strap_request1').on('click', function () {
+		var eol_prefixes = ["HC", "HD", "HE", "HF"];
+		////check for EOL strap prefixes - HC, HD, HE, HF
+		if($.inArray(serial_prefix, eol_prefixes) > -1) {
+			$("#eol_prefix_alert").removeClass("zd_Hidden");
+			$("#eol_prefix_alert").show();
+			return false;
+		} else {
+			$("#eol_prefix_alert").hide();
+		}
+		
         articleno = $('#article_no :selected').attr('value');
         if (articleno == 0) {
 			$("#article_no").css("border","solid 1px red");
