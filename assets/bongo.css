@@ -41,7 +41,7 @@
 }
 
 .oda-chat-round {
-    background: #8DC3EB !important;
+    background: #808080 !important;
     padding: 0;
 }
 
@@ -59,7 +59,7 @@
 }
 
 .oda-chat-round:hover {
-    background: #61ADE0 !important;
+    background: #808080 !important;
 }
 
 .oda-chat-message-actions .oda-chat-action-postback {
@@ -91,7 +91,7 @@
 }
 
 .oda-chat-round:hover:enabled {
-    background: #61ADE0 !important;
+    background: #808080 !important;
 }
 
 .oda-chat-message-content a {
