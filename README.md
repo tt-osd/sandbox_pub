@@ -105,8 +105,11 @@ Improvements for Strap release
  - Added new DC strap_page_eol_prefix_alert  : notify user if serial prefix is EOL
  - Updated DC strap_form_rma_failuer_alert 
 
- ## 8 16/02/2021
- change bongo "next card" color from blue to gray 
+ ## 8. 16/02/2021
+ Change bongo "next card" color from blue to gray 
+ 
+ ## 9. 18/02/2021
+ Made the images on the homepage clickable | *home_page.hbs*
 
 
 
