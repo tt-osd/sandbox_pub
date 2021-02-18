@@ -15,8 +15,7 @@
           {{#if ../has_multiple_categories}}
     
           <li class="home_page_category" id="blocks-item-{{id}}">
-            <a href='{{url}}' class="blocks_item_link">
-           
+            <a href='{{url}}' class="blocks_item_link">           
               <div class="blocks-item-title blocks-item-title-{{id}}" id="blocks_item_title_{{id}}">
                 <h5>{{name}}</h5>
               </div>
@@ -24,10 +23,9 @@
                 <h4 id="sub-title-{{id}}"></h4>
               </div>
               <p class="blocks-item-description">{{excerpt description characters=75}}</p>
-                 <div class="explore"><label id="explore_{{id}}">{{dc 'homepage_2020_category_exp'}}</label></div>
-            </a>
-            <div class="home_category_image"></div>
-         
+                 <div class="explore"><label id="explore_{{id}}">{{dc 'homepage_2020_category_exp'}}</label></div>              
+            </a>              
+            <a href='{{url}}' class="home_category_image"></a>            
           </li>
           {{else}}
           {{#each sections}}
