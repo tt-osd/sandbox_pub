@@ -398,6 +398,7 @@ if ((purchase_date != null) && (serial_no_user_input != null) &&((rma_first_name
     /****************** End of Account issues FORM ******************/
 }else if((rma_first_name != null)&&(rma_last_name!=null)){
     //https://supportsandbox.tomtom.com/hc/en-gb/requests/new?ticket_form_id=360001450159
+     //https://supportsandbox.tomtom.com/hc/en-gb/requests/new?ticket_form_id=360000953020 prod 
 
     var RMA_page_title = document.getElementById("RMA_form_title").innerHTML;
     if (RMA_page_title != null) {
