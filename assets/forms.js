@@ -3,6 +3,13 @@ var golf_form_id = mapObject.golf_form_ID[searchKey];
 var strap_form_id = mapObject.strap_form_ID[searchKey];
 var gdpr_form_id = mapObject.gdpr_form_ID[searchKey];
 var email_form_id = mapObject.emailForm_ID[searchKey];
+var rma_form_id=mapObject.RMA_form_ID[searchKey];
+var Revlog_First_Name_EUR=mapObject.Revlog_First_Name_EUR[searchKey];
+var Revlog_Last_Name_EUR=mapObject.Revlog_Last_Name_EUR[searchKey];
+var Revlog_house_number_EUR=mapObject.Revlog_house_number_EUR[searchKey];
+var Revlog_street_name_EUR=mapObject.Revlog_street_name_EUR[searchKey];
+var Revlog_city_EUR=mapObject.Revlog_city_EUR[searchKey];
+var Revlog_post_code_EUR=mapObject.Revlog_post_code_EUR[searchKey];
 var email_form_product_input = mapObject.email_form_product_input[searchKey];
 var serial_number_eur_field_id = mapObject.serial_number_EURO_field_ID[searchKey];
 var rma_number_field_id = mapObject.rma_number_field_ID[searchKey];
@@ -135,8 +142,15 @@ var course_name = document.getElementById("request_custom_fields_" + gold_course
 var form_selection_field = document.getElementById("request_issue_type_select"); // Select the field that contains the form currently selected
 var userSelected = form_selection_field.value;  // Get the value that is currently selected 
 
+//Revlog_First_Name_EUR
+var rma_first_name=document.getElementById("request_custom_fields_" + Revlog_First_Name_EUR);
+var rma_last_name=document.getElementById("request_custom_fields_" + Revlog_Last_Name_EUR);
+
+
 /****************************** STRAP REQUEST FORM *************************************/
-if ((purchase_date != null) && (serial_no_user_input != null)) {
+//update IF statement, due to the adding RMA form which contains purchase_date and serial_no_user_input field
+//extend IF staement to exclude first_name and last_name field to make sure the following functions does not execute on RMA form page
+if ((purchase_date != null) && (serial_no_user_input != null) &&((rma_first_name == null)&&(rma_last_name==null))) {
     //Sandbox : 360001159659 
 	//Live : 360000746440
     //// get user country to cross check wth currecnt locale, else re-direct user to respective interface/locale ////
@@ -382,7 +396,37 @@ if ((purchase_date != null) && (serial_no_user_input != null)) {
     $('<p id="account_issues_tips_p" class="form_sub_title"></p>').insertBefore('.form'); // This is to display a message to the customers that it's a the account issues form 
     $("#account_issues_tips_p").html($("#account_issues_tips").html());             // same as above
     /****************** End of Account issues FORM ******************/
+}else if((rma_first_name != null)&&(rma_last_name!=null)){
+    //https://supportsandbox.tomtom.com/hc/en-gb/requests/new?ticket_form_id=360001450159
+
+    var RMA_page_title = document.getElementById("RMA_form_title").innerHTML;
+    if (RMA_page_title != null) {
+        document.title = RMA_page_title;
+        SubjectLine.value = RMA_page_title + " " + rma_form_id; //Insert Strap form subject line
+    	}
+
+        $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
+      //  DescriptionBox.value = RMA_page_title; // Add value to description as it's 'required'
+
+      $(".request_custom_fields_" + email_form_request_local_field).addClass("zd_Hidden");
+      $("#request_custom_fields_" + email_form_request_local_field).val(user_locale);
+       $(".request_custom_fields_"+Revlog_First_Name_EUR).addClass("tt_form_inline");
+       $(".request_custom_fields_"+Revlog_Last_Name_EUR).addClass("tt_form_inline");
+       $(".request_custom_fields_"+Revlog_Last_Name_EUR).addClass("margin_left");
+       /*var Revlog_house_number_EUR=mapObject.Revlog_house_number_EUR[searchKey];
+var Revlog_street_name_EUR=mapObject.Revlog_street_name_EUR[searchKey];
+var Revlog_city_EUR=mapObject.Revlog_city_EUR[searchKey];
+var Revlog_post_code_EUR=mapObject.Revlog_post_code_EUR[searchKey];*/
+$(".request_custom_fields_"+Revlog_house_number_EUR).addClass("small");
+$(".request_custom_fields_"+Revlog_post_code_EUR).addClass("small");
+$(".request_custom_fields_"+Revlog_street_name_EUR).addClass("big");
+$(".request_custom_fields_"+Revlog_city_EUR).addClass("big");
+
+
+    console.log("RMA");
+
 } else {
+ 
 
 } //end of validation for all forms
 
