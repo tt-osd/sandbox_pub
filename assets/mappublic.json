@@ -542,31 +542,31 @@
     },
     "RMA_form_ID":{
         "supportsandbox":"360001450159",
-        "help":""
+        "help":"360000953020"
     },
     "Revlog_First_Name_EUR":{
         "supportsandbox":"360014165859",
-        "help":""
+        "help":"360013957639"
     },
     "Revlog_Last_Name_EUR":{
         "supportsandbox":"360014165879",
-        "help":""
+        "help":"360013982480"
     },
     "Revlog_house_number_EUR":{
         "supportsandbox":"360014166219",
-        "help":""
+        "help":"360013957679"
     },
     "Revlog_street_name_EUR":{
         "supportsandbox":"360014165919",
-        "help":""
+        "help":"360013957659"
     },
     "Revlog_city_EUR":{
         "supportsandbox":"360014204260",
-        "help":""
+        "help":"360013957699"
     },
     "Revlog_post_code_EUR":{
         "supportsandbox":"360014204580",
-        "help":""
+        "help":"360011349080"
     },
 
     "en-au": [
