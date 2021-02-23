@@ -38,6 +38,10 @@ const initSdk = (name) => {
             locale: bongo_locale, // set language for bot user profile
             URI: bongo_uri, // ODA URI, only the hostname part should be passed, without the https://
             channelId: bongo_channelid, // Channel ID, available in channel settings in ODA UI
+           initUserHiddenMessage: 'Hello',
+            initMessageOptions: {
+                sendAt: 'expand'
+            },
             enableAutocomplete: true, // Enables autocomplete suggestions on user input
             enableClearMessage: false, // Enables display of button to clear conversation
             enableSpeech: enable_speech, // Enables voice recognition
@@ -74,23 +78,26 @@ const initSdk = (name) => {
         // Initialize SDK
         Bots = new WebSDK(chatWidgetSettings);
 
-        Bots.on(WebSDK.EVENT.WIDGET_OPENED, () => {
-
-            // console.log('Widget is opened');
-            if (Bots.getConversationHistory().messagesCount < 1) {
-                //  console.log("Starting the conversation");
-                Bots.sendMessage('Hi', { hidden: true });
-                hidden_itit_message = 1;
-                //  ga_tracking("Bongo", "bongo init message", bongo_locale);
-
-            }
-        });
+    
 
         // Connect to the ODA
         Bots.connect();
 
         // Create global object to refer Bots
         window[name] = Bots;
+
+
+        // Bots.on(WebSDK.EVENT.WIDGET_OPENED, () => {
+
+        //     // console.log('Widget is opened');
+        //     if (Bots.getConversationHistory().messagesCount < 1) {
+        //         //  console.log("Starting the conversation");
+        //         Bots.sendMessage('Hi', { hidden: true });
+        //         hidden_itit_message = 1;
+        //         //  ga_tracking("Bongo", "bongo init message", bongo_locale);
+
+        //     }
+        // });
 
         Bots.setFont('16px "noway", Noway Regular, Helvetica, Arial, sans-serif !important');
 
@@ -130,22 +137,31 @@ const initSdk = (name) => {
         //This event is triggered when the user receives a message.
         //the message that bongo initiated
         Bots.on('message:received', function(message) {
-            //console.log('the user received a message', message);
-            bot_init_message = 1;
+           // console.log('the user received a message', message);
+          //  console.log(Bots.getConversationHistory().messagesCount +" message counting");
+            bot_init_message=Bots.getConversationHistory().messagesCount
+            if ((user_init_message == 0)&&(bot_init_message==2)) {
+                //this condition check when the hidden message was send and bongo initiated the conversation, then user started conversation
+                ga_tracking("Bongo", "Conversation", "User starts conversation");
+                console.log("user send first message and GA tracked");
+                user_init_message = 1;
+            }
+           
         });
 
 
 
 
         //This event is triggered when the user sends a message.
-        Bots.on('message:sent', function(message) {
-            if ((user_init_message == 0) && (bot_init_message == 1) && (hidden_itit_message == 1)) {
-                //this condition check when the hidden message was send and bongo initiated the conversation, then user started conversation
-                ga_tracking("Bongo", "Conversation", "User starts conversation");
-                user_init_message = 1;
-            }
+        // Bots.on('message:sent', function(message) {
+        //     if ((user_init_message == 0) && (bot_init_message == 1)) {
+        //         //this condition check when the hidden message was send and bongo initiated the conversation, then user started conversation
+        //         ga_tracking("Bongo", "Conversation", "User starts conversation");
 
-        });
+        //         user_init_message = 1;
+        //     }
+
+        // });
 
     }, 0);
 
