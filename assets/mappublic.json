@@ -531,6 +531,7 @@
         "supportsandbox": "https://supportsandbox.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fsupportsandbox.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin",
         "help": "https://help.tomtom.com/hc/en-gb/signin?return_to=https%3A%2F%2Fhelp.tomtom.com%2Fhc%2Fen-gb%3FvanillaSSO%3Dsignin"
     },
+   
 	"vanilla_sso_server": {
         "sandbox": "https://10.66.244.239/",
         "prod": "https://tccare.tomtomgroup.com/"
@@ -539,6 +540,35 @@
         "supportsandbox": "https://10.66.244.239/",
         "help": "https://tccare.tomtomgroup.com/"
     },
+    "RMA_form_ID":{
+        "supportsandbox":"360001450159",
+        "help":"360000953020"
+    },
+    "Revlog_First_Name_EUR":{
+        "supportsandbox":"360014165859",
+        "help":"360013957639"
+    },
+    "Revlog_Last_Name_EUR":{
+        "supportsandbox":"360014165879",
+        "help":"360013982480"
+    },
+    "Revlog_house_number_EUR":{
+        "supportsandbox":"360014166219",
+        "help":"360013957679"
+    },
+    "Revlog_street_name_EUR":{
+        "supportsandbox":"360014165919",
+        "help":"360013957659"
+    },
+    "Revlog_city_EUR":{
+        "supportsandbox":"360014204260",
+        "help":"360013957699"
+    },
+    "Revlog_post_code_EUR":{
+        "supportsandbox":"360014204580",
+        "help":"360011349080"
+    },
+
     "en-au": [
         { "country_code": "en-au" },
         { "chat_department": "AU_Chat" }
