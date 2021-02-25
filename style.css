@@ -9335,3 +9335,51 @@ zd-autocomplete-breadcrumbs-multibrand {
      width:69%;
     display:inline-block;
   }
+
+
+  /*bongo on update FAQ*/
+
+.bongo_update_icon{
+    background:url('$assets-bongo-circular-image-jpg');
+   width:170px;
+   height:170px;
+       background-size: cover;
+     background-position: center;
+   margin-bottom:40px;
+ }
+ 
+ .open_bongo_update{
+ margin-top:30px;}
+ 
+ .container_for_bongo{
+   padding: 40px 0;
+ }
+ 
+ .update_bongo_container{
+ display:flex;
+ }
+ .left{
+     width:50%;
+ }
+ 
+ .right{
+   width:50%;
+   padding-left:5%;
+ }
+ 
+ .pnd{
+   background:url('$assets-pnd-gray-image-jpg');
+ height:100%;
+   max-height:340px;
+   max-width:537px;
+ }
+ 
+ @media only screen and (max-width: 899px){
+   .right{
+   width:0;
+   display:none;
+ }
+   .left{
+     width:100%;
+ }
+ }
