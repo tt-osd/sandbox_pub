@@ -206,7 +206,7 @@ if ((the_url.indexOf("articles") != -1) || (the_url.indexOf("sections") != -1)) 
      
     } else if (the_url.indexOf("/new?ticket_form_id=")!= -1) { 
         page_category = "Form";
-        page_category_detail = "ticket_form_page_title"; 
+        page_category_detail = "Form"; 
 
     } else if (the_url.indexOf("/requests/")!= -1) { 
         page_category = "Request";  
