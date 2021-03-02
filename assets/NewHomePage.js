@@ -143,6 +143,14 @@ insertSubTitle();
  if (navigator.userAgent.indexOf('Windows') != -1) {
      $('.explore').addClass("explore_WINDOWS");
  }
+ var update_banner = document.getElementById('update-banner');
+ if (update_banner) {
+    update_banner.classList.add("zd_Hidden");
+ }
+ var sub_footer = document.getElementById('sub_footer');
+ if (sub_footer) {
+    sub_footer.classList.add("zd_Hidden");
+ }
   /****************** GA tracking if customer clicks on category ********************/
   var homepage_category = document.getElementsByClassName("home_page_category");
   var homepage_category_category = "Home Page"; 
