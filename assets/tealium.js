@@ -329,7 +329,7 @@ var sitespect_id = "";
         sitespect_id:sitespect_id,
         user_id:user_id
     };
-
+console.log("Tester, this page is a " + page_category_detail + " page!!");
 window.support = {};
 if( typeof SiteSpectData != "undefined") { //makes sure sitespect data is defind before calling this, it's defined in SiteSpect itself, so we have no control on what is defined first
     support.sitespect = SiteSpectData;
