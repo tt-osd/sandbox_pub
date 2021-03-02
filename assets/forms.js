@@ -3,13 +3,13 @@ var golf_form_id = mapObject.golf_form_ID[searchKey];
 var strap_form_id = mapObject.strap_form_ID[searchKey];
 var gdpr_form_id = mapObject.gdpr_form_ID[searchKey];
 var email_form_id = mapObject.emailForm_ID[searchKey];
-var rma_form_id=mapObject.RMA_form_ID[searchKey];
-var Revlog_First_Name_EUR=mapObject.Revlog_First_Name_EUR[searchKey];
-var Revlog_Last_Name_EUR=mapObject.Revlog_Last_Name_EUR[searchKey];
-var Revlog_house_number_EUR=mapObject.Revlog_house_number_EUR[searchKey];
-var Revlog_street_name_EUR=mapObject.Revlog_street_name_EUR[searchKey];
-var Revlog_city_EUR=mapObject.Revlog_city_EUR[searchKey];
-var Revlog_post_code_EUR=mapObject.Revlog_post_code_EUR[searchKey];
+var rma_form_id = mapObject.RMA_form_ID[searchKey];
+var Revlog_First_Name_EUR = mapObject.Revlog_First_Name_EUR[searchKey];
+var Revlog_Last_Name_EUR = mapObject.Revlog_Last_Name_EUR[searchKey];
+var Revlog_house_number_EUR = mapObject.Revlog_house_number_EUR[searchKey];
+var Revlog_street_name_EUR = mapObject.Revlog_street_name_EUR[searchKey];
+var Revlog_city_EUR = mapObject.Revlog_city_EUR[searchKey];
+var Revlog_post_code_EUR = mapObject.Revlog_post_code_EUR[searchKey];
 var email_form_product_input = mapObject.email_form_product_input[searchKey];
 var serial_number_eur_field_id = mapObject.serial_number_EURO_field_ID[searchKey];
 var rma_number_field_id = mapObject.rma_number_field_ID[searchKey];
@@ -31,6 +31,8 @@ var strap_form_purchase_date = mapObject.date_of_purchase_EURO_field_id[searchKe
 var gold_course_input = mapObject.course_name_EURO_field_id[searchKey];
 var api_server_url = mapObject.proxy_api_server[searchKey];
 var accounts_form_ID = mapObject.accounts_form_ID[searchKey];
+var rider_extra_warranty_form_id = mapObject.Rider_extra_warranty[searchKey];
+var extra_warranty_dropDown = mapObject.extra_warranty_eur[searchKey];
 var user_locale = $('html').attr('lang').toLowerCase();
 
 /********************************************* Function for Serial Number validation ************************************/
@@ -58,7 +60,55 @@ function checkNums(serial_number_input, submit_button, validSerialNumber) {
     }
 };
 //this is the function to be used after serial number live validation has checked 1st and 7th chrarcter must be a letter
+
+
+//this is the function for front end serial number field on_input validation
+function serial_nm_verify(button) {
+    // document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("placeholder", "AB1234C56789"); //Giving example of serial number for customer 
+    // serial number input max length is 12
+    document.getElementById("request_custom_fields_" + serial_number_eur_field_id).maxLength = 12;
+    // serial number input max length is 12
+
+    //serial number allows letters and numbers only, no punctuation or special characters
+    // document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("pattern", "[A-Za-z0-9]+");
+    //serial number allows letters and numbers only, no punctuation or special characters
+
+    var serial_number_input = (document.getElementById("request_custom_fields_" + serial_number_eur_field_id).value).toString();
+    if ((serial_number_input.length) >= 2) { // check if input is greater than 2
+        var first_digit = parseInt(serial_number_input.charAt(0));
+        //var second_digit = parseInt(serial_number_input.charAt(1));
+        serial_prefix = serial_number_input.substring(0, 2); //we need serial prefix to send to API
+        if (isNaN(first_digit)) {
+            //when the first of serial number input is not number
+            if ((serial_number_input.length) >= 7) {
+                //when its hit the 7th character, check if its letter
+                var seventh_digit = parseInt(serial_number_input.charAt(6));
+                if ((isNaN(seventh_digit))) {
+                    //when the 7th of serial number input is not number
+                    if ((serial_number_input.length) == 12) {
+                        //here call the function to check the number part
+                        // to be implemented
+                        checkNums(serial_number_input, button, validSerialNumber);
+
+                        /////Get Sunshine and RMA articles
+                        var current_user = HelpCenter.user.email;
+                        var serialkey = serial_number_input.substring(0, 2);
+                        //==========================Pending=========================//
+                        //change request type - need only default straps
+                        submitStrapRequest("getSunshineStrapList", serialkey);
+                    } else {
+                        button.disabled = true;
+                    }
+                }
+            } // end when its hit the 7th character, check if its letter
+        } //closing if both first two serial number input is not integer number
+    } // close check if input is greater than 2
+
+    console.log("function being called serial_nm_verify(button) ");
+}
+
 /************************************ End of Function for Serial Number validation ************************************/
+
 
 /************************************ Call API to get straps dropdown values (article no dropdown) - Asmita **********************/
 // this is a callback function for ajax
@@ -73,7 +123,7 @@ function successCallBack(data) {
         var defaultoption = $('#select_article').text();
         $('#article_no').empty();
         $('#article_no').append("<option id='select_article' value='0'>" + defaultoption + "</option>");
-        $.each(data.articlenumbers, function (art_no, art_name) {
+        $.each(data.articlenumbers, function(art_no, art_name) {
             $('#article_no').append("<option value='" + art_no + "'>" + art_name + "</option>");
         });
     }
@@ -83,18 +133,16 @@ function successCallBack(data) {
 /** strapData - Sending serial number and getting respected article numbers (straps) OR locale to redirect user if needed
  *** requesttype - type of request so we can identify which request needs to return in PHP controller
  **/
-function submitStrapRequest(requesttype, strapData = '')
-{
+function submitStrapRequest(requesttype, strapData = '') {
     var curruseremail = HelpCenter.user.email;
     server_url = api_server_url + 'zenApi/src/strapController.php';
     $.ajax({
         url: server_url,
         type: 'POST',
         dataType: 'JSON',
-        data: {e_valid: curruseremail, r_type: requesttype, zd_qr: strapData},
+        data: { e_valid: curruseremail, r_type: requesttype, zd_qr: strapData },
         success: successCallBack,
-        error: function (request, error)
-        {
+        error: function(request, error) {
             console.log('error : ' + error);
             console.log("Request: " + JSON.stringify(request));
         }
@@ -140,19 +188,22 @@ var auto_order_number_feild = document.getElementById("request_custom_fields_" +
 var course_name = document.getElementById("request_custom_fields_" + gold_course_input);
 
 var form_selection_field = document.getElementById("request_issue_type_select"); // Select the field that contains the form currently selected
-var userSelected = form_selection_field.value;  // Get the value that is currently selected 
+var userSelected = form_selection_field.value; // Get the value that is currently selected 
 
 //Revlog_First_Name_EUR
-var rma_first_name=document.getElementById("request_custom_fields_" + Revlog_First_Name_EUR);
-var rma_last_name=document.getElementById("request_custom_fields_" + Revlog_Last_Name_EUR);
+var rma_first_name = document.getElementById("request_custom_fields_" + Revlog_First_Name_EUR);
+var rma_last_name = document.getElementById("request_custom_fields_" + Revlog_Last_Name_EUR);
+
+//extra warranty drop down for rider 
+var extra_warranty_drop_down = document.getElementById("request_custom_fields_" + extra_warranty_dropDown);
 
 
 /****************************** STRAP REQUEST FORM *************************************/
 //update IF statement, due to the adding RMA form which contains purchase_date and serial_no_user_input field
 //extend IF staement to exclude first_name and last_name field to make sure the following functions does not execute on RMA form page
-if ((purchase_date != null) && (serial_no_user_input != null) &&((rma_first_name == null)&&(rma_last_name==null))) {
-    //Sandbox : 360001159659 
-	//Live : 360000746440
+if ((purchase_date != null) && (serial_no_user_input != null) && ((rma_first_name == null) && (rma_last_name == null))) {
+    //Sandbox : /requests/new?ticket_form_id=360001159659 
+    //Live : /requests/new?ticket_form_id=360000746440
     //// get user country to cross check wth currecnt locale, else re-direct user to respective interface/locale ////
     var current_user = HelpCenter.user.email;
     submitStrapRequest("getCUDSdata");
@@ -176,12 +227,11 @@ if ((purchase_date != null) && (serial_no_user_input != null) &&((rma_first_name
     $('.request_ticket_form_id').addClass("zd_Hidden"); // Hide the Form drop down
     $('.request_custom_fields_' + article_number_field_id).addClass("zd_Hidden"); //Hide article number field for end-user
     $('.request_custom_fields_' + automated_strap_flag_field_id).addClass("zd_Hidden"); //Hide strap automated flag field for end-user
-    document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("placeholder", "AB1234C56789"); //Giving example of serial number for customer 
 
-	//---------------------------------------------------------------------//
-    if (automated_strap_input != null) {// if this is the automated strap form
+    //---------------------------------------------------------------------//
+    if (automated_strap_input != null) { // if this is the automated strap form
         //Sandbox : 360000671760 
-		//Live : 360001159679
+        //Live : 360001159679
         // This is to prefill and hide the fields on the Strap Request Form //  
         $('.request_custom_fields_' + oow_check_field_id).addClass("zd_Hidden"); // Hide OOW check
         $('.request_custom_fields_' + rma_number_field_id).addClass("zd_Hidden"); //Hide RMA created flag
@@ -207,71 +257,76 @@ if ((purchase_date != null) && (serial_no_user_input != null) &&((rma_first_name
     // serial number input max length is 12
     document.getElementById("request_custom_fields_" + serial_number_eur_field_id).maxLength = 12;
     // serial number input max length is 12
+    document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("placeholder", "AB1234C56789"); //Giving example of serial number for customer 
 
     //serial number allows letters and numbers only, no punctuation or special characters
-    document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("pattern", "[A-Za-z0-9]+");
+    // document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("pattern", "[A-Za-z0-9]+");
     //serial number allows letters and numbers only, no punctuation or special characters
 
     //serial number live validation
     //set a variable for serial number validation with 0 default which means not valid yet
     var validSerialNumber = 0;
-	var	serial_prefix = "";
-		
-    $("#request_custom_fields_" + serial_number_eur_field_id).on('input', function () {
-        var serial_number_input = (document.getElementById("request_custom_fields_" + serial_number_eur_field_id).value).toString();
-        if ((serial_number_input.length) >= 2) { // check if input is greater than 2
-            var first_digit = parseInt(serial_number_input.charAt(0));
-            //var second_digit = parseInt(serial_number_input.charAt(1));
-            serial_prefix = serial_number_input.substring(0, 2);	//we need serial prefix to send to API
-            if (isNaN(first_digit)) {
-                //when the first of serial number input is not number
-                if ((serial_number_input.length) >= 7) {
-                    //when its hit the 7th character, check if its letter
-                    var seventh_digit = parseInt(serial_number_input.charAt(6));
-                    if ((isNaN(seventh_digit))) {
-                        //when the 7th of serial number input is not number
-                        if ((serial_number_input.length) == 12) {
-                            //here call the function to check the number part
-                            // to be implemented
-                            checkNums(serial_number_input, button, validSerialNumber);
+    var serial_prefix = "";
 
-                            /////Get Sunshine and RMA articles
-                            var current_user = HelpCenter.user.email;
-                            var serialkey = serial_number_input.substring(0, 2);
-                            //==========================Pending=========================//
-                            //change request type - need only default straps
-                            submitStrapRequest("getSunshineStrapList", serialkey);
-                        } else {
-                            button.disabled = true;
-                        }
-                    }
-                } // end when its hit the 7th character, check if its letter
-            } //closing if both first two serial number input is not integer number
-        } // close check if input is greater than 2
+    $("#request_custom_fields_" + serial_number_eur_field_id).on('input', function() {
+
+        serial_nm_verify(button);
+
+        console.log("function called from strap form");
+        // var serial_number_input = (document.getElementById("request_custom_fields_" + serial_number_eur_field_id).value).toString();
+        // if ((serial_number_input.length) >= 2) { // check if input is greater than 2
+        //     var first_digit = parseInt(serial_number_input.charAt(0));
+        //     //var second_digit = parseInt(serial_number_input.charAt(1));
+        //     serial_prefix = serial_number_input.substring(0, 2); //we need serial prefix to send to API
+        //     if (isNaN(first_digit)) {
+        //         //when the first of serial number input is not number
+        //         if ((serial_number_input.length) >= 7) {
+        //             //when its hit the 7th character, check if its letter
+        //             var seventh_digit = parseInt(serial_number_input.charAt(6));
+        //             if ((isNaN(seventh_digit))) {
+        //                 //when the 7th of serial number input is not number
+        //                 if ((serial_number_input.length) == 12) {
+        //                     //here call the function to check the number part
+        //                     // to be implemented
+        //                     checkNums(serial_number_input, button, validSerialNumber);
+
+        //                     /////Get Sunshine and RMA articles
+        //                     var current_user = HelpCenter.user.email;
+        //                     var serialkey = serial_number_input.substring(0, 2);
+        //                     //==========================Pending=========================//
+        //                     //change request type - need only default straps
+        //                     submitStrapRequest("getSunshineStrapList", serialkey);
+        //                 } else {
+        //                     button.disabled = true;
+        //                 }
+        //             }
+        //         } // end when its hit the 7th character, check if its letter
+        //     } //closing if both first two serial number input is not integer number
+        // } // close check if input is greater than 2
     }); // end of serial number oninput function 
 
     var articleno = '';
-    $('#article_no').on('change', function () {
+    $('#article_no').on('change', function() {
         articleno = $('#article_no :selected').attr('value');
         $('#request_custom_fields_' + article_number_field_id).text(articleno);
         $('#request_custom_fields_' + article_number_field_id).val(articleno);
     });
 
     //Add validations for all feilds
-    $('#submit_strap_request1').on('click', function () {
-		var eol_prefixes = ["HC", "HD", "HE", "HF"];
-		////check for EOL strap prefixes - HC, HD, HE, HF
-		if($.inArray(serial_prefix, eol_prefixes) > -1) {
-			$("#eol_prefix_alert").removeClass("zd_Hidden");
-			$("#eol_prefix_alert").show();
-			return false;
-		} else {
-			$("#eol_prefix_alert").hide();
-		}
-		
+    $('#submit_strap_request1').on('click', function() {
+        var eol_prefixes = ["HC", "HD", "HE", "HF"];
+        ////check for EOL strap prefixes - HC, HD, HE, HF
+        if ($.inArray(serial_prefix, eol_prefixes) > -1) {
+            $("#eol_prefix_alert").removeClass("zd_Hidden");
+            $("#eol_prefix_alert").show();
+            return false;
+        } else {
+            $("#eol_prefix_alert").hide();
+        }
+
         articleno = $('#article_no :selected').attr('value');
         if (articleno == 0) {
-			$("#article_no").css("border","solid 1px red");
+            $("#article_no").css("border", "solid 1px red");
             //alert("Select strap");
             return false;
         }
@@ -333,7 +388,7 @@ if ((purchase_date != null) && (serial_no_user_input != null) &&((rma_first_name
     //order number allows letters and numbers only, no punctuation or special characters
 
     //order number live validation
-    $("#request_custom_fields_" + ordernumber_field_id).on('input', function () {
+    $("#request_custom_fields_" + ordernumber_field_id).on('input', function() {
         var order_number_input = (document.getElementById("request_custom_fields_" + ordernumber_field_id).value).toString();
 
         if ((order_number_input.length) == 9) {
@@ -373,76 +428,104 @@ if ((purchase_date != null) && (serial_no_user_input != null) &&((rma_first_name
     $('<p id="golf_form_tips_p" class="form_sub_title"></p>').insertBefore('.form'); //This is to display  a message to the customers that it's a strap form 
     $("#golf_form_tips_p").html($("#golf_form_tips").html());
     /****************** End of Golf feedback FORM ******************/
-} else if ( userSelected == accounts_form_ID) { //if the form selection field selected is accounts form ID 
+} else if (userSelected == accounts_form_ID) { //if the form selection field selected is accounts form ID 
     /****************** Account issues FORM ******************/
     // sandbox testing URL /hc/en-gb/requests/new?ticket_form_id=360001234199
     // prod testing URL /hc/en-gb/requests/new?ticket_form_id=360001234219 
     var accounts_page_title = document.getElementById("form_title_account_issues").innerHTML; // get the dc (in new_request_page.hbs) 
-    document.title = accounts_page_title;                                           // put the content from the DC into the page title
-    SubjectLine.value = accounts_page_title;                                        // put the content into the subject line 
-    SubjectLine.setAttribute("readonly", true);                                     // make the subject line read only
-    var form_anon_message = document.getElementById('form_anon_message');           // get the elements form anon messsage (this message only appear on the request page if the customer is not logged in)
-    if (form_anon_message != null) {                                                // so if this element exists, the user must not be logged in
-        form_anon_message.classList.add("zd_Hidden");                               // hide the message telling the customer to log in
-        var form_anon_hidden = document.getElementById('form_anon_hidden');         // get the message about accounts
-        form_anon_hidden.classList.remove("zd_Hidden");                             // show this message
-    } else {                                                                        // if customer is logged in
-        var submit_button_form = document.getElementById("new_request");            // get the form
-        var submit_button = (submit_button_form.querySelector("input[name = 'commit']"));// get the submit button
-        submit_button.disabled = true;                                              // disable the submit button (if the are logged in they don't have account issues)
+    document.title = accounts_page_title; // put the content from the DC into the page title
+    SubjectLine.value = accounts_page_title; // put the content into the subject line 
+    SubjectLine.setAttribute("readonly", true); // make the subject line read only
+    var form_anon_message = document.getElementById('form_anon_message'); // get the elements form anon messsage (this message only appear on the request page if the customer is not logged in)
+    if (form_anon_message != null) { // so if this element exists, the user must not be logged in
+        form_anon_message.classList.add("zd_Hidden"); // hide the message telling the customer to log in
+        var form_anon_hidden = document.getElementById('form_anon_hidden'); // get the message about accounts
+        form_anon_hidden.classList.remove("zd_Hidden"); // show this message
+    } else { // if customer is logged in
+        var submit_button_form = document.getElementById("new_request"); // get the form
+        var submit_button = (submit_button_form.querySelector("input[name = 'commit']")); // get the submit button
+        submit_button.disabled = true; // disable the submit button (if the are logged in they don't have account issues)
     }
     var attachments_field = document.getElementById('request-attachments').parentNode.parentNode;
-    attachments_field.classList.add("zd_Hidden");                                   // hide attachments 
+    attachments_field.classList.add("zd_Hidden"); // hide attachments 
     $('<p id="account_issues_tips_p" class="form_sub_title"></p>').insertBefore('.form'); // This is to display a message to the customers that it's a the account issues form 
-    $("#account_issues_tips_p").html($("#account_issues_tips").html());             // same as above
+    $("#account_issues_tips_p").html($("#account_issues_tips").html()); // same as above
     /****************** End of Account issues FORM ******************/
-}else if((rma_first_name != null)&&(rma_last_name!=null)){
+} else if ((rma_first_name != null) && (rma_last_name != null)) {
     //https://supportsandbox.tomtom.com/hc/en-gb/requests/new?ticket_form_id=360001450159
-     //https://supportsandbox.tomtom.com/hc/en-gb/requests/new?ticket_form_id=360000953020 prod 
+    ///hc/en-gb/requests/new?ticket_form_id=360000953020 prod 
 
     var RMA_page_title = document.getElementById("RMA_form_title").innerHTML;
     if (RMA_page_title != null) {
         document.title = RMA_page_title;
         SubjectLine.value = RMA_page_title + " " + rma_form_id; //Insert Strap form subject line
-    	}
+    }
 
-        $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
-      //  DescriptionBox.value = RMA_page_title; // Add value to description as it's 'required'
+    $('.request_subject').addClass("zd_Hidden"); // Hide subject line so custs can't edit it
+    //  DescriptionBox.value = RMA_page_title; // Add value to description as it's 'required'
 
-      $(".request_custom_fields_" + email_form_request_local_field).addClass("zd_Hidden");
-      $("#request_custom_fields_" + email_form_request_local_field).val(user_locale);
-       $(".request_custom_fields_"+Revlog_First_Name_EUR).addClass("tt_form_inline");
-       $(".request_custom_fields_"+Revlog_Last_Name_EUR).addClass("tt_form_inline");
-       $(".request_custom_fields_"+Revlog_Last_Name_EUR).addClass("margin_left");
-       /*var Revlog_house_number_EUR=mapObject.Revlog_house_number_EUR[searchKey];
+    $(".request_custom_fields_" + email_form_request_local_field).addClass("zd_Hidden");
+    $("#request_custom_fields_" + email_form_request_local_field).val(user_locale);
+    $(".request_custom_fields_" + Revlog_First_Name_EUR).addClass("tt_form_inline");
+    $(".request_custom_fields_" + Revlog_Last_Name_EUR).addClass("tt_form_inline");
+    $(".request_custom_fields_" + Revlog_Last_Name_EUR).addClass("margin_left");
+    /*var Revlog_house_number_EUR=mapObject.Revlog_house_number_EUR[searchKey];
 var Revlog_street_name_EUR=mapObject.Revlog_street_name_EUR[searchKey];
 var Revlog_city_EUR=mapObject.Revlog_city_EUR[searchKey];
 var Revlog_post_code_EUR=mapObject.Revlog_post_code_EUR[searchKey];*/
-$(".request_custom_fields_"+Revlog_house_number_EUR).addClass("small");
-$(".request_custom_fields_"+Revlog_post_code_EUR).addClass("small");
-$(".request_custom_fields_"+Revlog_street_name_EUR).addClass("big");
-$(".request_custom_fields_"+Revlog_city_EUR).addClass("big");
+    $(".request_custom_fields_" + Revlog_house_number_EUR).addClass("small");
+    $(".request_custom_fields_" + Revlog_post_code_EUR).addClass("small");
+    $(".request_custom_fields_" + Revlog_street_name_EUR).addClass("big");
+    $(".request_custom_fields_" + Revlog_city_EUR).addClass("big");
 
 
     console.log("RMA");
 
+} else if (extra_warranty_drop_down != null) {
+    //    //https://supportsandbox.tomtom.com/hc/en-gb/requests/new?ticket_form_id=360001495600
+
+    var rider_extra_warranty_form_title = document.getElementById("rider_extra_warranty_form_title").innerHTML;
+    if (rider_extra_warranty_form_title != null) {
+        document.title = rider_extra_warranty_form_title;
+        SubjectLine.value = rider_extra_warranty_form_title + " " + rider_extra_warranty_form_id; //Insert Strap form subject line
+    }
+
+    DescriptionBox.value = rider_extra_warranty_form_title;
+    $(".request_description").addClass("zd_Hidden");
+    $('.request_subject').addClass("zd_Hidden");
+
+
+    var button = (document.getElementsByName("commit"))[0];
+    button.disabled = true;
+    document.getElementById("request_custom_fields_" + serial_number_eur_field_id).setAttribute("placeholder", "AB1234C56789"); //Giving example of serial number for customer 
+
+    $("#request_custom_fields_" + serial_number_eur_field_id).on('input', function() {
+
+        //call serial number validation function
+        serial_nm_verify(button);
+        //  console.log("hello hello ");
+
+    });
+
+    console.log("Rider");
+
 } else {
- 
+
 
 } //end of validation for all forms
 
 /****************** GA tracking if customer submits forms *********************/
-    var ticket_form = document.getElementById("new_request");
-    var submit_form_footer = ticket_form.getElementsByTagName("footer")[0];
-    var submit_form_button = submit_form_footer.getElementsByTagName("input")[0];
-    var submit_form_button_category = "Form"; 
-    var submit_form_button_action = document.title;
-    var submit_form_button_event = "validation success";
-  $(submit_form_button).click(function() {
-      ga_tracking(submit_form_button_category, submit_form_button_action, submit_form_button_event);
-  });             
-/****************** End GA tracking if customer submits forms *********************/  
-/****************** Form Title Reflects the form you are on *********************/  
+var ticket_form = document.getElementById("new_request");
+var submit_form_footer = ticket_form.getElementsByTagName("footer")[0];
+var submit_form_button = submit_form_footer.getElementsByTagName("input")[0];
+var submit_form_button_category = "Form";
+var submit_form_button_action = document.title;
+var submit_form_button_event = "validation success";
+$(submit_form_button).click(function() {
+    ga_tracking(submit_form_button_category, submit_form_button_action, submit_form_button_event);
+});
+/****************** End GA tracking if customer submits forms *********************/
+/****************** Form Title Reflects the form you are on *********************/
 var form_title = document.getElementById("form_title");
 form_title = form_title.innerHTML = document.title;
-/****************** Form Title Reflects the form you are on *********************/  
+/****************** Form Title Reflects the form you are on *********************/
