@@ -493,6 +493,7 @@ var Revlog_post_code_EUR=mapObject.Revlog_post_code_EUR[searchKey];*/
     DescriptionBox.value = rider_extra_warranty_form_title;
     $(".request_description").addClass("zd_Hidden");
     $('.request_subject').addClass("zd_Hidden");
+    $("#new_request .form-field").addClass("required");
 
 
     var button = (document.getElementsByName("commit"))[0];
