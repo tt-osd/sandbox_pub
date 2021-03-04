@@ -148,7 +148,7 @@ const initSdk = (name) => {
             if ((user_init_message == 0)&&(bot_init_message==2)) {
                 //this condition check when the hidden message was send and bongo initiated the conversation, then user started conversation
                 ga_tracking("Bongo", "Conversation", "User starts conversation");
-                console.log("user send first message and GA tracked");
+
                 user_init_message = 1;
             }
            
