@@ -143,6 +143,14 @@ insertSubTitle();
  if (navigator.userAgent.indexOf('Windows') != -1) {
      $('.explore').addClass("explore_WINDOWS");
  }
+    var update_banner = document.getElementById('update-banner'); // Hide Update banner on home
+    if (update_banner) { // if updates banner exists 
+        update_banner.classList.add("zd_Hidden"); // hide
+    }
+    var sub_footer = document.getElementById('sub_footer'); // Hidesub footer on home
+    if (sub_footer) { // if subfooter exists 
+        sub_footer.classList.add("zd_Hidden"); // hide
+    }
   /****************** GA tracking if customer clicks on category ********************/
   var homepage_category = document.getElementsByClassName("home_page_category");
   var homepage_category_category = "Home Page"; 
