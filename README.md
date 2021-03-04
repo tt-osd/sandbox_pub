@@ -106,13 +106,13 @@ Improvements for Strap release
  - Updated DC strap_form_rma_failuer_alert 
 
  ## 8. 16/02/2021
- Change bongo "next card" color from blue to gray 
+ - Change bongo "next card" color from blue to gray 
  
  ## 9. 18/02/2021
- Made the images on the homepage clickable | *home_page.hbs*
+ - Made the images on the homepage clickable | *home_page.hbs*
  ## 10. 04/03/2021
- Updated locale footer to new lang locs | *footer.hbs*
- Minimize home page | *NewHomePage.js* + *style.css*
+ - Updated locale footer to new lang locs | *footer.hbs*
+ - Minimize home page | *NewHomePage.js* + *style.css*
 
 
 
