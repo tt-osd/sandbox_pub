@@ -576,7 +576,9 @@ ul {
     background-size: contain;
     content: "\002A";
 }
-
+.dropdown-menu {
+    z-index: 50;
+  }
 
 /***** Buttons *****/
 
