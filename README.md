@@ -114,6 +114,9 @@ Improvements for Strap release
  - Updated locale footer to new lang locs | *footer.hbs*
  - Minimize home page | *NewHomePage.js* + *style.css*
 
+ ## 11. 04/03/2021
+ - update bot setting to make sure hidden user messaged send when Bot is connected | *bot_setting.js*
+
 
 
 
