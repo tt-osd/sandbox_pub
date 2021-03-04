@@ -21,12 +21,15 @@ const initSdk = (name) => {
     if (speak_to_bongo == "1") {
         enable_speech = true;
     }
+  //  var bongo_update_channelid=document.getElementById("update_channel").innerHTML;
+    //this is a "key word" such as article ID, to switch to update channel ID
+  //  var update_channel_id_useage_keyword=document.getElementById("update_keyword").innerHTML;
+
 
     if (!name) {
         name = 'Bots'; // Set default reference name to 'Bots'
     }
     var user_init_message = 0;
-    var hidden_itit_message = 0;
     var bot_init_message = 0;
     let Bots;
 
@@ -37,7 +40,11 @@ const initSdk = (name) => {
         let chatWidgetSettings = {
             locale: bongo_locale, // set language for bot user profile
             URI: bongo_uri, // ODA URI, only the hostname part should be passed, without the https://
-            channelId: bongo_channelid, // Channel ID, available in channel settings in ODA UI
+           channelId: bongo_channelid, // Channel ID, available in channel settings in ODA UI
+           initUserHiddenMessage: 'Hello',
+            initMessageOptions: {
+                sendAt: 'expand'
+            },
             enableAutocomplete: true, // Enables autocomplete suggestions on user input
             enableClearMessage: false, // Enables display of button to clear conversation
             enableSpeech: enable_speech, // Enables voice recognition
@@ -74,23 +81,28 @@ const initSdk = (name) => {
         // Initialize SDK
         Bots = new WebSDK(chatWidgetSettings);
 
-        Bots.on(WebSDK.EVENT.WIDGET_OPENED, () => {
-
-            // console.log('Widget is opened');
-            if (Bots.getConversationHistory().messagesCount < 1) {
-                //  console.log("Starting the conversation");
-                Bots.sendMessage('Hi', { hidden: true });
-                hidden_itit_message = 1;
-                //  ga_tracking("Bongo", "bongo init message", bongo_locale);
-
-            }
-        });
+        // in this staement, if the url contains the key word which identify a page needs to use update channel ID, 
+        //then over write the default channel ID
+        // if(the_url.indexOf(update_channel_id_useage_keyword) != -1){
+        //     bongo_channelid=bongo_update_channelid;
+        //     console.log("update page channel id "+bongo_channelid);
+        //     //specific on update page
+        //     //hide article and show bongo
+        //     $("#update_bongo").removeClass("zd_Hidden");
+        //     $("#article-container").addClass("zd_Hidden");
+        // }else{
+        //     console.log("all the other page channel id "+bongo_channelid);
+        // }
 
         // Connect to the ODA
+        //padding channel ID as parameters to connect different chat channel
+        //this is the article ID for update page
+        //sandbox 360017209739
         Bots.connect();
 
         // Create global object to refer Bots
         window[name] = Bots;
+
 
         Bots.setFont('16px "noway", Noway Regular, Helvetica, Arial, sans-serif !important');
 
@@ -130,22 +142,22 @@ const initSdk = (name) => {
         //This event is triggered when the user receives a message.
         //the message that bongo initiated
         Bots.on('message:received', function(message) {
-            //console.log('the user received a message', message);
-            bot_init_message = 1;
-        });
-
-
-
-
-        //This event is triggered when the user sends a message.
-        Bots.on('message:sent', function(message) {
-            if ((user_init_message == 0) && (bot_init_message == 1) && (hidden_itit_message == 1)) {
+           // console.log('the user received a message', message);
+          //  console.log(Bots.getConversationHistory().messagesCount +" message counting");
+            bot_init_message=Bots.getConversationHistory().messagesCount
+            if ((user_init_message == 0)&&(bot_init_message==2)) {
                 //this condition check when the hidden message was send and bongo initiated the conversation, then user started conversation
                 ga_tracking("Bongo", "Conversation", "User starts conversation");
+                console.log("user send first message and GA tracked");
                 user_init_message = 1;
             }
-
+           
         });
+
+        $("#open_bongo_update").click(function(){
+            $("#bongo_open").click();
+        });
+
 
     }, 0);
 
