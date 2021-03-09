@@ -117,6 +117,9 @@ Improvements for Strap release
  ## 11. 04/03/2021
  - update bot setting to make sure hidden user messaged send when Bot is connected | *bot_setting.js*
 
+ ## 12. 09/03/2021
+ - update category css and add sports connect download blocl | *sports_category.hbs*, *style.css*
+
 
 
 
