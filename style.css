@@ -302,7 +302,7 @@
 /*** End Fade In effect ***/
 
 body {
-    background-color: #f2f2f2;
+    background-color: #FFF;
     color: $text_color;
     font-family: "noway", Noway Regular, Helvetica, Arial, sans-serif;
     font-weight: normal;
@@ -6169,6 +6169,10 @@ p.ct-content-block-description {
 
 /* Requests table */
 
+#requests_page, #new_requests_page {
+    background-color: #f2f2f2;
+  }
+  
 .requests-search {
     width: 100%;
 }
