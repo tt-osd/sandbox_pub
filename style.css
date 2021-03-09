@@ -613,7 +613,17 @@ ul {
     background-color: #e5e5e5 !important;
     width: auto !important;
 }
-
+.button-black,
+.button-black:focus {
+    color: #FFF !important;
+    fill: #000 !important;
+    --coloredFontColor: #000 !important;
+    background-color: #000 !important;
+}
+.button-black:hover {
+    background-color: #bebebe !important;
+    color: #ffffff !important;
+}
 .button-red {
     color: #ffffff;
     fill: #000;
@@ -2864,7 +2874,10 @@ ul.article-list {
 .article-list-item {
     font-size: 16px;
     padding: 15px 0;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #bebebe;
+}
+.article-list-item:last-child {
+    border-bottom: none;
 }
 
 .article-list-item a {
