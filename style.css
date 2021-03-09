@@ -2742,102 +2742,108 @@ li.promoted-articles-item:after {}
 
 
 /***** Category pages *****/
-
-.category-search {
-    width: 100%;
-}
-
-@media (min-width: 1024px) {
-    .category-search {
-        width: 50%;
-    }
-}
-
-.category-container {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-}
-
-@media (min-width: 768px) {
-    .category-container {
-        flex-direction: row;
-    }
-}
-
-.category-content {
-    margin-top: 40px;
-    flex: 1;
-}
-
-@media (min-width: 1024px) {
-    .category-content {
-        flex: 1;
-    }
-}
-
-.section-tree {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin: auto;
-}
-
-@media (min-width: 768px) {
-    .section-tree {
-        flex-direction: row;
-    }
-}
-
-.section-tree .section {
-    flex: initial;
+.category-body {
     background-color: #FFF;
-    padding: 30px;
-}
-
-@media (min-width: 768px) {
-    .section-tree .section {
-        flex: 0 0 45%;
-        margin-bottom: 40px;
-        /* Two columns for tablet and desktop. Leaving 5% separation between columns */
+    margin-bottom: 40px;
+  }
+  .category-search {
+      width: 100%;
+  }
+  
+  @media (min-width: 1024px) {
+      .category-search {
+          width: 50%;
+      }
+  }
+  
+  .category-container {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+  }
+  
+  @media (min-width: 768px) {
+      .category-container {
+          flex-direction: row;
+      }
+  }
+  
+  .category-content {
+      margin-top: 0px;
+      flex: 1;
+  }
+  
+  @media (min-width: 1024px) {
+      .category-content {
+          flex: 1;
+      }
+  }
+  .section-tree {
+      display: grid !important;
+      grid-template-columns: repeat(1, 100%);
+      grid-column-gap: 40px;
+      grid-row-gap: 40px;
+      padding-inline-start: 0;
+  }
+  @media (min-width: 768px) {
+      .section-tree {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 40px;
+        grid-row-gap: 40px;
+    }  
+  }
+  @media (min-width: 1208px) {
+      .section-tree {
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 40px;
+        grid-row-gap: 40px;
+    }  
+  }
+  @media (min-width: 768px) {
+      .section-tree {
+          flex-direction: row;
+      }
+  }
+  
+  .section-tree .section {
+      flex: initial;
+      background-color: #e5e5e5;
+      padding: 20px;
+      min-height: 520px;
+      position: relative;
+  }
+  
+    .section-tree #important_section_block {
+        grid-column: 1;
+        grid-row: 5;
+        background-color: #fff;
+        padding: 0px;
+        height: min-content;
     }
-    .section-tree .section:nth-of-type(odd) {
-        margin-right: 20px;
+  @media (min-width: 768px) {
+     .section-tree #important_section_block {
+      grid-column: 2;
+      grid-row: 1;
+      background-color: #fff;
+      padding: 0px;
+      height: 520px;
     }
-    .section-tree .section:nth-of-type(even) {
-        margin-left: 20px;
+  }
+    @media (min-width: 1208px) {
+    .section-tree #important_section_block {
+      grid-column: 3;
+      grid-row: 1;
+      background-color: #fff;
+      padding: 0px;
     }
-}
-
-@media (min-width: 1208px) {
-    .section-tree .section {
-        margin-bottom: 80px;
-        /* Two columns for tablet and desktop. Leaving 5% separation between columns */
     }
-    .section-tree .section:nth-of-type(odd) {
-        margin-right: 40px;
+    .extra_block {
+      color: #7A7E80;  
     }
-    .section-tree .section:nth-of-type(even) {
-        margin-left: 40px;
-    }
-}
-
-@media (min-width: 1640px) {
-    .section-tree .section:nth-of-type(odd) {
-        margin-right: 70px;
-    }
-    .section-tree .section:nth-of-type(even) {
-        margin-left: 70px;
-    }
-    .section-tree .section {
-        margin-bottom: 140px;
-    }
-}
-
-.section-tree-title {
-    margin-bottom: 0;
-    font-weight: 600;
-}
+  .section-tree-title {
+      margin-bottom: 0;
+      font-weight: 600;
+  }
 
 ul.article-list {
     padding-inline-start: 0;
