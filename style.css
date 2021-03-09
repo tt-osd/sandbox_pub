@@ -2856,8 +2856,9 @@ ul.article-list {
 }
 
 .section-tree .see-all-articles {
-    display: block;
-    width: fit-content;
+    position: absolute;
+    bottom: 20px;
+    margin-bottom: 0;
 }
 
 .article-list-item {
