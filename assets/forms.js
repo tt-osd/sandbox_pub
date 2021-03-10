@@ -477,7 +477,7 @@ var Revlog_post_code_EUR=mapObject.Revlog_post_code_EUR[searchKey];*/
     $(".request_custom_fields_" + Revlog_post_code_EUR).addClass("small");
     $(".request_custom_fields_" + Revlog_street_name_EUR).addClass("big");
     $(".request_custom_fields_" + Revlog_city_EUR).addClass("big");
-
+    $("#upload-dropzone").parent().addClass("required");
 
     console.log("RMA");
 
