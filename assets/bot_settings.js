@@ -31,6 +31,19 @@ const initSdk = (name) => {
     }
     var user_init_message = 0;
     var bot_init_message = 0;
+
+      //this value hold a integer 1 or 0, which means user logged in, logged out
+      var user_log_in_out=parseInt(document.getElementById("user_log").innerHTML);
+      var user_name="";
+      var user_email="";
+  
+      if(user_log_in_out == 1){
+          if (typeof HelpCenter !== 'undefined'){
+              user_email=HelpCenter.user.email;
+              user_name=HelpCenter.user.name;
+          }
+      }
+
     let Bots;
 
     setTimeout(() => {
@@ -73,7 +86,13 @@ const initSdk = (name) => {
             },
             initUserProfile: {
                 profile: {
-                    languageTag: bongo_locale //multilingual - set the language from locale
+                    languageTag: bongo_locale, //multilingual - set the language from locale
+                    tt_userlogin: user_log_in_out,
+                    email:user_email,
+                    firstName:user_name,
+                    lastName:"",
+                    locale:bongo_locale,
+                    timezoneOffset:""
                 }
             }
         };
@@ -85,13 +104,13 @@ const initSdk = (name) => {
         //then over write the default channel ID
         if(the_url.indexOf(update_channel_id_useage_keyword) != -1){
             bongo_channelid=bongo_update_channelid;
-            console.log("update page channel id "+bongo_channelid);
+          //  console.log("update page channel id "+bongo_channelid);
             //specific on update page
             //hide article and show bongo
             $("#update_bongo").removeClass("zd_Hidden");
             $("#article-container").addClass("zd_Hidden");
         }else{
-            console.log("all the other page channel id "+bongo_channelid);
+           
         }
 
         // Connect to the ODA
@@ -106,6 +125,23 @@ const initSdk = (name) => {
 
         Bots.setFont('16px "noway", Noway Regular, Helvetica, Arial, sans-serif !important');
 
+        //temporary function for testing DDA1065
+        Bots.on(WebSDK.EVENT.WIDGET_OPENED, () => {
+            if(user_log_in_out == 1){
+                if (typeof HelpCenter !== 'undefined'){
+                   // user_email=HelpCenter.user.email;
+                    //user_name=HelpCenter.user.name;
+                    console.log("user is logged in, bongo pick up var user_log_in_out "+ user_log_in_out);
+                    console.log("user name "+ user_name +", user email "+user_email);
+                }else{
+                  console.log("user is NOT logged in, bongo pick up var user_log_in_out "+ user_log_in_out);
+                }
+            }else{
+              console.log("user is NOT logged in, bongo pick up var user_log_in_out "+ user_log_in_out);
+            }
+          
+        });
+         //temporary function for testing DDA1065
 
         Bots.on('widget:closed', function() {
 
@@ -148,7 +184,7 @@ const initSdk = (name) => {
             if ((user_init_message == 0)&&(bot_init_message==2)) {
                 //this condition check when the hidden message was send and bongo initiated the conversation, then user started conversation
                 ga_tracking("Bongo", "Conversation", "User starts conversation");
-                console.log("user send first message and GA tracked");
+               // console.log("user send first message and GA tracked");
                 user_init_message = 1;
             }
            

@@ -175,6 +175,11 @@
 $.loadScript('https:'+document.getElementById("Google_Analytics_Tracking_FC").innerHTML);
 </script>
 <!-- start load bongo  --> 
+{{#if signed_in}}
+<label id="user_log" class="zd_Hidden">1</label>
+{{else}}
+  <label id="user_log" class="zd_Hidden">0</label>
+{{/if}}
 <script type="text/javascript">
   $.loadScript('https:'+document.getElementById("init_bot_setting").innerHTML);
 </script>
