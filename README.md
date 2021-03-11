@@ -121,6 +121,9 @@ Improvements for Strap release
  - update category css and add sports connect download block | *sports_category.hbs*, *style.css*
 
 
+ ## 13. 11/03/2021
+ - Bongo on update FAQ | *assets/Bongo-circular-image.jpg* *assets/bot_settings.js* *assets/pnd-gray-image.jpg* *style.css* *templates/article_pages/Content.hbs* *templates/header.hbs*
 
+ - RMA form (not available for end user yet) | *templates/new_request_page.hbs* *style.css* *assets/mappublic.json* *assets/forms.js*
 
 
