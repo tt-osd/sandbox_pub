@@ -21,9 +21,9 @@ const initSdk = (name) => {
     if (speak_to_bongo == "1") {
         enable_speech = true;
     }
-  //  var bongo_update_channelid=document.getElementById("update_channel").innerHTML;
+    var bongo_update_channelid=document.getElementById("update_channel").innerHTML;
     //this is a "key word" such as article ID, to switch to update channel ID
-  //  var update_channel_id_useage_keyword=document.getElementById("update_keyword").innerHTML;
+    var update_channel_id_useage_keyword=document.getElementById("update_keyword").innerHTML;
 
 
     if (!name) {
@@ -40,7 +40,7 @@ const initSdk = (name) => {
         let chatWidgetSettings = {
             locale: bongo_locale, // set language for bot user profile
             URI: bongo_uri, // ODA URI, only the hostname part should be passed, without the https://
-           channelId: bongo_channelid, // Channel ID, available in channel settings in ODA UI
+         //  channelId: bongo_channelid, // Channel ID, available in channel settings in ODA UI
            initUserHiddenMessage: 'Hello',
             initMessageOptions: {
                 sendAt: 'expand'
@@ -81,24 +81,24 @@ const initSdk = (name) => {
         // Initialize SDK
         Bots = new WebSDK(chatWidgetSettings);
 
-        // in this staement, if the url contains the key word which identify a page needs to use update channel ID, 
+          // in this staement, if the url contains the key word which identify a page needs to use update channel ID, 
         //then over write the default channel ID
-        // if(the_url.indexOf(update_channel_id_useage_keyword) != -1){
-        //     bongo_channelid=bongo_update_channelid;
-        //     console.log("update page channel id "+bongo_channelid);
-        //     //specific on update page
-        //     //hide article and show bongo
-        //     $("#update_bongo").removeClass("zd_Hidden");
-        //     $("#article-container").addClass("zd_Hidden");
-        // }else{
-        //     console.log("all the other page channel id "+bongo_channelid);
-        // }
+        if(the_url.indexOf(update_channel_id_useage_keyword) != -1){
+            bongo_channelid=bongo_update_channelid;
+          //  console.log("update page channel id "+bongo_channelid);
+            //specific on update page
+            //hide article and show bongo
+            $("#update_bongo").removeClass("zd_Hidden");
+            $("#article-container").addClass("zd_Hidden");
+        }else{
+           
+        }
 
-        // Connect to the ODA
+       // Connect to the ODA
         //padding channel ID as parameters to connect different chat channel
         //this is the article ID for update page
         //sandbox 360017209739
-        Bots.connect();
+        Bots.connect( {channelId: bongo_channelid});
 
         // Create global object to refer Bots
         window[name] = Bots;
