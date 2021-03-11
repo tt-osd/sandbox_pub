@@ -195,7 +195,7 @@ var rma_first_name = document.getElementById("request_custom_fields_" + Revlog_F
 var rma_last_name = document.getElementById("request_custom_fields_" + Revlog_Last_Name_EUR);
 
 //extra warranty drop down for rider 
-var extra_warranty_drop_down = document.getElementById("request_custom_fields_" + extra_warranty_dropDown);
+//var extra_warranty_drop_down = document.getElementById("request_custom_fields_" + extra_warranty_dropDown);
 
 
 /****************************** STRAP REQUEST FORM *************************************/
