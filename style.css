@@ -9318,6 +9318,27 @@ zd-autocomplete-breadcrumbs-multibrand {
 
 
 
+/*RMA form*/
+.tt_form_inline{
+    width:49%;
+    display:inline-block;
+  }
+
+  .margin_left{
+   margin-left:1%; 
+  }
+
+  .small{
+     width:30%;
+    display:inline-block;
+  }
+
+
+  .big{
+     width:69%;
+    display:inline-block;
+  }
+/*RMA form*/
 
   /*bongo on update FAQ*/
 
