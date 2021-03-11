@@ -98,32 +98,25 @@ Accounts Form, not redirecting on ticket forms if cust is not logged in and rema
 - Added an 'else' part to ticket forms to display information if the customer is not logged in | *new_request_page.hbs*
 - Added an 'if else' to the bottom of forms.js to include if the customer has selected the accounts form | *forms.js*
 - Added the new lnag-locs and the account forms IDs in the mapping file | *mappublic.json*
-
 ## 7. 16/02/2021
 Improvements for Strap release
-
  - Added new DC strap_page_eol_prefix_alert  : notify user if serial prefix is EOL
  - Updated DC strap_form_rma_failuer_alert 
-
  ## 8. 16/02/2021
  - Change bongo "next card" color from blue to gray 
- 
- ## 9. 18/02/2021
+  ## 9. 18/02/2021
  - Made the images on the homepage clickable | *home_page.hbs*
  ## 10. 04/03/2021
  - Updated locale footer to new lang locs | *footer.hbs*
  - Minimize home page | *NewHomePage.js* + *style.css*
-
  ## 11. 04/03/2021
  - update bot setting to make sure hidden user messaged send when Bot is connected | *bot_setting.js*
-
  ## 12. 09/03/2021
  - update category css and add sports connect download block | *sports_category.hbs*, *style.css*
-
-
  ## 13. 11/03/2021
  - Bongo on update FAQ | *assets/Bongo-circular-image.jpg* *assets/bot_settings.js* *assets/pnd-gray-image.jpg* *style.css* *templates/article_pages/Content.hbs* *templates/header.hbs*
-
- - RMA form (not available for end user yet) | *templates/new_request_page.hbs* *style.css* *assets/mappublic.json* *assets/forms.js*
+ - RMA form (not available for end user yet) | *templates/new_request_page.hbs*, *style.css*, *assets/mappublic.json*, *assets/forms.js*
+ - Custom dimension for 'Page category detail' added | *tealium.js*  
+ -  Added Sports Connect download block, changed layout and colours | *sports_category.hbs*, *style.css* 
 
 
